@@ -1,0 +1,52 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" class="form-control form-control" name="row[name]" type="text" value="{$row.name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sex')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-sex" class="form-control selectpicker" name="row[sex]">
+                {foreach name="sexList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.sex"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Work_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-work_name" class="form-control form-control" name="row[work_name]" type="text" value="{$row.work_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Door_ids')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-door_ids" data-rule="required" data-source="door/index" data-multiple="true" class="form-control selectpage form-control" name="row[door_ids]" type="text" value="{$row.door_ids}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Style_ids')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-style_ids" data-rule="required" data-source="style/index" data-multiple="true" class="form-control selectpage form-control" name="row[style_ids]" type="text" value="{$row.style_ids}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Work_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-work_num" class="form-control form-control" name="row[work_num]" type="number" value="{$row.work_num}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

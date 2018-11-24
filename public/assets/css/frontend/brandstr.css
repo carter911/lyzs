@@ -1,0 +1,91 @@
+.about_info{
+    margin-top: 40px;
+}
+.about_info p{
+    text-indent: 2em;
+    font-size: 18px;
+    line-height: 34px;
+    margin-bottom: 40px;
+}
+.wisdom{
+    margin-top: 80px;
+}
+.witness{
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+
+.witness .row .listimg{
+    padding: 10px 5px;
+}
+
+.article{
+
+    margin:0 auto;
+    width: 1200px;
+    display: flex;
+    height: 300px;
+    padding: 15px 0px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #eee;
+    transition:0.5s;
+}
+
+.article .article_img{
+    padding: 0px;
+    height: 270px;
+    width: 500px;
+    margin-right: 70px;
+}
+
+.article .article_img img{
+    height: 100%
+    width: 100%
+}
+
+.article .article_info{
+    padding: 15px;
+    width: 700px;
+}
+
+.article .article_info h3{
+    letter-spacing:5px;
+    font-size: 20px;
+    display: block;
+    margin: 35px 0 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.article .article_info p{
+    font-size: 14px;
+    color: #999999;
+}
+.article .article_info div.activ_btn{
+    margin-top: 30px;
+}
+
+
+
+
+.article:hover{
+    background: #eee;
+}
+.article:hover .article_img{
+    transition:0.5s;
+    margin-left: 20px;
+
+}
+.article:hover .article_info{
+    width: 720px;
+
+}
+
+
+
+
+
+
+

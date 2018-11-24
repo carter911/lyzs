@@ -1,0 +1,89 @@
+.advta_list{
+    margin-top: 50px;
+}
+.advta_list .row{
+    margin-bottom: 30px;
+}
+.set_advanlis{
+    margin: 0 auto;
+}
+.set_advanlis img{
+    cursor: pointer;
+    transition: all 0.6s;
+    width: 85%;
+    height: 85%;
+}
+.set_advanlis img:hover{
+    transform: scale(1.1);
+}
+.advt_guarante{
+    margin-top: 80px;
+}
+.costimg_lis{
+    list-style: none;
+}
+.costimg_lis li{
+    margin-bottom: 30px;
+}
+.offercost_cont h2{
+    color: #fff;
+    background-color: #000;
+    display: inline-block;
+    font-size: 26px;
+    padding: 6px 15px;
+    margin: 50px 0 20px 0;
+}
+.offercost_cont p{
+    font-size: 18px;
+}
+.offercost_cont .form-inline{
+    margin: 50px 0 0 20px;
+}
+.offercost_cont .form-inline .form-group{
+    margin-right: 25px;
+}
+.offercost_cont .form-inline .form-group input{
+    border-radius: 0;
+    background-color: #E6E6E6;
+    border: none;
+}
+.offer_btn{
+    background-color: #E00024;
+    color: #fff;
+    padding: 7px 50px;
+    border: none;
+    border-radius: 0;
+}
+.case_area,.rel_leftbotimg{
+    padding: 0 15px;
+}
+.rel_rightopimg{
+    margin-bottom: 15px;
+}
+.rel_leftbotleft{
+    padding-right: 7px;
+}
+.rel_leftbotrigh{
+    padding-left: 7px;
+}
+
+.leftop_area{
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.rel_leftbotimg{
+    margin-right: 0;
+}
+
+.cart_img{
+    margin: 0 auto;
+    overflow: hidden;
+}
+.cart_img a img{
+    cursor: pointer;
+    transition: all 0.6s;
+}
+.cart_img a img:hover{
+    transform: scale(1.4);
+}

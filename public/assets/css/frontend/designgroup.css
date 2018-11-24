@@ -1,0 +1,131 @@
+.cation-list {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.cation-list dt {
+    float: left;
+    position: relative;
+    color: #A0A0A0;
+
+    border-bottom: 1px dotted #e0e0e0;
+    background-color: #F8F8F8;
+    border-right: 1px solid #E6E6E6;
+    padding: 8px 25px;
+    font-size: 12px;
+}
+:before, :after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.cation-list dd {
+    border-bottom: 1px dotted #e0e0e0;
+    margin-left: 68px;
+    overflow: hidden;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 12px;
+}
+.cation-list dd a {
+    color: #646464;
+    float: left;
+    padding: 0 15px;
+}
+.cation-list dd a.on, .cation-list a:hover {
+    color: #fc8080;
+}
+.cation-middle{
+    border: 1px solid #e0e0e0;
+}
+.style_list{
+    margin-top: 20px;
+}
+.style_list .row{
+    margin-bottom: 30px;
+}
+.select_area{
+    background-color: #424242;
+    padding: 10px 15px;
+}
+.select_area label{
+    color: #B1B1B1;
+    font-size: 14px;
+}
+.select_area form select{
+    margin-right: 15px;
+    font-size: 13px;
+    padding: 3px 8px;
+}
+.select_area form input{
+    padding: 5px 8px 6px 8px;
+    font-size: 15px;
+}
+.search_case{
+    background-color: #0097DD;
+    color: #fff;
+    padding:3px 8px 5px 8px;
+    margin-left: -4px;
+}
+.search_case:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.designer_area{
+    border: 1px solid #CDCDCD;
+}
+.designer_img{
+    position: relative;
+}
+.free_consult{
+    width: 49%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.free_plan{
+    width: 49%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.free_link{
+    border: none;
+    border-radius: 0;
+    background-color:rgba(211,211,211,0.5);
+}
+.free_link:hover{
+    background-color: #E00024;
+    color: #fff;
+}
+.designer_info{
+    border-top: 1px solid #CDCDCD;
+}
+.designer_info h2{
+    font-size: 14px;
+    margin: 8px 10px 5px 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E6E6E6;
+}
+.designer_info .des_name{
+    font-size: 20px;
+    margin-right: 8px;
+}
+.des_infodeta{
+    margin: 0 25px;
+}
+.des_infodeta p{
+    color: #969696;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+.des_infodeta .des_time{
+    color: #E00607;
+}
+.des_infodeta .des_star{
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: -3px;
+}
+.select_title{
+    width: 120px;
+}

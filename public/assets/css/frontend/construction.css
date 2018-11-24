@@ -1,0 +1,51 @@
+.contruction_area{
+    margin: 40px 0;
+    background-color: #F9F9F9;
+    padding: 15px;
+}
+.construction_lis{
+    border-bottom: 1px solid #C2C0C1;
+}
+.const_img{
+    border-right: 1px solid #C2C0C1;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.const_img img{
+    cursor: pointer;
+    transition: all 0.6s;
+}
+.const_img img:hover{
+    transform: scale(1.4);
+}
+.construction_info,.const_process{
+     margin-left: 40px;
+ }
+.construction_info h2{
+    font-size: 20px;
+    margin: 10px 0;
+}
+.construction_info p{
+    font-size: 14px;
+    line-height: 28px;
+}
+.construction_info hr{
+    margin-top: 0;
+}
+.const_process{
+    margin-top: 10px;
+}
+.const_process .proce_detail a{
+    margin-top: 50%;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0;
+    border: none;
+    padding: 5px 20px;
+}
+.const_process .proce_detail a:hover{
+    color: #D8C662;
+}
+hr{
+    border-top: 1px solid #C9C9C9;
+}

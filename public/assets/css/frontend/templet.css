@@ -1,0 +1,117 @@
+.case_desiginfo{
+    font-size: 12px;
+}
+.case_desiginfo p{
+    line-height: 12px;
+}
+.appointment_btn{
+    background-color: #000;
+    color: #fff;
+    margin-left: 10px;
+    padding: 3px 8px;
+}
+.appointment_btn:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.casemor_btn{
+    border: none;
+    border-radius: 0;
+    padding: 3px 8px;
+    font-size: 12px;
+}
+.desinger_imgarea{
+    padding-right: 0;
+}
+.case_infotable{
+    margin-top: 30px;
+    font-size: 14px;
+}
+.chamber_area{
+    padding: 15px 0 0 0;
+}
+.chamber_tab{
+    border-top: 1px solid #D2D2D2;
+    border-bottom: none;
+    background-color: #fff;
+    padding: 30px 0 30px 40px;
+    margin: 15px 0 0 0;
+}
+.chamber_tab>li.active>a, .chamber_tab>li.active>a:focus, .chamber_tab>li.active>a:hover {
+    cursor: default;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0;
+}
+.chamber_tab>li>a {
+    margin-right: 2px;
+}
+.chamber_tab>li>a {
+    border: none;
+    border-radius: 0;
+    background-color: #E4E4E4;
+    color: #000;
+}
+.chamber_tab>li>a:hover{
+    background-color: #000;
+    color: #fff;
+}
+.cost_area{
+    border: 1px solid #D2D2D2;
+    border-top: none;
+    padding: 20px 45px;
+    margin-bottom: 100px;
+    font-size: 14px;
+}
+.minutia{
+    padding: 10px 15px 15px 15px;
+}
+.minutia_info1,.minutia_info2,.minutia_info4{
+    border: 1px solid #ddd;
+    margin: 1px;
+    line-height: 1.42857143;
+}
+.minutia_info1{
+    padding: 8px 36px;
+}
+.minutia_info2{
+    padding: 27.5px 36px;
+}
+.minutia_info4{
+    padding: 66.5px 36px;
+}
+.cost_btn{
+    padding: 10px 25px;
+    background-color: #000;
+    color: #fff;
+}
+.cost_btn:hover{
+    color: #000;
+    text-decoration: none;
+    background-color: #eee;
+}
+
+.lisli_selected{
+    display: none;
+}
+#effect_sel li:hover{
+    margin-top: -6px;
+}
+#effect_sel li:hover .lisli_selected{
+    display: block;
+}
+#effect_sel .active .lisli_selected{
+    display: block;
+}
+#effect_sel .active{
+    margin-top: -6px;
+}
+
+.case_designer h4{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.case_designer p{
+    margin: 0 0 10px;
+}

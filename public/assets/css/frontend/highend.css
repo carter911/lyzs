@@ -1,0 +1,120 @@
+.highintro_info p{
+    font-size: 20px;
+    line-height: 34px;
+    margin-bottom: 26px;
+}
+.lis_chunting h1{
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.lis_chunting h3{
+    margin-bottom: 0;
+}
+.lis_chunting p{
+    line-height: 26px;
+}
+.chuntcase_lis{
+    width: 100%;
+    margin-top: 30px;
+}
+.case_list{
+    width: 20%;
+    float: left;
+}
+.case_villa{
+    margin-right: 3px;
+}
+.villa_info{
+    border: 1px solid #E6E6E6;
+    border-top: none;
+    padding: 40px 0;
+}
+.villa_info h1{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+.villa_info h2{
+    font-size: 24px;
+    color: #C9C9C9;
+    margin-bottom: 8px;
+}
+.villa_info p{
+    color: #959595;
+    font-size: 14px;
+}
+.designer_link{
+    border: none;
+    border-radius: 0;
+    margin-right: 3px;
+}
+.teamer .thumbnail .caption {
+    padding: 15px 30px;
+    background-color: #F0F0F0;
+}
+.teamer .thumbnail .caption p{
+    line-height: 24px;
+}
+.teamer .thumbnail .caption p a{
+    margin-left: 15px;
+    text-decoration:underline;
+}
+.teamer{
+    margin-top: 50px;
+}
+.lis_realize{
+    background-color: #A29060;
+    padding: 50px 0 0 0;
+    color: #fff;
+}
+.customization h2{
+    margin-top: 10px;
+}
+.customization_apply{
+    margin-left: 150px;
+    margin-top: 20px;
+}
+.customization_apply .btn{
+    border-radius: 0;
+    border: none;
+    color: #5B491B;
+    padding: 8px 30px;
+    margin-left: 24px;
+}
+.customization_apply p{
+    font-size: 18px;
+    color: #5B4919;
+}
+.customization_apply p span{
+    font-size: 26px;
+}
+.foreman_lis{
+    margin-top: 20px;
+}
+.foreman_area{
+    position: relative;
+    margin-right: 15px;
+
+}
+.foreman_info{
+    background-color:rgba(0,0,0,0.6);
+    padding: 20px 5px 15px 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+}
+.serve_area{
+    margin: 5px 0 20px 0;
+}
+.serve_area h3{
+    color: #CE050B;
+    font-size: 20px;
+}
+.serve_area .apply_link{
+    background-color: rgba(142,8,32,0.8);
+    color: #fff;
+    padding: 2px 8px;
+}
+.foreman_info ul li{
+    margin-bottom: 8px;
+}

@@ -1,0 +1,150 @@
+.main_area{
+    margin-top: 20px;
+}
+.art_detail{
+    background-color: #F5F5F5;
+    border: 1px solid #D2D2D2;
+    padding: 20px 45px;
+}
+.art_title h1{
+    font-size: 30px;
+}
+.art_patch{
+    color: #969696;
+    margin: 10px 0;
+    font-size: 12px;
+}
+.art_title hr{
+    border-top: 1px solid #C9C9C9;
+    margin-top: 10px;
+}
+.side_group{
+    border: 1px solid #D2D2D2;
+    padding: 20px 15px 20px 15px;
+    margin-bottom: 20px;
+}
+.art_content p{
+    text-indent: 2em;
+    line-height: 26px;
+    padding-bottom: 30px;
+}
+.art_content img{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.art_content h2{
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 28px;
+}
+.art_info{
+    margin-top: 50px;
+}
+.side_title{
+    color: #C9161A;
+    font-size: 22px;
+}
+.apply_area{
+    background-color: #E6E6E6;
+    border-radius: 0;
+    border: none;
+}
+.specolor{
+    color: #C9161A;
+}
+.side_group form{
+    margin-bottom: 15px;
+}
+
+.box{
+    margin: auto;
+}
+.record_list{
+    margin-top: 20px;
+    height: 11rem;
+    overflow: hidden;
+    text-align: left;
+    margin-left: 1rem;
+    padding: 22px 0 0 0;
+}
+.record_list p{
+    font-size: 12px;
+    color: #959595;
+}
+.side_recommend{
+    margin-top: 20px;
+}
+.side_recommend .side_title{
+    color: #000;
+}
+.side_recommend hr{
+    border-top: 1px solid #C9C9C9;
+}
+.list_recoart{
+    background-color: #F2F2F2;
+}
+.list_recoart h4{
+    font-size: 14px;
+}
+.list_recoart h4 a{
+    color: #000;
+    text-decoration: none;
+    line-height: 22px;
+}
+.media {
+    margin-top: 10px;
+}
+.media-heading {
+    margin-left: 10px;
+}
+.media-right, .media>.pull-right {
+    padding-right: 10px;
+}
+.art_link{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.art_link a{
+    width: 48%;
+    background-color: #F2F2F2;
+    color: #888888;
+    padding: 5px;
+    font-size: 14px;
+}
+.calculate_area{
+    margin-top: 60px;
+}
+.calculate_area .row .col-md-5 .form-horizontal{
+    margin-top: 16px;
+}
+.calculate_area .row .col-md-5 .form-horizontal .form-group .form-control{
+    border-radius: 0;
+}
+.calculate_cost{
+    border-bottom: 1px solid #E5E5E5;
+}
+.calculate_cost .row{
+    padding: 0 15px 5px 5px;
+    margin-top: 8px;
+}
+.art_list h4{
+    margin-top: 25px;
+}
+.art_list ul li{
+    color: #E6004F;
+}
+.art_list ul li a{
+    color: #000;
+}
+.art_list ul li p{
+    color: #000;
+}
+.art_list hr{
+    margin-top: 5px;
+    border-top: 1px solid #E5E5E5;
+}
+.case_area{
+    padding: 10px 80px;
+    margin-bottom: 50px;
+}

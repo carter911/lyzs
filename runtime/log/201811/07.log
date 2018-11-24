@@ -1,0 +1,148 @@
+---------------------------------------------------------------
+[ 2018-11-07T13:47:21+08:00 ] 127.0.0.1 GET /
+[ info ] www.lyadmin.me/ [运行时间：0.265565s][吞吐率：3.77req/s] [内存消耗：4,129.69kb] [文件加载：75]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000795s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.005300s ]
+[ info ] [ LANG ] /Users/zhongwu/code/chenrj/fastadmin/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=1099&client_id=)',
+  'cookie' => 'Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1539742401; PHPSESSID=edeb1483a9774085c98285bcb229c0b9; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,vi;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'www.lyadmin.me',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/zhongwu/code/chenrj/fastadmin/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.009021s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/zhongwu/code/chenrj/fastadmin/public/../application/index/lang/zh-cn/index.php
+[ info ] [ RUN ] app\index\controller\Index->index[ /Users/zhongwu/code/chenrj/fastadmin/application/index/controller/Index.php ]
+[ info ] [ VIEW ] template/lingyi/index/index.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'menu',
+  3 => 'config',
+  4 => 'title',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.031682s ] mysql:host=127.0.0.1;dbname=lyzs;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_category` [ RunTime:0.022294s ]
+[ sql ] [ SQL ] SELECT `id`,`url`,`name`,`keywords`,`description` FROM `fa_category` WHERE  `status` = '1' ORDER BY `weigh` DESC [ RunTime:0.006673s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_link` [ RunTime:0.006505s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_link` ORDER BY `weigh` DESC [ RunTime:0.000906s ]
+---------------------------------------------------------------
+[ 2018-11-07T13:47:22+08:00 ] 127.0.0.1 GET /assets/css/fonts/glyphicons-halflings-regular.woff2
+[ info ] www.lyadmin.me/assets/css/fonts/glyphicons-halflings-regular.woff2 [运行时间：0.177871s][吞吐率：5.62req/s] [内存消耗：2,096.96kb] [文件加载：54]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000311s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.011319s ]
+[ info ] [ LANG ] /Users/zhongwu/code/chenrj/fastadmin/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'assets',
+    1 => 'css',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=1099&client_id=)',
+  'cookie' => 'Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1539742401; PHPSESSID=edeb1483a9774085c98285bcb229c0b9; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,vi;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lyadmin.me/assets/css/frontend/bootstrap.min.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36',
+  'origin' => 'http://www.lyadmin.me',
+  'connection' => 'keep-alive',
+  'host' => 'www.lyadmin.me',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-07T13:47:22+08:00 ] 127.0.0.1 GET /assets/css/fonts/glyphicons-halflings-regular.woff
+[ info ] www.lyadmin.me/assets/css/fonts/glyphicons-halflings-regular.woff [运行时间：0.153893s][吞吐率：6.50req/s] [内存消耗：2,096.96kb] [文件加载：54]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000277s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.034069s ]
+[ info ] [ LANG ] /Users/zhongwu/code/chenrj/fastadmin/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'assets',
+    1 => 'css',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=1099&client_id=)',
+  'cookie' => 'Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1539742401; PHPSESSID=edeb1483a9774085c98285bcb229c0b9; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,vi;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lyadmin.me/assets/css/frontend/bootstrap.min.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36',
+  'origin' => 'http://www.lyadmin.me',
+  'connection' => 'keep-alive',
+  'host' => 'www.lyadmin.me',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-07T13:47:22+08:00 ] 127.0.0.1 GET /assets/css/fonts/glyphicons-halflings-regular.ttf
+[ info ] www.lyadmin.me/assets/css/fonts/glyphicons-halflings-regular.ttf [运行时间：0.070477s][吞吐率：14.19req/s] [内存消耗：2,096.96kb] [文件加载：54]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000183s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004910s ]
+[ info ] [ LANG ] /Users/zhongwu/code/chenrj/fastadmin/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'assets',
+    1 => 'css',
+    2 => 'fonts',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=1099&client_id=)',
+  'cookie' => 'Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1539742401; PHPSESSID=edeb1483a9774085c98285bcb229c0b9; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,vi;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lyadmin.me/assets/css/frontend/bootstrap.min.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36',
+  'origin' => 'http://www.lyadmin.me',
+  'connection' => 'keep-alive',
+  'host' => 'www.lyadmin.me',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File

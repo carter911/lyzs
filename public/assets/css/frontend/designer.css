@@ -1,0 +1,96 @@
+.aplydesign{
+    border: none;
+    background-color: #F5F5F5;
+}
+.aply_title{
+    padding-top: 20px;
+    margin-top: 0;
+}
+hr{
+    border-top: 1px solid #DCDCDC;
+}
+.freeplan{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.designe_info h1{
+    font-size: 34px;
+    margin: 0;
+}
+.designe_info h1 small{
+    margin-left: 20px;
+    font-size: 14px;
+    color: #000000;
+}
+.designe_info hr{
+    margin-top: 8px;
+}
+.exper_list label{
+    color: #9D9D9D;
+}
+.exper_list p{
+    display: inline-block;
+    margin-left: 20px;
+}
+.des_introduce{
+    margin-top: 10px;
+}
+.des_introduce .intro_title{
+    text-align: left;
+    padding-left: 15px;
+}
+.des_introduce .intro_info{
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    resize:none;
+}
+.des_introduce .intro_info:focus{
+    border: none;
+}
+.design_area{
+    padding-top: 50px;
+}
+.work_area{
+    background-color: #EEEEEE;
+}
+.work_area:hover{
+    box-shadow: 2px 4px 5px #B8B8B8;
+}
+
+.work_link{
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.work_link img{
+    cursor: pointer;
+    transition: all 0.6s;
+}
+.work_link img:hover{
+    transform: scale(1.4);
+}
+.work_info{
+    margin: 0 15px;
+    padding: 10px 0;
+}
+.work_info p{
+    color: #959595;
+}
+.work_list .row{
+    margin-bottom: 30px;
+}
+.more_recom{
+    color: #B5B5B5;
+    margin: 10px 0;
+}
+.more_recom:hover{
+    color: #11ABE9;
+}
+.bot_recommend{
+    margin-bottom: 80px;
+}
+.bot_recommend hr{
+    margin: 0;
+}
