@@ -250,12 +250,12 @@
       <workItem from="1540794688852" duration="8614000" />
       <workItem from="1540885591479" duration="4495000" />
       <workItem from="1541138314572" duration="19078000" />
-      <workItem from="1541729194606" duration="4125000" />
+      <workItem from="1541729194606" duration="4503000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60806000" />
+    <option name="totallyTimeSpent" value="61184000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="70" width="1400" height="765" extended-state="0" />
@@ -291,13 +291,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/index/view/brandstr/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="968">
-          <caret line="44" column="24" lean-forward="false" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/index/view/layout/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1066">
@@ -651,6 +644,17 @@
             <element signature="e#9063#9069#0" expanded="true" />
             <element signature="e#9069#9075#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
