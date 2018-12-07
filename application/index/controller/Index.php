@@ -23,6 +23,26 @@ class Index extends Frontend
         return $this->view->fetch('index');
     }
 
+	public function ppsl()
+	{
+		return $this->view->fetch('ppsl');
+    }
+
+	public function gxj()
+	{
+		return $this->view->fetch('gxj');
+	}
+
+	public function tc()
+	{
+		return $this->view->fetch('tc');
+	}
+
+	public function gddz()
+	{
+		return $this->view->fetch('gddz');
+	}
+
     public function news()
     {
         $newslist = [];

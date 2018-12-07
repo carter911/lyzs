@@ -91,7 +91,8 @@ class Frontend extends Controller
 
 		// 上传信息配置后
 		Hook::listen("upload_config_init", $upload);
-		$menu = Db::name('Category')->field('id,url,name,keywords,description')->where(['status' => 1])->order('weigh desc')->select();
+		$menu = Db::name('Category')->where(['pid'=>0])->field('id,url,name,keywords,description')->where(['status' => 1])->order('weigh desc')->select();
+
 		$link = Db::name('Link')->order('weigh desc')->select();
 		// 配置信息
 		$config = [
