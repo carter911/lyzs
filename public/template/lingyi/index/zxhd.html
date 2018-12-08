@@ -1,0 +1,78 @@
+<!-- 最新活动 -->
+
+<link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/frontend/style.css" rel="stylesheet">
+
+<link href="/assets/css/frontend/contact.css" rel="stylesheet">
+<link href="/assets/css/frontend/brandstr.css" rel="stylesheet">
+<link href="/assets/css/frontend/install.css" rel="stylesheet">
+<link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+
+<script src="/assets/js/frontend/jquery.min.js"></script>
+<script src="/assets/js/frontend/bootstrap.min.js"></script>
+
+
+<div class="container">
+    <div class="current_loca">
+        <span>当前位置：</span>
+        <ol class="breadcrumb">
+            <li><a href="/index/index">首页</a></li>
+            <li><a href="#">岭艺动态</a></li>
+            <li class="active">最新活动</li>
+        </ol>
+        <hr>
+    </div>
+
+    <div class="lis_install margin_t">
+        <img src="/assets/img/frontend/lis_activity.jpg" class="img-responsive center-block">
+
+        <div class="article_area container">
+
+            {volist name="article_list" id='article'}
+            <div class="row article">
+                <div class="article_img">
+                    <img src="{$article.image}" class="img-responsive">
+                </div>
+                <div class="article_info">
+                    <h3 style="margin-bottom: 15px"><a href="/index/index/look_article_detail?id={$article.id}">{$article.title}</a></h3>
+                    <p>{$article.desc}</p>
+                    <div class="activ_btn pull-right">
+                        <a href="/index/index/look_article_detail?id={$article.id}"
+                           class="btn btn-default artmore_btn inselect inactive_btn">参加活动</a>
+                        <a href="/index/index/look_article_detail?id={$article.id}"
+                           class="btn btn-default artmore_btn inselect">详&nbsp;情</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            {/volist}
+        </div>
+
+
+        <nav aria-label="Page navigation" class="pagselec">
+            <ul class="pagination pagination-lg">
+
+                <li><a href="/index/index/zxhd/status=1&pageIndex={$article_page['first_page']}">首页</a></li>
+
+                <li>
+                    <a href="/index/index/zxhd/status=1&pageIndex={$article_page['prev_page']}" aria-label="Previous">
+                        <span aria-hidden="true">&lt;</span>
+                    </a>
+                </li>
+
+                {for start="$article_page['start_page']" end="$article_page['end_page']" name="m"}
+                <li><a href="/index/index/zxhd/status=1&pageIndex={$m}">{$m}</a></li>
+                {/for}
+
+                <li>
+                    <a href="/index/index/zxhd/status=1&pageIndex={$article_page['next_page']}" aria-label="Next">
+                        <span aria-hidden="true">&gt;</span>
+                    </a>
+                </li>
+                <li><a href="/index/index/zxhd/status=1&pageIndex={$article_page['last_page']}">末页</a></li>
+            </ul>
+        </nav>
+
+
+    </div>
+</div>

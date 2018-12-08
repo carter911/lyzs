@@ -17,6 +17,7 @@
 	<script src="/assets/js/frontend/bootstrap.min.js"></script>
 </head>
 <body style="min-width: 1200px;">
+
 <!-------------------------------顶部导航条------------------------------------------->
 <div class=" toparea" style="width: 1200px;margin: 0 auto;text-align: left">
 	<div class="col-xs-3" style="padding: 0px;">
@@ -57,46 +58,48 @@
 	<div class="nav_content text-center" style="width: 1200px;margin: 0 auto;text-align: left">
 		
 		<ul class="list-inline margin_c">
-			{volist name='$menu' id='m'}
-			<li ><a href="{$m.url}">{$m.name}</a></li>
-			{/volist}
-			<!--<li><a href="/index/brandstr/index.html">品牌实力</a></li>-->
-			<!--<li><a href="personality.html">岭艺个性家</a></li>-->
-			<!--<li><a href="setmeal.html">套餐</a></li>-->
-			<!--<li><a href="highend.html">高端定制</a></li>-->
-			<!---->
-			<!--<li class="dropdown">-->
-				<!--<a href="realcase.html" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
-				   <!--aria-haspopup="true" aria-expanded="false">案例时光机</a>-->
-				<!--<ul class="list-unstyled">-->
-					<!--<li><a href="realcase.html">实景案例</a></li>-->
-					<!--<li><a href="panorama.html">设计案例</a></li>-->
-				<!--</ul>-->
-			<!--</li>-->
-			<!---->
-			<!--<li><a href="construction.html">施工直播</a></li>-->
-			<!--<li><a href="designgroup.html">设计团队</a></li>-->
-			<!---->
-			<!--<li class="dropdown">-->
-				<!--<a href="activity.html" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
-				   <!--aria-haspopup="true" aria-expanded="false">岭艺动态</a>-->
-				<!--<ul class="list-unstyled">-->
-					<!--<li><a href="activity.html" class="innlink">最新活动</a></li>-->
-					<!--<li><a href="install.html">家居资讯</a></li>-->
-				<!--</ul>-->
-			<!--</li>-->
-			<!--<li><a href="quality.html">售后保障</a></li>-->
-			<!--<li><a href="contact.html">联系我们</a></li>-->
+
+			<!--{volist name='$menu' id='m'}-->
+			<!--<li ><a href="{$m.url}">{$m.name}</a></li>-->
+			<!--{/volist}-->
+
+			<li><a href="/index/brandstr/index.html">品牌实力</a></li>
+			<li><a href="personality.html">岭艺个性家</a></li>
+			<li><a href="setmeal.html">套餐</a></li>
+			<li><a href="highend.html">高端定制</a></li>
+
+			<li class="dropdown">
+				<a href="realcase.html" class="dropdown-toggle" data-toggle="dropdown" role="button"
+				   aria-haspopup="true" aria-expanded="false">案例时光机</a>
+				<ul class="list-unstyled">
+					<li><a href="realcase.html">实景案例</a></li>
+					<li><a href="panorama.html">设计案例</a></li>
+				</ul>
+			</li>
+
+			<li><a href="/index/index/zb">施工直播</a></li>
+			<li><a href="/index/index/sjtd">设计团队</a></li>
+
+			<li class="dropdown">
+				<a href="activity.html" class="dropdown-toggle" data-toggle="dropdown" role="button"
+				   aria-haspopup="true" aria-expanded="false">岭艺动态</a>
+				<ul class="list-unstyled">
+					<li><a href="/index/index/zxhd" class="innlink">最新活动</a></li>
+					<li><a href="/index/index/jjzx">家居资讯</a></li>
+				</ul>
+			</li>
+			<li><a href="/index/index/shbz">售后保障</a></li>
+			<li><a href="/index/index/lxwm">联系我们</a></li>
 		</ul>
 	</div>
 
 </div>
 
 <!---------------------------------主体内容---------------------------------------------->
-
 <div>
 	{__CONTENT__}
 </div>
+
 
 <!----------------------------------固定区域--------------------------------------------->
 <div class="bot_scroll navbar-inverse container-fluid navbar-fixed-bottom">

@@ -156,6 +156,7 @@ define(['fast', 'template', 'moment'], function (Fast, Template, Moment) {
                 }
                 return false;
             });
+
             //点击包含.btn-addtabs的元素时新增选项卡
             $(document).on('click', '.btn-addtabs,.addtabsit', function (e) {
                 var that = this;
@@ -172,6 +173,8 @@ define(['fast', 'template', 'moment'], function (Fast, Template, Moment) {
                 }
                 return false;
             });
+
+
             //点击包含.btn-ajax的元素时发送Ajax请求
             $(document).on('click', '.btn-ajax,.ajaxit', function (e) {
                 var that = this;
@@ -193,6 +196,7 @@ define(['fast', 'template', 'moment'], function (Fast, Template, Moment) {
                         error = button.error;
                     }
                 }
+
                 //如果未设备成功的回调,设定了自动刷新的情况下自动进行刷新
                 if (!success && typeof options.tableId !== 'undefined' && typeof options.refresh !== 'undefined' && options.refresh) {
                     $("#" + options.tableId).bootstrapTable('refresh');
@@ -207,18 +211,23 @@ define(['fast', 'template', 'moment'], function (Fast, Template, Moment) {
                 }
                 return false;
             });
+
+
             //修复含有fixed-footer类的body边距
             if ($(".fixed-footer").size() > 0) {
                 $(document.body).css("padding-bottom", $(".fixed-footer").outerHeight());
             }
+
             //修复不在iframe时layer-footer隐藏的问题
             if ($(".layer-footer").size() > 0 && self === top) {
                 $(".layer-footer").show();
             }
+
             //tooltip和popover
             if (!('ontouchstart' in document.documentElement)) {
                 $('body').tooltip({selector: '[data-toggle="tooltip"]'});
             }
+
             $('body').popover({selector: '[data-toggle="popover"]'});
         }
     };

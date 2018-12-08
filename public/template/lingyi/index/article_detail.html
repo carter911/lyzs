@@ -1,0 +1,322 @@
+<!--文章详情-->
+
+
+<link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/frontend/style.css" rel="stylesheet">
+<link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+<link href="/assets/css/frontend/contact.css" rel="stylesheet">
+<link href="/assets/css/frontend/detail.css" rel="stylesheet">
+
+<script src="/assets/js/frontend/jquery.min.js"></script>
+<script src="/assets/js/frontend/recordRoll.js"></script>
+<script src="/assets/js/frontend/bootstrap.min.js"></script>
+
+
+<div class="container">
+    <div class="current_loca">
+        <span>当前位置：</span>
+        <ol class="breadcrumb">
+            <li><a href="/index/index">首页</a></li>
+            <li><a href="/index/index/jjzx">家装资讯</a></li>
+            <li class="active">{$article_detail.title}</li>
+        </ol>
+    </div>
+
+    <div class="row main_area">
+        <div class="col-xs-9">
+            <div class="art_detail">
+                <div class="art_title">
+                    <h1 class="text-center"><b>{$article_detail.title}</b></h1>
+                    <p class="art_patch">来源：{$article_detail.articlesource}&nbsp;&nbsp;|&nbsp;&nbsp;浏览次数<span class="counter_are">{$article_detail.readcount}</span>次&nbsp;&nbsp;|&nbsp;&nbsp;更新时间：<span class="date_are">{$article_detail.updatetime}</span>&nbsp;&nbsp;<span class="time_are">11:27:40</span></p>
+                    <hr>
+                </div>
+
+                        {$article_detail.content}
+
+
+                <div class="art_info">
+                    <p class="art_patch">来源：{$article_detail.articlesource}&nbsp;&nbsp;|&nbsp;&nbsp;浏览次数<span class="counter_are">{$article_detail.readcount}</span>次&nbsp;&nbsp;|&nbsp;&nbsp;更新时间：<span class="date_are">{$article_detail.updatetime}</span>&nbsp;&nbsp;<span class="time_are">11:27:40</span></p>
+                </div>
+            </div>
+
+
+            <div class="art_link">
+                <a href="#" class="pull-left text-center">上一篇：待更新</a>
+                <a href="#" class="pull-right text-center">下一篇：深度信息化，用互联网助发展，让口碑深入人心</a>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="calculate_area">
+                <img src="/assets/img/frontend/calculate_area.jpg" class="img-responsive center-block">
+                <div class="row" style="margin-top:25px">
+                    <div class="col-xs-5" style="padding-top: 8px">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputarea" class="col-sm-6 control-label padding_c"><span class="specolor">*</span>产证面积：</label>
+                                <div class="col-sm-6 padding_c" style="padding-right: 5px">
+                                    <input type="text" class="form-control" id="inputarea" placeholder="如：100（代表100平方）">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputtoilet" class="col-sm-6 control-label padding_c"><span class="specolor">*</span>卫生间数量：</label>
+                                <div class="col-sm-6 padding_c" style="padding-right: 5px">
+                                    <input type="text" class="form-control" id="inputtoilet" placeholder="如：1（代表1个）">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputphone" class="col-sm-6 control-label padding_c"><span class="specolor">*</span>接收短信的手机号码：</label>
+                                <div class="col-sm-6 padding_c" style="padding-right: 5px">
+                                    <input type="text" class="form-control" id="inputphone" placeholder="用于接收报价短信">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="specolor pull-right" style="font-size: 12px">您的信息将会严格保密，请放心填写</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#" style="display: inline-block;margin-left: 25%;margin-top: 35%" data-toggle="modal" data-target="#myModal"><img src="/assets/img/frontend/calculate_btn.jpg" class="img-responsive center-block" style=""></a>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">http://www.ly-home.com.cn显示：</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>提交成功，请留意报价短信！</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="calculate_cost">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label class="pull-left">设计费用</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#"><img src="/assets/img/frontend/calculate_cost02.jpg" class="img-responsive center-block" style="margin-left: 60%"></a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label class="pull-right">元</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calculate_cost">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label class="pull-left">半包费用</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#" class="text-center"><img src="/assets/img/frontend/calculate_cost02.jpg" class="img-responsive center-block" style="margin-left: 60%"></a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label class="pull-right">元</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calculate_cost">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label class="pull-left">主材费用</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#" class="text-center"><img src="/assets/img/frontend/calculate_cost02.jpg" class="img-responsive center-block" style="margin-left: 60%"></a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label class="pull-right">元</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calculate_cost">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label class="pull-left">家居费用</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#" class="text-center"><img src="/assets/img/frontend/calculate_cost02.jpg" class="img-responsive center-block" style="margin-left: 60%"></a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label class="pull-right">元</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="art_list">
+                <h4><b>看过本文的人还看过</b></h4>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-6" style="padding-left: 0">
+                        <ul>
+                            <li>
+                                <a href="#" class="pull-left">半包和全包的区别是什么？需要注意什么？</a>
+                                <p class="pull-right">2018-07-25</p>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#" class="pull-left">半包和全包的区别是什么？需要注意什么？</a>
+                                <p class="pull-right">2018-07-25</p>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#" class="pull-left">半包和全包的区别是什么？需要注意什么？</a>
+                                <p class="pull-right">2018-07-25</p>
+                                <div class="clearfix"></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-6" style="padding-left: 0">
+                        <ul>
+                            <li>
+                                <a href="#" class="pull-left">半包和全包的区别是什么？需要注意什么？</a>
+                                <p class="pull-right">2018-07-25</p>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#" class="pull-left">半包和全包的区别是什么？需要注意什么？</a>
+                                <p class="pull-right">2018-07-25</p>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#" class="pull-left">半包和全包的区别是什么？需要注意什么？</a>
+                                <p class="pull-right">2018-07-25</p>
+                                <div class="clearfix"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="art_list">
+                <h4><b>精彩实景案例推荐</b></h4>
+                <hr>
+                <div class="case_area">
+                    <div class="row">
+                        <div class="col-xs-4 padding_c">
+                            <img src="/assets/img/frontend/case_img.jpg" class="img-responsive center-block">
+                        </div>
+
+                        <div class="col-xs-4 padding_c">
+                            <img src="/assets/img/frontend/case_img.jpg" class="img-responsive center-block">
+                        </div>
+
+                        <div class="col-xs-4 padding_c">
+                            <img src="/assets/img/frontend/case_img.jpg" class="img-responsive center-block">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-xs-3 sidebar">
+            <div class="side_group" style="padding-top: 20px">
+                <h1 class="text-center side_title"><b>免费申请家装规划</b></h1>
+                <p class="art_patch" style="font-size: 15px;margin-bottom: 10px">提交您的信息专业家装顾问1对1服务</p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control apply_area" id="art_address" placeholder="称呼">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control apply_area" id="art_phone" placeholder="电话">
+                    </div>
+                    <button type="submit" class="btn btn-default case_mor btn-block">提交申请</button>
+                </form>
+                <p class="text-center" style="font-size: 14px">累计已有<span class="specolor">153</span>人成功预约</p>
+                <p class="text-center" style="font-size: 14px">免费电话申请：<span class="specolor">400-000-0000</span></p>
+                <p class="text-center" style="font-size: 14px">马上提交申请即送<span class="specolor">1000元</span>家装抵用券</p>
+            </div>
+
+            <div class="side_group box">
+                <div class="record_list" style="margin-top: 0px;">
+
+
+
+
+
+                    <p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
+                    <p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
+                    <p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
+                    <p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
+                    <p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
+                    <p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p><p>t**&nbsp;157*******0提交预约信息<span class="app_date">[07/15]</span></p><p>刘**&nbsp;152*******1提交预约信息<span class="app_date">[07/15]</span></p><p>t**&nbsp;138*******6提交预约信息<span class="app_date">[07/15]</span></p><p>l**&nbsp;133*******6提交预约信息<span class="app_date">[07/15]</span></p></div>
+            </div>
+
+            <div class="side_recommend">
+                <h1 class="text-center side_title"><b>推荐精彩内容</b></h1>
+                <hr>
+                <div class="recom_list">
+                    <div class="media list_recoart" style="padding: 10px 0">
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#">深度信息化，用互联网助发展，让口碑深入人心</a></h4>
+                        </div>
+                        <div class="media-right">
+                            <a href="#">
+                                <img class="media-object" src="/assets/img/frontend/recom_img.jpg" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media list_recoart" style="padding: 10px 0">
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#">深度信息化，用互联网助发展，让口碑深入人心</a></h4>
+                        </div>
+                        <div class="media-right">
+                            <a href="#">
+                                <img class="media-object" src="/assets/img/frontend/recom_img.jpg" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media list_recoart" style="padding: 10px 0">
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#">深度信息化，用互联网助发展，让口碑深入人心</a></h4>
+                        </div>
+                        <div class="media-right">
+                            <a href="#">
+                                <img class="media-object" src="/assets/img/frontend/recom_img.jpg" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media list_recoart" style="padding: 10px 0">
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#">深度信息化，用互联网助发展，让口碑深入人心</a></h4>
+                        </div>
+                        <div class="media-right">
+                            <a href="#">
+                                <img class="media-object" src="/assets/img/frontend/recom_img.jpg" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media list_recoart" style="padding: 10px 0">
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#">深度信息化，用互联网助发展，让口碑深入人心</a></h4>
+                        </div>
+                        <div class="media-right">
+                            <a href="#">
+                                <img class="media-object" src="/assets/img/frontend/recom_img.jpg" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <a href="#" class="pull-right" style="color: #AFAFAF">更多&gt;&nbsp;&gt;</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

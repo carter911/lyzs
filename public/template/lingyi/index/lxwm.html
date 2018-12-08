@@ -1,0 +1,220 @@
+
+<!--联系我们-->
+<link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/frontend/style.css" rel="stylesheet">
+
+<link href="/assets/css/frontend//contact.css" rel="stylesheet">
+<link href="/assets/css/frontend/brandstr.css" rel="stylesheet">
+<link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+
+<script src="/assets/js/frontend/jquery.min.js"></script>
+<script src="/assets/js/frontend/bootstrap.min.js"></script>
+<script src="/assets/js/frontend/contactselet.js"></script>
+
+<div class="container">
+    <div class="current_loca">
+        <span>当前位置：</span>
+        <ol class="breadcrumb">
+            <li><a href="index.html">首页</a></li>
+            <li class="active"><a href="#">联系我们</a></li>
+            <!--<li class="active">最新活动</li>-->
+        </ol>
+        <hr>
+    </div>
+
+    <div class="row service_area">
+        <div class="col-xs-4">
+            <div class="row" style="margin-right: 15px;border: 1px solid #CDCDCD;">
+                <div class="col-xs-4 icon_area">
+                    <img src="/assets/img/frontend/telicon.jpg" class="img-responsive center-block">
+                </div>
+                <div class="col-xs-8 service_info">
+                    <h3 class="margin_c" style="font-size: 20px">岭艺总部服务热线</h3>
+                    <p style="font-size: 16px">{$top_company.department_phone}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row" style="margin-right: 15px;border: 1px solid #CDCDCD;">
+                <div class="col-xs-4 icon_area">
+                    <img src="/assets/img/frontend/timeicon.jpg" class="img-responsive center-block">
+                </div>
+                <div class="col-xs-8 service_info">
+                    <h3 class="margin_c" style="font-size: 20px">24小时服务热线</h3>
+                    <p style="font-size: 16px">{$top_company.service_phone}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row" style="border: 1px solid #CDCDCD;">
+                <div class="col-xs-4 icon_area">
+                    <img src="/assets/img/frontend/addicon.jpg" class="img-responsive center-block">
+                </div>
+                <div class="col-xs-8 service_info">
+                    <h3 class="margin_c" style="font-size: 20px">岭艺总部地址</h3>
+                    <p style="color: #969696;font-size: 16px">{$top_company.address}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="addarea margin_t">
+        <img src="/assets/img/frontend/addimg.jpg" class="img-responsive center-block">
+    </div>
+
+    <div class="lis_branch margin_t">
+        <img src="/assets/img/frontend/lis_branch.jpg" class="img-responsive center-block">
+
+        <div class="row league_info">
+            <div class="col-xs-6">
+                <img src="/assets/img/frontend/league_map.jpg" class="img-responsive center-block">
+            </div>
+            <div class="fr" id="contact-site-con" style="margin-right: 100px">
+
+
+
+                {volist name='$sub_company' id='m'}
+                        <div class="fz14 wow fadeInUp" data-wow-delay=".0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
+                            <p class="contact-site-title">{$m.department_name}</p>
+                            <div class="contact-site-sub" style="margin: 0 50px 0 10px">
+                                <p class="contact-site-info">电话：{$m.department_phone}</p>
+                                <p class="contact-site-info">地址：{$m.address}</p>
+                            </div>
+                        </div>
+                {/volist}
+
+
+                <!--<div class="fz14 wow fadeInUp" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">-->
+                    <!--<p class="contact-site-title">岭艺装饰松江分公司</p>-->
+                    <!--<div class="contact-site-sub">-->
+                        <!--<p class="contact-site-info">电话：021-5770&nbsp;2532</p>-->
+                        <!--<p class="contact-site-info">地址：松江区文涵路58号（思贤路与文涵路路口）</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="fz14 wow fadeInUp" data-wow-delay=".2s" style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">-->
+                    <!--<p class="contact-site-title">岭艺装饰-东米高端设计中心</p>-->
+                    <!--<div class="contact-site-sub">-->
+                        <!--<p class="contact-site-info">电话：021-5770&nbsp;2532</p>-->
+                        <!--<p class="contact-site-info">地址：松江区文涵路58号（思贤路与文涵路路口）</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="fz14 wow fadeInUp" data-wow-delay=".3s" style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">-->
+                    <!--<p class="contact-site-title">岭艺装饰石化分公司</p>-->
+                    <!--<div class="contact-site-sub">-->
+                        <!--<p class="contact-site-info">电话：021-5770&nbsp;2532</p>-->
+                        <!--<p class="contact-site-info">地址：松江区文涵路58号（思贤路与文涵路路口）</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="fz14 wow fadeInUp" data-wow-delay=".4s" style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">-->
+                    <!--<p class="contact-site-title">岭艺装饰朱泾分公司</p>-->
+                    <!--<div class="contact-site-sub">-->
+                        <!--<p class="contact-site-info">电话：021-5770&nbsp;2532</p>-->
+                        <!--<p class="contact-site-info">地址：松江区文涵路58号（思贤路与文涵路路口）</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="fz14 wow fadeInUp" data-wow-delay=".5s" style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">-->
+                    <!--<p class="contact-site-title">岭艺装饰南汇分公司</p>-->
+                    <!--<div class="contact-site-sub">-->
+                        <!--<p class="contact-site-info">电话：021-5770&nbsp;2532</p>-->
+                        <!--<p class="contact-site-info">地址：松江区文涵路58号（思贤路与文涵路路口）</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="fz14 wow fadeInUp" data-wow-delay=".6s" style="visibility: hidden; animation-delay: 0.6s; animation-name: none;">-->
+                    <!--<p class="contact-site-title">岭艺装饰枫泾分公司</p>-->
+                    <!--<div class="contact-site-sub">-->
+                        <!--<p class="contact-site-info">电话：021-5770&nbsp;2532</p>-->
+                        <!--<p class="contact-site-info">地址：松江区文涵路58号（思贤路与文涵路路口）</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="fz14 wow fadeInUp" data-wow-delay=".7s" style="visibility: hidden; animation-delay: 0.7s; animation-name: none;">-->
+                    <!--<p class="contact-site-title">岭艺装饰奉贤分公司</p>-->
+                    <!--<div class="contact-site-sub">-->
+                        <!--<p class="contact-site-info">电话：021-5770&nbsp;2532</p>-->
+                        <!--<p class="contact-site-info">地址：松江区文涵路58号（思贤路与文涵路路口）</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="lis_league margin_t">
+        <img src="/assets/img/frontend/lis_league.jpg" class="img-responsive center-block">
+
+        <div class="thumbnail league_ad">
+            <img src="/assets/img/frontend/league_ad.jpg" class="img-responsive center-block">
+            <div class="caption">
+                <h1 class="text-center" style="margin-top: 10px">加盟热线：{$top_company.join_phone}</h1>
+                <a href="#" class="btn btn-default league_btn">加入岭艺</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="lis_recurit margin_t">
+        <img src="/assets/img/frontend/lis_recurit.jpg" class="img-responsive center-block">
+
+        <div class="recruit_info row">
+            <h4 style="margin-top: 15px;margin-bottom: 15px">我们需要的职位有</h4>
+            <div class="col-xs-4">
+
+                <div class="row" style="margin-bottom: 10px">
+                    <div class="col-xs-4 padding_rc">
+                        <label class="lab_occup">商务经理</label>
+                    </div>
+                    <div class="col-xs-4 padding_lc padding_rc">
+                        <label class="lab_occup">首席设计师</label>
+                    </div>
+                    <div class="col-xs-4 padding_lc">
+                        <label class="lab_occup">工程技术员</label>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 10px">
+                    <div class="col-xs-4 padding_rc">
+                        <label class="lab_occup">商务经理</label>
+                    </div>
+                    <div class="col-xs-4 padding_lc padding_rc">
+                        <label class="lab_occup">首席设计师</label>
+                    </div>
+                    <div class="col-xs-4 padding_lc">
+                        <label class="lab_occup">工程技术员</label>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 10px">
+                    <div class="col-xs-4 padding_rc">
+                        <label class="lab_occup">商务经理</label>
+                    </div>
+                    <div class="col-xs-4 padding_lc padding_rc">
+                        <label class="lab_occup">首席设计师</label>
+                    </div>
+                    <div class="col-xs-4 padding_lc">
+                        <label class="lab_occup">工程技术员</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row" style="margin-right: 15px;border: 1px solid #CDCDCD;">
+                    <div class="col-xs-3 icon_area">
+                        <img src="/assets/img/frontend/emaicon.jpg" class="img-responsive center-block">
+                    </div>
+                    <div class="col-xs-9 service_info">
+                        <h5 class="margin_c">加入我们，简历投至</h5>
+                        <p style="color: #000;">{$top_company.email}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row" style="border: 1px solid #CDCDCD;">
+                    <div class="col-xs-3 icon_area">
+                        <img src="/assets/img/frontend/phoneicon.jpg" class="img-responsive center-block">
+                    </div>
+                    <div class="col-xs-9 service_info">
+                        <h5 class="margin_c">直接拨打人事电话（非应聘者勿扰）</h5>
+                        <p style="color: #000;">{$top_company.hr_phone}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

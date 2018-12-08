@@ -1,0 +1,434 @@
+<!--设计团队-->
+
+<link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/frontend/style.css" rel="stylesheet">
+<link href="/assets/css/frontend/contact.css" rel="stylesheet">
+<link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+<link href="/assets/css/frontend/designgroup.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
+<script src="/assets/js/frontend/bootstrap.min.js"></script>
+
+
+<div class="container">
+    <div class="current_loca">
+        <span>当前位置：</span>
+        <ol class="breadcrumb">
+            <li><a href="index.html">首页</a></li>
+            <li class="active">设计团队</li>
+        </ol>
+    </div>
+
+    <div class="cation-content style_list">
+        <div class="cation-middle">
+            <dl class="cation-list">
+                <dt class="select_title text-center">擅长户型</dt>
+                <dd>
+                    <a href="#" rel="" name="mode" class="all on">全部</a>
+                    <a href="#" rel="别墅" name="mode" class="default">别墅</a>
+                    <a href="#" rel="二居室" name="mode" class="default">二居室</a>
+                    <a href="#" rel="三居室" name="mode" class="default">三居室</a>
+                    <a href="#" rel="四居室" name="mode" class="default">四居室</a>
+                    <a href="#" rel="Loft" name="mode" class="default">Loft</a>
+                    <a href="#" rel="复式" name="mode" class="default">复式</a>
+                    <a href="#" rel="其他" name="mode" class="default">其他</a>
+                </dd>
+            </dl>
+            <dl class="cation-list">
+                <dt class="select_title text-center">擅长风格</dt>
+                <dd>
+                    <a href="#" rel="" name="style" class="all on">全部</a>
+                    <a href="#" rel="现代简约" name="style" class="default">现代简约</a>
+                    <a href="#" rel="欧式古典" name="style" class="default">欧式古典</a>
+                    <a href="#" rel="新中式" name="style" class="default">新中式</a>
+                    <a href="#" rel="法式" name="style" class="default">法式</a>
+                    <a href="#" rel="北欧" name="style" class="default">北欧</a>
+                    <a href="#" rel="美式" name="style" class="default">美式</a>
+                    <a href="#" rel="简欧" name="style" class="default">简欧</a>
+                    <a href="#" rel="现代前卫" name="style" class="default">现代前卫</a>
+                    <a href="#" rel="雅致主义" name="style" class="default">雅致主义</a>
+                    <a href="#" rel="新古典" name="style" class="default">新古典</a>
+                    <a href="#" rel="地中海式" name="style" class="default">地中海式</a>
+                    <a href="#" rel="其他" name="style" class="default">其他</a>
+                </dd>
+            </dl>
+            <dl class="cation-list">
+                <dt class="select_title text-center">从业时间</dt>
+                <dd>
+                    <a href="#" rel="" name="time" class="all on">全部</a>
+                    <a href="#" rel="5-8年" name="time" class="default">5-8年</a>
+                    <a href="#" rel="8-12年" name="time" class="default">8-12年</a>
+                    <a href="#" rel="12年以上" name="time" class="default">12年以上</a>
+                </dd>
+            </dl>
+            <dl class="cation-list">
+                <dt class="select_title text-center" style="border-bottom: none;">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</dt>
+                <dd style="border-bottom: none">
+                    <a href="#" rel="" name="sex" class="all on">全部</a>
+                    <a href="#" rel="男" name="sex" class="default">男</a>
+                    <a href="#" rel="女" name="sex" class="default">女</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="style_list select_area">
+        <form class="pull-left">
+            <label>当前筛选：</label>
+            <select class="">
+                <option>擅长户型</option>
+                <option>别墅</option>
+                <option>二居室</option>
+                <option>三居室</option>
+                <option>四居室</option>
+                <option>Loft</option>
+                <option>复式</option>
+                <option>其他</option>
+            </select>
+
+            <select>
+                <option>擅长风格</option>
+                <option>全部</option>
+                <option>现代简约</option>
+                <option>欧式古典</option>
+                <option>新中式</option>
+                <option>法式</option>
+                <option>北欧</option>
+                <option>美式</option>
+                <option>简欧</option>
+                <option>现代前卫</option>
+                <option>雅致主义</option>
+                <option>新古典</option>
+                <option>地中海式</option>
+                <option>其他</option>
+            </select>
+
+            <select>
+                <option>从业时间</option>
+                <option>全部</option>
+                <option>5-8年</option>
+                <option>8-12年</option>
+                <option>12年以上</option>
+            </select>
+
+            <select>
+                <option>性别</option>
+                <option>全部</option>
+                <option>男</option>
+                <option>女</option>
+            </select>
+        </form>
+        <form class="pull-right">
+            <input type="text" class="pull-left" id="keywords" placeholder="关键词">
+            <a href="#" class="search_case pull-right">搜案例</a>
+        </form>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="style_list" style="padding: 15px">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="designer_area">
+                    <div class="designer_img">
+                        <img src="/assets/img/frontend/designer_img.jpg" class="img-responsive center-block">
+                        <div class="free_consult pull-left" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                        </div>
+                        <div class="free_plan pull-right" style="display: none">
+                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="designer_info">
+                        <h2 class="text-center"><span class="des_name">方笑</span>设计总监</h2>
+                        <div class="des_infodeta">
+                            <p class="pull-left">从业经验<span class="des_time">20</span>年</p>
+                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>100</span>人预约</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation" class="pagselec">
+        <ul class="pagination pagination-lg">
+            <li><a href="#">首页</a></li>
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&lt;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&gt;</span>
+                </a>
+            </li>
+            <li><a href="#">末页</a></li>
+        </ul>
+    </nav>
+</div>
