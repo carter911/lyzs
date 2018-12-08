@@ -28,11 +28,13 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'name', title: __('Name')},
                         {field: 'sex', title: __('Sex'), searchList: {"1":__('Sex 1')," 0":__('Sex  0')}, formatter: Table.api.formatter.normal},
                         {field: 'work_name', title: __('Work_name')},
-                        {field: 'door_ids', title: __('Door_ids')},
-                        {field: 'style_ids', title: __('Style_ids')},
+                        {field: 'team_door_ids', title: __('Team_door_ids')},
+                        {field: 'team_style_ids', title: __('Team_style_ids')},
                         {field: 'work_num', title: __('Work_num')},
                         {field: 'create_time', title: __('Create_time'), operate:'RANGE', addclass:'datetimerange'},
                         {field: 'update_time', title: __('Update_time'), operate:'RANGE', addclass:'datetimerange'},
+                        {field: 'is_home', title: __('Is_home'), searchList: {"1":__('Is_home 1')," 0":__('Is_home  0')}, formatter: Table.api.formatter.normal},
+                        {field: 'avatar', title: __('Avatar')},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

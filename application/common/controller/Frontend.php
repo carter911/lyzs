@@ -57,6 +57,7 @@ class Frontend extends Controller
 		$token = $this->request->server('HTTP_TOKEN', $this->request->request('token', \think\Cookie::get('token')));
 
 		$path = str_replace('.', '/', $controllername) . '/' . $actionname;
+
 		// 设置当前请求的URI
 		$this->auth->setRequestUri($path);
 		// 检测是否需要验证登录
@@ -101,6 +102,7 @@ class Frontend extends Controller
 			'modulename'     => $modulename,
 			'controllername' => $controllername,
 			'actionname'     => $actionname,
+			'path'			 => '/'.$modulename.'/'.$controllername.'/'.$actionname,
 			'jsname'         => 'frontend/' . str_replace('.', '/', $controllername),
 			'moduleurl'      => rtrim(url("/{$modulename}", '', false), '/'),
 			'language'       => $lang,

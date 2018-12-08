@@ -6,6 +6,9 @@ use app\common\controller\Frontend;
 use app\index\model\Articles;
 use think\Db;
 
+use app\common\library\Token;
+use think\Request;
+
 class Index extends Frontend
 {
 
@@ -25,30 +28,15 @@ class Index extends Frontend
 
     public function index()
     {
-        $this->assign('title', '岭艺装饰-首页');
-        return $this->view->fetch('index');
+		$this->assign('title','首页-岭艺装饰');
+		$banner = Db::name('banner')->where(['status'=>1])->order('id desc')->find();
+		$gxj = Db::name('banner')->where(['status'=>4])->order('id desc')->find();
+		$tc = Db::name('banner')->where(['status'=>2])->order('id desc')->find();
+		$this->assign('banner',$banner);
+		$this->assign('gxj',$gxj);
+		$this->assign('tc',$tc);
+		return $this->view->fetch('index');
     }
-
-    public function ppsl()
-    {
-        return $this->view->fetch('ppsl');
-    }
-
-    public function gxj()
-    {
-        return $this->view->fetch('gxj');
-    }
-
-    public function tc()
-    {
-        return $this->view->fetch('tc');
-    }
-
-    public function gddz()
-    {
-        return $this->view->fetch('gddz');
-    }
-
 
     //售后保障
     public function shbz()
@@ -124,11 +112,28 @@ class Index extends Frontend
 
     }
 
-
-    public function news()
-    {
-        $newslist = [];
-        return jsonp(['newslist' => $newslist, 'new' => count($newslist), 'url' => 'https://www.fastadmin.net?ref=news']);
+	public function ppsl()
+	{
+		$this->assign('title','品牌实力-岭艺装饰');
+		return $this->view->fetch('ppsl');
     }
+
+	public function gxj()
+	{
+		$this->assign('title','个性家-岭艺装饰');
+		return $this->view->fetch('gxj');
+	}
+
+	public function tc()
+	{
+		$this->assign('title','套餐-岭艺装饰');
+		return $this->view->fetch('tc');
+	}
+
+	public function gddz()
+	{
+		$this->assign('title','高端定制-岭艺装饰');
+		return $this->view->fetch('gddz');
+	}
 
 }

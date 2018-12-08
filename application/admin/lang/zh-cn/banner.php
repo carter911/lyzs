@@ -5,6 +5,7 @@ return [
     'Status 1'  =>  '首页',
     'Status 2'  =>  '套餐',
     'Status 3'  =>  '高端定制',
+    'Status 4'  =>  '岭艺个性家',
     'Name'  =>  '标题',
     'Image'  =>  '图片',
     'Desc'  =>  '简介',

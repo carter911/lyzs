@@ -11,7 +11,7 @@ return [
     'Status 2'  =>  '意向客户',
     'Status 3'  =>  '流失客户',
     'Status 4'  =>  '其他',
+    'Remark'  =>  '备注',
     'Createtime'  =>  '创建时间',
-    'Updatetime'  =>  '更新时间',
-    'Remark'  =>  '备注'
+    'Updatetime'  =>  '更新时间'
 ];

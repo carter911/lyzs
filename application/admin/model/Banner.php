@@ -25,7 +25,7 @@ class Banner extends Model
     
     public function getStatusList()
     {
-        return ['1' => __('Status 1'),'2' => __('Status 2'),'3' => __('Status 3')];
+        return ['1' => __('Status 1'),'2' => __('Status 2'),'3' => __('Status 3'),'4' => __('Status 4')];
     }     
 
 
