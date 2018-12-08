@@ -10,57 +10,46 @@
 				</div>
 				
 				<div class="quote_form">
-					<form>
+					<form class="customer">
 						<div class="form-group">
-							<input type="text" class="form-control" id="quote_address" placeholder="请输入您的称呼">
+							<input name="name" type="text" class="form-control" id="quote_address" placeholder="请输入您的称呼">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" id="quote_phone" placeholder="收取报价手机号码">
+							<input name="mobile" type="text" class="form-control" id="quote_phone" placeholder="收取报价手机号码">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" id="quote_space" placeholder="产证面积（单位：㎡）">
-						</div>
-					</form>
-					<form class="form-inline">
-						<div class="form-group quote_room col-xs-4 padding_c">
-							<input type="text" class="form-control roomnumber" id="quote_chamber" placeholder="几"
-								   style="width: 46px;">
-							<label for="quote_chamber">室</label>
+							<input name="area" type="text" class="form-control" id="quote_space" placeholder="产证面积（单位：㎡）">
 						</div>
 						<div class="form-group quote_room col-xs-4 padding_c">
-							<input type="text" class="form-control roomnumber" id="quote_parlour" placeholder="几"
-								   style="width: 46px">
+							<input name="door" type="text" class="form-control roomnumber" id="quote_chamber" placeholder="几"
+								   style="width: 45px;display: inline-block">
+							<label style="width: 15px;" for="quote_chamber">室</label>
+						</div>
+						<div class="form-group quote_room col-xs-4 padding_c">
+							<input name="parlour" type="text" class="form-control roomnumber" id="quote_parlour" placeholder="几"
+								   style="width: 46px;display: inline-block">
 							<label for="quote_parlour">厅</label>
 						</div>
 						<div class="form-group quote_room col-xs-4 padding_c">
-							<input type="text" class="form-control roomnumber" id="quote_toilet" placeholder="几"
-								   style="width: 46px">
+							<input name="toilet" type="text" class="form-control roomnumber" id="quote_toilet" placeholder="几"
+								   style="width: 46px;display: inline-block">
 							<label for="quote_toilet">卫</label>
 						</div>
+						<input type="submit" class="btn btn-default quote_sub" name="sub" value="免费获取" />
 					</form>
-					<a href="add_customer()" class="btn btn-default quote_sub">免&nbsp;费&nbsp;获&nbsp;取</a>
 				</div>
 				
 				<div class="quote_user">
-					<p class="text-center">已有<span style="color: #E00024;">231</span>位获取报价</p>
-					
+					<p class="text-center">已有<span style="color: #E00024;">{$config.customer_count}</span>位获取报价</p>
 					<div class="quote_roll">
 						<div class="box">
 							<div class="record_list">
-								<p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>t**&nbsp;157*******0提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>刘**&nbsp;152*******1提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>t**&nbsp;138*******6提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>l**&nbsp;133*******6提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
-								<p>t**&nbsp;185*******2提交预约信息<span class="app_date">[07/15]</span></p>
+								{volist name='$customers' id='c'}
+								<p>{$c.name}**  {$c.mobile}提交预约信息<span class="app_date">[{$c.createtime}]</span></p>
+								{/volist}
 							</div>
 						</div>
 					</div>
-				
 				</div>
 			
 			</div>

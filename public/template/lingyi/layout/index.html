@@ -56,13 +56,25 @@
 
 <div class="top_nav">
 	<div class="nav_content text-center" style="width: 1200px;margin: 0 auto;text-align: left">
-		
 		<ul class="list-inline margin_c">
-			{volist name='$menu' id='m'}
+			{volist name='menu' id='m'}
+			{empty name="m.chid"}
 			<li	class="
 			{if condition="$m.url == $config.path"}active {else /}{/if}
 			"
 			><a href="{$m.url}">{$m.name}</a></li>
+			{else /}
+			<li  class="dropdown <?php $urls = array_column($m['chid'],'url'); if(in_array($config['path'],$urls)){echo 'active';}?>">
+				<a href="{$m.url}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+				   aria-haspopup="true" aria-expanded="false">{$m.name}</a>
+				<ul class="list-unstyled">
+					{volist name='m.chid' id='m1'}
+						<li><a href="{$m1.url}">{$m1.name}</a></li>
+					{/volist}
+				</ul>
+			</li>
+			{/empty}
+			
 			{/volist}
 			<!--<li><a href="/index/brandstr/index.html">品牌实力</a></li>-->
 			<!--<li><a href="personality.html">岭艺个性家</a></li>-->
@@ -91,6 +103,7 @@
 			<!--</li>-->
 			<!--<li><a href="quality.html">售后保障</a></li>-->
 			<!--<li><a href="contact.html">联系我们</a></li>-->
+
 		</ul>
 	</div>
 
@@ -218,7 +231,7 @@
 					</div>
 					<button  type="submit" class="btn btn-default color_f search_btn sub_btn foot_sechbtn">提交</button>
 				</form>
-				<p>已有<span class="spenumber"><b>58</b></span>位业主预约</p>
+				<p>已有<span class="spenumber"><b>{$config.customer_count}</b></span>位业主预约</p>
 			</div>
 			<div class="col-xs-2">
 				<h4>关注我们</h4>
@@ -230,7 +243,7 @@
 			<ul class="list-inline">
 				<li><h4>友情链接</h4></li>
 				{volist name="config.link" id='link'}
-					<li class="listnon"><a href="{$link.link}">{$link.name}</a></li>
+					<li class="listnon"><a target="_blank" href="{$link.link}">{$link.name}</a></li>
 				{/volist}
 			</ul>
 			<p style="text-align: center">
@@ -256,7 +269,7 @@
         $(this).find('ul').hide();
     });
 	
-    $(".count_area,.customer1").submit(function(){
+    $(".count_area,.customer1,.customer").submit(function(){
         $.ajax({
 			url:'/index/customer/store',
 			type:'post',

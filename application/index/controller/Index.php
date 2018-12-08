@@ -29,14 +29,54 @@ class Index extends Frontend
     public function index()
     {
 		$this->assign('title','首页-岭艺装饰');
-		$banner = Db::name('banner')->where(['status'=>1])->order('id desc')->find();
+		$banner = Db::name('banner')->field('image')->where(['status'=>1])->order('id desc')->find();
 		$gxj = Db::name('banner')->where(['status'=>4])->order('id desc')->find();
 		$tc = Db::name('banner')->where(['status'=>2])->order('id desc')->find();
+
+		$customer_list = Db::name('customer')->limit(10)->order('id desc')->select();
+		foreach ($customer_list as $key => $val){
+			$customer_list[$key]['name'] = mb_substr($val['name'],0,1);
+			$customer_list[$key]['mobile'] = substr($val['mobile'],0,3).'*******'.substr($val['mobile'],10,1);
+			$customer_list[$key]['createtime'] = date("m/d",$val['createtime']);
+		}
+
 		$this->assign('banner',$banner);
 		$this->assign('gxj',$gxj);
 		$this->assign('tc',$tc);
+		$this->assign('customers',$customer_list);
 		return $this->view->fetch('index');
     }
+
+
+	public function ppsl()
+	{
+		$this->assign('title','品牌实力-岭艺装饰');
+		return $this->view->fetch('ppsl');
+	}
+
+	public function gxj()
+	{
+		$this->assign('title','个性家-岭艺装饰');
+		return $this->view->fetch('gxj');
+	}
+
+	public function tc()
+	{
+		$this->assign('title','套餐-岭艺装饰');
+		return $this->view->fetch('tc');
+	}
+
+	public function gddz()
+	{
+		$this->assign('title','高端定制-岭艺装饰');
+		return $this->view->fetch('gddz');
+	}
+
+	public function sjal()
+	{
+		$this->assign('title','实景案例-岭艺装饰');
+		return $this->view->fetch('sjal');
+	}
 
     //售后保障
     public function shbz()
@@ -112,28 +152,6 @@ class Index extends Frontend
 
     }
 
-	public function ppsl()
-	{
-		$this->assign('title','品牌实力-岭艺装饰');
-		return $this->view->fetch('ppsl');
-    }
 
-	public function gxj()
-	{
-		$this->assign('title','个性家-岭艺装饰');
-		return $this->view->fetch('gxj');
-	}
-
-	public function tc()
-	{
-		$this->assign('title','套餐-岭艺装饰');
-		return $this->view->fetch('tc');
-	}
-
-	public function gddz()
-	{
-		$this->assign('title','高端定制-岭艺装饰');
-		return $this->view->fetch('gddz');
-	}
 
 }

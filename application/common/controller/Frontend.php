@@ -89,12 +89,20 @@ class Frontend extends Controller
 
 		$site   = Config::get("site");
 		$upload = \app\common\model\Config::upload();
-
 		// 上传信息配置后
 		Hook::listen("upload_config_init", $upload);
-		$menu = Db::name('Category')->where(['pid'=>0])->field('id,url,name,keywords,description')->where(['status' => 1])->order('weigh desc')->select();
-
-		$link = Db::name('Link')->order('weigh desc')->select();
+		$menu = Db::name('Category')->field('id,url,name,keywords,description,pid')->where(['status' => 1])->order('pid asc,weigh desc')->select();
+		$menu_list = [];
+		foreach ($menu as $key => $val){
+			if($val['pid'] ==0){
+				$menu_list[$val['id']] = $val;
+			}else{
+				$menu_list[$val['pid']]['chid'][] = $val;
+			}
+		}
+		$menu_list = array_values($menu_list);
+		$link          = Db::name('Link')->order('weigh desc')->select();
+		$cusomer_count = Db::name('customer')->count();
 		// 配置信息
 		$config = [
 			'site'           => array_intersect_key($site, array_flip(['name', 'cdnurl', 'version', 'timezone', 'languages', 'beian', 'telphone', 'logo'])),
@@ -102,11 +110,12 @@ class Frontend extends Controller
 			'modulename'     => $modulename,
 			'controllername' => $controllername,
 			'actionname'     => $actionname,
-			'path'			 => '/'.$modulename.'/'.$controllername.'/'.$actionname,
+			'path'           => '/' . $modulename . '/' . $controllername . '/' . $actionname,
 			'jsname'         => 'frontend/' . str_replace('.', '/', $controllername),
 			'moduleurl'      => rtrim(url("/{$modulename}", '', false), '/'),
 			'language'       => $lang,
-			'link'           => $link
+			'link'           => $link,
+			'customer_count' => $cusomer_count+500
 		];
 		$config = array_merge($config, Config::get("view_replace_str"));
 
@@ -117,7 +126,7 @@ class Frontend extends Controller
 		// 加载当前控制器语言包
 		$this->loadlang($controllername);
 		$this->assign('site', $site);
-		$this->assign('menu', $menu);
+		$this->assign('menu', $menu_list);
 		$this->assign('config', $config);
 	}
 
