@@ -75,32 +75,19 @@
     <div class="style_list select_area">
         <form class="pull-left">
             <label>当前筛选：</label>
-            <select class="">
+            <select class="" name="team_door">
                 <option>擅长户型</option>
-                <option>别墅</option>
-                <option>二居室</option>
-                <option>三居室</option>
-                <option>四居室</option>
-                <option>Loft</option>
-                <option>复式</option>
-                <option>其他</option>
+                {volist name="team_door" id="item"}
+                <option value="{$item.id}">{$item.name}</option>
+                {/volist}
             </select>
 
-            <select>
+            <select name="team_style">
                 <option>擅长风格</option>
                 <option>全部</option>
-                <option>现代简约</option>
-                <option>欧式古典</option>
-                <option>新中式</option>
-                <option>法式</option>
-                <option>北欧</option>
-                <option>美式</option>
-                <option>简欧</option>
-                <option>现代前卫</option>
-                <option>雅致主义</option>
-                <option>新古典</option>
-                <option>地中海式</option>
-                <option>其他</option>
+                {volist name="team_style" id="item"}
+                <option value="{$item.id}">{$item.name}</option>
+                {/volist}
             </select>
 
             <select>

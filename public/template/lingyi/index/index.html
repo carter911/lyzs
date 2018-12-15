@@ -72,7 +72,7 @@
             <div class="clearfix"></div>
         </div>
         <a href="/index/index/gxj.html"><img src="{$gxj.image}"
-                                class="img-responsive center-block"></a>
+                                             class="img-responsive center-block"></a>
     </div>
 
     <div class="lis_personalink">
@@ -271,7 +271,9 @@
         </div>
     </div>
 
-    <div class="lis_cust">
+    <div class="lis_cust margin_t">
+        <img src="/assets/img/frontend/lis_cust.jpg" class="center-block img-responsive">
+
         <div id="demo" align="center">
             <table border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
                 <tbody>
@@ -280,15 +282,9 @@
                         <table cellspacing="5" cellpadding="0">
                             <tbody>
                             <tr class="roll_area">
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
-                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
+                                {volist name='witness_lists' id='item'}
+                                <td class="roll_img text-center"><img src="{$item.image}"></td>
+                                {/volist}
                             </tr>
                             </tbody>
                         </table>
@@ -300,24 +296,18 @@
         </div>
 
         <script>
-            var speed = 30
-            demo2.innerHTML = demo1.innerHTML
-
-            function Marquee() {
-                if (demo2.offsetWidth - demo.scrollLeft <= 0)
-                    demo.scrollLeft -= demo1.offsetWidth
-                else {
+            var speed=30
+            demo2.innerHTML=demo1.innerHTML
+            function Marquee(){
+                if(demo2.offsetWidth-demo.scrollLeft<=0)
+                    demo.scrollLeft-=demo1.offsetWidth
+                else{
                     demo.scrollLeft++
                 }
             }
-
-            var MyMar = setInterval(Marquee, speed)
-            demo.onmouseover = function () {
-                clearInterval(MyMar)
-            }
-            demo.onmouseout = function () {
-                MyMar = setInterval(Marquee, speed)
-            }
+            var MyMar=setInterval(Marquee,speed)
+            demo.onmouseover=function() {clearInterval(MyMar)}
+            demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
         </script>
     </div>
 

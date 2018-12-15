@@ -66,6 +66,10 @@ class Index extends Frontend
             $cases_lists[$key]['cases_area_id'] = $resCasesArea['name'];
         }
 
+        // 客户见证
+        $witness_lists = Db::name('witness')->field('image')->select();
+
+        $this->assign('witness_lists', $witness_lists);
         $this->assign('cases_lists', $cases_lists);
         $this->assign('team_img', $team_img);
         $this->assign('banner', $banner);
@@ -84,12 +88,18 @@ class Index extends Frontend
 
     public function gxj()
     {
+        // 客户见证
+        $witness_lists = Db::name('witness')->field('image')->select();
+        $this->assign('witness_lists', $witness_lists);
         $this->assign('title', '个性家-岭艺装饰');
         return $this->view->fetch('gxj');
     }
 
     public function tc()
     {
+        // 客户见证
+        $witness_lists = Db::name('witness')->field('image')->select();
+        $this->assign('witness_lists', $witness_lists);
         $this->assign('title', '套餐-岭艺装饰');
         return $this->view->fetch('tc');
     }
@@ -117,9 +127,16 @@ class Index extends Frontend
     {
         $this->assign('title', '首页-设计团队');
         $team_list = Db::name('team')->limit(10)->order('id desc')->select();
+
         $lists = Db::name('team')->paginate(10, false, [
             'type' => 'page\Page'
         ]);
+        // 擅长户型
+        $team_door = Db::name('team_door')->field('id,name')->select();
+        // 风格
+        $team_style = Db::name('team_style')->field('id,name')->select();
+        $this->assign('team_style', $team_style);
+        $this->assign('team_door', $team_door);
         $this->assign('lists', $lists);
         $this->assign('page', $lists->render());
         $this->assign('team_list', $team_list);

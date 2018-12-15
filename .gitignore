@@ -3,4 +3,5 @@
 runtime/
 vendor/*
 composer.lock
+./application/database.php
 *.sql
