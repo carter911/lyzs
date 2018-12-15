@@ -718,6 +718,7 @@ class Console
                 $defaultCommands[] = new $class();
             }
         }
+
         return $defaultCommands;
     }
 

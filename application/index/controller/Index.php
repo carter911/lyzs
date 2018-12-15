@@ -4,6 +4,7 @@ namespace app\index\controller;
 
 use app\common\controller\Frontend;
 use app\index\model\Articles;
+use app\index\model\Cases;
 use think\Db;
 
 use app\common\library\Token;
@@ -17,7 +18,7 @@ class Index extends Frontend
     protected $layout = '';
 
 
-    private $article ;
+    private $article;
 
     public function _initialize()
     {
@@ -28,55 +29,82 @@ class Index extends Frontend
 
     public function index()
     {
-		$this->assign('title','首页-岭艺装饰');
-		$banner = Db::name('banner')->field('image')->where(['status'=>1])->order('id desc')->find();
-		$gxj = Db::name('banner')->where(['status'=>4])->order('id desc')->find();
-		$tc = Db::name('banner')->where(['status'=>2])->order('id desc')->find();
+        $this->assign('title', '首页-岭艺装饰');
+        $banner = Db::name('banner')->field('image')->where(['status' => 1])->order('id desc')->find();
+        $gxj = Db::name('banner')->where(['status' => 4])->order('id desc')->find();
+        $tc = Db::name('banner')->where(['status' => 2])->order('id desc')->find();
 
-		$customer_list = Db::name('customer')->limit(10)->order('id desc')->select();
-		foreach ($customer_list as $key => $val){
-			$customer_list[$key]['name'] = mb_substr($val['name'],0,1);
-			$customer_list[$key]['mobile'] = substr($val['mobile'],0,3).'*******'.substr($val['mobile'],10,1);
-			$customer_list[$key]['createtime'] = date("m/d",$val['createtime']);
-		}
+        $customer_list = Db::name('customer')->limit(10)->order('id desc')->select();
+        foreach ($customer_list as $key => $val) {
+            $customer_list[$key]['name'] = mb_substr($val['name'], 0, 1);
+            $customer_list[$key]['mobile'] = substr($val['mobile'], 0, 3) . '*******' . substr($val['mobile'], 10, 1);
+            $customer_list[$key]['createtime'] = date("m/d", $val['createtime']);
+        }
+        // 团队banner
+        $team_img = Db::name('team')->field('image')->limit(10)->order('id desc')->select();
+        // 团队案例
+        $casesModel = new Cases();
+        $casesObj = $casesModel->limit(6)->order('id desc')->select();
+        $cases_lists = $casesObj->toArray();
+        foreach ($cases_lists as $key => $val) {
+            $resTeamDoor = Db::name('teamDoor')->field('name')
+                ->where('id', 'in', $cases_lists[$key]['team_door_ids'])->select();
+            foreach ($resTeamDoor as $k => $v) $resTD[$v['name']] = $k;
+            $cases_lists[$key]['team_door_ids'] = array_keys($resTD);
 
-		$this->assign('banner',$banner);
-		$this->assign('gxj',$gxj);
-		$this->assign('tc',$tc);
-		$this->assign('customers',$customer_list);
-		return $this->view->fetch('index');
+            $resTeamStyle = Db::name('teamStyle')->field('name')
+                ->where('id', 'in', $cases_lists[$key]['team_style_ids'])->select();
+            foreach ($resTeamStyle as $k => $v) $resTS[$v['name']] = $k;
+            $cases_lists[$key]['team_style_ids'] = array_keys($resTS);
+
+            $resTeam = Db::name('team')->field('name')
+                ->where('id', $cases_lists[$key]['team_team_id'])->find();
+            $cases_lists[$key]['team_team_id'] = $resTeam['name'];
+
+            $resCasesArea = Db::name('cases_area')->field('name')
+                ->where('id', $cases_lists[$key]['cases_area_id'])->find();
+            $cases_lists[$key]['cases_area_id'] = $resCasesArea['name'];
+        }
+
+        $this->assign('cases_lists', $cases_lists);
+        $this->assign('team_img', $team_img);
+        $this->assign('banner', $banner);
+        $this->assign('gxj', $gxj);
+        $this->assign('tc', $tc);
+        $this->assign('customers', $customer_list);
+        return $this->view->fetch('index');
     }
 
 
-	public function ppsl()
-	{
-		$this->assign('title','品牌实力-岭艺装饰');
-		return $this->view->fetch('ppsl');
-	}
+    public function ppsl()
+    {
+        $this->assign('title', '品牌实力-岭艺装饰');
+        return $this->view->fetch('ppsl');
+    }
 
-	public function gxj()
-	{
-		$this->assign('title','个性家-岭艺装饰');
-		return $this->view->fetch('gxj');
-	}
+    public function gxj()
+    {
+        $this->assign('title', '个性家-岭艺装饰');
+        return $this->view->fetch('gxj');
+    }
 
-	public function tc()
-	{
-		$this->assign('title','套餐-岭艺装饰');
-		return $this->view->fetch('tc');
-	}
+    public function tc()
+    {
+        $this->assign('title', '套餐-岭艺装饰');
+        return $this->view->fetch('tc');
+    }
 
-	public function gddz()
-	{
-		$this->assign('title','高端定制-岭艺装饰');
-		return $this->view->fetch('gddz');
-	}
+    public function gddz()
+    {
+        $this->assign('title', '高端定制-岭艺装饰');
+        return $this->view->fetch('gddz');
+    }
 
-	public function sjal()
-	{
-		$this->assign('title','实景案例-岭艺装饰');
-		return $this->view->fetch('sjal');
-	}
+    public function sjal()
+    {
+        $this->assign('title', '实景案例-岭艺装饰');
+        return $this->view->fetch('sjal');
+    }
 
     //售后保障
     public function shbz()
@@ -87,6 +115,14 @@ class Index extends Frontend
     //设计团队
     public function sjtd()
     {
+        $this->assign('title', '首页-设计团队');
+        $team_list = Db::name('team')->limit(10)->order('id desc')->select();
+        $lists = Db::name('team')->paginate(10, false, [
+            'type' => 'page\Page'
+        ]);
+        $this->assign('lists', $lists);
+        $this->assign('page', $lists->render());
+        $this->assign('team_list', $team_list);
         return $this->view->fetch("sjtd");
     }
 
@@ -97,10 +133,10 @@ class Index extends Frontend
     }
 
     //最新活动
-    public function zxhd($pageIndex=1, $status=1)
+    public function zxhd($pageIndex = 1, $status = 1)
     {
-        $article_list = $this->article ->get_article_list($pageIndex,$status);
-        $page_list = $this->article->get_page($pageIndex,$status);
+        $article_list = $this->article->get_article_list($pageIndex, $status);
+        $page_list = $this->article->get_page($pageIndex, $status);
 
         $this->assign("article_list", $article_list);
         $this->assign("article_page", $page_list);
@@ -110,10 +146,10 @@ class Index extends Frontend
 
 
     //家居资讯
-    public function jjzx($pageIndex=1, $status=2)
+    public function jjzx($pageIndex = 1, $status = 2)
     {
-        $article_list = $this->article ->get_article_list($pageIndex,$status);
-        $page_list = $this->article->get_page($pageIndex,$status);
+        $article_list = $this->article->get_article_list($pageIndex, $status);
+        $page_list = $this->article->get_page($pageIndex, $status);
 
         $this->assign("article_list", $article_list);
         $this->assign("article_page", $page_list);
@@ -145,13 +181,12 @@ class Index extends Frontend
      */
     public function look_article_detail($id)
     {
-        $article_detail = $this->article ->where(["id" => $id])->find();
+        $article_detail = $this->article->where(["id" => $id])->find();
         $this->assign("article_detail", $article_detail);
 
         return $this->view->fetch("article_detail");
 
     }
-
 
 
 }
