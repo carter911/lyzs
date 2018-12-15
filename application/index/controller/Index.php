@@ -42,26 +42,30 @@ class Index extends Frontend
         }
         // 团队banner
         $team_img = Db::name('team')->field('image')->limit(10)->order('id desc')->select();
-//        $where[] = "FIND_IN_SET(".$group_id.",group_id_list)"; team_style_ids
-
-//        $resdata = Db::table('fa_cases')->alias('c')
-//            ->join('fa_team_door d',"FIND_IN_SET(d.id,c.team_door_ids)")->buildSql();
-        // 团队案例db('category')->alias('c')->join('__SERVICE__ s','find_in_set(s.id,c.s_id)')->group('s.s_id')->select()
-//        $team_name = Db::name('team')->field('id,name')->select();
-
+        // 团队案例
         $casesModel = new Cases();
         $casesObj = $casesModel->limit(6)->order('id desc')->select();
         $cases_lists = $casesObj->toArray();
         foreach ($cases_lists as $key => $val) {
             $resTeamDoor = Db::name('teamDoor')->field('name')
-                ->where('id', 'in', $cases_lists[$key]['team_door_ids'])
-                ->select();
-            foreach ($resTeamDoor as $k => $v) $res[$v['name']] = $k;
-            $cases_lists[$key]['team_door_ids'] = array_keys($res);
+                ->where('id', 'in', $cases_lists[$key]['team_door_ids'])->select();
+            foreach ($resTeamDoor as $k => $v) $resTD[$v['name']] = $k;
+            $cases_lists[$key]['team_door_ids'] = array_keys($resTD);
+
+            $resTeamStyle = Db::name('teamStyle')->field('name')
+                ->where('id', 'in', $cases_lists[$key]['team_style_ids'])->select();
+            foreach ($resTeamStyle as $k => $v) $resTS[$v['name']] = $k;
+            $cases_lists[$key]['team_style_ids'] = array_keys($resTS);
+
+            $resTeam = Db::name('team')->field('name')
+                ->where('id', $cases_lists[$key]['team_team_id'])->find();
+            $cases_lists[$key]['team_team_id'] = $resTeam['name'];
+
+            $resCasesArea = Db::name('cases_area')->field('name')
+                ->where('id', $cases_lists[$key]['cases_area_id'])->find();
+            $cases_lists[$key]['cases_area_id'] = $resCasesArea['name'];
         }
 
-        dump($cases_lists);
-        die();
         $this->assign('cases_lists', $cases_lists);
         $this->assign('team_img', $team_img);
         $this->assign('banner', $banner);

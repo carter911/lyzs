@@ -2,7 +2,6 @@
 
 namespace app\index\model;
 
-use think\Db;
 use think\Model;
 
 class Cases extends Model
@@ -14,11 +13,4 @@ class Cases extends Model
     {
         parent::initialize();
     }
-
-//    public function getTeamDoorIdsAttr($value)
-//    {
-//        $newVal = explode(",", $value);
-//        return $newVal;
-//    }
-
 }

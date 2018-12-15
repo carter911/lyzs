@@ -128,10 +128,12 @@
                         {/if}
                         {/volist}
                     </div>
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" style="top:20%;left: 0;">
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"
+                       style="top:20%;left: 0;">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" style="top:20%;right: 0;">
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"
+                       style="top:20%;right: 0;">
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -146,224 +148,242 @@
                             <div class="gold-content">
                                 <h5 class="title" style="padding-top: 0">{$item.name}</h5>
                                 <ul class="goldcase_info">
-                                    <li class="text-left"><a href="#"><p>{$item.team_style_ids}</p></a></li>
-                                    <li class="text-left"><a href="#"><p>别墅&nbsp;/&nbsp;联排&nbsp;/&nbsp;300㎡</p></a></li>
+                                    <li class="text-left">
+                                        <a href="#"><p>
+                                            {volist name="$item.team_style_ids" id="style_id"}
+                                            {$style_id}
+                                            {/volist}
+                                        </p></a>
+                                    </li>
+                                    <li class="text-left"><a href="#">
+                                        <p>
+                                            {volist name="$item.team_door_ids" id="door_id"}
+                                            {$door_id} /
+                                            {/volist}
+                                            {$item.cases_area_id} ㎡
+                                        </p></a></li>
                                     <li class="text-left"><a href="#"><p>半包总价 {$item.price}</p></a></li>
+                                    <li class="text-left"><a href="#"><p>设计团队 {$item.team_team_id}</p></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 {/volist}
             </div>
-    </div>
-
-    <div class="lis_personalink">
-        <div class="personalink_title">
-            <h2 class="pull-left lis_title"><a href="activity.html">岭艺动态&nbsp;/&nbsp;Lingyi Dynamic</a></h2>
-            <a href="personality.html" class="pull-right">了解详情&nbsp;&gt;</a>
-            <div class="clearfix"></div>
         </div>
 
-        <div class="dynamic_area">
-            <div class="row">
-                <div class="col-xs-5" style="padding-right: 0">
-                    <div class="dynamic_lis">
-                        <a href="#"><img src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block"></a>
-                    </div>
-                </div>
+        <div class="lis_personalink">
+            <div class="personalink_title">
+                <h2 class="pull-left lis_title"><a href="activity.html">岭艺动态&nbsp;/&nbsp;Lingyi Dynamic</a></h2>
+                <a href="personality.html" class="pull-right">了解详情&nbsp;&gt;</a>
+                <div class="clearfix"></div>
+            </div>
 
-                <div class="col-xs-7">
-                    <div class="dynamic_lis dynamic_art">
-                        <p>/&nbsp;2018.5.20</p>
-                        <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
+            <div class="dynamic_area">
+                <div class="row">
+                    <div class="col-xs-5" style="padding-right: 0">
+                        <div class="dynamic_lis">
+                            <a href="#"><img src="/assets/img/frontend/dynamic_img.png"
+                                             class="img-responsive center-block"></a>
+                        </div>
                     </div>
-                    <div class="dynamic_lis dynamic_art">
-                        <p>/&nbsp;2018.5.20</p>
-                        <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
-                    </div>
-                    <div class="dynamic_lis dynamic_art">
-                        <p>/&nbsp;2018.5.20</p>
-                        <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
-                    </div>
-                    <div class="dynamic_lis dynamic_art" style="margin-bottom: 0">
-                        <p>/&nbsp;2018.5.20</p>
-                        <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
+
+                    <div class="col-xs-7">
+                        <div class="dynamic_lis dynamic_art">
+                            <p>/&nbsp;2018.5.20</p>
+                            <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
+                        </div>
+                        <div class="dynamic_lis dynamic_art">
+                            <p>/&nbsp;2018.5.20</p>
+                            <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
+                        </div>
+                        <div class="dynamic_lis dynamic_art">
+                            <p>/&nbsp;2018.5.20</p>
+                            <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
+                        </div>
+                        <div class="dynamic_lis dynamic_art" style="margin-bottom: 0">
+                            <p>/&nbsp;2018.5.20</p>
+                            <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="lis_personalink margin_t">
+            <div class="chuntcase_lis">
+                <div class="case_list">
+                    <div class="case_villa">
+                        <div class="culture_link">
+                            <img src="/assets/img/frontend/culutre_link.png"
+                                 class="img-responsive center-block culture_icon">
+                            <h4 class="text-center"><a href="#">岭&nbsp;艺&nbsp;文&nbsp;化</a></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case_list">
+                    <div class="case_villa">
+                        <div class="culture_link">
+                            <img src="/assets/img/frontend/competitive_link.png"
+                                 class="img-responsive center-block culture_icon">
+                            <h4 class="text-center"><a href="#">精&nbsp;品&nbsp;工&nbsp;地</a></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case_list">
+                    <div class="case_villa">
+                        <div class="culture_link">
+                            <img src="/assets/img/frontend/team_link.png"
+                                 class="img-responsive center-block culture_icon">
+                            <h4 class="text-center"><a href="sjtd.html">设&nbsp;计&nbsp;团&nbsp;队</a></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case_list">
+                    <div class="case_villa">
+                        <div class="culture_link">
+                            <img src="/assets/img/frontend/720_link.png"
+                                 class="img-responsive center-block culture_icon">
+                            <h4 class="text-center"><a href="#">720&nbsp;全&nbsp;景</a></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case_list">
+                    <div class="case_villa">
+                        <div class="culture_link">
+                            <img src="/assets/img/frontend/activity_link.png"
+                                 class="img-responsive center-block culture_icon">
+                            <h4 class="text-center"><a href="tc.html">钜&nbsp;惠&nbsp;活&nbsp;动</a></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <img src="/assets/img/frontend/Phone.png" class="img-responsive center-block" style="margin-top: 50px">
+            <h3 class="text-center"><b>联系电话</b></h3>
+            <h1 class="text-center"><b>{$site.telphone}</b></h1>
+        </div>
     </div>
 
-    <div class="lis_personalink margin_t">
-        <div class="chuntcase_lis">
-            <div class="case_list">
-                <div class="case_villa">
-                    <div class="culture_link">
-                        <img src="/assets/img/frontend/culutre_link.png"
-                             class="img-responsive center-block culture_icon">
-                        <h4 class="text-center"><a href="#">岭&nbsp;艺&nbsp;文&nbsp;化</a></h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case_list">
-                <div class="case_villa">
-                    <div class="culture_link">
-                        <img src="/assets/img/frontend/competitive_link.png"
-                             class="img-responsive center-block culture_icon">
-                        <h4 class="text-center"><a href="#">精&nbsp;品&nbsp;工&nbsp;地</a></h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case_list">
-                <div class="case_villa">
-                    <div class="culture_link">
-                        <img src="/assets/img/frontend/team_link.png" class="img-responsive center-block culture_icon">
-                        <h4 class="text-center"><a href="sjtd.html">设&nbsp;计&nbsp;团&nbsp;队</a></h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case_list">
-                <div class="case_villa">
-                    <div class="culture_link">
-                        <img src="/assets/img/frontend/720_link.png" class="img-responsive center-block culture_icon">
-                        <h4 class="text-center"><a href="#">720&nbsp;全&nbsp;景</a></h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case_list">
-                <div class="case_villa">
-                    <div class="culture_link">
-                        <img src="/assets/img/frontend/activity_link.png"
-                             class="img-responsive center-block culture_icon">
-                        <h4 class="text-center"><a href="tc.html">钜&nbsp;惠&nbsp;活&nbsp;动</a></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
+    <div class="lis_cust">
+        <div id="demo" align="center">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
+                <tbody>
+                <tr>
+                    <td valign="top" id="demo1">
+                        <table cellspacing="5" cellpadding="0">
+                            <tbody>
+                            <tr class="roll_area">
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
+                                <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td id="demo2" valign="top"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
-        <img src="/assets/img/frontend/Phone.png" class="img-responsive center-block" style="margin-top: 50px">
-        <h3 class="text-center"><b>联系电话</b></h3>
-        <h1 class="text-center"><b>{$site.telphone}</b></h1>
-    </div>
-</div>
+        <script>
+            var speed = 30
+            demo2.innerHTML = demo1.innerHTML
 
-<div class="lis_cust">
-    <div id="demo" align="center">
-        <table border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
-            <tbody>
-            <tr>
-                <td valign="top" id="demo1">
-                    <table cellspacing="5" cellpadding="0">
-                        <tbody>
-                        <tr class="roll_area">
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq1.jpg"></td>
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq2.jpg"></td>
-                            <td class="roll_img text-center"><img src="/assets/img/frontend/jq3.jpg"></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </td>
-                <td id="demo2" valign="top"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <script>
-        var speed = 30
-        demo2.innerHTML = demo1.innerHTML
-
-        function Marquee() {
-            if (demo2.offsetWidth - demo.scrollLeft <= 0)
-                demo.scrollLeft -= demo1.offsetWidth
-            else {
-                demo.scrollLeft++
+            function Marquee() {
+                if (demo2.offsetWidth - demo.scrollLeft <= 0)
+                    demo.scrollLeft -= demo1.offsetWidth
+                else {
+                    demo.scrollLeft++
+                }
             }
-        }
 
-        var MyMar = setInterval(Marquee, speed)
-        demo.onmouseover = function () {
-            clearInterval(MyMar)
-        }
-        demo.onmouseout = function () {
-            MyMar = setInterval(Marquee, speed)
-        }
-    </script>
-</div>
-
-<!----------------------------------固定区域--------------------------------------------->
-<div class="bot_scroll navbar-inverse container-fluid navbar-fixed-bottom">
-    <div class="container fix_content">
-        <div class="row">
-            <div class="col-xs-1">
-                <img src="/assets/img/frontend/bot_scro1.gif" class="img-responsive">
-            </div>
-            <div class="col-xs-8">
-                <form class="form-inline count_area row">
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control" id="iptname" placeholder="请输入您的名字" style="width: 130px">
-                    </div>
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control" id="mobile" placeholder="手机号"
-                               style="width: 130px;margin-left: 8px">
-                    </div>
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control pull-right" id="space" placeholder="房产证面积"
-                               style="width: 100px;margin-left: 10px;">
-                    </div>
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control" id="room" placeholder="输入数字"
-                               style="width: 78px;margin-left: 5px">
-                        <label for="room" class="color_f" style="font-size: 18px">室</label>
-                    </div>
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control" id="toilet" placeholder="输入数字" style="width: 80px">
-                        <label for="toilet" class="color_f" style="font-size: 18px">卫</label>
-                    </div>
-                    <div class="col-xs-2">
-                        <button type="submit" class="btn search_btn sub_btn color_f"
-                                style="border-radius: 4px;background-color: #0099DD">开始计算报价
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-            <div class="col-xs-3">
-                <img src="/assets/img/frontend/telimg.png" class="img-responsive telnum">
-            </div>
-        </div>
-
+            var MyMar = setInterval(Marquee, speed)
+            demo.onmouseover = function () {
+                clearInterval(MyMar)
+            }
+            demo.onmouseout = function () {
+                MyMar = setInterval(Marquee, speed)
+            }
+        </script>
     </div>
-</div>
 
-<div class="rightfix_bar">
-    <ul class="list-unstyled">
-        <li><a href="#top"><img src="/assets/img/frontend/1.png" onmouseover="this.src='/assets/img/frontend/1_1.png'"
-                                onmouseout="this.src='/assets/img/frontend/1.png'" class="img-responsive center-block"></a>
-        </li>
-        <li><a href="#"><img src="/assets/img/frontend/2.png" onmouseover="this.src='/assets/img/frontend/2_2.png'"
-                             onmouseout="this.src='/assets/img/frontend/2.png'" class="img-responsive center-block"></a>
-        </li>
-        <li><a href="#"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
-                             onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
-        </li>
-        <li><a href="#"><img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
-                             onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block"></a>
-        </li>
-        <li><img style="z-index: 99999" width="100px" src="/assets/img/frontend/rightfix_ad.gif"
-                 class="img-responsive center-block"></li>
-    </ul>
-</div>
+    <!----------------------------------固定区域--------------------------------------------->
+    <div class="bot_scroll navbar-inverse container-fluid navbar-fixed-bottom">
+        <div class="container fix_content">
+            <div class="row">
+                <div class="col-xs-1">
+                    <img src="/assets/img/frontend/bot_scro1.gif" class="img-responsive">
+                </div>
+                <div class="col-xs-8">
+                    <form class="form-inline count_area row">
+                        <div class="form-group col-xs-2">
+                            <input type="text" class="form-control" id="iptname" placeholder="请输入您的名字"
+                                   style="width: 130px">
+                        </div>
+                        <div class="form-group col-xs-2">
+                            <input type="text" class="form-control" id="mobile" placeholder="手机号"
+                                   style="width: 130px;margin-left: 8px">
+                        </div>
+                        <div class="form-group col-xs-2">
+                            <input type="text" class="form-control pull-right" id="space" placeholder="房产证面积"
+                                   style="width: 100px;margin-left: 10px;">
+                        </div>
+                        <div class="form-group col-xs-2">
+                            <input type="text" class="form-control" id="room" placeholder="输入数字"
+                                   style="width: 78px;margin-left: 5px">
+                            <label for="room" class="color_f" style="font-size: 18px">室</label>
+                        </div>
+                        <div class="form-group col-xs-2">
+                            <input type="text" class="form-control" id="toilet" placeholder="输入数字" style="width: 80px">
+                            <label for="toilet" class="color_f" style="font-size: 18px">卫</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <button type="submit" class="btn search_btn sub_btn color_f"
+                                    style="border-radius: 4px;background-color: #0099DD">开始计算报价
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-xs-3">
+                    <img src="/assets/img/frontend/telimg.png" class="img-responsive telnum">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="rightfix_bar">
+        <ul class="list-unstyled">
+            <li><a href="#top"><img src="/assets/img/frontend/1.png"
+                                    onmouseover="this.src='/assets/img/frontend/1_1.png'"
+                                    onmouseout="this.src='/assets/img/frontend/1.png'"
+                                    class="img-responsive center-block"></a>
+            </li>
+            <li><a href="#"><img src="/assets/img/frontend/2.png" onmouseover="this.src='/assets/img/frontend/2_2.png'"
+                                 onmouseout="this.src='/assets/img/frontend/2.png'" class="img-responsive center-block"></a>
+            </li>
+            <li><a href="#"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
+                                 onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
+            </li>
+            <li><a href="#"><img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
+                                 onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block"></a>
+            </li>
+            <li><img style="z-index: 99999" width="100px" src="/assets/img/frontend/rightfix_ad.gif"
+                     class="img-responsive center-block"></li>
+        </ul>
+    </div>
