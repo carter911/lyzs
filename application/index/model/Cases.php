@@ -15,10 +15,10 @@ class Cases extends Model
         parent::initialize();
     }
 
-    public function getTeamDoorIdsAttr($value)
-    {
-        $newVal = explode(",", $value);
-        return $newVal;
-    }
+//    public function getTeamDoorIdsAttr($value)
+//    {
+//        $newVal = explode(",", $value);
+//        return $newVal;
+//    }
 
 }

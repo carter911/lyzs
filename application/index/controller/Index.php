@@ -42,16 +42,26 @@ class Index extends Frontend
         }
         // 团队banner
         $team_img = Db::name('team')->field('image')->limit(10)->order('id desc')->select();
-//        $resdata = Db::table('fa_cases')->alias('cases')
-//            ->join('team_door Door',find_in_set(Door.id,cases.team_door_ids))
-//            ->group('cases.team_door_ids')->select();
+//        $where[] = "FIND_IN_SET(".$group_id.",group_id_list)"; team_style_ids
+
+//        $resdata = Db::table('fa_cases')->alias('c')
+//            ->join('fa_team_door d',"FIND_IN_SET(d.id,c.team_door_ids)")->buildSql();
         // 团队案例db('category')->alias('c')->join('__SERVICE__ s','find_in_set(s.id,c.s_id)')->group('s.s_id')->select()
 //        $team_name = Db::name('team')->field('id,name')->select();
-//        $teamDoor = Db::name('teamDoor')->field('id,name')->select();team_door_ids
-//        dump($resdata);
+
         $casesModel = new Cases();
         $casesObj = $casesModel->limit(6)->order('id desc')->select();
         $cases_lists = $casesObj->toArray();
+        foreach ($cases_lists as $key => $val) {
+            $resTeamDoor = Db::name('teamDoor')->field('name')
+                ->where('id', 'in', $cases_lists[$key]['team_door_ids'])
+                ->select();
+            foreach ($resTeamDoor as $k => $v) $res[$v['name']] = $k;
+            $cases_lists[$key]['team_door_ids'] = array_keys($res);
+        }
+
+        dump($cases_lists);
+        die();
         $this->assign('cases_lists', $cases_lists);
         $this->assign('team_img', $team_img);
         $this->assign('banner', $banner);
