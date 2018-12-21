@@ -99,7 +99,13 @@ class Index extends Frontend
     {
         // 客户见证
         $witness_lists = Db::name('witness')->field('image')->select();
+        $material_lists = Db::name('material')->field('image')->select();
+        $material_category_lists = Db::name('material_category')->field('id,name')->limit(5)->select();
+        var_dump($material_lists);
+        var_dump($material_category_lists);
         $this->assign('witness_lists', $witness_lists);
+        $this->assign('material_lists', $material_lists);
+        $this->assign('material_category_lists', $material_category_lists);
         $this->assign('title', '套餐-岭艺装饰');
         return $this->view->fetch('tc');
     }

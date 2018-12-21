@@ -661,11 +661,15 @@
 				<div class="inner_info">
 					<div class="inner_info">
 						<ul id="admeatrTabs" class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#waterpipe" id="waterpipe-tab" role="tab" data-toggle="tab" aria-controls="waterpipe" aria-expanded="true" style="padding: 10px 96px;">水管</a></li>
-							<li role="presentation"><a href="#wire" role="tab" id="wire-tab" data-toggle="tab" aria-controls="wire" style="padding: 10px 96px;">电线</a></li>
-							<li role="presentation"><a href="#plates" id="plates-tab" role="tab" data-toggle="tab" aria-controls="plates" style="padding: 10px 95px;">板材</a></li>
-							<li role="presentation"><a href="#emulsion" id="emulsion-tab" role="tab" data-toggle="tab" aria-controls="emulsion" style="padding: 10px 95px;">乳胶漆</a></li>
-							<li role="presentation"><a href="#accessories" id="accessories-tab" role="tab" data-toggle="tab" aria-controls="accessories" style="padding: 10px 95px;margin-right: 0">墙面辅料</a></li>
+							{volist name='material_category_lists' id='item' key='k'}
+							<li role="presentation" {$k==1?"class='active'" : ""} >
+								<a href="#waterpipe" id="waterpipe-tab" role="tab" data-toggle="tab" aria-controls="waterpipe" aria-expanded="true" style="padding: 10px 96px;">{$item.name}</a>
+							</li>
+							{/volist}
+							<!--<li role="presentation"><a href="#wire" role="tab" id="wire-tab" data-toggle="tab" aria-controls="wire" style="padding: 10px 96px;">电线</a></li>-->
+							<!--<li role="presentation"><a href="#plates" id="plates-tab" role="tab" data-toggle="tab" aria-controls="plates" style="padding: 10px 95px;">板材</a></li>-->
+							<!--<li role="presentation"><a href="#emulsion" id="emulsion-tab" role="tab" data-toggle="tab" aria-controls="emulsion" style="padding: 10px 95px;">乳胶漆</a></li>-->
+							<!--<li role="presentation"><a href="#accessories" id="accessories-tab" role="tab" data-toggle="tab" aria-controls="accessories" style="padding: 10px 95px;margin-right: 0">墙面辅料</a></li>-->
 						</ul>
 					</div>
 				</div>
@@ -680,13 +684,15 @@
 							</ol>
 							
 							<div class="carousel-inner" role="listbox">
-								<div class="item active">
+								{volist name='material_lists' id='item' key='k'}
+								<div class="item {$k==1?'active' : ''}">
 									<div class="material_area">
 										<img src="/assets/img/frontend/floor01.jpg" class="img-responsive center-block">
 										
 										<div class="material_show">
 											<div class="material_info">
-												<img src="/assets/img/frontend/floor01_info.jpg" class="img-responsive center-block">
+												<!--<img src="/assets/img/frontend/floor01_info.jpg" class="img-responsive center-block">-->
+												<img src="{$item.image}" class="img-responsive center-block">
 												<p>地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
 											</div>
 											<div class="material_img">
@@ -706,6 +712,7 @@
 										</div>
 									</div>
 								</div>
+								{/volist}
 								<div class="item">
 									<div class="material_area">
 										<img src="/assets/img/frontend/floor02.jpg" class="img-responsive center-block">

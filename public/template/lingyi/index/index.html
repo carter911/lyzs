@@ -66,13 +66,14 @@
 <div class="container" style="width: 1200px;margin: 0 auto">
     <div class="lis_personalink">
         <div class="personalink_title">
-            <h2 class="pull-left lis_title" style=""><a href="gxj.html">岭艺个性家&nbsp;/&nbsp;Lingyi Personalized
+            <h2 class="pull-left lis_title" style=""><a href="gxj.html">岭艺个性家 /&nbsp;Lingyi Personalized
                 house</a></h2>
             <a href="/index/index/gxj.html" class="pull-right">了解详情&nbsp;&gt;</a>
             <div class="clearfix"></div>
         </div>
-        <a href="/index/index/gxj.html"><img src="{$gxj.image}"
-                                             class="img-responsive center-block"></a>
+        <a href="/index/index/gxj.html">
+            <img src="{$gxj.image}" class="img-responsive center-block">
+        </a>
     </div>
 
     <div class="lis_personalink">
@@ -296,18 +297,24 @@
         </div>
 
         <script>
-            var speed=30
-            demo2.innerHTML=demo1.innerHTML
-            function Marquee(){
-                if(demo2.offsetWidth-demo.scrollLeft<=0)
-                    demo.scrollLeft-=demo1.offsetWidth
-                else{
+            var speed = 30
+            demo2.innerHTML = demo1.innerHTML
+
+            function Marquee() {
+                if (demo2.offsetWidth - demo.scrollLeft <= 0)
+                    demo.scrollLeft -= demo1.offsetWidth
+                else {
                     demo.scrollLeft++
                 }
             }
-            var MyMar=setInterval(Marquee,speed)
-            demo.onmouseover=function() {clearInterval(MyMar)}
-            demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+
+            var MyMar = setInterval(Marquee, speed)
+            demo.onmouseover = function () {
+                clearInterval(MyMar)
+            }
+            demo.onmouseout = function () {
+                MyMar = setInterval(Marquee, speed)
+            }
         </script>
     </div>
 
