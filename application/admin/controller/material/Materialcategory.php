@@ -9,7 +9,7 @@ use app\common\controller\Backend;
  *
  * @icon fa fa-circle-o
  */
-class MaterialCategory extends Backend
+class Materialcategory extends Backend
 {
     
     /**
