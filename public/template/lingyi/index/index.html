@@ -182,31 +182,26 @@
             </div>
 
             <div class="dynamic_area">
-                <div class="row">
+                <div class="row" style="height: 380px;overflow: hidden;">
+
                     <div class="col-xs-5" style="padding-right: 0">
-                        <div class="dynamic_lis">
-                            <a href="#"><img src="/assets/img/frontend/dynamic_img.png"
-                                             class="img-responsive center-block"></a>
+                        <div class="dynamic_lis" style="height: 400px;">
+                            <a href="#"><img src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block"></a>
                         </div>
                     </div>
 
                     <div class="col-xs-7">
-                        <div class="dynamic_lis dynamic_art">
-                            <p>/&nbsp;2018.5.20</p>
-                            <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
+                        {volist name="article_list" id='article'}
+                        <div class="dynamic_lis dynamic_art" style="height: 83px;">
+                            <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
+                            <h2 class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
+                                <a href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
+                                    {$article.desc}
+                                </a>
+                            </h2>
                         </div>
-                        <div class="dynamic_lis dynamic_art">
-                            <p>/&nbsp;2018.5.20</p>
-                            <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
-                        </div>
-                        <div class="dynamic_lis dynamic_art">
-                            <p>/&nbsp;2018.5.20</p>
-                            <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
-                        </div>
-                        <div class="dynamic_lis dynamic_art" style="margin-bottom: 0">
-                            <p>/&nbsp;2018.5.20</p>
-                            <h2 class="margin_c"><a href="#" class="dynamic_title">深度信息化，用互联网助发展，让口碑深入人心</a></h2>
-                        </div>
+                        {/volist}
+
                     </div>
                 </div>
             </div>
@@ -295,7 +290,7 @@
                 </tbody>
             </table>
         </div>
-
+/
         <script>
             var speed = 30
             demo2.innerHTML = demo1.innerHTML
@@ -363,24 +358,4 @@
 
         </div>
     </div>
-
-    <div class="rightfix_bar">
-        <ul class="list-unstyled">
-            <li><a href="#top"><img src="/assets/img/frontend/1.png"
-                                    onmouseover="this.src='/assets/img/frontend/1_1.png'"
-                                    onmouseout="this.src='/assets/img/frontend/1.png'"
-                                    class="img-responsive center-block"></a>
-            </li>
-            <li><a href="#"><img src="/assets/img/frontend/2.png" onmouseover="this.src='/assets/img/frontend/2_2.png'"
-                                 onmouseout="this.src='/assets/img/frontend/2.png'" class="img-responsive center-block"></a>
-            </li>
-            <li><a href="#"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
-                                 onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
-            </li>
-            <li><a href="#"><img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
-                                 onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block"></a>
-            </li>
-            <li><img style="z-index: 99999" width="100px" src="/assets/img/frontend/rightfix_ad.gif"
-                     class="img-responsive center-block"></li>
-        </ul>
     </div>

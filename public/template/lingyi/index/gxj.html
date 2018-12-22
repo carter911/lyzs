@@ -6,7 +6,8 @@
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
 <!---------------------------------主体内容---------------------------------------------->
 <div class="container-fluid inner_info">
-    <img src="/assets/img/frontend/personial.png" class="img-responsive center-block">
+    <!--<img src="/assets/img/frontend/personial.png" class="img-responsive center-block">-->
+    <img src="{$banner['image']}" class="img-responsive center-block">
     <div class="container">
         <div class="lis_advta margin_t">
             <img src="/assets/img/frontend/lis_advta.jpg" class="img-responsive center-block">
@@ -1934,53 +1935,55 @@
             <a href="#" class="btn btn-default case_mor freebtn">免费体验APP</a>
             <img src="/assets/img/frontend/appintro.jpg" class="center-block img-responsive">
         </div>
-    </div>
 
-    <div class="lis_cust margin_t">
-        <img src="/assets/img/frontend/lis_cust.jpg" class="center-block img-responsive">
 
-        <div id="demo" align="center">
-            <table border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
-                <tbody>
-                <tr>
-                    <td valign="top" id="demo1">
-                        <table cellspacing="5" cellpadding="0">
-                            <tbody>
-                            <tr class="roll_area">
-                                {volist name='witness_lists' id='item'}
-                                <td class="roll_img text-center"><img src="{$item.image}"></td>
-                                {/volist}
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                    <td id="demo2" valign="top"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="lis_cust margin_t">
+            <img src="/assets/img/frontend/lis_cust.jpg" class="center-block img-responsive">
 
-        <script>
-            var speed = 30
-            demo2.innerHTML = demo1.innerHTML
+            <div id="demo" align="center">
+                <table border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
+                    <tbody>
+                    <tr>
+                        {volist name='witness_lists' id='item'}
+                        <td valign="top" id="demo1">
+                            <table cellspacing="5" cellpadding="0">
+                                <tbody>
+                                <tr class="roll_area">
+                                    <td class="roll_img text-center"><img style="width: 210px;height: 250px;" src="{$item.image}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        {/volist}
+                        <td id="demo2" valign="top"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            function Marquee() {
-                if (demo2.offsetWidth - demo.scrollLeft <= 0)
-                    demo.scrollLeft -= demo1.offsetWidth
-                else {
-                    demo.scrollLeft++
+            <script>
+                var speed = 30
+                demo2.innerHTML = demo1.innerHTML
+
+                function Marquee() {
+                    if (demo2.offsetWidth - demo.scrollLeft <= 0)
+                        demo.scrollLeft -= demo1.offsetWidth
+                    else {
+                        demo.scrollLeft++
+                    }
                 }
-            }
 
-            var MyMar = setInterval(Marquee, speed)
-            demo.onmouseover = function () {
-                clearInterval(MyMar)
-            }
-            demo.onmouseout = function () {
-                MyMar = setInterval(Marquee, speed)
-            }
-        </script>
+                var MyMar = setInterval(Marquee, speed)
+                demo.onmouseover = function () {
+                    clearInterval(MyMar)
+                }
+                demo.onmouseout = function () {
+                    MyMar = setInterval(Marquee, speed)
+                }
+            </script>
+        </div>
     </div>
+
 </div>
 
 <!----------------------------------固定区域--------------------------------------------->

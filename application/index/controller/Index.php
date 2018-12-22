@@ -69,6 +69,9 @@ class Index extends Frontend
 
         // 客户见证
 		$witness_lists = Db::name('witness')->where(['status'=>1])->limit(50)->select();
+        // 最新活动
+        $article_list = Db::name('articles')->where(['status'=>1])->limit(4)->select();
+        $this->assign("article_list", $article_list);
 
         $this->assign('witness_lists', $witness_lists);
         $this->assign('cases_lists', $cases_lists);
@@ -91,6 +94,9 @@ class Index extends Frontend
 
     public function gxj()
     {
+        // 轮播图
+        $banner = Db::name('banner')->field('id,image')->where(['status'=>4])->find();
+        $this->assign('banner', $banner);
         // 主材
         $material_master_list = Db::name('Material')->where(['status'=>1])->limit(6)->select();
         foreach ($material_master_list as $key => $val){
@@ -113,6 +119,9 @@ class Index extends Frontend
 
     public function tc()
     {
+        // 轮播图
+        $banner = Db::name('banner')->field('id,image')->where(['status'=>2])->find();
+        $this->assign('banner', $banner);
         // 客户见证
         $witness_lists = Db::name('witness')->field('image')->select();
         $this->assign('witness_lists', $witness_lists);
@@ -182,6 +191,7 @@ class Index extends Frontend
     //直播
     public function zb()
     {
+        $this->assign('title', '首页-直播');
         return $this->view->fetch("zb");
     }
 
@@ -194,6 +204,7 @@ class Index extends Frontend
         $this->assign("article_list", $article_list);
         $this->assign("article_page", $page_list);
 
+        $this->assign('title', '首页-最新活动');
         return $this->view->fetch("zxhd");
     }
 
