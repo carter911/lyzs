@@ -107,6 +107,14 @@ class Index extends Frontend
         foreach ($material_auxiliary_list as $key => $val){
             $material_auxiliary_list[$key]['images'] = explode(",",$val['images']);
         }
+
+		//工序
+		$procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
+		foreach ($procedure_list as $key => $val){
+			$procedure_list[$key]['images'] = explode(",",$val['images']);
+		}
+		$this->assign('procedure_list', $procedure_list);
+
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
         // 客户见证
@@ -135,6 +143,14 @@ class Index extends Frontend
         foreach ($material_auxiliary_list as $key => $val){
             $material_auxiliary_list[$key]['images'] = explode(",",$val['images']);
         }
+
+		//工序
+		$procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
+		foreach ($procedure_list as $key => $val){
+			$procedure_list[$key]['images'] = explode(",",$val['images']);
+		}
+		$this->assign('procedure_list', $procedure_list);
+
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
 
@@ -150,7 +166,16 @@ class Index extends Frontend
 			$cases = Db::name('cases')->field('name')->where(['butler_id'=>$val['id']])->limit(4)->select();
 			$butler_list[$key]['cases'] = $cases;
 		}
-        $this->assign('butler_list', $butler_list);
+
+
+		$procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
+		foreach ($procedure_list as $key => $val){
+			$procedure_list[$key]['images'] = explode(",",$val['images']);
+		}
+		$this->assign('procedure_list', $procedure_list);
+
+		$this->assign('butler_list', $butler_list);
+
 		$this->assign('title', '高端定制-岭艺装饰');
         return $this->view->fetch('gddz');
     }
@@ -173,28 +198,34 @@ class Index extends Frontend
         $this->assign('title', '首页-设计团队');
 
 		$param = $request->get();
+		$search = ['door'=>'','style'=>'','time'=>'','sex'=>''];
+
 		$where = [];
 		if(isset($param['door']) && $param['door']>0){
+
 			$door = $param['door'];
+			$search['door'] =$door;
 			$where[]=['exp',Db::raw("FIND_IN_SET('$door',team_door_ids)")];
 		}
 		if(isset($param['style']) && $param['style']>0){
 			$style = $param['style'];
+			$search['style'] =$style;
 			$where[]=['exp',Db::raw("FIND_IN_SET('$style',team_style_ids)")];
 		}
 
 		if(isset($param['time']) && $param['time']!=""){
+			$search['time'] =$param['time'];
 			$where['work_num']=['between',$param['time']];
 		}
 
 		if(isset($param['sex']) && $param['sex']!=""){
+			$search['sex'] =$param['sex'];
 			$where['sex']=$param['sex'];
 		}
 
 		$lists = Db::name('team')->where($where)->paginate(10, false, [
             'type' => 'page\Page'
         ]);
-
         // 擅长户型
         $team_door = Db::name('team_door')->field('id,name')->select();
         // 风格
@@ -204,7 +235,7 @@ class Index extends Frontend
         $this->assign('lists', $lists);
         $this->assign('page', $lists->render());
         $this->assign('team_list', $lists);
-		$this->assign('search', $param);
+		$this->assign('search', $search);
         return $this->view->fetch("sjtd");
     }
 
