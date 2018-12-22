@@ -3,21 +3,21 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Material_category_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-material_category_id" data-rule="required" data-source="material/materialCategory/index" class="form-control selectpage form-control" name="row[material_category_id]" type="text" value="{$row.material_category_id}">
+            <input id="c-material_category_id" data-rule="required" data-source="material/category/index" class="form-control selectpage form-control" name="row[material_category_id]" type="text" value="{$row.material_category_id}">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">{:__('Image')}:</label>
+        <label class="control-label col-xs-12 col-sm-2">{:__('Images')}:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="input-group">
-                <input id="c-image" class="form-control form-control" size="50" name="row[image]" type="text" value="{$row.image}">
+                <input id="c-images" class="form-control form-control" size="50" name="row[images]" type="text" value="{$row.images}">
                 <div class="input-group-addon no-border no-padding">
-                    <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
-                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                    <span><button type="button" id="plupload-images" class="btn btn-danger plupload" data-input-id="c-images" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="true" data-preview-id="p-images"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-images" class="btn btn-primary fachoose" data-input-id="c-images" data-mimetype="image/*" data-multiple="true"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
                 </div>
-                <span class="msg-box n-right" for="c-image"></span>
+                <span class="msg-box n-right" for="c-images"></span>
             </div>
-            <ul class="row list-inline plupload-preview" id="p-image"></ul>
+            <ul class="row list-inline plupload-preview" id="p-images"></ul>
         </div>
     </div>
     <div class="form-group">

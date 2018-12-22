@@ -5,7 +5,7 @@ namespace app\admin\controller\Material;
 use app\common\controller\Backend;
 
 /**
- * 
+ * 材料
  *
  * @icon fa fa-circle-o
  */
