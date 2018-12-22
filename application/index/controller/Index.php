@@ -91,10 +91,20 @@ class Index extends Frontend
 
     public function gxj()
     {
+    	$material_list = Db::name('Material')
+			->where(['status'=>1])
+			->limit(6)
+			->select();
+
+    	foreach ($material_list as $key => $val){
+			$material_list[$key]['images'] = explode(",",$val['images']);
+		}
         // 客户见证
         $witness_lists = Db::name('witness')->field('image')->select();
         $this->assign('witness_lists', $witness_lists);
         $this->assign('title', '个性家-岭艺装饰');
+
+		$this->assign('material_list', $material_list);
         return $this->view->fetch('gxj');
     }
 
