@@ -1,29 +1,28 @@
 <?php
 
-namespace app\admin\controller\cases;
+namespace app\admin\controller;
 
 use app\common\controller\Backend;
 
 /**
- * 案例时光机
+ * 项目管家
  *
  * @icon fa fa-circle-o
  */
-class Cases extends Backend
+class Butler extends Backend
 {
     
     /**
-     * Cases模型对象
-     * @var \app\admin\model\Cases
+     * Butler模型对象
+     * @var \app\admin\model\Butler
      */
     protected $model = null;
 
     public function _initialize()
     {
         parent::_initialize();
-        $this->model = new \app\admin\model\Cases;
-        $this->view->assign("statusList", $this->model->getStatusList());
-        $this->view->assign("typeList", $this->model->getTypeList());
+        $this->model = new \app\admin\model\Butler;
+
     }
     
     /**
