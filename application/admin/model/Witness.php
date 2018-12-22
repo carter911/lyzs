@@ -25,7 +25,7 @@ class Witness extends Model
     
     public function getStatusList()
     {
-        return [' 1' => __('Status  1'),'2' => __('Status 2')];
+        return ['1' => __('Status 1'),'2' => __('Status 2')];
     }     
 
 

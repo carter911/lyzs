@@ -5,12 +5,12 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             // 初始化表格参数配置
             Table.api.init({
                 extend: {
-                    index_url: 'witness/index',
-                    add_url: 'witness/add',
-                    edit_url: 'witness/edit',
-                    del_url: 'witness/del',
-                    multi_url: 'witness/multi',
-                    table: 'witness',
+                    index_url: 'cases/index',
+                    add_url: 'cases/add',
+                    edit_url: 'cases/edit',
+                    del_url: 'cases/del',
+                    multi_url: 'cases/multi',
+                    table: 'cases',
                 }
             });
 
@@ -25,10 +25,19 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'name', title: __('Name')},
-                        {field: 'image', title: __('Image'), formatter: Table.api.formatter.image},
-                        {field: 'cases_cases_id', title: __('Cases_cases_id')},
                         {field: 'status', title: __('Status'), searchList: {"1":__('Status 1'),"2":__('Status 2')}, formatter: Table.api.formatter.status},
+                        {field: 'name', title: __('Name')},
+                        {field: 'address', title: __('Address')},
+                        {field: 'area', title: __('Area')},
+                        {field: 'type', title: __('Type'), searchList: {"1":__('Type 1'),"2":__('Type 2'),"3":__('Type 3')}, formatter: Table.api.formatter.normal},
+                        {field: 'team_team_id', title: __('Team_team_id')},
+                        {field: 'team_door_ids', title: __('Team_door_ids')},
+                        {field: 'team_style_ids', title: __('Team_style_ids')},
+                        {field: 'cases_area_id', title: __('Cases_area_id')},
+                        {field: 'butler_id', title: __('Butler_id')},
+                        {field: 'price', title: __('Price'), operate:'BETWEEN'},
+                        {field: 'image', title: __('Image'), formatter: Table.api.formatter.image},
+                        {field: 'content', title: __('Content')},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}

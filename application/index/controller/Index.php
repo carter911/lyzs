@@ -83,6 +83,8 @@ class Index extends Frontend
     public function ppsl()
     {
         $this->assign('title', '品牌实力-岭艺装饰');
+        $witnessList = Db::name('witness')->where(['status'=>2])->limit(48)->select();
+		$this->assign('witnessList', $witnessList);
         return $this->view->fetch('ppsl');
     }
 
