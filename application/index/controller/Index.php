@@ -131,7 +131,14 @@ class Index extends Frontend
 
     public function gddz()
     {
-        $this->assign('title', '高端定制-岭艺装饰');
+
+    	$butler_list = Db::name('butler')->limit(8)->select();
+		foreach ($butler_list as $key => $val){
+			$cases = Db::name('cases')->field('name')->where(['butler_id'=>$val['id']])->limit(4)->select();
+			$butler_list[$key]['cases'] = $cases;
+		}
+        $this->assign('butler_list', $butler_list);
+		$this->assign('title', '高端定制-岭艺装饰');
         return $this->view->fetch('gddz');
     }
 

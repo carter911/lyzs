@@ -855,207 +855,27 @@
 			<img src="/assets/img/frontend/lis_foreman.jpg" class="center-block img-responsive" style="margin-bottom: 50px">
 			
 			<div class="row foreman_lis">
-				<div class="col-xs-3 padding_c">
+				{volist name="butler_list" id="vo" key="key"}
+				<div style="margin-top: 20px;" class="col-xs-3 padding_c">
 					<div class="foreman_area">
-						<img src="/assets/img/frontend/foreman_img.jpg" class="img-responsive center-block">
+						<img src="{$vo.image}" class="img-responsive center-block">
 						
-						<div class="foreman_info">
-							<div class="serve_area">
+						<div class="foreman_info" style="height: 150px;width: 100%">
+							<div class="serve_area" >
 								<h3 class="pull-left margin_c">服务区域</h3>
 								<a href="#" class="pull-right apply_link">预约专属管家</a>
 								<div class="clearfix"></div>
 							</div>
 							
 							<ul class="list-inline">
-								<li>水岸华庭</li>
-								<li>正荣璟江</li>
-								<li>金山豪庭</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
+								{volist name="vo.cases" id="v"}
+								<li>{$v.name}</li>
+								{/volist}
 							</ul>
 						</div>
 					</div>
 				</div>
-				
-				<div class="col-xs-3 padding_c">
-					<div class="foreman_area">
-						<img src="/assets/img/frontend/foreman_img.jpg" class="img-responsive center-block">
-						
-						<div class="foreman_info">
-							<div class="serve_area">
-								<h3 class="pull-left margin_c">服务区域</h3>
-								<a href="#" class="pull-right apply_link">预约专属管家</a>
-								<div class="clearfix"></div>
-							</div>
-							
-							<ul class="list-inline">
-								<li>水岸华庭</li>
-								<li>正荣璟江</li>
-								<li>金山豪庭</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-xs-3 padding_c">
-					<div class="foreman_area">
-						<img src="/assets/img/frontend/foreman_img.jpg" class="img-responsive center-block">
-						
-						<div class="foreman_info">
-							<div class="serve_area">
-								<h3 class="pull-left margin_c">服务区域</h3>
-								<a href="#" class="pull-right apply_link">预约专属管家</a>
-								<div class="clearfix"></div>
-							</div>
-							
-							<ul class="list-inline">
-								<li>水岸华庭</li>
-								<li>正荣璟江</li>
-								<li>金山豪庭</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-xs-3 padding_c">
-					<div class="foreman_area">
-						<img src="/assets/img/frontend/foreman_img.jpg" class="img-responsive center-block">
-						
-						<div class="foreman_info">
-							<div class="serve_area">
-								<h3 class="pull-left margin_c">服务区域</h3>
-								<a href="#" class="pull-right apply_link">预约专属管家</a>
-								<div class="clearfix"></div>
-							</div>
-							
-							<ul class="list-inline">
-								<li>水岸华庭</li>
-								<li>正荣璟江</li>
-								<li>金山豪庭</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row foreman_lis">
-				<div class="col-xs-3 padding_c">
-					<div class="foreman_area">
-						<img src="/assets/img/frontend/foreman_img.jpg" class="img-responsive center-block">
-						
-						<div class="foreman_info">
-							<div class="serve_area">
-								<h3 class="pull-left margin_c">服务区域</h3>
-								<a href="#" class="pull-right apply_link">预约专属管家</a>
-								<div class="clearfix"></div>
-							</div>
-							
-							<ul class="list-inline">
-								<li>水岸华庭</li>
-								<li>正荣璟江</li>
-								<li>金山豪庭</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-xs-3 padding_c">
-					<div class="foreman_area">
-						<img src="/assets/img/frontend/foreman_img.jpg" class="img-responsive center-block">
-						
-						<div class="foreman_info">
-							<div class="serve_area">
-								<h3 class="pull-left margin_c">服务区域</h3>
-								<a href="#" class="pull-right apply_link">预约专属管家</a>
-								<div class="clearfix"></div>
-							</div>
-							
-							<ul class="list-inline">
-								<li>水岸华庭</li>
-								<li>正荣璟江</li>
-								<li>金山豪庭</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-xs-3 padding_c">
-					<div class="foreman_area">
-						<img src="/assets/img/frontend/foreman_img.jpg" class="img-responsive center-block">
-						
-						<div class="foreman_info">
-							<div class="serve_area">
-								<h3 class="pull-left margin_c">服务区域</h3>
-								<a href="#" class="pull-right apply_link">预约专属管家</a>
-								<div class="clearfix"></div>
-							</div>
-							
-							<ul class="list-inline">
-								<li>水岸华庭</li>
-								<li>正荣璟江</li>
-								<li>金山豪庭</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-xs-3 padding_c">
-					<div class="foreman_area">
-						<img src="/assets/img/frontend/foreman_img.jpg" class="img-responsive center-block">
-						
-						<div class="foreman_info">
-							<div class="serve_area">
-								<h3 class="pull-left margin_c">服务区域</h3>
-								<a href="#" class="pull-right apply_link">预约专属管家</a>
-								<div class="clearfix"></div>
-							</div>
-							
-							<ul class="list-inline">
-								<li>水岸华庭</li>
-								<li>正荣璟江</li>
-								<li>金山豪庭</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-								<li>金瀚园</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+				{/volist}
 			</div>
 		</div>
 		
