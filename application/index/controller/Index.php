@@ -91,20 +91,23 @@ class Index extends Frontend
 
     public function gxj()
     {
-    	$material_list = Db::name('Material')
-			->where(['status'=>1])
-			->limit(6)
-			->select();
-
-    	foreach ($material_list as $key => $val){
-			$material_list[$key]['images'] = explode(",",$val['images']);
-		}
+        // 主材
+        $material_master_list = Db::name('Material')->where(['status'=>1])->limit(6)->select();
+        foreach ($material_master_list as $key => $val){
+            $material_master_list[$key]['images'] = explode(",",$val['images']);
+        }
+        // 辅材
+        $material_auxiliary_list = Db::name('Material')->where(['status'=>2])->limit(6)->select();
+        foreach ($material_auxiliary_list as $key => $val){
+            $material_auxiliary_list[$key]['images'] = explode(",",$val['images']);
+        }
+        $this->assign('material_master_list', $material_master_list);
+        $this->assign('material_auxiliary_list', $material_auxiliary_list);
         // 客户见证
         $witness_lists = Db::name('witness')->field('image')->select();
         $this->assign('witness_lists', $witness_lists);
-        $this->assign('title', '个性家-岭艺装饰');
 
-		$this->assign('material_list', $material_list);
+        $this->assign('title', '个性家-岭艺装饰');
         return $this->view->fetch('gxj');
     }
 
@@ -112,19 +115,20 @@ class Index extends Frontend
     {
         // 客户见证
         $witness_lists = Db::name('witness')->field('image')->select();
-
-        // 材料图片
-        $material_lists = Db::name('material')->field('id,images')->select();
-        // 主材
-        $material_master_category = Db::name('material_category')->field('id,name')->where('status', 1)->limit(6)->select();
-        $this->assign('material_lists', $material_lists);
-        $this->assign('material_master_category', $material_master_category);
-
-        $material_auxiliary_category = Db::name('material_category')->field('id,name')->where('status', 2)->limit(6)->select();
-        //  $this->assign('material_lists', $material_lists);
-        $this->assign('material_auxiliary_category', $material_auxiliary_category);
-
         $this->assign('witness_lists', $witness_lists);
+        // 主材
+        $material_master_list = Db::name('Material')->where(['status'=>1])->limit(6)->select();
+        foreach ($material_master_list as $key => $val){
+            $material_master_list[$key]['images'] = explode(",",$val['images']);
+        }
+        // 辅材
+        $material_auxiliary_list = Db::name('Material')->where(['status'=>2])->limit(6)->select();
+        foreach ($material_auxiliary_list as $key => $val){
+            $material_auxiliary_list[$key]['images'] = explode(",",$val['images']);
+        }
+        $this->assign('material_master_list', $material_master_list);
+        $this->assign('material_auxiliary_list', $material_auxiliary_list);
+
         $this->assign('title', '套餐-岭艺装饰');
         return $this->view->fetch('tc');
     }

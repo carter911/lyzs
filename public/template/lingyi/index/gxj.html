@@ -1079,13 +1079,14 @@
             </div>
         </div>
 
+        <!-- 主材 -->
         <div class="lis_meatr margin_t">
             <img src="/assets/img/frontend/lis_meatr.png" class="center-block img-responsive">
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
                     <div class="inner_info">
                         <ul style="text-align: center" id="meatrTabs" class="nav nav-tabs" role="tablist">
-                            {volist name="material_list" id="vo"}
+                            {volist name="material_master_list" id="vo"}
                             <li  role="presentation" class="{eq name='$key' value='0'}active{/eq}">
                                 <a style="padding: 7px 79px;" href="#floor{$vo.id}" id="floor-tab" role="tab"
                               data-toggle="tab" aria-controls="floor"
@@ -1097,7 +1098,7 @@
                 </div>
 
                 <div id="meatrTabContent" class="tab-content tabinfo">
-                    {volist name="material_list" id="vo" key="key"}
+                    {volist name="material_master_list" id="vo" key="key"}
                     <div  role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
                         <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -1120,7 +1121,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- 辅材 -->
         <div class="lis_advmeat margin_t">
             <img src="/assets/img/frontend/lis_advmeat.png" class="center-block img-responsive">
 
@@ -1128,28 +1129,13 @@
                 <div class="inner_info">
                     <div class="inner_info">
                         <ul id="admeatrTabs" class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#waterpipe" id="waterpipe-tab" role="tab"
-                                   data-toggle="tab" aria-controls="waterpipe"
-                                   aria-expanded="true" style="width: 232px;">水管</a>
+                            {volist name="material_auxiliary_list" id="vo"}
+                            <li  role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                                <a style="padding: 7px 79px;" href="#floor{$vo.id}"  role="tab"
+                                   data-toggle="tab" aria-controls="floor"
+                                   aria-expanded="true" style="padding: 10px 81px;">{$vo.name}</a>
                             </li>
-                            <li role="presentation">
-                                <a href="#wire" role="tab" id="wire-tab" data-toggle="tab"
-                                   aria-controls="wire" style="width: 232px;">电线</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#plates" id="plates-tab" role="tab" data-toggle="tab"
-                                   aria-controls="plates" style="width: 232px;">板材</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#emulsion" id="emulsion-tab" role="tab" data-toggle="tab"
-                                   aria-controls="emulsion" style="width: 232px;">乳胶漆</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#accessories" id="accessories-tab" role="tab"
-                                   data-toggle="tab" aria-controls="accessories"
-                                   style="width: 232px;margin-right: 0">墙面辅料</a>
-                            </li>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
@@ -1164,526 +1150,30 @@
                             </ol>
 
                             <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor01.jpg" class="img-responsive center-block">
-
-                                        <!--<div class="material_show">-->
-                                            <!--<div class="material_info">-->
-                                                <!--<img src="/assets/img/frontend/floor01_info.jpg"-->
-                                                     <!--class="img-responsive center-block">-->
-                                                <!--<p>-->
-                                                    <!--地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>-->
-                                            <!--</div>-->
-                                            <!--<div class="material_img">-->
-                                                <!--<div class="row">-->
-                                                    <!--<div class="col-xs-4 padding_c">-->
-                                                        <!--<img src="/assets/img/frontend/floor01-1.jpg"-->
-                                                             <!--class="img-responsive center-block material_imglis">-->
-                                                    <!--</div>-->
-                                                    <!--<div class="col-xs-4 padding_c">-->
-                                                        <!--<img src="/assets/img/frontend/floor01-2.jpg"-->
-                                                             <!--class="img-responsive center-block material_imglis">-->
-                                                    <!--</div>-->
-                                                    <!--<div class="col-xs-4 padding_c">-->
-                                                        <!--<img src="/assets/img/frontend/floor01-3.jpg"-->
-                                                             <!--class="img-responsive center-block material_imglis">-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor02.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor02_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
+                                {volist name="material_auxiliary_list" id="vo" key="key"}
+                                <div  role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
+                                    <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
+                                            <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner" role="listbox">
+                                            {volist name="vo.images" id="v"}
+                                            <div class="item {eq name='$key' value='0'}active{/eq}">
+                                                <div class="material_area">
+                                                    <img src="{$v}" class="img-responsive center-block">
                                                 </div>
-
                                             </div>
+                                            {/volist}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor03.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor03_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {/volist}
                             </div>
                         </div>
                     </div>
 
-                    <div role="tabpanel" class="tab-pane fade" id="wire" aria-labelledby="wire-tab">
-                        <div id="carousel-wire" class="carousel slide carous_material" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-wire" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-wire" data-slide-to="1"></li>
-                                <li data-target="#carousel-wire" data-slide-to="2"></li>
-                            </ol>
-
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor04.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor04_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor05.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor05_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor06.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor06_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane fade" id="plates" aria-labelledby="plates-tab">
-                        <div id="carousel-plates" class="carousel slide carous_material" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-plates" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-plates" data-slide-to="1"></li>
-                                <li data-target="#carousel-plates" data-slide-to="2"></li>
-                            </ol>
-
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor01.jpg" class="img-responsive center-block">
-
-                                        <!--<div class="material_show">-->
-                                            <!--<div class="material_info">-->
-                                                <!--<img src="/assets/img/frontend/floor01_info.jpg"-->
-                                                     <!--class="img-responsive center-block">-->
-                                                <!--<p>-->
-                                                    <!--地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>-->
-                                            <!--</div>-->
-                                            <!--<div class="material_img">-->
-                                                <!--<div class="row">-->
-                                                    <!--<div class="col-xs-4 padding_c">-->
-                                                        <!--<img src="/assets/img/frontend/floor01-1.jpg"-->
-                                                             <!--class="img-responsive center-block material_imglis">-->
-                                                    <!--</div>-->
-                                                    <!--<div class="col-xs-4 padding_c">-->
-                                                        <!--<img src="/assets/img/frontend/floor01-2.jpg"-->
-                                                             <!--class="img-responsive center-block material_imglis">-->
-                                                    <!--</div>-->
-                                                    <!--<div class="col-xs-4 padding_c">-->
-                                                        <!--<img src="/assets/img/frontend/floor01-3.jpg"-->
-                                                             <!--class="img-responsive center-block material_imglis">-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor02.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor02_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor03.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor03_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane fade" id="emulsion" aria-labelledby="emulsion-tab">
-                        <div id="carousel-emulsion" class="carousel slide carous_material" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-emulsion" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-emulsion" data-slide-to="1"></li>
-                                <li data-target="#carousel-emulsion" data-slide-to="2"></li>
-                            </ol>
-
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor01.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor01_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor02.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor02_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor03.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor03_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane fade" id="accessories" aria-labelledby="accessories-tab">
-                        <div id="carousel-accessories" class="carousel slide carous_material" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-accessories" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-accessories" data-slide-to="1"></li>
-                                <li data-target="#carousel-accessories" data-slide-to="2"></li>
-                            </ol>
-
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor04.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor04_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor05.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor05_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="material_area">
-                                        <img src="/assets/img/frontend/floor06.jpg" class="img-responsive center-block">
-
-                                        <div class="material_show">
-                                            <div class="material_info">
-                                                <img src="/assets/img/frontend/floor06_info.jpg"
-                                                     class="img-responsive center-block">
-                                                <p>
-                                                    地板，即房屋地面或楼面的表层。由木料或其他材料做成。按地板材质和用途可以分为实木地板、实木复合地板、强化复合地板、竹地板、软木地板、地热采暖地板、塑胶地板、防静电地板、竹木复合地板、曲线地板，自然山水风水地板。</p>
-                                            </div>
-                                            <div class="material_img">
-                                                <div class="row">
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-1.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-2.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                    <div class="col-xs-4 padding_c">
-                                                        <img src="/assets/img/frontend/floor01-3.jpg"
-                                                             class="img-responsive center-block material_imglis">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
