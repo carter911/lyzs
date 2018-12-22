@@ -168,14 +168,33 @@ class Index extends Frontend
     }
 
     //设计团队
-    public function sjtd()
+    public function sjtd(Request $request)
     {
         $this->assign('title', '首页-设计团队');
-        $team_list = Db::name('team')->limit(10)->order('id desc')->select();
 
-        $lists = Db::name('team')->paginate(10, false, [
+		$param = $request->get();
+		$where = [];
+		if(isset($param['door']) && $param['door']>0){
+			$door = $param['door'];
+			$where[]=['exp',Db::raw("FIND_IN_SET('$door',team_door_ids)")];
+		}
+		if(isset($param['style']) && $param['style']>0){
+			$style = $param['style'];
+			$where[]=['exp',Db::raw("FIND_IN_SET('$style',team_style_ids)")];
+		}
+
+		if(isset($param['time']) && $param['time']!=""){
+			$where['work_num']=['between',$param['time']];
+		}
+
+		if(isset($param['sex']) && $param['sex']!=""){
+			$where['sex']=$param['sex'];
+		}
+
+		$lists = Db::name('team')->where($where)->paginate(10, false, [
             'type' => 'page\Page'
         ]);
+
         // 擅长户型
         $team_door = Db::name('team_door')->field('id,name')->select();
         // 风格
@@ -184,7 +203,8 @@ class Index extends Frontend
         $this->assign('team_door', $team_door);
         $this->assign('lists', $lists);
         $this->assign('page', $lists->render());
-        $this->assign('team_list', $team_list);
+        $this->assign('team_list', $lists);
+		$this->assign('search', $param);
         return $this->view->fetch("sjtd");
     }
 

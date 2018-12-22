@@ -1,6 +1,6 @@
 <?php
 
-namespace app\admin\controller\team;
+namespace app\admin\controller\Team;
 
 use app\common\controller\Backend;
 

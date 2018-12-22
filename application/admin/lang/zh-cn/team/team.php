@@ -15,5 +15,6 @@ return [
     'Work_num'  =>  '工作年限',
     'Createtime'  =>  '创建时间',
     'Updatetime'  =>  '更新时间',
-    'Content'  =>  '设计师简介'
+    'Content'  =>  '设计师简介',
+    'Idea'  =>  '设计理念'
 ];

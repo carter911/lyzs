@@ -8,7 +8,23 @@
 
 <script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
-
+<style>
+    .select{
+        vertical-align: -5px;
+        height: 25px;
+        width: 100px;
+        margin-right: 10px;
+        border-radius: 1px;
+    }
+    #keywords{
+        height: 32px;
+        padding-left: 10px;
+        border-radius: 2px;
+    }
+    .search_case{
+        height: 32px;
+    }
+</style>
 
 <div class="container">
     <div class="current_loca">
@@ -18,100 +34,87 @@
             <li class="active">设计团队</li>
         </ol>
     </div>
-
+    <form action="">
+    
     <div class="cation-content style_list">
-        <div class="cation-middle">
+        <div class="cation-middle searchContent">
             <dl class="cation-list">
                 <dt class="select_title text-center">擅长户型</dt>
                 <dd>
-                    <a href="#" rel="" name="mode" class="all on">全部</a>
-                    <a href="#" rel="别墅" name="mode" class="default">别墅</a>
-                    <a href="#" rel="二居室" name="mode" class="default">二居室</a>
-                    <a href="#" rel="三居室" name="mode" class="default">三居室</a>
-                    <a href="#" rel="四居室" name="mode" class="default">四居室</a>
-                    <a href="#" rel="Loft" name="mode" class="default">Loft</a>
-                    <a href="#" rel="复式" name="mode" class="default">复式</a>
-                    <a href="#" rel="其他" name="mode" class="default">其他</a>
+                    <a href="javascript:void(0)" rel="" name="door" data-id="" class="all {eq name="search.door" value="" }on{/eq}">全部</a>
+                    {volist name="team_door" id="door"}
+                    <a  href="javascript:void(0)" rel="{$door.name}" name="door" data-id="{$door.id}" class="default {eq name="search.door" value="$door.id" }on{/eq}">{$door.name}</a>
+                    {/volist}
                 </dd>
             </dl>
             <dl class="cation-list">
                 <dt class="select_title text-center">擅长风格</dt>
                 <dd>
-                    <a href="#" rel="" name="style" class="all on">全部</a>
-                    <a href="#" rel="现代简约" name="style" class="default">现代简约</a>
-                    <a href="#" rel="欧式古典" name="style" class="default">欧式古典</a>
-                    <a href="#" rel="新中式" name="style" class="default">新中式</a>
-                    <a href="#" rel="法式" name="style" class="default">法式</a>
-                    <a href="#" rel="北欧" name="style" class="default">北欧</a>
-                    <a href="#" rel="美式" name="style" class="default">美式</a>
-                    <a href="#" rel="简欧" name="style" class="default">简欧</a>
-                    <a href="#" rel="现代前卫" name="style" class="default">现代前卫</a>
-                    <a href="#" rel="雅致主义" name="style" class="default">雅致主义</a>
-                    <a href="#" rel="新古典" name="style" class="default">新古典</a>
-                    <a href="#" rel="地中海式" name="style" class="default">地中海式</a>
-                    <a href="#" rel="其他" name="style" class="default">其他</a>
+                    <a href="javascript:void(0)" rel="" name="style" data-id="" class="all {eq name="search.style" value="" }on{/eq}">全部</a>
+                    {volist name="team_style" id="style"}
+                    <a href="javascript:void(0)" rel="{$style.name}" data-id="{$style.id}" name="style" class="default {eq name="search.style" value="$style.id" }on{/eq}">{$style.name}</a>
+                    {/volist}
                 </dd>
             </dl>
             <dl class="cation-list">
                 <dt class="select_title text-center">从业时间</dt>
                 <dd>
-                    <a href="#" rel="" name="time" class="all on">全部</a>
-                    <a href="#" rel="5-8年" name="time" class="default">5-8年</a>
-                    <a href="#" rel="8-12年" name="time" class="default">8-12年</a>
-                    <a href="#" rel="12年以上" name="time" class="default">12年以上</a>
+                    <a href="javascript:void(0)" rel="" name="time" data-id="" class="all {eq name="search.time" value="" }on{/eq}">全部</a>
+                    <a href="javascript:void(0)" rel="1-5年" name="time" data-id="1,5" class="default {eq name='search.time' value='1,5' }on{/eq}">1-5年</a>
+                    <a href="javascript:void(0)" rel="5-8年" name="time" data-id="5,8" class="default {eq name='search.time' value='5,8' }on{/eq}">5-8年</a>
+                    <a href="javascript:void(0)" rel="8-12年" name="time" data-id="8,12"  class="default {eq name='search.time' value='8,12' }on{/eq}">8-12年</a>
+                    <a href="javascript:void(0)" rel="12年以上" name="time" data-id="12,100" class="default {eq name='search.time' value='12,100' }on{/eq}">12年以上</a>
                 </dd>
             </dl>
             <dl class="cation-list">
                 <dt class="select_title text-center" style="border-bottom: none;">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</dt>
                 <dd style="border-bottom: none">
-                    <a href="#" rel="" name="sex" class="all on">全部</a>
-                    <a href="#" rel="男" name="sex" class="default">男</a>
-                    <a href="#" rel="女" name="sex" class="default">女</a>
+                    <a href="javascript:void(0)" data-id="" rel="" name="sex" class="all default {eq name='search.sex' value='' }on{/eq}">全部</a>
+                    <a href="javascript:void(0)" data-id="1" rel="男" name="sex" class="default default {eq name='search.sex' value='1' }on{/eq}">男</a>
+                    <a href="javascript:void(0)" data-id="0"  rel="女" name="sex" class="default default {eq name='search.sex' value='0' }on{/eq}">女</a>
                 </dd>
             </dl>
         </div>
     </div>
-
-    <div class="style_list select_area">
-        <form class="pull-left">
-            <label>当前筛选：</label>
-            <select class="" name="team_door">
-                <option>擅长户型</option>
+    </form>
+    <form   action="" method="get" class="style_list select_area searchForm">
+        <div class="pull-left">
+            <label style="vertical-align: -5px">当前筛选：</label>
+            <select class="select" name="door">
+                <option value="">擅长户型</option>
                 {volist name="team_door" id="item"}
-                <option value="{$item.id}">{$item.name}</option>
+                <option {eq name="search.door" value="$item.id" }selected{/eq} value="{$item.id}">{$item.name}</option>
                 {/volist}
             </select>
 
-            <select name="team_style">
-                <option>擅长风格</option>
-                <option>全部</option>
+            <select class="select" name="style">
+                <option value=""> 擅长风格</option>
                 {volist name="team_style" id="item"}
-                <option value="{$item.id}">{$item.name}</option>
+                <option {eq name="search.style" value="$item.id" }selected{/eq} value="{$item.id}">{$item.name}</option>
                 {/volist}
             </select>
 
-            <select>
-                <option>从业时间</option>
-                <option>全部</option>
-                <option>5-8年</option>
-                <option>8-12年</option>
-                <option>12年以上</option>
+            <select class="select" name="time">
+                <option value="">从业时间</option>
+                <option {eq name="search.time" value="1,5" }selected{/eq} value="1,5">1-5年</option>
+                <option {eq name="search.time" value="5,8" }selected{/eq} value="5,8">5-8年</option>
+                <option {eq name="search.time" value="8,12" }selected{/eq} value="8,12">8-12年</option>
+                <option {eq name="search.time" value="12,100" }selected{/eq} value="12,100">12年以上</option>
             </select>
 
-            <select>
-                <option>性别</option>
-                <option>全部</option>
-                <option>男</option>
-                <option>女</option>
+            <select class="select" name="sex">
+                <option value="">性别</option>
+                <option {eq name="search.sex" value="1" }selected{/eq} value="1">男</option>
+                <option {eq name="search.sex" value="0" }selected{/eq} value="0">女</option>
             </select>
-        </form>
-        <form class="pull-right">
-            <input type="text" class="pull-left" id="keywords" placeholder="关键词">
-            <a href="#" class="search_case pull-right">搜案例</a>
-        </form>
+        </div>
+        <div class="pull-right">
+            <input name="keyword" type="text" class="pull-left" id="keywords" placeholder="关键词">
+            <button type="submit" class="search_case pull-right">搜案例</button>
+        </div>
 
         <div class="clearfix"></div>
-    </div>
+    </form>
 
     <div class="style_list" style="padding: 15px">
         <div class="row">
@@ -148,3 +151,11 @@
     </nav>
 
 </div>
+<script>
+    $(".searchContent a").click(function () {
+        $(this).parent('dd').find('a').removeClass('on');
+        $(this).addClass('on');
+        $("select[name="+$(this).attr('name')+"]").val($(this).attr('data-id'));
+        $(".searchForm").submit();
+    })
+</script>
