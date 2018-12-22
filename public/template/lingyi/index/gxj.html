@@ -1099,11 +1099,11 @@
                 <div id="meatrTabContent" class="tab-content tabinfo">
                     {volist name="material_list" id="vo" key="key"}
                     <div  role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
-                        <div id="carousel-floor" class="carousel slide carous_material" data-ride="carousel">
+                        <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <li data-target="#carousel-floor" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-floor" data-slide-to="1"></li>
-                                <li data-target="#carousel-floor" data-slide-to="2"></li>
+                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
+                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 {volist name="vo.images" id="v"}
