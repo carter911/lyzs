@@ -111,12 +111,20 @@ class Index extends Frontend
     public function tc()
     {
         // 客户见证
-        $witness_lists = Db::name('witness')->where(['status'=>1])->limit(50)->select();
-        $material_lists = Db::name('material')->field('image')->select();
-        $material_category_lists = Db::name('material_category')->field('id,name')->limit(5)->select();
-        $this->assign('witness_lists', $witness_lists);
+        $witness_lists = Db::name('witness')->field('image')->select();
+
+        // 材料图片
+        $material_lists = Db::name('material')->field('id,images')->select();
+        // 主材
+        $material_master_category = Db::name('material_category')->field('id,name')->where('status', 1)->limit(6)->select();
         $this->assign('material_lists', $material_lists);
-        $this->assign('material_category_lists', $material_category_lists);
+        $this->assign('material_master_category', $material_master_category);
+
+        $material_auxiliary_category = Db::name('material_category')->field('id,name')->where('status', 2)->limit(6)->select();
+        //  $this->assign('material_lists', $material_lists);
+        $this->assign('material_auxiliary_category', $material_auxiliary_category);
+
+        $this->assign('witness_lists', $witness_lists);
         $this->assign('title', '套餐-岭艺装饰');
         return $this->view->fetch('tc');
     }
