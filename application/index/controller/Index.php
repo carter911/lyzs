@@ -30,7 +30,8 @@ class Index extends Frontend
     public function index()
     {
         $this->assign('title', '首页-岭艺装饰');
-        $banner = Db::name('banner')->field('image')->where(['status' => 1])->order('id desc')->find();
+
+		$banner = Db::name('banner')->field('image')->where(['status' => 1])->order('id desc')->find();
         $gxj = Db::name('banner')->where(['status' => 4])->order('id desc')->find();
         $tc = Db::name('banner')->where(['status' => 2])->order('id desc')->find();
 
@@ -67,7 +68,7 @@ class Index extends Frontend
         }
 
         // 客户见证
-        $witness_lists = Db::name('witness')->field('image')->select();
+		$witness_lists = Db::name('witness')->where(['status'=>1])->limit(50)->select();
 
         $this->assign('witness_lists', $witness_lists);
         $this->assign('cases_lists', $cases_lists);
@@ -100,11 +101,9 @@ class Index extends Frontend
     public function tc()
     {
         // 客户见证
-        $witness_lists = Db::name('witness')->field('image')->select();
+        $witness_lists = Db::name('witness')->where(['status'=>1])->limit(50)->select();
         $material_lists = Db::name('material')->field('image')->select();
         $material_category_lists = Db::name('material_category')->field('id,name')->limit(5)->select();
-        var_dump($material_lists);
-        var_dump($material_category_lists);
         $this->assign('witness_lists', $witness_lists);
         $this->assign('material_lists', $material_lists);
         $this->assign('material_category_lists', $material_category_lists);
