@@ -1130,8 +1130,8 @@
                     <div class="inner_info">
                         <ul id="admeatrTabs" class="nav nav-tabs" role="tablist">
                             {volist name="material_auxiliary_list" id="vo"}
-                            <li  role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <a style="padding: 7px 79px;" href="#floor{$vo.id}"  role="tab"
+                            <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                                <a style="padding: 7px 79px;" href="#floor{$vo.id}" role="tab"
                                    data-toggle="tab" aria-controls="floor"
                                    aria-expanded="true" style="padding: 10px 81px;">{$vo.name}</a>
                             </li>
@@ -1141,39 +1141,27 @@
                 </div>
 
                 <div id="admeatrTabContent" class="tab-content tabinfo">
-                    <div role="tabpanel" class="tab-pane fade in active" id="waterpipe" aria-labelledby="waterpipe-tab">
-                        <div id="carousel-waterpipe" class="carousel slide carous_material" data-ride="carousel">
+                    {volist name="material_auxiliary_list" id="vo" key="key"}
+                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in "
+                         id="floor{$vo.id}" aria-labelledby="floor-tab">
+                        <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <li data-target="#carousel-waterpipe" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-waterpipe" data-slide-to="1"></li>
-                                <li data-target="#carousel-waterpipe" data-slide-to="2"></li>
+                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
+                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
                             </ol>
-
                             <div class="carousel-inner" role="listbox">
-                                {volist name="material_auxiliary_list" id="vo" key="key"}
-                                <div  role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
-                                    <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
-                                            <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
-                                        </ol>
-                                        <div class="carousel-inner" role="listbox">
-                                            {volist name="vo.images" id="v"}
-                                            <div class="item {eq name='$key' value='0'}active{/eq}">
-                                                <div class="material_area">
-                                                    <img src="{$v}" class="img-responsive center-block">
-                                                </div>
-                                            </div>
-                                            {/volist}
-                                        </div>
+                                {volist name="vo.images" id="v"}
+                                <div class="item {eq name='$key' value='0'}active{/eq}">
+                                    <div class="material_area">
+                                        <img src="{$v}" class="img-responsive center-block">
                                     </div>
                                 </div>
                                 {/volist}
                             </div>
                         </div>
                     </div>
-
+                    {/volist}
                 </div>
             </div>
         </div>
