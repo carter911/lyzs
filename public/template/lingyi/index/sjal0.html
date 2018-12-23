@@ -51,13 +51,13 @@
             <dl class="cation-list">
                 <dt class="select_title text-center">案例户型</dt>
                 <dd>
-                    <a href="/index/index/sjal?caseStyle=-1&doorStyle={$doorStyle}&areaStyle={$areaStyle}" rel="" name="all" class="all on">全部</a>
+                    <a href="/index/index/sjal0?caseStyle=-1&doorStyle={$doorStyle}&areaStyle={$areaStyle}" rel="" name="all" class="all on">全部</a>
                     {volist name='$door_case' id='case' key='key'}
 
                         {if condition="$key eq $caseStyle"}
                                  <a href="#" rel="" name="{$case.id}" class="all on">{$case.name}</a>
                         {else/}
-                                 <a href="/index/index/sjal?caseStyle={$case.id}&doorStyle={$doorStyle}&areaStyle={$areaStyle}" rel="" name="{$case.id}" class="default">{$case.name}</a>
+                                 <a href="/index/index/sjal0?caseStyle={$case.id}&doorStyle={$doorStyle}&areaStyle={$areaStyle}" rel="" name="{$case.id}" class="default">{$case.name}</a>
                         {/if}
 
                     {/volist}
@@ -67,13 +67,13 @@
             <dl class="cation-list">
                 <dt class="select_title text-center">装修风格</dt>
                 <dd>
-                    <a href="/index/index/sjal?doorStyle=-1&caseStyle={$caseStyle}&areaStyle={$areaStyle}" rel="" name="style" class="all on">全部</a>
+                    <a href="/index/index/sjal0?doorStyle=-1&caseStyle={$caseStyle}&areaStyle={$areaStyle}" rel="" name="style" class="all on">全部</a>
 
                     {volist name='door_style' id='style' key='key'}
                         {if condition="$doorStyle eq $key"}
                           <a href="#" rel="{$style.name}" name="style" class="all on">{$style.name}</a>
                         {else /}
-                          <a href="/index/index/sjal?doorStyle={$style.id}&caseStyle={$caseStyle}&areaStyle={$areaStyle}" rel="{$style.name}" name="style" class="default">{$style.name}</a>
+                          <a href="/index/index/sjal0?doorStyle={$style.id}&caseStyle={$caseStyle}&areaStyle={$areaStyle}" rel="{$style.name}" name="style" class="default">{$style.name}</a>
                         {/if}
 
                     {/volist}
@@ -84,14 +84,14 @@
             <dl class="cation-list">
                 <dt class="select_title text-center" style="border-bottom: none;">房屋面积</dt>
                 <dd style="border-bottom: none">
-                    <a href="/index/index/sjal?areaStyle=-1&caseStyle={$caseStyle}&doorStyle={$doorStyle}" rel="" name="sex" class="all on">全部</a>
+                    <a href="/index/index/sjal0?areaStyle=-1&caseStyle={$caseStyle}&doorStyle={$doorStyle}" rel="" name="sex" class="all on">全部</a>
 
                     {volist name='door_areas' id='area' key='key'}
 
                         {if condition="$areaStyle eq $key"}
                            <a href="#" rel="{$area.name}" name="style" class="all on">{$area.name}平米</a>
                         {else /}
-                           <a href="/index/index/sjal?areaStyle={$area.id}&caseStyle={$caseStyle}&doorStyle={$doorStyle}" rel="{$area.name}" name="style" class="default">{$area.name}平米</a>
+                           <a href="/index/index/sjal0?areaStyle={$area.id}&caseStyle={$caseStyle}&doorStyle={$doorStyle}" rel="{$area.name}" name="style" class="default">{$area.name}平米</a>
                         {/if}
 
                     {/volist}
@@ -178,24 +178,24 @@
 
     <nav aria-label="Page navigation" class="pagselec">
         <ul class="pagination">
-            <li><a href="/index/index/sjal?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex=0">首页</a></li>
+            <li><a href="/index/index/sjal0?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex=0">首页</a></li>
             <li>
-                <a href="/index/index/sjal?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex={$caseResult.page.prev_page}" aria-label="Previous">
+                <a href="/index/index/sjal0?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex={$caseResult.page.prev_page}" aria-label="Previous">
                     <span aria-hidden="true">&lt;</span>
                 </a>
             </li>
 
             {for start="$caseResult.page['start_page']" end="$caseResult.page['end_page']" name="m"}
-                <li><a href="/index/index/sjal?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex={$m}">{$m}</a></li>
+                <li><a href="/index/index/sjal0?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex={$m}">{$m}</a></li>
             {/for}
 
 
             <li>
-                <a href="/index/index/sjal?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex={$caseResult.page.next_page}" aria-label="Next">
+                <a href="/index/index/sjal0?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex={$caseResult.page.next_page}" aria-label="Next">
                     <span aria-hidden="true">&gt;</span>
                 </a>
             </li>
-            <li><a href="/index/index/sjal?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex={$caseResult.page.end_page}">末页</a></li>
+            <li><a href="/index/index/sjal0?doorStyle={$doorStyle}&caseStyle={$caseStyle}&areaStyle={$areaStyle}&pageIndex={$caseResult.page.end_page}">末页</a></li>
         </ul>
     </nav>
 
