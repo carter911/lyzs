@@ -325,7 +325,7 @@ class Index extends Frontend
     {
         $article_detail = $this->article->where(["id" => $id])->find();
         $this->assign("article_detail", $article_detail);
-
+        $this->assign('title', '文章详情-岭艺装饰');
         return $this->view->fetch("article_detail");
 
     }

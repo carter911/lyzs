@@ -50,23 +50,29 @@
                 <img src="/assets/img/frontend/calculate_area.jpg" class="img-responsive center-block">
                 <div class="row" style="margin-top:25px">
                     <div class="col-xs-5" style="padding-top: 8px">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" onsubmit="return false;">
                             <div class="form-group">
                                 <label for="inputarea" class="col-sm-6 control-label padding_c"><span class="specolor">*</span>产证面积：</label>
                                 <div class="col-sm-6 padding_c" style="padding-right: 5px">
-                                    <input type="text" class="form-control" id="inputarea" placeholder="如：100（代表100平方）">
+                                    <input type="text" class="form-control" id="inputarea"  name="area"  placeholder="如：100（代表100平方）">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputtoilet" class="col-sm-6 control-label padding_c"><span class="specolor">*</span>卫生间数量：</label>
                                 <div class="col-sm-6 padding_c" style="padding-right: 5px">
-                                    <input type="text" class="form-control" id="inputtoilet" placeholder="如：1（代表1个）">
+                                    <input type="text" class="form-control" id="inputtoilet" name="toilet" placeholder="如：1（代表1个）">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputphone" class="col-sm-6 control-label padding_c"><span class="specolor">*</span>接收短信的手机号码：</label>
                                 <div class="col-sm-6 padding_c" style="padding-right: 5px">
-                                    <input type="text" class="form-control" id="inputphone" placeholder="用于接收报价短信">
+                                    <input type="text" class="form-control" id="inputphone" name="mobile" placeholder="用于接收报价短信">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputphone" class="col-sm-6 control-label padding_c"><span class="specolor">*</span>您的姓名：</label>
+                                <div class="col-sm-6 padding_c" style="padding-right: 5px">
+                                    <input type="text" class="form-control" id="inputname" name="name" placeholder="用于接收报价短信">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -75,7 +81,9 @@
                         </form>
                     </div>
                     <div class="col-xs-2">
-                        <a href="#" style="display: inline-block;margin-left: 25%;margin-top: 35%" data-toggle="modal" data-target="#myModal"><img src="/assets/img/frontend/calculate_btn.jpg" class="img-responsive center-block" style=""></a>
+                        <a href="#" onClick="submitAction()" style="display: inline-block;margin-left: 25%;margin-top: 35%" data-toggle="modal">
+                            <img src="/assets/img/frontend/calculate_btn.jpg" class="img-responsive center-block" style="">
+                        </a>
 
 
                         <!-- Modal -->
@@ -155,6 +163,38 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 报价速算 表单提交 -->
+            <script>
+                function submitAction() {
+                    let input_name = $("input[name='name']").val();
+                    let input_phone = $("input[name='mobile']").val();
+                    let input_space = $("input[name='area']").val();
+                    let input_toilet = $("input[name='toilet']").val();
+                    $.ajax({
+                        url: "/index/Customer/store",
+                        method: "POST",
+                        data: {
+                            name: input_name,
+                            mobile: input_phone,
+                            area: input_space,
+                            toilet: input_toilet
+                        },
+                        success: function (res) {
+                            console.log(res);
+                            if (res.code === 200) {
+                                alert(res.msg);
+                            } else if (res.code === 3001) {
+                                alert(res.msg);
+                            } else {
+                                alert("网络错误,请稍后重试 !!!");
+                                return false;
+                            }
+                        }
+                    });
+                    return false;
+                }
+            </script>
 
             <div class="art_list">
                 <h4><b>看过本文的人还看过</b></h4>
