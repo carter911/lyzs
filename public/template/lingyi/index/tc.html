@@ -183,40 +183,45 @@
             <p class="text-center" style="font-size: 18px">我们通过标准工序，指导工人施工、自检，同时为管理人员检查提供依据，保障施工按质量完成</p>
             <div class="case_tab" data-example-id="togglable-tabs">
                 <div id="standTabContent" class="tab-content tabinfo">
-        
-                    {volist name="procedure_list" id="procedure" key="key"}
-                    <div  role="tabpanel" class="tab-pane fade in {eq name="key" value="1"}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
-                    <div class="apply">
-                        <div class="img_l pull-left"><img src="/assets/img/frontend/stand_leftbtn.jpg" /></div>
-            
-                        <div class="apply_nav pull-left">
-                            <div class="apply_w pull-left">
-                                {volist name="procedure.images" id="img"}
-                                <div class="apply_array pull-left">
-                                    <div class="apply_img"><img src="{$img}" class="img-responsive"/></div>
+
+                    {volist name="procedure_list" id="procedure"}
+
+                    <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}"
+                         id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
+                        <div class="apply">
+                            <div class="img_l pull-left"><img src="/assets/img/frontend/stand_leftbtn.jpg"/></div>
+
+                            <div class="apply_nav pull-left">
+                                <div class="apply_w pull-left">
+                                    {volist name="procedure.images" id="img"}
+                                    <div class="apply_array pull-left">
+                                        <div class="apply_img"><img src="{$img}" class="img-responsive"/></div>
+                                    </div>
+                                    {/volist}
+                                    <div class="clearfix"></div>
                                 </div>
-                                {/volist}
-                                <div class="clearfix"></div>
                             </div>
+                            <div class="img_r pull-left"><img src="/assets/img/frontend/stand_rightbtn.jpg"/></div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="img_r pull-left"><img src="/assets/img/frontend/stand_rightbtn.jpg" /></div>
-                        <div class="clearfix"></div>
+                    </div>
+                    {/volist}
+                </div>
+                <div class="inner_info stand_tab">
+                    <div class="inner_info">
+                        <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist">
+                            {volist name="procedure_list" id="procedure"}
+                            <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                        <span class="stand_icon"><img src="/assets/img/frontend/stand_icon.jpg"
+                                                      class="img-responsive center-block"></span>
+                                <a href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab"
+                                   data-toggle="tab" aria-controls="prophase" aria-expanded="true"
+                                   style="padding: 6px 10px;">{$procedure.name}</a>
+                            </li>
+                            {/volist}
+                        </ul>
                     </div>
                 </div>
-                {/volist}
-            </div>
-            <div class="inner_info stand_tab">
-                <div class="inner_info">
-                    <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist">
-                        {volist name="procedure_list" id="procedure" key="key"}
-                        <li role="presentation" class="{eq name="key" value="1"}active{/eq}">
-                        <span class="stand_icon"><img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block"></span>
-                        <a href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab" data-toggle="tab" aria-controls="prophase" aria-expanded="true" style="padding: 6px 10px;">{$procedure.name}</a>
-                        </li>
-                        {/volist}
-                    </ul>
-                </div>
-            </div>
             </div>
         </div>
 
@@ -227,23 +232,24 @@
                 <p>1、我们产品研发团队已经通过对1000种户型的研究，得出最合理的计算方式；</p>
                 <p>2、通过计算公寓房的得房率不会有太大的误差，而产证面积是官方机构实测且无可争议的标准；</p>
                 <p>3、产证面积不足70平米的按70平米计算。</p>
-                <form class="form-inline">
+                <form class="form-inline" onsubmit="return false;">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="offarea_name" placeholder="姓名">
+                        <input type="text" class="form-control" id="offarea_name" name="name" placeholder="姓名">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="offarea_phone" placeholder="电话">
+                        <input type="text" class="form-control" id="offarea_phone" name="mobile" placeholder="电话">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="offarea_space" placeholder="产证面积（单位㎡）">
+                        <input type="text" class="form-control" id="offarea_space" name="area" placeholder="产证面积（单位㎡）">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="offarea_toliet" placeholder="卫生间个数">
+                        <input type="text" class="form-control" id="offarea_toliet" name="toilet" placeholder="卫生间个数">
                     </div>
-                    <button type="submit" class="btn btn-default offer_btn">立即报价</button>
+                    <button type="submit" class="btn btn-default offer_btn" onClick="submitAction()">立即报价</button>
                 </form>
             </div>
         </div>
+
 
         <div class="lis_realcase margin_t">
             <img src="/assets/img/frontend/lis_realcase.jpg" class="center-block img-responsive">
@@ -615,15 +621,37 @@
     </div>
 </div>
 
-<!--<div class="rightfix_bar">-->
-<!--<ul class="list-unstyled">-->
-<!--<li><a href="#top"><img src="/assets/img/frontend/1.png" onmouseover="this.src='/assets/img/frontend/1_1.png'" onmouseout="this.src='/assets/img/frontend/1.png'" class="img-responsive center-block"></a></li>-->
-<!--<li><a href="#"><img src="/assets/img/frontend/2.png" onmouseover="this.src='/assets/img/frontend/2_2.png'" onmouseout="this.src='/assets/img/frontend/2.png'" class="img-responsive center-block"></a></li>-->
-<!--<li><a href="#"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'" onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a></li>-->
-<!--<li><a href="#"><img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'" onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block"></a></li>-->
-<!--<li><img src="/assets/img/frontend/rightfix_ad.gif" class="img-responsive center-block"></li>-->
-<!--</ul>-->
-<!--</div>-->
+<!-- 报价速算 表单提交 -->
+<script>
+    function submitAction() {
+        let input_name = $("input[name='name']").val();
+        let input_phone = $("input[name='mobile']").val();
+        let input_space = $("input[name='area']").val();
+        let input_toilet = $("input[name='toilet']").val();
+        $.ajax({
+            url: "/index/Customer/store",
+            method: "POST",
+            data: {
+                name: input_name,
+                mobile: input_phone,
+                area: input_space,
+                toilet: input_toilet
+            },
+            success: function (res) {
+                console.log(res);
+                if (res.code === 200) {
+                    alert(res.msg);
+                } else if (res.code === 3001) {
+                    alert(res.msg);
+                } else {
+                    alert("网络错误,请稍后重试 !!!");
+                    return false;
+                }
+            }
+        });
+        return false;
+    }
+</script>
 <script type="text/javascript">
     $(".dropdown-toggle").hover(function () {
         $(this).dropdown("toggle");
