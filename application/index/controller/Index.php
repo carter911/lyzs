@@ -18,7 +18,7 @@ class Index extends Frontend
     protected $layout = '';
 
     private $article;
-    private $cases ;
+    private $cases;
 
     public function _initialize()
     {
@@ -47,7 +47,8 @@ class Index extends Frontend
         // 团队案例
         $casesModel = new Cases();
         $casesObj = $casesModel->limit(6)->order('id desc')->select();
-        $cases_lists = $casesObj/*$casesObj->toArray()*/;
+        $cases_lists = $casesObj/*$casesObj->toArray()*/
+        ;
         foreach ($cases_lists as $key => $val) {
             $resTeamDoor = Db::name('teamDoor')->field('name')
                 ->where('id', 'in', $cases_lists[$key]['team_door_ids'])->select();
@@ -69,9 +70,9 @@ class Index extends Frontend
         }
 
         // 客户见证
-        $witness_lists = Db::name('witness')->where(['status'=>1])->limit(50)->select();
+        $witness_lists = Db::name('witness')->where(['status' => 1])->limit(50)->select();
         // 最新活动
-        $article_list = Db::name('articles')->where(['status'=>1])->limit(4)->select();
+        $article_list = Db::name('articles')->where(['status' => 1])->limit(4)->select();
         $this->assign("article_list", $article_list);
 
         $this->assign('witness_lists', $witness_lists);
@@ -88,7 +89,7 @@ class Index extends Frontend
     public function ppsl()
     {
         $this->assign('title', '品牌实力-岭艺装饰');
-        $witnessList = Db::name('witness')->where(['status'=>2])->limit(48)->select();
+        $witnessList = Db::name('witness')->where(['status' => 2])->limit(48)->select();
         $this->assign('witnessList', $witnessList);
         return $this->view->fetch('ppsl');
     }
@@ -96,23 +97,23 @@ class Index extends Frontend
     public function gxj()
     {
         // 轮播图
-        $banner = Db::name('banner')->field('id,image')->where(['status'=>4])->find();
+        $banner = Db::name('banner')->field('id,image')->where(['status' => 4])->find();
         $this->assign('banner', $banner);
         // 主材
-        $material_master_list = Db::name('Material')->where(['status'=>1])->limit(6)->select();
-        foreach ($material_master_list as $key => $val){
-            $material_master_list[$key]['images'] = explode(",",$val['images']);
+        $material_master_list = Db::name('Material')->where(['status' => 1])->limit(6)->select();
+        foreach ($material_master_list as $key => $val) {
+            $material_master_list[$key]['images'] = explode(",", $val['images']);
         }
         // 辅材
-        $material_auxiliary_list = Db::name('Material')->where(['status'=>2])->limit(6)->select();
-        foreach ($material_auxiliary_list as $key => $val){
-            $material_auxiliary_list[$key]['images'] = explode(",",$val['images']);
+        $material_auxiliary_list = Db::name('Material')->where(['status' => 2])->limit(6)->select();
+        foreach ($material_auxiliary_list as $key => $val) {
+            $material_auxiliary_list[$key]['images'] = explode(",", $val['images']);
         }
 
         //工序
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
-        foreach ($procedure_list as $key => $val){
-            $procedure_list[$key]['images'] = explode(",",$val['images']);
+        foreach ($procedure_list as $key => $val) {
+            $procedure_list[$key]['images'] = explode(",", $val['images']);
         }
         $this->assign('procedure_list', $procedure_list);
 
@@ -126,8 +127,8 @@ class Index extends Frontend
 
 
         //典型案例介绍
-        $caseList = $this ->cases ->queryAllKindStyleCases();
-        $this -> assign("caseList", $caseList);
+        $caseList = $this->cases->queryAllKindStyleCases();
+        $this->assign("caseList", $caseList);
 
         return $this->view->fetch('gxj');
     }
@@ -135,29 +136,41 @@ class Index extends Frontend
     public function tc()
     {
         // 轮播图
-        $banner = Db::name('banner')->field('id,image')->where(['status'=>2])->find();
+        $banner = Db::name('banner')->field('id,image')->where(['status' => 2])->find();
         $this->assign('banner', $banner);
         // 客户见证
         $witness_lists = Db::name('witness')->field('image')->select();
         $this->assign('witness_lists', $witness_lists);
         // 主材
-        $material_master_list = Db::name('Material')->where(['status'=>1])->limit(6)->select();
-        foreach ($material_master_list as $key => $val){
-            $material_master_list[$key]['images'] = explode(",",$val['images']);
+        $material_master_list = Db::name('Material')->where(['status' => 1])->limit(6)->select();
+        foreach ($material_master_list as $key => $val) {
+            $material_master_list[$key]['images'] = explode(",", $val['images']);
         }
         // 辅材
-        $material_auxiliary_list = Db::name('Material')->where(['status'=>2])->limit(6)->select();
-        foreach ($material_auxiliary_list as $key => $val){
-            $material_auxiliary_list[$key]['images'] = explode(",",$val['images']);
+        $material_auxiliary_list = Db::name('Material')->where(['status' => 2])->limit(6)->select();
+        foreach ($material_auxiliary_list as $key => $val) {
+            $material_auxiliary_list[$key]['images'] = explode(",", $val['images']);
         }
 
         //工序
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
-        foreach ($procedure_list as $key => $val){
-            $procedure_list[$key]['images'] = explode(",",$val['images']);
+        foreach ($procedure_list as $key => $val) {
+            $procedure_list[$key]['images'] = explode(",", $val['images']);
         }
+        // 根据 风格 展示 实景案例
+        $team_style_list = Db::name('team_style')->field("id,name")->limit(5)->order('id desc')->select();
+        $cases_list = Db::name('cases')->field("id,name,image,team_style_ids")
+            ->where(['status' => "1"])->limit(5)->order('id desc')->select();
+        foreach ($team_style_list as $key => $val) {
+            foreach ($cases_list as $k => $v) {
+                if ($val['id'] == $v['team_style_ids']) {
+                    $team_style_list[$key]['style'] = $cases_list[$k];
+                }
+            }
+        }
+        // 根据 风格 展示 实景案例 live_cases
+        $this->assign('live_cases_list', $team_style_list);
         $this->assign('procedure_list', $procedure_list);
-
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
 
@@ -167,18 +180,30 @@ class Index extends Frontend
 
     public function gddz()
     {
+        // 我们的团队
+        $me_team_list = Db::name('team')->field("id,name,image,work_name,content")->limit(4)->order('id asc')->select();
+        $this->assign('me_team_list', $me_team_list);
+        // 案例  品质境界即刻体验
+        $cases_list = Db::name('cases')->field("id,name,image,team_door_ids")->limit(5)->order('id desc')->select();
+        foreach ($cases_list as $key => $val) {
+            $tmp_team_door_ids = substr($val['team_door_ids'], -1);
+            $team_door_name = Db::name('team_door')->field('name')->where(['id' => $tmp_team_door_ids])->find();
+            $cases_list[$key]['team_door_ids'] = $team_door_name['name'];
+        }
 
+        $this->assign('cases_list', $cases_list);
         $butler_list = Db::name('butler')->limit(8)->select();
-        foreach ($butler_list as $key => $val){
-            $cases = Db::name('cases')->field('name')->where(['butler_id'=>$val['id']])->limit(4)->select();
+        foreach ($butler_list as $key => $val) {
+            $cases = Db::name('cases')->field('name')->where(['butler_id' => $val['id']])->limit(4)->select();
             $butler_list[$key]['cases'] = $cases;
         }
 
 
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
-        foreach ($procedure_list as $key => $val){
-            $procedure_list[$key]['images'] = explode(",",$val['images']);
+        foreach ($procedure_list as $key => $val) {
+            $procedure_list[$key]['images'] = explode(",", $val['images']);
         }
+
         $this->assign('procedure_list', $procedure_list);
 
         $this->assign('butler_list', $butler_list);
@@ -200,29 +225,29 @@ class Index extends Frontend
         $this->assign('title', '首页-设计团队');
 
         $param = $request->get();
-        $search = ['door'=>'','style'=>'','time'=>'','sex'=>''];
+        $search = ['door' => '', 'style' => '', 'time' => '', 'sex' => ''];
 
         $where = [];
-        if(isset($param['door']) && $param['door']>0){
+        if (isset($param['door']) && $param['door'] > 0) {
 
             $door = $param['door'];
-            $search['door'] =$door;
-            $where[]=['exp',Db::raw("FIND_IN_SET('$door',team_door_ids)")];
+            $search['door'] = $door;
+            $where[] = ['exp', Db::raw("FIND_IN_SET('$door',team_door_ids)")];
         }
-        if(isset($param['style']) && $param['style']>0){
+        if (isset($param['style']) && $param['style'] > 0) {
             $style = $param['style'];
-            $search['style'] =$style;
-            $where[]=['exp',Db::raw("FIND_IN_SET('$style',team_style_ids)")];
+            $search['style'] = $style;
+            $where[] = ['exp', Db::raw("FIND_IN_SET('$style',team_style_ids)")];
         }
 
-        if(isset($param['time']) && $param['time']!=""){
-            $search['time'] =$param['time'];
-            $where['work_num']=['between',$param['time']];
+        if (isset($param['time']) && $param['time'] != "") {
+            $search['time'] = $param['time'];
+            $where['work_num'] = ['between', $param['time']];
         }
 
-        if(isset($param['sex']) && $param['sex']!=""){
-            $search['sex'] =$param['sex'];
-            $where['sex']=$param['sex'];
+        if (isset($param['sex']) && $param['sex'] != "") {
+            $search['sex'] = $param['sex'];
+            $where['sex'] = $param['sex'];
         }
 
         $lists = Db::name('team')->where($where)->paginate(10, false, [
@@ -305,49 +330,49 @@ class Index extends Frontend
 
     }
 
-    public function sjal($caseStyle=-1, $doorStyle=-1, $areaStyle=-1)
+    public function sjal($caseStyle = -1, $doorStyle = -1, $areaStyle = -1)
     {
         $this->assign('title', '实景案例-岭艺装饰');
 
-        $door_case = DB::name("team_door") -> select();
-        $door_style = DB::name("team_style") -> select();
-        $door_areas = DB::name("cases_area") -> select();
+        $door_case = DB::name("team_door")->select();
+        $door_style = DB::name("team_style")->select();
+        $door_areas = DB::name("cases_area")->select();
 
-        $this -> assign("door_case", $door_case);
-        $this -> assign("door_style", $door_style);
-        $this -> assign("door_areas", $door_areas);
+        $this->assign("door_case", $door_case);
+        $this->assign("door_style", $door_style);
+        $this->assign("door_areas", $door_areas);
 
-        $this -> assign("caseStyle",$caseStyle);
-        $this -> assign("doorStyle", $doorStyle);
-        $this-> assign("areaStyle", $areaStyle);
+        $this->assign("caseStyle", $caseStyle);
+        $this->assign("doorStyle", $doorStyle);
+        $this->assign("areaStyle", $areaStyle);
         //案例
-        $caseResult = $this->cases -> queryStyleCase($caseStyle,$doorStyle,$areaStyle);
-        $this -> assign("caseResult",$caseResult);
-        $this -> assign("caseResultSize", sizeof($caseResult));
+        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle);
+        $this->assign("caseResult", $caseResult);
+        $this->assign("caseResultSize", sizeof($caseResult));
 
         return $this->view->fetch('sjal');
     }
 
 
-    public function sjal0($caseStyle=-1, $doorStyle=-1, $areaStyle=-1)
+    public function sjal0($caseStyle = -1, $doorStyle = -1, $areaStyle = -1)
     {
         $this->assign('title', '实景案例-岭艺装饰');
 
-        $door_case = DB::name("team_door") -> select();
-        $door_style = DB::name("team_style") -> select();
-        $door_areas = DB::name("cases_area") -> select();
+        $door_case = DB::name("team_door")->select();
+        $door_style = DB::name("team_style")->select();
+        $door_areas = DB::name("cases_area")->select();
 
-        $this -> assign("door_case", $door_case);
-        $this -> assign("door_style", $door_style);
-        $this -> assign("door_areas", $door_areas);
+        $this->assign("door_case", $door_case);
+        $this->assign("door_style", $door_style);
+        $this->assign("door_areas", $door_areas);
 
-        $this -> assign("caseStyle",$caseStyle);
-        $this -> assign("doorStyle", $doorStyle);
-        $this-> assign("areaStyle", $areaStyle);
+        $this->assign("caseStyle", $caseStyle);
+        $this->assign("doorStyle", $doorStyle);
+        $this->assign("areaStyle", $areaStyle);
         //案例
-        $caseResult = $this->cases -> queryStyleCase($caseStyle,$doorStyle,$areaStyle, $keyword='',$status=2);
-        $this -> assign("caseResult",$caseResult);
-        $this -> assign("caseResultSize", sizeof($caseResult));
+        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle, $keyword = '', $status = 2);
+        $this->assign("caseResult", $caseResult);
+        $this->assign("caseResultSize", sizeof($caseResult));
 
         return $this->view->fetch('sjal0');
     }

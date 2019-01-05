@@ -260,23 +260,15 @@
                     <div class="inner_info row">
                         <div class="col-xs-10">
                             <ul id="realcaseTabs" class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#simplestyle" id="simplestyle-tab"
-                                                                          role="tab" data-toggle="tab"
+                                {volist name="live_cases_list" id="items"}
+                                <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                                    <a href="#simplestyle{$key}" id="simplestyle-tab" role="tab" data-toggle="tab"
                                                                           aria-controls="simplestyle"
                                                                           aria-expanded="true"
-                                                                          style="padding: 10px 50px;">简约风格</a></li>
-                                <li role="presentation"><a href="#europeanstyle" role="tab" id="europeanstyle-tab"
-                                                           data-toggle="tab" aria-controls="europeanstyle"
-                                                           style="padding: 10px 50px;">欧式风格</a></li>
-                                <li role="presentation"><a href="#americanstyle" id="americanstyle-tab" role="tab"
-                                                           data-toggle="tab" aria-controls="americanstyle"
-                                                           style="padding: 10px 50px;">美式风格</a></li>
-                                <li role="presentation"><a href="#nechinesestyle" role="tab" id="nechinesestyle-tab"
-                                                           data-toggle="tab" aria-controls="nechinesestyle"
-                                                           style="padding: 10px 50px;">新中式风格</a></li>
-                                <li role="presentation"><a href="#mashupstyle" id="mashupstyle-tab" role="tab"
-                                                           data-toggle="tab" aria-controls="mashupstyle"
-                                                           style="padding: 10px 50px;">混搭风格</a></li>
+                                                                          style="padding: 10px 50px;">{$items.name}</a>
+                                </li>
+                                {/volist}
+
                             </ul>
                         </div>
 
@@ -288,242 +280,112 @@
                     </div>
                 </div>
 
-                <div id="realcaseTabContent" class="tab-content tabinfo">
-                    <div role="tabpanel" class="tab-pane fade in active" id="simplestyle"
-                         aria-labelledby="simplestyle-tab">
-                        <div class="row case_area">
-                            <div class="col-xs-7 padding_c">
-                                <div class="leftop_area">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img01.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
+                <div id="realcaseTabContent" class="tab-content tabinfo" style="height: 700;overflow:hidden;">
 
-                                <div class="rel_leftbotimg row">
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotleft">
+                    {volist name="live_cases_list" id="vo" key="k"}
+                        {empty name="vo['style']"}
+                            <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}" id="simplestyle{$k}"
+                                 aria-labelledby="simplestyle-tab">
+                                <div class="row case_area">
+
+                                    <div class="col-xs-7 padding_c">
+                                        <div class="leftop_area">
                                             <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img02.jpg"
+                                                <a href="#"><img src="/assets/img/frontend/realcase_img01.jpg"
                                                                  class="img-responsive center-block"></a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotrigh">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img03.jpg"
-                                                                 class="img-responsive center-block"></a>
+
+                                        <div class="rel_leftbotimg row">
+                                            <div class="col-xs-6 padding_c">
+                                                <div class="rel_leftbotleft">
+                                                    <div class="cart_img">
+                                                        <a href="#"><img src="/assets/img/frontend/realcase_img02.jpg"
+                                                                         class="img-responsive center-block"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 padding_c">
+                                                <div class="rel_leftbotrigh">
+                                                    <div class="cart_img">
+                                                        <a href="#"><img src="/assets/img/frontend/realcase_img03.jpg"
+                                                                         class="img-responsive center-block"></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="col-xs-5 padding_c">
-                                <div class="rel_rightopimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img04.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                                <div class="rel_righbotimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img05.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane fade" id="europeanstyle" aria-labelledby="europeanstyle-tab">
-                        <div class="row case_area">
-                            <div class="col-xs-7 padding_c">
-                                <div class="leftop_area">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img01.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-
-                                <div class="rel_leftbotimg row">
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotleft">
+                                    <div class="col-xs-5 padding_c">
+                                        <div class="rel_rightopimg">
                                             <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img02.jpg"
+                                                <a href="#"><img src="/assets/img/frontend/realcase_img04.jpg"
                                                                  class="img-responsive center-block"></a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotrigh">
+                                        <div class="rel_righbotimg">
                                             <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img03.jpg"
+                                                <a href="#"><img src="/assets/img/frontend/realcase_img05.jpg"
                                                                  class="img-responsive center-block"></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        {else /}
 
-                            <div class="col-xs-5 padding_c">
-                                <div class="rel_rightopimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img04.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                                <div class="rel_righbotimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img05.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <div role="tabpanel" class="tab-pane fade in active" id="simplestyle{$k}"
+                                 aria-labelledby="simplestyle-tab">
+                                <div class="row case_area">
 
-                    <div role="tabpanel" class="tab-pane fade" id="americanstyle" aria-labelledby="americanstyle-tab">
-                        <div class="row case_area">
-                            <div class="col-xs-7 padding_c">
-                                <div class="leftop_area">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img01.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-
-                                <div class="rel_leftbotimg row">
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotleft">
+                                    <div class="col-xs-7 padding_c">
+                                        <div class="leftop_area">
                                             <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img02.jpg"
+                                                <a href="#"><img src="{$vo['style']['image']}"
                                                                  class="img-responsive center-block"></a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotrigh">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img03.jpg"
-                                                                 class="img-responsive center-block"></a>
+
+                                        <div class="rel_leftbotimg row">
+                                            <div class="col-xs-6 padding_c">
+                                                <div class="rel_leftbotleft">
+                                                    <div class="cart_img">
+                                                        <a href="#"><img src="{$vo['style']['image']}"
+                                                                         class="img-responsive center-block"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 padding_c">
+                                                <div class="rel_leftbotrigh">
+                                                    <div class="cart_img">
+                                                        <a href="#"><img src="{$vo['style']['image']}"
+                                                                         class="img-responsive center-block"></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="col-xs-5 padding_c">
-                                <div class="rel_rightopimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img04.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                                <div class="rel_righbotimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img05.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane fade" id="nechinesestyle" aria-labelledby="nechinesestyle-tab">
-                        <div class="row case_area">
-                            <div class="col-xs-7 padding_c">
-                                <div class="leftop_area">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img01.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-
-                                <div class="rel_leftbotimg row">
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotleft">
+                                    <div class="col-xs-5 padding_c">
+                                        <div class="rel_rightopimg">
                                             <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img02.jpg"
+                                                <a href="#"><img src="{$vo['style']['image']}"
                                                                  class="img-responsive center-block"></a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotrigh">
+                                        <div class="rel_righbotimg">
                                             <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img03.jpg"
+                                                <a href="#"><img src="{$vo['style']['image']}"
                                                                  class="img-responsive center-block"></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        {/empty}
+                    {/volist}
 
-                            <div class="col-xs-5 padding_c">
-                                <div class="rel_rightopimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img04.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                                <div class="rel_righbotimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img05.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div role="tabpanel" class="tab-pane fade" id="mashupstyle" aria-labelledby="mashupstyle-tab">
-                        <div class="row case_area">
-                            <div class="col-xs-7 padding_c">
-                                <div class="leftop_area">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img01.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-
-                                <div class="rel_leftbotimg row">
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotleft">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img02.jpg"
-                                                                 class="img-responsive center-block"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 padding_c">
-                                        <div class="rel_leftbotrigh">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img03.jpg"
-                                                                 class="img-responsive center-block"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-5 padding_c">
-                                <div class="rel_rightopimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img04.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                                <div class="rel_righbotimg">
-                                    <div class="cart_img">
-                                        <a href="#"><img src="/assets/img/frontend/realcase_img05.jpg"
-                                                         class="img-responsive center-block"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
