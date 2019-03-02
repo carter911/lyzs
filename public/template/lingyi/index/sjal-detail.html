@@ -1,0 +1,325 @@
+<link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/frontend/style.css" rel="stylesheet">
+<link href="/assets/css/frontend/contact.css" rel="stylesheet">
+<link href="/assets/css/frontend/designer.css" rel="stylesheet">
+<link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+<link href="/assets/css/frontend/designgroup.css" rel="stylesheet" type="text/css">
+
+<link href="/assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
+    .none-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .none-margin {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .type_box {
+        padding: 1.8rem 2rem;
+        text-align: left;
+        font-size: 0.875rem;
+    }
+
+    .type_box span {
+        background-color: #e5e5e5;
+        padding: 6px 16px;
+        cursor: pointer;
+    }
+
+    .active_type {
+        color: #fff;
+        background-color: #333 !important;
+        position: relative;
+    }
+
+    .active_type_icon {
+        position: absolute;
+        top: -18px;
+        left: 40px;
+        color: #333;
+        font-size: 2.8rem;
+    }
+
+    .main-table {
+        width: 100%;
+    }
+
+    .main-table tr th {
+        border: 1px solid #ddd;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .main-table tr td {
+        border: 1px solid #ddd;
+        text-align: center;
+        padding: 1.2rem 0;
+    }
+
+    .intro_table {
+        width: 100%;
+        border: 1px solid #eee;
+    }
+
+    .intro_table tr {
+        border-bottom: 1px solid #eee;
+    }
+
+    .tr-style td:first-child {
+        width: 43%;
+        padding: 5px 0;
+        background-color: #f5f5f5;
+        text-align: center
+    }
+
+    .tr-style td:last-child {
+        padding-left: 20px;
+        border-left: 1px solid #eee;
+    }
+
+</style>
+
+<script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
+<script src="/assets/js/frontend/bootstrap.min.js"></script>
+</head>
+
+
+<div class="container">
+    <div class="current_loca">
+        <span>当前位置：</span>
+        <ol class="breadcrumb">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#">案例时光机</a></li>
+            <li><a href="#" onclick="javascript:history.back(-1)">实景案例</a></li>
+            <li class="active">详情</li>
+        </ol>
+    </div>
+
+    <div class="cation-content" style="margin: 2rem 0;">
+        <div class="row none-margin">
+            <div class="col-md-9 none-padding" style="padding-right: 1.45rem;">
+                <!-- main-->
+                <div class="box" style="border: 1px solid #E2E2E2;">
+                    <div class="box-top" style="border-bottom: 1px solid #E2E2E2;">
+                        <!---->
+                        <div id="carousel-example-generic" style="min-height:600px;" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img style="width: 100%;height: 600px;" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=8732501,3217174520&fm=26&gp=0.jpg" alt="...">
+                                    <div class="carousel-caption"></div>
+                                </div>
+                                <div class="item">
+                                    <img style="width: 100%;height: 600px;" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3478990368,3362047568&fm=26&gp=0.jpg" alt="...">
+                                    <div class="carousel-caption"></div>
+                                </div>
+                                <div class="item">
+                                    <img style="width: 100%;height: 600px;" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3478990368,3362047568&fm=26&gp=0.jpg" alt="...">
+                                    <div class="carousel-caption"></div>
+                                </div>
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" style="min-height:600px;line-height: 600px;" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <i class="fa fa-angle-left" style="font-size: 8rem;"></i>
+                            </a>
+                            <a class="right carousel-control" style="min-height:600px;line-height: 600px;" href="#carousel-example-generic" role="button" data-slide="next">
+                                <i class="fa fa-angle-right" style="font-size: 8rem;"></i>
+                            </a>
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                        </div>
+                        <!---->
+                        <div class="type_box">
+                            <span class="active_type">
+                                <i class="fa fa-caret-up active_type_icon"></i>
+                                户型图(5)
+                            </span>
+                            <span>客厅(5)</span>
+                            <span>卧室(5)</span>
+                            <span>厨房(5)</span>
+                            <span>餐厅(5)</span>
+                            <span>衣帽间(5)</span>
+                            <span>楼梯间(5)</span>
+                            <span>其他区域(5)</span>
+                        </div>
+                    </div>
+                    <div class="box-bottom" style="padding: 2rem 2rem;">
+                        <div class="row none-margin">
+                            <span><i class="fa fa-file-text-o">&nbsp;</i>&nbsp;费用明细</span>
+                            <span>&nbsp;&nbsp;</span>
+                            <span style="color: #ddd;">&nbsp;|&nbsp;</span>
+                            <span>&nbsp;&nbsp;</span>
+                            <span> 设计费: 5000元</span>
+                            <span>&nbsp;&nbsp;</span>
+                            <span> 施工费用: 205260元</span>
+                            <span>&nbsp;&nbsp;</span>
+                            <span> 材料费: 35323元</span>
+                        </div>
+                        <div class="row none-margin" style="margin: 2rem 0;">
+                            <!-- main table -->
+                            <table class="main-table" style="border-spacing: 5px;border-collapse: separate;">
+                                <tr>
+                                    <th>项目</th>
+                                    <th>明细</th>
+                                    <th>材料</th>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2" style="margin: 1rem;">客厅</th>
+                                    <td style="margin: 1rem;">地面</td>
+                                    <td style="margin: 1rem;">大理石瓷砖</td>
+                                </tr>
+                                <tr>
+                                    <td>墙面</td>
+                                    <td>多乐士涂料</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1">卧室</td>
+                                    <td>柜子</td>
+                                    <td>兔宝宝板材</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">卫生间</td>
+                                    <td>地面</td>
+                                    <td>威尔斯瓷砖</td>
+                                </tr>
+                                <tr>
+                                    <td>洁具</td>
+                                    <td>TOTO</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">厨房</td>
+                                    <td>地面</td>
+                                    <td>威尔斯瓷砖</td>
+                                </tr>
+                                <tr>
+                                    <td>整体橱柜</td>
+                                    <td>东边</td>
+                                </tr>
+                                <tr>
+                                    <td>热水器</td>
+                                    <td>史密斯</td>
+                                </tr>
+                                <tr>
+                                    <td>厨具</td>
+                                    <td>方太</td>
+                                </tr>
+                                <tr>
+                                    <td>餐厅</td>
+                                    <td>墙面</td>
+                                    <td>多乐士涂料</td>
+                                </tr>
+                                <tr>
+                                    <td>衣帽间</td>
+                                    <td>柜子</td>
+                                    <td>兔宝宝板材</td>
+
+                                </tr>
+                                <tr>
+                                    <td>楼梯间</td>
+                                    <td>墙面</td>
+                                    <td>多乐士涂料</td>
+                                </tr>
+                                <tr>
+                                    <td>其他区域</td>
+                                    <td>柜子</td>
+                                    <td>兔宝宝板材</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="row none-margin">
+                            <span style="padding: 8px 12px;background-color:#333;color: #fff;box-shadow: 1px 5px 8px #666666;">
+                                了解更多明细
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 none-padding">
+                <!-- sidebar-->
+                <div class="intro">
+                    <h4 style="margin-bottom: 1rem;">本案设计师简介</h4>
+                    <div class="row none-margin">
+                        <div class="col-md-5 none-padding" style="background-color:#ccc;height: 120px;">
+                            <img style="width: 100%;height: 100%" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=195463780,3901485650&fm=26&gp=0.jpg" alt="">
+                        </div>
+                        <div class="col-md-7 none-padding" style="padding-left: 8px;">
+                            <div class="row none-margin">设计师: 某某 <span style="padding: 1px 5px;color: #fff;background-color:#000;">预约</span></div>
+                            <div class="row none-margin">级别: 设计师总监</div>
+                            <div class="row none-margin">从业年限: 20年</div>
+                            <div class="row none-margin">电话: 400-000-3000</div>
+                            <div class="row none-margin">
+                                <span style="padding: 2px 8px;color: #fff;background-color:#C7000B;">
+                                    查看Ta的其他案例
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 设计师简介 -->
+                </div>
+                <div class="row none-margin" style="margin-top: 2rem;">
+                    <table class="intro_table">
+                        <tbody>
+                        <tr class="tr-style">
+                            <td>案例名称</td>
+                            <td>丁香湖</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>案例风格</td>
+                            <td>现代简约</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>设计师</td>
+                            <td>岭艺装饰</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>设计类型</td>
+                            <td>新房装修</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>装修方式</td>
+                            <td>半包</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>房屋面积</td>
+                            <td>300平方米</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>户型</td>
+                            <td>别墅</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>所在地</td>
+                            <td>美地城</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>施工工期</td>
+                            <td>212天</td>
+                        </tr>
+                        <tr class="tr-style">
+                            <td>实际花费</td>
+                            <td>12143元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

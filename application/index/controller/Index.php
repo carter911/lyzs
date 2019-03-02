@@ -353,6 +353,13 @@ class Index extends Frontend
         return $this->view->fetch('sjal');
     }
 
+    public function sjal_detail($detail_id)
+    {
+//        $article_detail = $this->article->where(["id" => $id])->find();
+        $this->assign('title', '实景案例详情-岭艺装饰');
+        return $this->view->fetch('sjal-detail');
+    }
+
 
     public function sjal0($caseStyle = -1, $doorStyle = -1, $areaStyle = -1)
     {
