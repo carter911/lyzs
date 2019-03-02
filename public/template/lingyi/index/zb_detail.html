@@ -1,0 +1,255 @@
+<!-- 施工直播 -->
+
+<link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/frontend/style.css" rel="stylesheet">
+<link href="/assets/css/frontend/contact.css" rel="stylesheet">
+<link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+<link href="/assets/css/frontend/designgroup.css" rel="stylesheet" type="text/css">
+<link href="/assets/css/frontend/construction.css" rel="stylesheet" type="text/css">
+<link href="/assets/css/frontend/timeline.css" rel="stylesheet">
+<script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/frontend/current.js"></script>
+<script src="/assets/js/frontend/bootstrap.min.js"></script>
+
+
+<style>
+    .none-margin {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .none-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .box {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        min-height: 800px;
+        padding: 0 1.45rem;
+        background-color: #f9f9f9;
+    }
+
+    .box .tag {
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .box .tag span {
+        font-size: 1.45rem;
+        text-align: center;
+        padding: 5px 12px;
+        margin-right: 10px;
+        border-radius: 3px;
+        background-color: #e5e5e5;
+    }
+
+    .visit-box {
+        padding: 1rem;
+        background-color: #fff;
+        text-align: center;
+        font-size: 1.45rem;
+    }
+
+    .visit-box h3 {
+        color: #c8161d;
+    }
+
+    .visit-box .intro {
+        margin: 1rem;
+        font-size: 1.25rem;
+        color: #666666;
+    }
+
+    .form-box {
+        font-size: 1.45rem;
+    }
+
+    .form-box input[type=text] {
+        padding: 5px 8px;
+        border: none;
+        width: 100%;
+        background-color: #e6e6e6;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .form-box input[type=submit] {
+        margin: 1rem 0;
+        padding: 6px 0;
+        border: none;
+        width: 100%;
+        color: #fff;
+        background-color: #c8161d;
+    }
+
+    .information {
+        margin-top: 8px;
+        padding: 1.45rem;
+        background-color: #fff;
+        font-size: 0.875rem;
+        color: #666666
+    }
+
+    .information div {
+        margin-bottom: 5px;
+    }
+
+    .box-footer {
+        margin-bottom: 3rem;
+        text-align: center;
+        color: #777;
+    }
+
+    .box-footer .page {
+        width: 100%;
+        color: #777;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        background-color: #f9f9f9;
+    }
+
+    .time-line {
+        padding: 0;
+        margin: 0;
+        font-size: 1.45rem;
+        min-height: 500px;
+        border-right: 2px solid black;
+        /*background-color: #ddd;*/
+    }
+
+    .time-line li {
+        list-style: none;
+        text-align: center;
+        padding: 0.8rem 0;
+        position: relative;
+        color: #777;
+    }
+
+    .time-line li a {
+       text-decoration: none;
+    }
+
+    .time-line li a span {
+        float: right;
+        margin-right: 3rem;
+    }
+
+    .time-line li img {
+        position: absolute;
+        right: -5px;
+        top: 15px;
+    }
+
+    .time-box {
+
+    }
+
+</style>
+
+<div class="container">
+    <div class="current_loca">
+        <span>当前位置：</span>
+        <ol class="breadcrumb">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#" onclick="javascript:history.back(-1);">施工直播</a></li>
+            <li class="active">直播详情</li>
+        </ol>
+    </div>
+
+    <div class="cation-content">
+        <div class="box">
+            <div class="row none-margin" style="padding: 3rem 0 1rem;text-align: center;">
+                <h2>华山丽苑 · 装修在施工地</h2>
+            </div>
+            <div class="row none-margin" style="padding: 1rem 0;font-size: 1.45rem;text-align: center;color: #cbcbcb;">
+                <span>来源: 岭艺装饰</span>
+                <span>&nbsp;&nbsp;|&nbsp;</span>
+                <span>浏览数: 110次</span>
+                <span>&nbsp;&nbsp;|&nbsp;</span>
+                <span>更新时间: <?php echo date('Y-m-d H:i:s', time())?></span>
+            </div>
+            <div class="row none-margin tag">
+                <span>长宁区</span>
+                <span>长宁区</span>
+                <span>长宁区</span>
+            </div>
+            <div class="row none-margin" style="font-size: 1.45rem;margin: 1rem 1rem;padding: 1rem 0 ;border-top: 1px solid #bfbfbf;">
+                欢迎预约参观工地,现场见证东易日盛装饰专业工艺, 更有专车免费接送服务, VIP预约热线: 400-000-0000
+            </div>
+            <div class="row none-margin">
+                <div class="col-md-9">
+                    <!-- timeline-->
+                    <div class="col-md-2">
+                        <ul class="time-line">
+                            <li>
+                                <a href="#">拆除/拆旧 <span>1</span></a>
+                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                            </li>
+                            <li>
+                                <a href="#">户型改建 <span>2</span></a>
+                                <img src="/assets/img/zb_detail/scale.png" alt="">
+                            </li>
+                            <li>
+                                <a href="#">3D放样 <span>3</span></a>
+                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                            </li>
+                            <li>
+                                <a href="#">水电改造 <span>4</span></a>
+                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="time-box">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3" style="padding-left: 1rem">
+                    <div class="visit-box">
+                        <h3>参观工地</h3>
+                        <div class="intro">参观工地现场 / 了解家装全过程</div>
+                        <form class="form-box" action="#" onsubmit="return false">
+                            <input type="text" name="username" placeholder="称呼">
+                            <input type="text" name="telephone" placeholder="电话">
+                            <input type="submit" value="预约参观">
+                        </form>
+                        <div style="padding: 0.675rem 0;">
+                            累计已有<span style="color: #ff0000;">153</span>人成功预约
+                        </div>
+                        <div>
+                            免费电话申请: <span style="color: #ff0000;">4000-000-0000</span>
+                        </div>
+                    </div>
+                    <div class="information">
+                        <div class="row none-margin">L** 186****4 提交预约信息 [07/16]</div>
+                        <div class="row none-margin">Liu** 186****1234 提交预约信息 [07/16]</div>
+                        <div class="row none-margin">Liu** 186****1234 提交预约信息 [07/16]</div>
+                        <div class="row none-margin">Liu** 186****1234 提交预约信息 [07/16]</div>
+                        <div class="row none-margin">Liu** 186****1234 提交预约信息 [07/16]</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row none-margin"></div>
+        </div>
+        <div class="box-footer">
+            <div class="row none-margin">
+                <div class="col-md-6">
+                    <a href="#">
+                        <div class="page" style="">上一篇 : 已最新</div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="#">
+                        <div class="page">下一篇 : 金碧家园</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

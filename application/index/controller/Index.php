@@ -273,6 +273,13 @@ class Index extends Frontend
         return $this->view->fetch("zb");
     }
 
+    //直播详情
+    public function zb_detail($detail_id)
+    {
+        $this->assign('title', '直播详情');
+        return $this->view->fetch("zb_detail");
+    }
+
     //最新活动
     public function zxhd($pageIndex = 1, $status = 1)
     {
