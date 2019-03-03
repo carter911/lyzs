@@ -31,6 +31,18 @@
         background-color: #f9f9f9;
     }
 
+    .box .title {
+        padding: 3rem 0 1rem;
+        text-align: center;
+    }
+
+    .box .title-info {
+        padding: 1rem 0;
+        font-size: 1.45rem;
+        text-align: center;
+        color: #cbcbcb;
+    }
+
     .box .tag {
         padding: 1rem 0;
         text-align: center;
@@ -43,6 +55,13 @@
         margin-right: 10px;
         border-radius: 3px;
         background-color: #e5e5e5;
+    }
+
+    .box .welcome_text {
+        font-size: 1.45rem;
+        margin: 1rem 1rem;
+        padding: 1rem 0;
+        border-top: 1px solid #bfbfbf;
     }
 
     .visit-box {
@@ -138,7 +157,7 @@
 
     .time-line li img {
         position: absolute;
-        right: -5px;
+        right: -4px;
         top: 15px;
     }
 
@@ -160,11 +179,33 @@
 
     .time-box-images .img-box {
         width: 30%;
-        min-height: 200px;
+        min-height: 180px;
         margin: 0.5rem 0.5rem 0 0;
         display: inline-block;
+        background-color: #ddd;
     }
 
+    .select_status a {
+        font-size: 1.65rem !important;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .select_status .img_scale {
+        display: block;
+    }
+
+    .select_status .img_dot {
+        display: none;
+    }
+
+    .img_scale {
+        display: none;
+    }
+
+    .img_dot {
+        display: block;
+    }
 
 </style>
 
@@ -180,10 +221,10 @@
 
     <div class="cation-content">
         <div class="box">
-            <div class="row none-margin" style="padding: 3rem 0 1rem;text-align: center;">
+            <div class="row none-margin title">
                 <h2>华山丽苑 · 装修在施工地</h2>
             </div>
-            <div class="row none-margin" style="padding: 1rem 0;font-size: 1.45rem;text-align: center;color: #cbcbcb;">
+            <div class="row none-margin title-info">
                 <span>来源: 岭艺装饰</span>
                 <span>&nbsp;&nbsp;|&nbsp;</span>
                 <span>浏览数: 110次</span>
@@ -195,7 +236,7 @@
                 <span>长宁区</span>
                 <span>长宁区</span>
             </div>
-            <div class="row none-margin" style="font-size: 1.45rem;margin: 1rem 1rem;padding: 1rem 0 ;border-top: 1px solid #bfbfbf;">
+            <div class="row none-margin welcome_text">
                 欢迎预约参观工地,现场见证东易日盛装饰专业工艺, 更有专车免费接送服务, VIP预约热线: 400-000-0000
             </div>
             <div class="row none-margin" style="margin-top: 5rem;">
@@ -204,40 +245,55 @@
                     <div class="col-md-2">
                         <ul class="time-line">
                             <li>
-                                <a href="#">拆除/拆旧 <span>1</span></a>
-                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                                <a href="#"> 拆除/拆旧 <span>1</span></a>
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
-                            <li>
+                            <!-- 选择状态 -->
+                            <li class="select_status">
                                 <a href="#">户型改建 <span>2</span></a>
-                                <img src="/assets/img/zb_detail/scale.png" alt="">
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
                             <li>
                                 <a href="#">3D放样 <span>3</span></a>
-                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
                             <li>
                                 <a href="#">水电改造 <span>4</span></a>
-                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
                             <li>
-                                <a href="#">水电改造 <span>5</span></a>
-                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                                <a href="#">木工阶段 <span>5</span></a>
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
                             <li>
-                                <a href="#">水电改造 <span>6</span></a>
-                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                                <a href="#">瓷砖铺贴 <span>6</span></a>
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
                             <li>
-                                <a href="#">水电改造 <span>7</span></a>
-                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                                <a href="#">油漆阶段 <span>7</span></a>
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
                             <li>
-                                <a href="#">水电改造 <span>8</span></a>
-                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                                <a href="#">安装/调试 <span>8</span></a>
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
                             <li>
-                                <a href="#">水电改造 <span>9</span></a>
-                                <img src="/assets/img/zb_detail/dot.png" alt="">
+                                <a href="#">满场/竣工 <span>9</span></a>
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
+                            </li>
+                            <li>
+                                <a href="#">软装 <span>10</span></a>
+                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
                         </ul>
                     </div>
@@ -253,21 +309,21 @@
                             <div class="text">3, 原墙面墙皮铲除(如有), 90%面积露出原水泥粉层</div>
                             <div class="text">注: 节点检查图片上传验收</div>
                             <div class="row none-margin time-box-images">
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
                             </div>
                         </div>
                         <!--end-->
                         <!--start-->
                         <div class="time-box">
-                            <h2 style="text-align: center;">户型改造</h2>
+                            <h2 style="text-align: center;">3D放样</h2>
                             <hr>
                             <div class="text">任务描述: 切墙, 粉补项目</div>
                             <div class="text">1, 是否符合设计要求</div>
@@ -275,85 +331,28 @@
                             <div class="text">3, 原墙面墙皮铲除(如有), 90%面积露出原水泥粉层</div>
                             <div class="text">注: 节点检查图片上传验收</div>
                             <div class="row none-margin time-box-images">
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
+                                <div class="img-box"><img src="" alt=""></div>
                             </div>
                         </div>
                         <!--end-->
                         <!--start-->
                         <div class="time-box">
-                            <h2 style="text-align: center;">户型改造</h2>
+                            <h2 style="text-align: center;">水电改造</h2>
                             <hr>
-                            <div class="text">任务描述: 切墙, 粉补项目</div>
-                            <div class="text">1, 是否符合设计要求</div>
-                            <div class="text">2, 新砌墙图横平竖直</div>
-                            <div class="text">3, 原墙面墙皮铲除(如有), 90%面积露出原水泥粉层</div>
-                            <div class="text">注: 节点检查图片上传验收</div>
+                            <div class="text">为发展到次阶段</div>
                             <div class="row none-margin time-box-images">
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
+                                <img style="width: 100%;min-height: 180px;" src="/assets/img/zb_detail/update.png" alt="">
                             </div>
                         </div>
                         <!--end-->
-                        <!--start-->
-                        <div class="time-box">
-                            <h2 style="text-align: center;">户型改造</h2>
-                            <hr>
-                            <div class="text">任务描述: 切墙, 粉补项目</div>
-                            <div class="text">1, 是否符合设计要求</div>
-                            <div class="text">2, 新砌墙图横平竖直</div>
-                            <div class="text">3, 原墙面墙皮铲除(如有), 90%面积露出原水泥粉层</div>
-                            <div class="text">注: 节点检查图片上传验收</div>
-                            <div class="row none-margin time-box-images">
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                            </div>
-                        </div>
-                        <!--end-->
-                        <!--start-->
-                        <div class="time-box">
-                            <h2 style="text-align: center;">户型改造</h2>
-                            <hr>
-                            <div class="text">任务描述: 切墙, 粉补项目</div>
-                            <div class="text">1, 是否符合设计要求</div>
-                            <div class="text">2, 新砌墙图横平竖直</div>
-                            <div class="text">3, 原墙面墙皮铲除(如有), 90%面积露出原水泥粉层</div>
-                            <div class="text">注: 节点检查图片上传验收</div>
-                            <div class="row none-margin time-box-images">
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                                <div class="img-box" style="background-color:#ddd;"><img src="" alt=""></div>
-                            </div>
-                        </div>
-                        <!--end-->
-
                     </div>
 
                 </div>
