@@ -1,0 +1,512 @@
+<!--设计团队-->
+
+<link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/frontend/style.css" rel="stylesheet">
+<link href="/assets/css/frontend/contact.css" rel="stylesheet">
+<link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+<link href="/assets/css/frontend/designgroup.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
+<script src="/assets/js/frontend/bootstrap.min.js"></script>
+<style>
+    .none-margin {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .none-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .visit-box {
+        padding: 2rem 2rem;
+        background-color: #f5f5f5;
+        text-align: center;
+        font-size: 1.45rem;
+    }
+
+    .visit-box h4 {
+        color: #c8161d;
+        font-weight: bold;
+    }
+
+    .visit-box .intro {
+        margin: 1rem;
+        font-size: 1.25rem;
+        color: #666666;
+    }
+
+    .form-box {
+        font-size: 1.45rem;
+    }
+
+    .form-box input[type=text] {
+        padding: 5px 8px;
+        border: none;
+        width: 100%;
+        background-color: #e6e6e6;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .form-box input[type=submit] {
+        margin: 1rem 0;
+        padding: 6px 0;
+        border: none;
+        width: 100%;
+        color: #fff;
+        background-color: #c8161d;
+    }
+
+    .list-box {
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    .list-item {
+        margin-bottom: 0.875rem;
+    }
+
+    .list-item:hover {
+        box-shadow: 0 5px 10px #999999;
+    }
+
+    .recommend {
+        font-size: 1.45rem;
+        margin-bottom: 3rem;
+    }
+
+    .recommend-header {
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .recommend-header span {
+        float: right;
+        font-size: 0.875rem;
+        color: #999999;
+    }
+
+    .recommend-img {
+        position: relative;
+    }
+
+    .recommend-img .btn-group {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        /*padding: .5rem 3rem;*/
+        width: 100%;
+    }
+
+    .btn-group .btn1 {
+        width: 49%;
+        float: left;
+        text-align: center;
+        padding: .5rem 0;
+        background-color: rgba(235, 237, 237, 0.7215686274509804);
+    }
+
+    .btn-group .btn2 {
+        width: 49%;
+        float: right;
+        text-align: center;
+        padding: .5rem 0;
+        color: #fff;
+        background-color: #df0024;
+    }
+
+
+</style>
+
+<div class="container">
+    <div class="current_loca">
+        <span>当前位置：</span>
+        <ol class="breadcrumb">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#" onclick="javascript:history.back(-1)">设计团队</a></li>
+            <li class="active">设计团队_详情</li>
+        </ol>
+    </div>
+
+    <div class="row none-margin" style="margin: 3rem 0;min-height: 600px;">
+        <div class="row none-margin" style="padding: 2.8rem 0;border-top: 1px solid #e5e1ea;border-bottom: 1px solid #e5e1ea">
+            <div class="col-md-9 none-padding">
+
+                <div class="row none-margin" style="padding: 3.2rem 2rem 3.2rem 0;min-height: 355px;">
+                    <div class="col-md-4">
+                        <img style="width: 100%;height: 100%;" src="/assets/img/sjtd_detail/photo_1.png" alt="">
+                    </div>
+                    <div class="col-md-8" style="font-size: 1.45rem;">
+                        <div class="row none-margin" style="margin-bottom: 1rem;padding-bottom:1rem;border-bottom: 1px solid #e5e5e5">
+                            <h3 style="display:inline-block;">某某某</h3>
+                            <span>&nbsp;&nbsp; 设计总监</span>
+                        </div>
+                        <div class="row none-margin" style="padding: 1rem 0;margin-bottom: 1rem;">
+                            <div class="col-md-2" style="color: #bdbdbd;"> 设计经验</div>
+                            <div class="col-md-10">
+                                <div class="col-md-3 none-padding"> 十年以上</div>
+                                <div class="col-md-2" style="color: #bdbdbd;"> 擅长类型</div>
+                                <div class="col-md-5">
+                                    公寓,别墅,复式,loft
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row none-margin" style="margin-bottom: 1rem;">
+                            <div class="col-md-2" style="color: #bdbdbd;"> 履历介绍</div>
+                            <div class="col-md-10" style="height: 160px;overflow-y: scroll">
+                                公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,
+                                公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,
+                                公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,
+                                公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,
+                                公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,
+                                公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,
+                                别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,复式公寓,别墅,
+                                复式公寓,别墅,复式公寓,别墅,复式,公寓,别墅,复式
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 none-padding" style="padding-left: 1rem">
+                <div class="visit-box">
+                    <h4>预约<span style="color: #000;">某某某</span>设计师</h4>
+                    <hr>
+                    <div class="intro">免费申请家装规划</div>
+                    <form class="form-box" action="#" onsubmit="return false">
+                        <input type="text" name="username" placeholder="称呼">
+                        <input type="text" name="telephone" placeholder="电话">
+                        <input type="text" name="telephone" placeholder="产证面积(单位m²)">
+                        <input type="submit" value="预约设计师">
+                    </form>
+                    <div style="padding: 0.675rem 0;">
+                        累计已有<span style="color: #ff0000;">153</span>人成功预约
+                    </div>
+                    <div>
+                        马上提交申请即送<span style="color: #ff0000;">1000元</span>家装抵用卷
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row none-margin">
+            <div class="row none-margin" style="padding: 1rem 0;color: #777;">
+                作品展示共<span style="font-size: 1.45rem;font-weight: bold;color: #ff0000;">100</span>套
+            </div>
+            <!-- list 列表 start -->
+            <div class="list-box">
+                <!-- start -->
+                <div class="list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                <!-- start -->
+                <div class=" list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                <!-- start -->
+                <div class=" list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                <!-- start -->
+                <div class=" list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                <!-- start -->
+                <div class=" list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                <!-- start -->
+                <div class=" list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                <!-- start -->
+                <div class=" list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                <!-- start -->
+                <div class="list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+                <!-- start -->
+                <div class=" list-item" style="background-color:#eeeeee;">
+                    <div class="row none-margin" style="background-color:#ddd;">
+                        <img style="width: 100%; min-height: 200px;" src="/assets/img/sjtd_detail/room.png" alt="">
+                    </div>
+                    <div class="row none-margin" style="padding: 1rem 1rem;">
+                        <div class="row none-margin" style="padding: 1rem 0;">
+                            <span>现代简约</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>别墅</span>
+                            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <span>300 ㎡</span>
+                        </div>
+                        <div class="row none-margin" style="color: #999999;">
+                            <span style="float:left;">汤臣 · 半包</span>
+                            <span style="float:right;">300000元 </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+            </div>
+            <!-- list 列表 end -->
+            <div class="row none-margin" >
+                <nav aria-label="Page navigation" class="pagselec">
+                    <ul class="pagination pagination-lg">
+                        <li><a href="#">首页</a></li>
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&lt;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&gt;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">末页</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row none-margin recommend">
+                <div class="recommend-header">
+                    相关设计师推荐 <a href="#"><span>更多 >>></span></a>
+                </div>
+                <div class="row none-margin" style="margin: 1rem 0;display: flex;justify-content: space-between;">
+                    <!-- start -->
+                    <div style="display: inline-block;width: 24%;min-height: 280px;border: 1px solid #f3f3f3;">
+                        <div class="recommend-img">
+                            <img style="width: 100%;height: 100%;" src="/assets/img/sjtd_detail/photo_2.png" alt="">
+                            <div class="btn-group">
+                                <span class="btn1">免费咨询</span>
+                                <span class="btn2">免费规划</span>
+                            </div>
+                        </div>
+                        <div class="recommend-info">
+                            <div style="text-align: center;padding: 1rem 0;border-bottom: 1px solid #ddd;" >
+                                <h4 style="display: inline-block;">方笑</h4> 设计总监
+                            </div>
+                            <div class="row none-margin" style="padding: .5rem 0;color: #999;text-align: center;">
+                                <div style="width: 49%;float: left;">从业经验<span style="color: red;">20</span>年</div>
+                                <div style="width: 49%;float: right;">
+                                    <span><img style="width: 0.975rem;height: 0.975rem;margin-bottom: 3px;" src="/assets/img/sjtd_detail/star.png" alt=""></span>
+                                    <span>100人预约</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <!-- start -->
+                    <div style="display: inline-block;width: 24%;min-height: 280px;border: 1px solid #f3f3f3;">
+                        <div class="recommend-img">
+                            <img style="width: 100%;height: 100%;" src="/assets/img/sjtd_detail/photo_2.png" alt="">
+                            <div class="btn-group">
+                                <span class="btn1">免费咨询</span>
+                                <span class="btn2">免费规划</span>
+                            </div>
+                        </div>
+                        <div class="recommend-info">
+                            <div style="text-align: center;padding: 1rem 0;border-bottom: 1px solid #ddd;" >
+                                <h4 style="display: inline-block;">方笑</h4> 设计总监
+                            </div>
+                            <div class="row none-margin" style="padding: .5rem 0;color: #999;text-align: center;">
+                                <div style="width: 49%;float: left;">从业经验<span style="color: red;">20</span>年</div>
+                                <div style="width: 49%;float: right;">
+                                    <span><img style="width: 0.975rem;height: 0.975rem;margin-bottom: 3px;" src="/assets/img/sjtd_detail/star.png" alt=""></span>
+                                    <span>100人预约</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <!-- start -->
+                    <div style="display: inline-block;width: 24%;min-height: 280px;border: 1px solid #f3f3f3;">
+                        <div class="recommend-img">
+                            <img style="width: 100%;height: 100%;" src="/assets/img/sjtd_detail/photo_2.png" alt="">
+                            <div class="btn-group">
+                                <span class="btn1">免费咨询</span>
+                                <span class="btn2">免费规划</span>
+                            </div>
+                        </div>
+                        <div class="recommend-info">
+                            <div style="text-align: center;padding: 1rem 0;border-bottom: 1px solid #ddd;" >
+                                <h4 style="display: inline-block;">方笑</h4> 设计总监
+                            </div>
+                            <div class="row none-margin" style="padding: .5rem 0;color: #999;text-align: center;">
+                                <div style="width: 49%;float: left;">从业经验<span style="color: red;">20</span>年</div>
+                                <div style="width: 49%;float: right;">
+                                    <span><img style="width: 0.975rem;height: 0.975rem;margin-bottom: 3px;" src="/assets/img/sjtd_detail/star.png" alt=""></span>
+                                    <span>100人预约</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <!-- start -->
+                    <div style="display: inline-block;width: 24%;min-height: 280px;border: 1px solid #f3f3f3;">
+                        <div class="recommend-img">
+                            <img style="width: 100%;height: 100%;" src="/assets/img/sjtd_detail/photo_2.png" alt="">
+                            <div class="btn-group">
+                                <span class="btn1">免费咨询</span>
+                                <span class="btn2">免费规划</span>
+                            </div>
+                        </div>
+                        <div class="recommend-info">
+                            <div style="text-align: center;padding: 1rem 0;border-bottom: 1px solid #ddd;" >
+                                <h4 style="display: inline-block;">方笑</h4> 设计总监
+                            </div>
+                            <div class="row none-margin" style="padding: .5rem 0;color: #999;text-align: center;">
+                                <div style="width: 49%;float: left;">从业经验<span style="color: red;">20</span>年</div>
+                                <div style="width: 49%;float: right;">
+                                    <span><img style="width: 0.975rem;height: 0.975rem;margin-bottom: 3px;" src="/assets/img/sjtd_detail/star.png" alt=""></span>
+                                    <span>100人预约</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

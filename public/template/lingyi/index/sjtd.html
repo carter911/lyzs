@@ -35,7 +35,7 @@
         </ol>
     </div>
     <form action="">
-    
+
     <div class="cation-content style_list">
         <div class="cation-middle searchContent">
             <dl class="cation-list">
@@ -120,7 +120,8 @@
         <div class="row">
             {volist name='$team_list' id='team_item'}
             <div class="col-xs-3">
-                <div class="designer_area">
+                <a href="./sjtd_detail.html?detail_id={$team_item.id}">
+                <div class="designer_area" style="margin-bottom: 1rem;">
                     <div class="designer_img" style="height: 265.5px;overflow: hidden;">
                         <img src="{$team_item.image}" class="img-responsive center-block">
                         <div class="free_consult pull-left" style="display: none">
@@ -140,6 +141,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
             {/volist}
 

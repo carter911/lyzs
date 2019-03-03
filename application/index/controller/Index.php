@@ -265,6 +265,12 @@ class Index extends Frontend
         $this->assign('search', $search);
         return $this->view->fetch("sjtd");
     }
+    //设计团队 详情
+    public function sjtd_detail($detail_id)
+    {
+        $this->assign('title', '设计团队详情');
+        return $this->view->fetch("sjtd_detail");
+    }
 
     //直播
     public function zb()
