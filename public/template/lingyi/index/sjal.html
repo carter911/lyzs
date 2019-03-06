@@ -162,9 +162,9 @@
 
         {volist name='$caseResult.caseList' id='case' key='key' mod='3'}
 
-            {eq name="mod" value="2">}
+            {if condition="$key % 3 eq 1"}
                 <div class="row">
-            {/eq}
+            {/if}
 
                 <div class="col-xs-4 padding_c">
                     <div class="work_area realcase_lis">
@@ -181,14 +181,11 @@
                     </div>
                 </div>
 
-            {eq name="mod" value="2">}
+            {if condition="$key % 3 eq 0"}
                </div>
-            {/eq}
-
-            {if condition="$caseResultSize eq 1"}  </div> {/if}
+            {/if}
 
         {/volist}
-
 
     </div>
 
