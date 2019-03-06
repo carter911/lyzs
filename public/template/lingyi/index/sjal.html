@@ -185,6 +185,9 @@
                </div>
             {/if}
 
+            <!--最后一个div需要关闭-->
+            {if condition="$caseResultSize eq 1"}  </div> {/if}
+
         {/volist}
 
     </div>

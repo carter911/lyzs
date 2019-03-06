@@ -326,6 +326,7 @@ class Index extends Frontend
         $this->assign('top_company', $top_company);
         $this->assign("sub_company", $sub_company);
         $this->assign("job_list", $job_list);
+        $this->assign("job_size",sizeof($job_list));
 
         return $this->view->fetch("lxwm");
     }

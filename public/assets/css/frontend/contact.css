@@ -42,13 +42,18 @@
     margin-top: 5px;
     margin-bottom: 3px;
 }
+
 .lab_occup{
     background-color: #f5f5f5;
-    margin: auto 10px;
+    padding: 10px 10px;
     font-size: 14px;
     font-weight: normal;
-    width: 100px;
+    width: 110px;
+    text-align: center;
+
 }
+
+
 .lab_occup:hover{
     box-shadow: 2px 2px 2px #b9b9b9;
 }
