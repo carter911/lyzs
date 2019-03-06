@@ -4,6 +4,16 @@
 
 
 <!---------------------------------主体内容---------------------------------------------->
+<style>
+    .set_advanlis{
+        margin: 4px auto;
+        text-align: center;
+    }
+
+
+</style>
+
+
 <div class="container-fluid inner_info">
     <!--<img src="/assets/img/frontend/setmeal.png" class="img-responsive center-block">-->
     <img src="{$banner['image']}" class="img-responsive center-block">
@@ -95,6 +105,7 @@
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
                     <div class="inner_info">
+
                         <ul style="text-align: center" id="meatrTabs" class="nav nav-tabs" role="tablist">
                             {volist name="material_master_list" id="vo"}
                             <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">

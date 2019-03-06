@@ -6,6 +6,8 @@ define(['jquery', 'bootstrap', 'frontend', 'form', 'template'], function ($, und
             });
         }
     };
+
+
     var Controller = {
         login: function () {
             //本地验证未通过时提示
@@ -70,6 +72,8 @@ define(['jquery', 'bootstrap', 'frontend', 'form', 'template'], function ($, und
                 }, 1000);
             });
         },
+
+
         profile: function () {
             // 给上传按钮添加上传成功事件
             $("#plupload-avatar").data("upload-success", function (data) {
@@ -78,6 +82,7 @@ define(['jquery', 'bootstrap', 'frontend', 'form', 'template'], function ($, und
                 Toastr.success(__('Upload successful'));
             });
             Form.api.bindevent($("#profile-form"));
+
             $(document).on("click", ".btn-change", function () {
                 var that = this;
                 var id = $(this).data("type") + "tpl";
@@ -99,4 +104,5 @@ define(['jquery', 'bootstrap', 'frontend', 'form', 'template'], function ($, und
         }
     };
     return Controller;
+
 });

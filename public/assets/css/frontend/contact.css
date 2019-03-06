@@ -44,9 +44,10 @@
 }
 .lab_occup{
     background-color: #f5f5f5;
-    padding: 10px 20px;
+    margin: auto 10px;
     font-size: 14px;
     font-weight: normal;
+    width: 100px;
 }
 .lab_occup:hover{
     box-shadow: 2px 2px 2px #b9b9b9;

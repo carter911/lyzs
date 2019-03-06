@@ -26,6 +26,22 @@
     .interview_lis{
         margin: 50px 0;
     }
+
+    .pagselec{
+        margin-left: 0;
+        margin-bottom: 80px;
+    }
+
+    .pagination {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+
     hr{
         border-top: 1px solid #E6E6E6;
     }
@@ -154,9 +170,9 @@
                     <div class="work_area realcase_lis">
                         <a href="./sjal_detail.html?detail_id={$case.id}" class="work_link"><img src="{$case.image}" class="img-responsive center-block"></a>
                         <div class="work_info">
-                            <h4>{$case.name}&nbsp;&nbsp;|&nbsp;&nbsp;{$case.door_name}&nbsp;&nbsp;|&nbsp;&nbsp;{$case.area_size}</h4>
-                            <p class="pull-left">{$case.name}&nbsp;&nbsp;·&nbsp;&nbsp;半包</p>
-                            <p class="pull-right">{$case.price}元</p>
+                            <h5 style="white-space: nowrap;">{$case.name}&nbsp;&nbsp;|&nbsp;&nbsp;{$case.door_name}&nbsp;&nbsp;|&nbsp;&nbsp;{$case.area_size}</h5>
+                            <p style="font-size: 13px;margin-top: 4px;" class="pull-left">{$case.name}&nbsp;&nbsp;·&nbsp;&nbsp;半包</p>
+                            <p style="font-size: 13px" class="pull-right">{$case.price}元</p>
                             <div class="clearfix"></div>
                         </div>
                         <div class="realcase_designer">

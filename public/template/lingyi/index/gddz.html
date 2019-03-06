@@ -4,6 +4,41 @@
 <link href="/assets/css/frontend/setmeal.css" rel="stylesheet">
 <link href="/assets/css/frontend/highend.css" rel="stylesheet">
 
+<style >
+	.apply .img_l {
+		cursor: pointer;
+		margin-right: 50px;
+		margin-top: 120px;
+	}
+
+	.apply .img_r {
+		cursor: pointer;
+		margin-left: 50px;
+		margin-top: 120px;
+	}
+
+	.nav-tabs {
+		border-bottom: none;
+		text-align: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.center-user-block {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		width: 240px;
+		height: 430px;
+	}
+
+	.col-xs-3 {
+		width: 240px;
+	}
+
+</style>
+
 <!---------------------------------主体内容---------------------------------------------->
 <div class="inner_info">
 	<img src="/assets/img/frontend/highend.png" class="img-responsive center-block">
@@ -71,7 +106,7 @@
 
                             <div class="caption">
                                 <h4>{$items.name}</h4>
-                                <p>{$items.work_name}<a href="#">点击进入</a></p>
+                                <p>{$items.work_name}<a href="./sjtd_detail.html?detail_id=3">点击进入</a></p>
                                 <p>{$items.content}</p>
                             </div>
                         </div>
@@ -81,7 +116,7 @@
                         <div class="thumbnail designer_link">
                             <div class="caption">
                                 <h4>{$items.name}</h4>
-                                <p>{$items.work_name}<a href="#">点击进入</a></p>
+                                <p>{$items.work_name}<a href="./sjtd_detail.html?detail_id=3">点击进入</a></p>
                                 <p>{$items.content}</p>
                             </div>
                             <div class="cart_img">
@@ -121,10 +156,13 @@
 					{volist name="procedure_list" id="procedure" key="key"}
 					<div  role="tabpanel" class="tab-pane fade in {eq name="key" value="1"}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
 						<div class="apply">
-							<div class="img_l pull-left"><img src="/assets/img/frontend/stand_leftbtn.jpg" /></div>
+							<div class="img_l pull-left"><img style="background-color: #f2f2f2"
+															  src="/assets/img/frontend/stand_btn5.png"
+															  onmouseout="this.src='/assets/img/frontend/stand_btn5.png'"
+															  onmouseover="this.src='/assets/img/frontend/stand_btn2.png'"/></div>
 
 							<div class="apply_nav pull-left">
-								<div class="apply_w pull-left">
+								<div class="apply_w pull-left" style="left:-50px;">
 									{volist name="procedure.images" id="img"}
 									<div class="apply_array pull-left">
 										<div class="apply_img"><img src="{$img}" class="img-responsive"/></div>
@@ -133,7 +171,12 @@
 									<div class="clearfix"></div>
 								</div>
 							</div>
-							<div class="img_r pull-left"><img src="/assets/img/frontend/stand_rightbtn.jpg" /></div>
+							<div class="img_r pull-left"><img
+														style="background-color: #f2f2f2"
+														src="/assets/img/frontend/stand_btn1.png"
+														onmouseout="this.src='/assets/img/frontend/stand_btn1.png'"
+														onmouseover="this.src='/assets/img/frontend/stand_btn4.png'"
+									/></div>
 							<div class="clearfix"></div>
 						</div>
 					</div>
@@ -162,12 +205,12 @@
 				{volist name="butler_list" id="vo" key="key"}
 				<div style="margin-top: 20px;" class="col-xs-3 padding_c">
 					<div class="foreman_area">
-						<img src="{$vo.image}" class="img-responsive center-block">
+						<img src="{$vo.image}" class="img-responsive center-user-block">
 
 						<div class="foreman_info" style="height: 150px;width: 100%">
 							<div class="serve_area" >
 								<h3 class="pull-left margin_c">服务区域</h3>
-								<a href="#" class="pull-right apply_link">预约专属管家</a>
+								<a href="./sjtd_detail.html?detail_id=3" class="pull-right apply_link">预约专属管家</a>
 								<div class="clearfix"></div>
 							</div>
 
