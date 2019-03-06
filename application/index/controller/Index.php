@@ -100,7 +100,7 @@ class Index extends Frontend
         $banner = Db::name('banner')->field('id,image')->where(['status' => 4])->find();
         $this->assign('banner', $banner);
         // 主材
-        $material_master_list = Db::name('Material')->where(['status' => 1])->limit(6)->select();
+        $material_master_list = Db::name('Material')->field('id,name,images,status')->where(['status' => 1])->limit(6)->select();
         foreach ($material_master_list as $key => $val) {
             $material_master_list[$key]['images'] = explode(",", $val['images']);
         }
@@ -115,8 +115,8 @@ class Index extends Frontend
         foreach ($procedure_list as $key => $val) {
             $procedure_list[$key]['images'] = explode(",", $val['images']);
         }
-        $this->assign('procedure_list', $procedure_list);
 
+        $this->assign('procedure_list', $procedure_list);
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
         // 客户见证
