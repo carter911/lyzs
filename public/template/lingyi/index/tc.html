@@ -5,7 +5,7 @@
 
 <!---------------------------------主体内容---------------------------------------------->
 <style>
-    .set_advanlis{
+    .set_advanlis {
         margin: 4px auto;
         text-align: center;
     }
@@ -19,7 +19,7 @@
     <img src="{$banner['image']}" class="img-responsive center-block">
     <div class="container">
         <div class="lis_advta margin_t" style="text-align: center">
-            <img  src="/assets/img/frontend/lis_advta.jpg" class="img-responsive center-block">
+            <img src="/assets/img/frontend/lis_advta.jpg" class="img-responsive center-block">
 
             <div class="advta_list">
                 <div class="row">
@@ -84,7 +84,7 @@
                     <ul class="costimg_lis" style="width: 350px;padding: 0px;margin: 0 auto;">
                         <li style="width: 340px;"><img src="/assets/img/frontend/liscos_img02.png" class="img-responsive"></li>
                         <li style="width: 340px;"><img src="/assets/img/frontend/lis_costeffect.jpg" class="img-responsive"
-                                 style="padding: 32px 0;width: 100%;width: 310px;"></li>
+                                                       style="padding: 32px 0;width: 100%;width: 310px;"></li>
                         <li style="width: 340px;"><img src="/assets/img/frontend/liscos_img09.png" class="img-responsive"></li>
                     </ul>
                 </div>
@@ -101,21 +101,14 @@
 
         <!-- 主材 -->
         <div class="lis_meatr margin_t" style="text-align: center;">
-            <img style=""  src="/assets/img/frontend/lis_meatr.png" class="center-block img-responsive">
+            <img style="" src="/assets/img/frontend/lis_meatr.png" class="center-block img-responsive">
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
                     <div class="inner_info">
-<<<<<<< Updated upstream
-
-                        <ul style="text-align: center" id="meatrTabs" class="nav nav-tabs" role="tablist">
-=======
                         <ul style="text-align: center;width: 1200px;" id="meatrTabs" class="nav nav-tabs" role="tablist">
->>>>>>> Stashed changes
                             {volist name="material_master_list" id="vo"}
                             <li style="width: 195px;text-align: center;margin-right:5px;" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <a style="padding: 7px 10px;" href="#floor{$vo.id}" id="floor-tab" role="tab"
-                                   data-toggle="tab" aria-controls="floor"
-                                   aria-expanded="true" style="padding: 10px 81px;">{$vo.name|substr=0,18}</a>
+                                <a style="padding: 7px 10px;" href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">{$vo.name|substr=0,18}</a>
                             </li>
                             {/volist}
                         </ul>
@@ -154,12 +147,12 @@
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
                     <div class="inner_info">
-                        <ul style="text-align: center;width: 1200px;"  id="admeatrTabs" class="nav nav-tabs" role="tablist">
+                        <ul style="text-align: center;width: 1200px;" id="admeatrTabs" class="nav nav-tabs" role="tablist">
                             {volist name="material_auxiliary_list" id="vo"}
                             <li style="width: 195px;text-align: center;margin-right:5px;overflow: hidden" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
                                 <a style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab"
                                    data-toggle="tab" aria-controls="floor"
-                                   aria-expanded="true" style="padding: 10px 81px;">{$vo.name|substr=0,18}</a>
+                                   aria-expanded="true">{$vo.name|substr=0,18}</a>
                             </li>
                             {/volist}
                         </ul>
@@ -191,43 +184,48 @@
                 </div>
             </div>
         </div>
-        <div class="lis_stand margin_t" style="text-align: center;" >
+        <div class="lis_stand margin_t" style="text-align: center;">
             <img style="width: 500px;" src="/assets/img/frontend/lis_stand.jpg" class="center-block img-responsive">
             <a href="#" class="btn btn-default case_mor freebtn">参观距您最近的工地</a>
             <p class="text-center" style="font-size: 18px">我们通过标准工序，指导工人施工、自检，同时为管理人员检查提供依据，保障施工按质量完成</p>
-            <div class="case_tab" data-example-id="togglable-tabs" >
+            <div class="case_tab" data-example-id="togglable-tabs">
                 <div id="standTabContent" class="tab-content tabinfo">
-                    {volist name="procedure_list" id="procedure"}
-                    <div  role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}"
-                         id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
-                        <div style="width: 1002px;" class="apply" style="padding: 0px;">
-                            <div style="" class="img_l pull-left"><img src="/assets/img/frontend/stand_leftbtn.jpg"/></div>
-                            <div class="apply_nav pull-left">
+
+                    {volist name="procedure_list" id="procedure" key="k"}
+                    <div role="tabpanel" class="tab-pane fade in {eq name='$k' value='1'}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
+                        <div class="apply">
+                            <div class="img_l pull-left" style="margin-right: 15px;">
+                                <img src="/assets/img/frontend/stand_leftbtn.jpg"/>
+                            </div>
+                            <div class="apply_nav pull-left" style="width: 880px;">
                                 <div class="apply_w pull-left">
                                     {volist name="procedure.images" id="img"}
                                     <div class="apply_array pull-left">
-                                        <div class="apply_img"><img src="{$img}" class="img-responsive"/></div>
+                                        <div class="apply_img">
+                                            <img src="{$img}" class="img-responsive"/>
+                                        </div>
                                     </div>
                                     {/volist}
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="img_r pull-left"><img src="/assets/img/frontend/stand_rightbtn.jpg"/></div>
+                            <div class="img_r pull-right" style="margin-left: 15px;">
+                                <img src="/assets/img/frontend/stand_rightbtn.jpg"/>
+                            </div>
                             <div class="clearfix"></div>
                         </div>
                     </div>
                     {/volist}
                 </div>
-                <div style="width: 1000px;margin: 5px auto;padding: 5px 30px;border-top: 1px solid #ccc;" >
-                    <div class="inner_info" style="padding-top: 10px;">
-                        <ul  style="" id="standTabs" class="nav nav-tabs standlis_tab" role="tablist">
+                <div class="inner_info stand_tab">
+                    <div class="inner_info">
+                        <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist" style="display:flex;justify-content: center;">
                             {volist name="procedure_list" id="procedure" key="k"}
-                            <li style="width: 88px;{gt name='k' value='1'}margin-left: 2px;{/gt}" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <span class="stand_icon"><img src="/assets/img/frontend/stand_icon.jpg"
-                                                      class="img-responsive center-block"></span>
-                                <a href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab"
-                                   data-toggle="tab" aria-controls="prophase" aria-expanded="true"
-                                   style="padding: 6px 10px;">{$procedure.name}</a>
+                            <li role="presentation" class="{eq name='$k' value='1'}active{/eq}">
+                                <span class="stand_icon">
+                                    <img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
+                                </span>
+                                <a href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab" data-toggle="tab" aria-controls="prophase" aria-expanded="true" style="padding: 6px 10px;">{$procedure.name}</a>
                             </li>
                             {/volist}
                         </ul>
@@ -235,7 +233,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="lis_offercost margin_t">
             <img src="/assets/img/frontend/lis_offercost.jpg" class="center-block img-responsive">
             <div class="offercost_cont">
@@ -260,8 +258,8 @@
                 </form>
             </div>
         </div>
-        
-        <div class="lis_realcase margin_t" >
+
+        <div class="lis_realcase margin_t">
             <img src="/assets/img/frontend/lis_realcase.jpg" class="center-block img-responsive">
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 30px">
                 <div class="inner_info">
@@ -271,16 +269,12 @@
                                 {volist name="live_cases_list" id="items"}
                                 <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
                                     <a href="#simplestyle{$key}" id="simplestyle-tab" role="tab" data-toggle="tab"
-                                                                          aria-controls="simplestyle"
-                                                                          aria-expanded="true"
-                                                                          style="padding: 10px 50px;">{$items.name}</a>
+                                       aria-controls="simplestyle" aria-expanded="true" style="padding: 10px 50px;">{$items.name}</a>
                                 </li>
                                 {/volist}
-
                             </ul>
                         </div>
-
-                        <div  class="col-xs-2" >
+                        <div class="col-xs-2">
                             <a href="sjal.html" class="btn btn-default pull-right case_mor"
                                style="margin-top: 5px;">&gt;&nbsp;&gt;&nbsp;&gt;&nbsp;&nbsp;更多案例</a>
                             <div class="clearfix"></div>
@@ -289,141 +283,89 @@
                 </div>
 
                 <div id="realcaseTabContent" class="tab-content tabinfo" style="height: 700;overflow:hidden;">
+                    {volist name="live_cases_list" id="vo"}
+                    <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}" id="simplestyle{$key}"
+                         aria-labelledby="simplestyle-tab">
+                        <div class="row case_area">
+                            <div class="col-xs-7 padding_c">
+                                <div class="leftop_area">
+                                    <div class="cart_img">
+                                        <a href="#">
+                                            <img src="{$vo.style['image']}" class="img-responsive center-block">
+                                        </a>
+                                    </div>
+                                </div>
 
-                    {volist name="live_cases_list" id="vo" key="k"}
-                        {empty name="vo['style']"}
-                            <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}" id="simplestyle{$k}"
-                                 aria-labelledby="simplestyle-tab">
-                                <div class="row case_area">
-
-                                    <div class="col-xs-7 padding_c">
-                                        <div class="leftop_area">
+                                <div class="rel_leftbotimg row">
+                                    <div class="col-xs-6 padding_c">
+                                        <div class="rel_leftbotleft">
                                             <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img01.jpg"
-                                                                 class="img-responsive center-block"></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="rel_leftbotimg row">
-                                            <div class="col-xs-6 padding_c">
-                                                <div class="rel_leftbotleft">
-                                                    <div class="cart_img">
-                                                        <a href="#"><img src="/assets/img/frontend/realcase_img02.jpg"
-                                                                         class="img-responsive center-block"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 padding_c">
-                                                <div class="rel_leftbotrigh">
-                                                    <div class="cart_img">
-                                                        <a href="#"><img src="/assets/img/frontend/realcase_img03.jpg"
-                                                                         class="img-responsive center-block"></a>
-                                                    </div>
-                                                </div>
+                                                <a href="#">
+                                                    <img src="{$vo.style['image']}" class="img-responsive center-block">
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-xs-5 padding_c">
-                                        <div class="rel_rightopimg">
+                                    <div class="col-xs-6 padding_c">
+                                        <div class="rel_leftbotrigh">
                                             <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img04.jpg"
-                                                                 class="img-responsive center-block"></a>
-                                            </div>
-                                        </div>
-                                        <div class="rel_righbotimg">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="/assets/img/frontend/realcase_img05.jpg"
-                                                                 class="img-responsive center-block"></a>
+                                                <a href="#">
+                                                    <img src="{$vo.style['image']}" class="img-responsive center-block">
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        {else /}
-
-                            <div role="tabpanel" class="tab-pane fade in active" id="simplestyle{$k}"
-                                 aria-labelledby="simplestyle-tab">
-                                <div class="row case_area">
-
-                                    <div class="col-xs-7 padding_c">
-                                        <div class="leftop_area">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="{$vo['style']['image']}"
-                                                                 class="img-responsive center-block"></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="rel_leftbotimg row">
-                                            <div class="col-xs-6 padding_c">
-                                                <div class="rel_leftbotleft">
-                                                    <div class="cart_img">
-                                                        <a href="#"><img src="{$vo['style']['image']}"
-                                                                         class="img-responsive center-block"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 padding_c">
-                                                <div class="rel_leftbotrigh">
-                                                    <div class="cart_img">
-                                                        <a href="#"><img src="{$vo['style']['image']}"
-                                                                         class="img-responsive center-block"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class="col-xs-5 padding_c" style="height: 584.5px;">
+                                <div class="rel_rightopimg">
+                                    <div class="cart_img">
+                                        <a href="#">
+                                            <img style="height: 285px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                        </a>
                                     </div>
-
-                                    <div class="col-xs-5 padding_c">
-                                        <div class="rel_rightopimg">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="{$vo['style']['image']}"
-                                                                 class="img-responsive center-block"></a>
-                                            </div>
-                                        </div>
-                                        <div class="rel_righbotimg">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="{$vo['style']['image']}"
-                                                                 class="img-responsive center-block"></a>
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="rel_righbotimg">
+                                    <div class="cart_img">
+                                        <a href="#">
+                                            <img style="height: 285px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        {/empty}
+                        </div>
+                    </div>
                     {/volist}
-
-
                 </div>
             </div>
         </div>
     </div>
     <div style="width: 100%">
-        
-        <div class="lis_cust margin_t" >
+
+        <div class="lis_cust margin_t">
             <img src="/assets/img/frontend/lis_cust.jpg" class="center-block img-responsive">
             <div style="padding: 0px;overflow: hidden;">
                 <div id="demo" align="center" style="">
-                <table style="" border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
-                    <tbody>
-                    <tr>
-                        <td valign="top" id="demo1" >
-                            <table cellspacing="5" cellpadding="0">
-                                <tbody >
-                                <tr class="roll_area">
-                                    {volist name='witness_lists' id='item'}
-                                    <td class="roll_img text-center"><img style="width: 210px;height: 250px;"
-                                                                          src="{$item.image}"></td>
-                                    {/volist}
-                                </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                        <td id="demo2" valign="top"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                    <table style="" border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
+                        <tbody>
+                        <tr>
+                            <td valign="top" id="demo1">
+                                <table cellspacing="5" cellpadding="0">
+                                    <tbody>
+                                    <tr class="roll_area">
+                                        {volist name='witness_lists' id='item'}
+                                        <td class="roll_img text-center">
+                                            <img style="width: 210px;height: 250px;" src="{$item.image}"></td>
+                                        {/volist}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td id="demo2" valign="top"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <script>
                 var speed = 30

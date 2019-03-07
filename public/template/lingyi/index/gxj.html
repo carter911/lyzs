@@ -302,21 +302,23 @@
     <img src="/assets/img/frontend/lis_cust.jpg" class="center-block img-responsive">
 
     <!--<div id="demo" align="center" style="width: 95%;">-->
-    <div id="demo" align="center" style="width: 95%;">
+    <div id="demo" align="center" style="width: 96%;">
         <table border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
             <tbody>
             <tr>
-                {volist name='witness_lists' id='item'}
                 <td valign="top" id="demo1">
                     <table cellspacing="5" cellpadding="0">
                         <tbody>
                         <tr class="roll_area">
-                            <td class="roll_img text-center"><img style="width: 210px;height: 250px;" src="{$item.image}"></td>
+                            {volist name='witness_lists' id='item'}
+                            <td class="roll_img text-center">
+                                <img style="width: 210px;height: 250px;" src="{$item.image}">
+                            </td>
+                            {/volist}
                         </tr>
                         </tbody>
                     </table>
                 </td>
-                {/volist}
                 <td id="demo2" valign="top"></td>
             </tr>
             </tbody>
@@ -324,21 +326,19 @@
     </div>
 
     <script>
-        var speed = 30
-        demo2.innerHTML = demo1.innerHTML
-
+        var speed = 30;
+        demo2.innerHTML = demo1.innerHTML;
         function Marquee() {
             if (demo2.offsetWidth - demo.scrollLeft <= 0)
-                demo.scrollLeft -= demo1.offsetWidth
+                demo.scrollLeft -= demo1.offsetWidth;
             else {
                 demo.scrollLeft++
             }
         }
-
-        var MyMar = setInterval(Marquee, speed)
+        var MyMar = setInterval(Marquee, speed);
         demo.onmouseover = function () {
             clearInterval(MyMar)
-        }
+        };
         demo.onmouseout = function () {
             MyMar = setInterval(Marquee, speed)
         }

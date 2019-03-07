@@ -161,19 +161,23 @@ class Index extends Frontend
         $team_style_list = Db::name('team_style')->field("id,name")->limit(5)->order('id desc')->select();
         $cases_list = Db::name('cases')->field("id,name,image,team_style_ids")
             ->where(['status' => "1"])->limit(5)->order('id desc')->select();
+        $live_cases_list = [];
         foreach ($team_style_list as $key => $val) {
             foreach ($cases_list as $k => $v) {
                 if ($val['id'] == $v['team_style_ids']) {
                     $team_style_list[$key]['style'] = $cases_list[$k];
                 }
             }
+            if (isset($team_style_list[$key]['style'])) {
+                array_push($live_cases_list, $team_style_list[$key]);
+            }
         }
         // 根据 风格 展示 实景案例 live_cases
-        $this->assign('live_cases_list', $team_style_list);
+        $this->assign('live_cases_list', $live_cases_list);
         $this->assign('procedure_list', $procedure_list);
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
-        $this->assign('title', '套餐-岭艺装饰');
+        $this->assign('title', '优家-岭艺装饰');
         return $this->view->fetch('tc');
     }
 
@@ -264,6 +268,7 @@ class Index extends Frontend
         $this->assign('search', $search);
         return $this->view->fetch("sjtd");
     }
+
     //设计团队 详情
     public function sjtd_detail($detail_id)
     {
@@ -325,7 +330,7 @@ class Index extends Frontend
         $this->assign('top_company', $top_company);
         $this->assign("sub_company", $sub_company);
         $this->assign("job_list", $job_list);
-        $this->assign("job_size",sizeof($job_list));
+        $this->assign("job_size", sizeof($job_list));
 
         return $this->view->fetch("lxwm");
     }
