@@ -27,12 +27,11 @@
                         <ul id="myTabs" class="nav nav-tabs" role="tablist">
 
                             {volist name='$caseList' id='case' key='key'}
-                            <li role="presentation" {if condition='$key eq 1' }class="active" {
-                            /if}>
-                            <a href="#s_{$case.style_id}" id="simplicity-tab" role="tab"
-                               data-toggle="tab" aria-controls="s_{$case.style_id}"
-                               aria-expanded="true"
-                               style="padding-left: 31px;padding-right: 31px">{$case.style_name}</a>
+                            <li role="presentation" class="{eq name='$key' value='1'}active{/eq}">
+                                <a href="#s_{$case.style_id}" id="simplicity-tab" role="tab"
+                                   data-toggle="tab" aria-controls="s_{$case.style_id}"
+                                   aria-expanded="true"
+                                   style="padding-left: 31px;padding-right: 31px">{$case.style_name}</a>
                             </li>
 
                             {/volist}
@@ -424,13 +423,11 @@
         });
 
     });
-
     $('.nav_content .dropdown').hover(function () {
         $(this).find('ul').show();
     }, function () {
         $(this).find('ul').hide();
     });
-
 </script>
 </body>
 </html>
