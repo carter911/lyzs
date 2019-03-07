@@ -1,0 +1,313 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="__PUBLIC__assets/addons/onlineservice/css/reset.min.css">
+<link rel="stylesheet" href="__PUBLIC__assets/addons/onlineservice/css/service.css">
+<link rel="stylesheet" href="__PUBLIC__assets/addons/onlineservice/css/public.css">
+<link rel="stylesheet" href="__PUBLIC__assets/addons/onlineservice/layui/css/layui.css">
+<style>
+    div#main {
+        height: 100%;
+    }
+
+    .tab-content.tab-addtabs {
+        height: 100%;
+    }
+
+    div#content {
+        height: 100%;
+    }
+
+    .row {
+        height: 100%;
+    }
+
+    .col-lg-12 {
+        height: 100%;
+    }
+
+    .content {
+        height: 100%;
+    }
+
+    .visiter {
+        width: 100%;
+        height: 70px;
+        position: relative;
+    }
+
+    .v-avatar {
+        position: absolute;
+        left: 2px;
+        top: 5px;
+    }
+
+    .am-radius {
+        border-radius: 2px;
+    }
+</style>
+<div style="height: 100%">
+    <div class="container_s">
+        <div class="left">
+            <div class="top" id="people-top">
+                <!--<input type="text" placeholder="请输入昵称"/>-->
+                <span>在线列表(默认显示7天内的访客)</span>
+            </div>
+            <ul class="people" id="people-people"></ul>
+        </div>
+        <div class="center" id="message-center">
+            <div class="top"><span class="name"></span></div>
+            <div class="chat" id="message_box">
+            </div>
+            <div class="write">
+                <textarea id="msg_content" name="content" placeholder="请输入内容... 支持按Enter发送,支持复制粘贴图片上传"></textarea>
+                <div class="tags">
+                    <a href="javascript:void(0);" class="write-link attach" id="clickUpload" title="上传图片/附件">
+                        <span>图片/附件</span>
+
+                    </a>
+                    <a href="javascript:;" class="write-link smiley" id="addsmile" title="发送表情"><span
+                            style="line-height: 41px;font-size: 14px;">表情</span></a>
+                    <div class="smile">
+                        <div class="clearfix">
+                            <a href="javascript:grin(':razz:')">
+                                <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/razz.png" alt=""
+                                     class="d-block"/>
+                            </a>
+                            <a href="javascript:grin(':evil:')">
+                                <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/evil.png" alt=""
+                                     class="d-block"/>
+                            </a>
+                            <a href="javascript:grin(':exclaim:')">
+                                <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/exclaim.png" alt=""
+                                     class="d-block"/>
+                            </a>
+                            <a href="javascript:grin(':smile:')">
+                                <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/smile.png"
+                                     alt="" class="d-block"/></a><a
+                                href="javascript:grin(':redface:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/redface.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':biggrin:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/biggrin.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':eek:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/eek.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':confused:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/confused.png"
+                                alt="" class="d-block"/></a><a href="javascript:grin(':idea:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/idea.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':lol:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/lol.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':mad:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/mad.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':twisted:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/twisted.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':rolleyes:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/rolleyes.png"
+                                alt="" class="d-block"/></a><a href="javascript:grin(':wink:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/wink.png"
+                                alt="" class="d-block"/></a><a href="javascript:grin(':cool:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/cool.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':arrow:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/arrow.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':neutral:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/neutral.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':cry:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/cry.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':mrgreen:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/mrgreen.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':drooling:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/drooling.png"
+                                alt="" class="d-block"/></a><a
+                                href="javascript:grin(':persevering:')"><img
+                                src="__PUBLIC__assets/addons/onlineservice/img/smilies/persevering.png"
+                                alt="" class="d-block"/></a>
+                            <a href="javascript:grin(':question:')">
+                                <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/question.png" alt=""
+                                     class="d-block"/>
+                            </a><a href="javascript:grin(':icon_confused:')">
+                            <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/icon_confused.png" alt=""
+                                 class="d-block"/>
+                        </a><a href="javascript:grin(':shit:')">
+                            <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/shit.png" alt=""
+                                 class="d-block"/>
+                        </a><a href="javascript:grin(':symbols:')">
+                            <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/symbols.png" alt=""
+                                 class="d-block"/>
+                        </a><a href="javascript:grin(':icon_wink:')">
+                            <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/icon_wink.png" alt=""
+                                 class="d-block"/>
+                        </a>
+                            <a href="javascript:grin(':icon_neutral:')">
+                                <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/icon_neutral.png" alt=""
+                                     class="d-block"/>
+                            </a>
+                            <a href="javascript:grin(':icon_eek:')">
+                                <img src="__PUBLIC__assets/addons/onlineservice/img/smilies/icon_eek.png" alt=""
+                                     class="d-block"/>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- <a href="javascript:;" id="replay" title="快捷回复"><span class="iconfont iconfont-reply">&#xe6b9;<span class="text-reply">快捷回复</span></span></a>-->
+                    <a href="javascript:;" class="write-link send" title="点击发送"><i
+                            class="layui-icon layui-icon-release send-color"></i></a>
+                </div>
+            </div>
+            <div style="display: none">
+                <input type="file" id="uploadFile" class="file" name="file" onchange="handleFiles(this.files)">
+            </div>
+            <div class="loading"><span>正在加载，请稍候...</span></div>
+        </div>
+        <div class="right">
+            <div class="setting">设置信息</div>
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin: 0px;">
+                <ul class="layui-tab-title" id="tab-tit">
+                    <li class="" data-id="fk_list" style="width: 33%">访客信息</li>
+                    <li style="width: 33%" data-id="black_list" class="">黑名单</li>
+                    <li style="width: 34%" data-id="word_list" class="">快捷回复</li>
+                </ul>
+                <div class="layui-tab-content" id="con">
+                    <div class="layui-tab-item" id="fk_list">
+                        <div class="" style="margin: 10px 20px; ">
+                            <h4 style="font-weight: bold;font-size: 18px">访客信息</h4>
+                            <div style="margin-top: 20px;position: relative;">
+                                <span style="font-size: 13px;">名称：</span>
+                                <input type="text" id="nickname" class="layui-input" name="nickname" placeholder="请输入名称"
+                                       style="position: absolute;right:0;top:0;width: 80%;height: 30px;"
+                                       onblur="saveinfo()"/>
+                            </div>
+                            <div style="margin-top: 20px;position: relative;">
+                                <span style="font-size: 13px;">邮箱：</span>
+                                <input type="text" id="email" class="layui-input" name="email" placeholder="请输入邮箱"
+                                       style="position: absolute;right:0;top:0;width: 80%;height: 30px;"
+                                       onblur="saveinfo()"/>
+                            </div>
+                            <div style="margin-top: 20px;position: relative;">
+                                <span style="font-size: 13px;">手机：</span>
+                                <input type="text" id="mobile" class="layui-input" name="mobile" placeholder="请输入手机"
+                                       style="position: absolute;right:0;top:0;width: 80%;height: 30px;"
+                                       onblur="saveinfo()"/>
+                            </div>
+                            <div style="margin-top: 20px;position: relative;">
+                                <span style="font-size: 13px;">备注：</span>
+                                <textarea id="remark" class="layui-input" name="remark" placeholder="请输入备注信息"
+                                          style="position: absolute;right:0;top:0;width: 80%;height: 60px;resize: none;padding-top: 5px;"
+                                          onblur="saveinfo()"></textarea>
+                            </div>
+                            <h4 style="font-weight: bold;font-size: 18px;margin-top: 50px;">访问信息</h4>
+                            <div style="margin-top: 20px;font-size: 15px;">
+                                <i class="layui-icon layui-icon-flag"
+                                   style="font-size: 20px; color: #303335;"></i>：<span class="iparea"
+                                                                                       style="font-size: 13px;"
+                                                                                       id="join"></span>
+                            </div>
+                            <div style="margin-top: 20px;font-size: 15px;">
+                                <i class="layui-icon layui-icon-location" style="font-size: 20px; color: #303335;"></i>：<span
+                                    class="iparea" style="font-size: 13px;" id="country"></span>
+                            </div>
+                            <div style="margin-top: 20px;font-size: 15px;">
+                                <i class="layui-icon layui-icon-website"
+                                   style="font-size: 20px; color: #303335;"></i>：<span class="iparea"
+                                                                                       style="font-size: 13px;"
+                                                                                       id="user_agent"></span>
+                            </div>
+                            <div style="margin-top: 20px;font-size: 15px;">
+                                <i class="layui-icon layui-icon-chart-screen"
+                                   style="font-size: 20px; color: #303335;"></i>：<span class="iparea"
+                                                                                       style="font-size: 13px;"
+                                                                                       id="screen_size"></span>
+                            </div>
+                            <div style="margin-top: 20px;font-size: 15px;">
+                                <i class="layui-icon layui-icon-about"
+                                   style="font-size: 20px; color: #303335;"></i>：<span class="iparea"
+                                                                                       style="font-size: 13px;"
+                                                                                       id="device_info"></span>
+                            </div>
+
+                        </div>
+                        <div class="join"><a href="javascript:void(0);" id="join-blak"><span
+                                class="iconfont join-font">&#xe640;</span>加入黑名单</a></div>
+                        <div style="margin: 0 auto;text-align: center;padding-bottom: 20px;">
+                            <img style="width: 200px;height: 200px;margin-top: 20px;" title="插件作者微信,欢迎反馈"
+                                 src="{$addon_config['wx_service_logo']}">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item" id='black_list'
+                         style="width: 100%;height:400px;overflow-y: auto;padding: 0px;">
+                    </div>
+                    <div class="layui-tab-item" id='word_list' style="width: 100%;height: 500px; overflow-y: auto;">
+                        <div id='quit_reply'>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="__PUBLIC__assets/addons/onlineservice/js/paste-upload-image.js"></script>
+<script src="__PUBLIC__assets/addons/onlineservice/js/common.js"></script>
+<script src="__PUBLIC__assets/addons/onlineservice/js/index.js"></script>
+<script>
+    $('#tab-tit li').click(function () {
+        var id = $(this).attr('data-id');
+        $(this).addClass('layui-this').siblings().removeClass('layui-this');
+        $('#con').find("#" + id).addClass('layui-show').siblings().removeClass('layui-show');
+    });
+    $('#msg_content').bind('input propertychange', function () {
+        if ($("#msg_content").val() != "") {
+            $(".send-color").css('color', '#257fce');
+        } else {
+            $(".send-color").css('color', '#777');
+        };
+    });
+    var PORT = "{$addon_config['port']}";
+    var SECRET_KEY = "{$addon_config['secret_key']}";
+    var GROUP_ID = "{$service_group_id}";
+    var ADMIN_ID = "{$admin_id}";
+    var pasteUploadurl = "{:url('')}"; //定义复制黏贴上传图片的url
+    var REQUEST_USER_LIST = "{:url('/admin/onlineservice/dialogue/getuserlist')}"; //定义获取用户列表的URL
+    var REQUEST_MSG_LIST = "{:url('/admin/onlineservice/dialogue/getMessage')}"; //点击用户获取聊天记录
+    var CHANGE_FILED_URL = "{:url('/admin/onlineservice/dialogue/changeFileds')}";
+    var GET_SETTING_URL = "{:url('/admin/onlineservice/dialogue/getSetting')}";
+    var CHANGE_BLACK_URL = "{:url('/admin/onlineservice/dialogue/changeBlack')}";
+    var BLACK_LIST_URL = "{:url('/admin/onlineservice/dialogue/getBlackList')}";
+    var QUICK_REPLY_URL = "{:url('/admin/onlineservice/dialogue/getquickReply')}";
+    var ADD_REPLY_URL = "{:url('/admin/onlineservice/dialogue/addquickReply')}";
+    var DEl_REPLY_URL = "{:url('/admin/onlineservice/dialogue/delquickReply')}";
+    var UPLOAD_FILE = "{:addon_url('onlineservice/index/upload')}";
+    var isHTTPS = '{$isHttps}';
+    function saveinfo() {
+        var nickname = $("#nickname").val();
+        var email = $('#email').val();
+        var mobile = $("#mobile").val();
+        var remark = $("#remark").val();
+        if (nickname == '') {
+            layer.alert('昵称不能为空！', {icon: 2});
+            return false;
+        }
+        $.ajax({
+            url: CHANGE_FILED_URL,
+            type: 'post',
+            data: {uuid: uuid, nickname: nickname, email: email, mobile: mobile, remark: remark},
+            success: function (res) {
+                if (res == 1) {
+                    layer.msg('更新成功');
+                    $(".container_s .left .people .active").find('.name').text(nickname);
+                    $("#message-center .top .name").text(nickname);
+                    //get_userlist();
+                }
+            }
+        });
+    }
+</script>

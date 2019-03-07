@@ -32,7 +32,7 @@ class Index extends Frontend
     {
         $this->assign('title', '首页-岭艺装饰');
 
-        $banner = Db::name('banner')->field('image')->where(['status' => 1])->order('id desc')->find();
+        $banner = Db::name('banner')->where(['status' => 1])->order('id desc')->select();
         $gxj = Db::name('banner')->where(['status' => 4])->order('id desc')->find();
         $tc = Db::name('banner')->where(['status' => 2])->order('id desc')->find();
 
@@ -43,7 +43,7 @@ class Index extends Frontend
             $customer_list[$key]['createtime'] = date("m/d", $val['createtime']);
         }
         // 团队banner
-        $team_img = Db::name('team')->field('image')->limit(10)->order('id desc')->select();
+        $team_img = Db::name('team')->limit(10)->order('id desc')->select();
         // 团队案例
         $casesModel = new Cases();
         $casesObj = $casesModel->limit(6)->order('id desc')->select();
@@ -173,7 +173,6 @@ class Index extends Frontend
         $this->assign('procedure_list', $procedure_list);
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
-
         $this->assign('title', '套餐-岭艺装饰');
         return $this->view->fetch('tc');
     }

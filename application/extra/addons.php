@@ -8,6 +8,10 @@ return array (
     array (
       0 => 'loginbg',
     ),
+    'testhook' => 
+    array (
+      0 => 'onlineservice',
+    ),
     'upload_after' => 
     array (
       0 => 'thumb',

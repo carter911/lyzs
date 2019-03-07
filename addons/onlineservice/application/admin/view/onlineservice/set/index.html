@@ -1,0 +1,92 @@
+<style>
+    .part {
+        width: 96%;
+        margin: 20px auto;
+    }
+
+    .part-item {
+        width: 110px;
+        height: 110px;
+        position: relative;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        float: left;
+        margin: 10px;
+    }
+
+    .part-item i {
+        font-size: 40px;
+        position: absolute;
+        left: 33px;
+        top: 25px;
+    }
+
+    .part-item span {
+        position: absolute;
+        bottom: 10px;
+        left: 23px;
+    }
+</style>
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div style="width: 100%" id="main">
+                        <div id="container">
+                            <div class="col-lg-12">
+                                <h2 class="page-header" style="font-size: 20px;"> 个人设置</h2>
+                            </div>
+                            <div class="part">
+                                <div class="part-item">
+                                    <a href="javascript:void(0);" id="set-greetings" data-title="问候语"
+                                       data-url="{:url('/admin/onlineservice/set/greeting')}">
+                                        <i class="fa fa-commenting-o" style=""></i>
+                                        <span style="left: 33px;">问候语</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <h2 class="page-header" style="font-size: 20px;">系统设置</h2>
+                            </div>
+                            <div style="width: 96%;margin:20px auto;">
+                                <div class="part-item" style="display: none">
+                                    <a href="/admin/index/setup.html">
+                                        <i class="fa fa-gear"></i>
+                                        <span>通用设置</span>
+                                    </a>
+                                </div>
+                                <div class="part-item">
+                                    <a href="javascript:void(0);" id="set-info" data-title="客服添加与管理"
+                                       data-url="{:url('/admin/onlineservice/set/info')}">
+                                        <i class="fa fa-id-card-o"></i>
+                                        <span style="width: 120px;left: 7px;">客服添加与管理</span>
+                                    </a>
+                                </div>
+                                <div class="part-item" style="display: none">
+                                    <a href="/admin/manager/group.html">
+                                        <i class="fa fa-users"></i>
+                                        <span style="left: 28px;">分组管理</span>
+                                    </a>
+                                </div>
+                                <div class="part-item" style="display: none">
+                                    <a href="/admin/index/question.html">
+                                        <i class="fa fa-question"></i>
+                                        <span>常见问题</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="footer_main"></div> -->
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

@@ -1,14 +1,13 @@
 <!---------------------------------主体内容---------------------------------------------->
 <div style="overflow: hidden">
-    <div style="width: 1200px;margin: 0 auto;position: relative">
+    <div style="width: 1200px;margin: 0 auto;position: relative;z-index: 9999">
         <div class="ban_quote">
-            <div class="quote_area">
+            <div class="quote_area" style="padding-top: 10%;">
                 <h4 class="quote_title text-center">家装快速报价</h4>
                 <div class="quote_intro">
                     <p class="text-center">报价结果</p>
                     <p class="text-center">将以短信发送到您的手机</p>
                 </div>
-
                 <div class="quote_form">
                     <form class="customer">
                         <div class="form-group">
@@ -44,7 +43,6 @@
                         <input type="submit" class="btn btn-default quote_sub" name="sub" value="免费获取"/>
                     </form>
                 </div>
-
                 <div class="quote_user">
                     <p class="text-center">已有<span style="color: #E00024;">{$config.customer_count}</span>位获取报价</p>
                     <div class="quote_roll">
@@ -61,8 +59,25 @@
             </div>
         </div>
     </div>
-    <img style="width: 100%" src="{$banner.image}" class="img-responsive center-block">
+    
+    <div id="carousel1" class="carousel slide img-responsive center-block" data-ride="carousel">
+    
+        <ol class="carousel-indicators">
+            {volist name="banner" key="k" id='b'}
+            <li data-target="#carousel1" data-slide-to="{$k}" class="lass="item {eq name='$k' value='1'}active{/eq}"></li>
+            {/volist}
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            {volist name="banner" key="k" id='b'}
+            <div class="item {eq name='$k' value='1'}active{/eq}">
+                <img src="{$b.image}" alt="">
+            </div>
+            {/volist}
+        </div>
+    </div>
 </div>
+
+
 <div class="container" style="width: 1200px;margin: 0 auto">
     <div class="lis_personalink">
         <div class="personalink_title">
@@ -72,7 +87,7 @@
             <div class="clearfix"></div>
         </div>
         <a href="/index/index/gxj.html">
-            <img src="{$gxj.image}" class="img-responsive center-block">
+            <img style="width:100%" src="{$gxj.image}" class="img-responsive center-block">
         </a>
     </div>
 
@@ -93,38 +108,56 @@
         </div>
 
         <div class="cons_live">
-            <img src="/assets/img/frontend/cons_process_top.gif" class="img-responsive center-block">
+            <a href="zb.html"><img src="/assets/img/frontend/cons_process_top.gif" class="img-responsive center-block">
+           
             <div class="cons_process_center">
                 <img src="/assets/img/frontend/cons_process_center.jpg" class="img-responsive center-block">
                 <a href="zb.html" class="left_btn btn">了解更多</a>
                 <a href="zb.html" class="right_btn btn"></a>
             </div>
             <img src="/assets/img/frontend/cons_process_bot.gif" class="img-responsive center-block">
+            </a>
         </div>
     </div>
 
     <div class="lis_personalink">
         <div class="personalink_title">
-            <h2 class="pull-left lis_title"><a href="designer.html">设计师及完工案例</a></h2>
-            <a href="personality.html" class="pull-right">了解详情&nbsp;&gt;</a>
+            <h2 class="pull-left lis_title"><a href="sjtd.html">设计师及完工案例</a></h2>
+            <a href="sjtd.html" class="pull-right">了解详情&nbsp;&gt;</a>
             <div class="clearfix"></div>
         </div>
 
         <div class="desinger_case row">
             <div class="col-xs-3 gold_team">
-                <img src="/assets/img/frontend/gold_team.png" class="img-responsive center-block">
+                <img style="width: 100%"  src="/assets/img/frontend/gold_team.png" class="img-responsive center-block">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         {volist name='$team_img' id='item' key='key'}
                         {if condition="$key eq 1"}
                         <div class="item active">
-                            <img src="{$item.image}" class="img-responsive center-block"
-                                 style="width: 100%;height: 339.81px;">
+                            <img  src="{$item.image}" class=""
+                                  style="width: 280px;height: 284px">
+                            <div class="designer_info" style="margin-top: 10px;">
+                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;" class="des_name">{$item.name}</span>  {$item.work_name}</h4>
+                                <div class="des_infodeta" style="border-top: 1px solid #ccc;padding: 5px;">
+                                    <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年</p>
+                                    <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img style="float: left;" src="/assets/img/frontend/des_star.png" class="img-responsive des_star"> <span>100</span>人预约</p>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
                         </div>
                         {else /}
                         <div class="item">
                             <img src="{$item.image}" class="img-responsive center-block"
-                                 style="width: 100%;height: 339.81px;">
+                                 style="width: 280px;height: 284px">
+                            <div class="designer_info" style="margin-top: 10px;">
+                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;" class="des_name">{$item.name}</span>  {$item.work_name}</h4>
+                                <div class="des_infodeta" style="border-top: 1px solid #ccc;padding-top: 5px;margin-top: 5px;">
+                                    <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年</p>
+                                    <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img style="float: left;" src="/assets/img/frontend/des_star.png" class="img-responsive des_star"> <span>100</span>人预约</p>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
                         </div>
                         {/if}
                         {/volist}
@@ -145,9 +178,10 @@
                 <div class="col-xs-4">
                     <div class="goldcase_area">
                         <div class="gold_caselis text-center" style="margin-bottom: 30px">
-                            <img src="{$item.image}" style="height: 214px;">
+                            <img src="{$item.image}" style="height: 224px;">
                             <div class="gold-content">
-                                <h5 class="title" style="padding-top: 0">{$item.name}</h5>
+                                <a class="title" href=""><h5 class="title" style="padding-top: 0">{$item.name}</h5>
+                                </a>
                                 <ul class="goldcase_info">
                                     <li class="text-left">
                                         <a href="#"><p>
@@ -186,7 +220,7 @@
 
                     <div class="col-xs-5" style="padding-right: 0">
                         <div class="dynamic_lis" style="height: 400px;">
-                            <a href="#"><img src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block"></a>
+                            <a style="width: 100%" href="index/index/look_article_detail?id={$article_list[0]['id']}"><img src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block article_img"></a>
                         </div>
                     </div>
 
@@ -194,8 +228,8 @@
                         {volist name="article_list" id='article'}
                         <div class="dynamic_lis dynamic_art" style="height: 83px;">
                             <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
-                            <h2 class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
-                                <a href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
+                            <h2 data-url="{$article.image}" data-id="{$article.id}" class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
+                                <a  href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
                                     {$article.desc}
                                 </a>
                             </h2>
@@ -266,10 +300,10 @@
             <h1 class="text-center"><b>{$site.telphone}</b></h1>
         </div>
     </div>
-
-    <div class="lis_cust margin_t">
+</div>
+<div style="width: 100%;">
+    <div class="lis_cust margin_t" style="width: 100%;">
         <img src="/assets/img/frontend/lis_cust.jpg" class="center-block img-responsive">
-
         <div id="demo" align="center">
             <table border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
                 <tbody>
@@ -290,7 +324,6 @@
                 </tbody>
             </table>
         </div>
-/
         <script>
             var speed = 30
             demo2.innerHTML = demo1.innerHTML
@@ -310,9 +343,15 @@
             demo.onmouseout = function () {
                 MyMar = setInterval(Marquee, speed)
             }
+            $('.dynamic_art').hover(function(){
+               var img = $(this).find('h2').attr('data-url');
+               $('.article_img').attr('src',img);
+                
+            });
         </script>
     </div>
-
+</div>
+<div class="container" style="width: 1200px;margin: 0 auto">
     <!----------------------------------固定区域--------------------------------------------->
     <div class="bot_scroll navbar-inverse container-fluid navbar-fixed-bottom">
         <div class="container fix_content">
@@ -358,4 +397,4 @@
 
         </div>
     </div>
-    </div>
+</div>

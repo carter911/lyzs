@@ -11,7 +11,10 @@
 <script src="/assets/js/frontend/jquery.min.js"></script>
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
 
-
+<style>
+    .article_detail{background: #ccc;color: black}
+    .article_detail:hover{background: #000;color: #fff;}
+</style>
 <div class="container">
     <div class="current_loca">
         <span>当前位置：</span>
@@ -31,16 +34,16 @@
             {volist name="article_list" id='article'}
             <div class="row article">
                 <div class="article_img">
-                    <img src="{$article.image}" class="img-responsive">
+                    <img style="width: 75%" src="{$article.image}" class="img-responsive">
                 </div>
                 <div class="article_info">
                     <h3 style="margin-bottom: 15px"><a href="/index/index/look_article_detail?id={$article.id}">{$article.title}</a></h3>
-                    <p>{$article.desc}</p>
+                    <p style="height: 100px;">{$article.desc|mb_substr=0,100}...</p>
                     <div class="activ_btn pull-right">
                         <a href="/index/index/look_article_detail?id={$article.id}"
-                           class="btn btn-default artmore_btn inselect inactive_btn">参加活动</a>
-                        <a href="/index/index/look_article_detail?id={$article.id}"
-                           class="btn btn-default artmore_btn inselect">详&nbsp;情</a>
+                           class="article_detail btn btn-default artmore_btn">参加活动</a>
+                        <a  href="/index/index/look_article_detail?id={$article.id}"
+                           class="article_detail btn btn-default artmore_btn ">详&nbsp;情</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>

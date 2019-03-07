@@ -13,7 +13,7 @@ use think\Model;
 class Articles extends Model
 {
 
-    const PAGE_SIZE = 2;
+    const PAGE_SIZE = 5;
 
     public function get_article_list($pageIndex = 1, $status=1)
     {

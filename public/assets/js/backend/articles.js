@@ -27,16 +27,14 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'id', title: __('Id')},
                         {field: 'status', title: __('Status'), searchList: {"1":__('Status 1'),"2":__('Status 2')}, formatter: Table.api.formatter.status},
                         {field: 'title', title: __('Title')},
-                        {field: 'desc', title: __('Desc')},
+                        {field: 'desc', title: __('Desc'),cellStyle: function () {return {css: {"max-width": "300px",'overflow':'hidden'}}}},
                         {field: 'image', title: __('Image'), formatter: Table.api.formatter.image},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange'},
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange'},
-                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
+                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate,cellStyle: function () {return {css: {"max-width": "300px",'overflow':'hidden'}}}}
                     ]
                 ]
             });
-
-            
             // 绑定TAB事件
             $('.panel-heading a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 var field = $(this).closest("ul").data("field");

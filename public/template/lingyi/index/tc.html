@@ -18,8 +18,8 @@
     <!--<img src="/assets/img/frontend/setmeal.png" class="img-responsive center-block">-->
     <img src="{$banner['image']}" class="img-responsive center-block">
     <div class="container">
-        <div class="lis_advta margin_t">
-            <img src="/assets/img/frontend/lis_advta.jpg" class="img-responsive center-block">
+        <div class="lis_advta margin_t" style="text-align: center">
+            <img  src="/assets/img/frontend/lis_advta.jpg" class="img-responsive center-block">
 
             <div class="advta_list">
                 <div class="row">
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="advt_guarante">
+            <div class="advt_guarante" style="text-align: center">
                 <img src="/assets/img/frontend/advt_guarante.png" class="bg img-responsive center-block">
             </div>
         </div>
@@ -71,7 +71,7 @@
         </div>
 
         <div class="lis_costeffect margin_t">
-            <div class="row">
+            <div class="row" style="text-align: center;">
                 <div class="col-xs-4">
                     <ul class="costimg_lis">
                         <li><img src="/assets/img/frontend/liscos_img01.png" class="img-responsive"></li>
@@ -80,12 +80,12 @@
                         <li><img src="/assets/img/frontend/liscos_img08.png" class="img-responsive"></li>
                     </ul>
                 </div>
-                <div class="col-xs-4">
-                    <ul class="costimg_lis">
-                        <li><img src="/assets/img/frontend/liscos_img02.png" class="img-responsive"></li>
-                        <li><img src="/assets/img/frontend/lis_costeffect.jpg" class="img-responsive"
-                                 style="padding: 32px 0"></li>
-                        <li><img src="/assets/img/frontend/liscos_img09.png" class="img-responsive"></li>
+                <div class="col-xs-4" style="text-align: center;">
+                    <ul class="costimg_lis" style="width: 350px;padding: 0px;margin: 0 auto;">
+                        <li style="width: 340px;"><img src="/assets/img/frontend/liscos_img02.png" class="img-responsive"></li>
+                        <li style="width: 340px;"><img src="/assets/img/frontend/lis_costeffect.jpg" class="img-responsive"
+                                 style="padding: 32px 0;width: 100%;width: 310px;"></li>
+                        <li style="width: 340px;"><img src="/assets/img/frontend/liscos_img09.png" class="img-responsive"></li>
                     </ul>
                 </div>
                 <div class="col-xs-4">
@@ -100,25 +100,29 @@
         </div>
 
         <!-- 主材 -->
-        <div class="lis_meatr margin_t">
-            <img src="/assets/img/frontend/lis_meatr.png" class="center-block img-responsive">
+        <div class="lis_meatr margin_t" style="text-align: center;">
+            <img style=""  src="/assets/img/frontend/lis_meatr.png" class="center-block img-responsive">
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
                     <div class="inner_info">
+<<<<<<< Updated upstream
 
                         <ul style="text-align: center" id="meatrTabs" class="nav nav-tabs" role="tablist">
+=======
+                        <ul style="text-align: center;width: 1200px;" id="meatrTabs" class="nav nav-tabs" role="tablist">
+>>>>>>> Stashed changes
                             {volist name="material_master_list" id="vo"}
-                            <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <a style="padding: 7px 79px;" href="#floor{$vo.id}" id="floor-tab" role="tab"
+                            <li style="width: 195px;text-align: center;margin-right:5px;" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                                <a style="padding: 7px 10px;" href="#floor{$vo.id}" id="floor-tab" role="tab"
                                    data-toggle="tab" aria-controls="floor"
-                                   aria-expanded="true" style="padding: 10px 81px;">{$vo.name}</a>
+                                   aria-expanded="true" style="padding: 10px 81px;">{$vo.name|substr=0,18}</a>
                             </li>
                             {/volist}
                         </ul>
                     </div>
                 </div>
 
-                <div id="meatrTabContent" class="tab-content tabinfo">
+                <div id="meatrTabContent" style="width: 1194px;" class="tab-content tabinfo">
                     {volist name="material_master_list" id="vo" key="key"}
                     <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in "
                          id="floor{$vo.id}" aria-labelledby="floor-tab">
@@ -150,19 +154,19 @@
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
                     <div class="inner_info">
-                        <ul id="admeatrTabs" class="nav nav-tabs" role="tablist">
+                        <ul style="text-align: center;width: 1200px;"  id="admeatrTabs" class="nav nav-tabs" role="tablist">
                             {volist name="material_auxiliary_list" id="vo"}
-                            <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <a style="padding: 7px 79px;" href="#floor{$vo.id}" role="tab"
+                            <li style="width: 195px;text-align: center;margin-right:5px;overflow: hidden" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                                <a style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab"
                                    data-toggle="tab" aria-controls="floor"
-                                   aria-expanded="true" style="padding: 10px 81px;">{$vo.name}</a>
+                                   aria-expanded="true" style="padding: 10px 81px;">{$vo.name|substr=0,18}</a>
                             </li>
                             {/volist}
                         </ul>
                     </div>
                 </div>
 
-                <div id="admeatrTabContent" class="tab-content tabinfo">
+                <div id="admeatrTabContent" style="width: 1194px;" class="tab-content tabinfo">
                     {volist name="material_auxiliary_list" id="vo" key="key"}
                     <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in "
                          id="floor{$vo.id}" aria-labelledby="floor-tab">
@@ -187,21 +191,17 @@
                 </div>
             </div>
         </div>
-
-        <div class="lis_stand margin_t" style="text-align: center">
-            <img src="/assets/img/frontend/lis_stand.jpg" class="center-block img-responsive">
+        <div class="lis_stand margin_t" style="text-align: center;" >
+            <img style="width: 500px;" src="/assets/img/frontend/lis_stand.jpg" class="center-block img-responsive">
             <a href="#" class="btn btn-default case_mor freebtn">参观距您最近的工地</a>
             <p class="text-center" style="font-size: 18px">我们通过标准工序，指导工人施工、自检，同时为管理人员检查提供依据，保障施工按质量完成</p>
-            <div class="case_tab" data-example-id="togglable-tabs">
+            <div class="case_tab" data-example-id="togglable-tabs" >
                 <div id="standTabContent" class="tab-content tabinfo">
-
                     {volist name="procedure_list" id="procedure"}
-
-                    <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}"
+                    <div  role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}"
                          id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
-                        <div class="apply">
-                            <div class="img_l pull-left"><img src="/assets/img/frontend/stand_leftbtn.jpg"/></div>
-
+                        <div style="width: 1002px;" class="apply" style="padding: 0px;">
+                            <div style="" class="img_l pull-left"><img src="/assets/img/frontend/stand_leftbtn.jpg"/></div>
                             <div class="apply_nav pull-left">
                                 <div class="apply_w pull-left">
                                     {volist name="procedure.images" id="img"}
@@ -218,12 +218,12 @@
                     </div>
                     {/volist}
                 </div>
-                <div class="inner_info stand_tab">
-                    <div class="inner_info">
-                        <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist">
-                            {volist name="procedure_list" id="procedure"}
-                            <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                        <span class="stand_icon"><img src="/assets/img/frontend/stand_icon.jpg"
+                <div style="width: 1000px;margin: 5px auto;padding: 5px 30px;border-top: 1px solid #ccc;" >
+                    <div class="inner_info" style="padding-top: 10px;">
+                        <ul  style="" id="standTabs" class="nav nav-tabs standlis_tab" role="tablist">
+                            {volist name="procedure_list" id="procedure" key="k"}
+                            <li style="width: 88px;{gt name='k' value='1'}margin-left: 2px;{/gt}" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                                <span class="stand_icon"><img src="/assets/img/frontend/stand_icon.jpg"
                                                       class="img-responsive center-block"></span>
                                 <a href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab"
                                    data-toggle="tab" aria-controls="prophase" aria-expanded="true"
@@ -235,7 +235,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="lis_offercost margin_t">
             <img src="/assets/img/frontend/lis_offercost.jpg" class="center-block img-responsive">
             <div class="offercost_cont">
@@ -260,12 +260,9 @@
                 </form>
             </div>
         </div>
-
-
-        <div class="lis_realcase margin_t">
+        
+        <div class="lis_realcase margin_t" >
             <img src="/assets/img/frontend/lis_realcase.jpg" class="center-block img-responsive">
-
-
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 30px">
                 <div class="inner_info">
                     <div class="inner_info row">
@@ -283,9 +280,9 @@
                             </ul>
                         </div>
 
-                        <div class="col-xs-2">
-                            <a href="#" class="btn btn-default pull-right case_mor"
-                               style="margin-top: 5px;margin-right: 15px">&gt;&nbsp;&gt;&nbsp;&gt;&nbsp;&nbsp;更多案例</a>
+                        <div  class="col-xs-2" >
+                            <a href="sjal.html" class="btn btn-default pull-right case_mor"
+                               style="margin-top: 5px;">&gt;&nbsp;&gt;&nbsp;&gt;&nbsp;&nbsp;更多案例</a>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -400,16 +397,19 @@
                 </div>
             </div>
         </div>
-        <div class="lis_cust margin_t">
+    </div>
+    <div style="width: 100%">
+        
+        <div class="lis_cust margin_t" >
             <img src="/assets/img/frontend/lis_cust.jpg" class="center-block img-responsive">
-
-            <div id="demo" align="center">
-                <table border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
+            <div style="padding: 0px;overflow: hidden;">
+                <div id="demo" align="center" style="">
+                <table style="" border="0" align="center" cellpadding="0" cellspacing="0" cellspace="0">
                     <tbody>
                     <tr>
-                        <td valign="top" id="demo1">
+                        <td valign="top" id="demo1" >
                             <table cellspacing="5" cellpadding="0">
-                                <tbody>
+                                <tbody >
                                 <tr class="roll_area">
                                     {volist name='witness_lists' id='item'}
                                     <td class="roll_img text-center"><img style="width: 210px;height: 250px;"
@@ -424,7 +424,7 @@
                     </tbody>
                 </table>
             </div>
-
+            </div>
             <script>
                 var speed = 30
                 demo2.innerHTML = demo1.innerHTML
@@ -447,6 +447,7 @@
             </script>
         </div>
     </div>
+</div>
 </div>
 
 <!----------------------------------固定区域--------------------------------------------->

@@ -6,7 +6,7 @@
     background-color: rgba(0,0,0,0.4);
 }
 .quote_area{
-    height: 594px;
+    height: 3000px;
     width: 290px;
     color: #fff;
 }
@@ -108,11 +108,13 @@
     transform:translateY(0px);
 }
 .gold_caselis .goldcase_info{
-    padding: 10px 0 0 75px;
+    padding: 10px 0 0 10px;
     margin:0;
     list-style:none;
+    text-align: center;
 }
 .gold_caselis .goldcase_info li a{
+    text-align: center;
     display:block;
     color:#fff;
     margin-right:5px;

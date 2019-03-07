@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线客服聊天-客户端</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            background-image: url("__ADDON__/img/image.jpg");
+            background-size: cover;
+            background-repeat: none;
+        }
+
+        #online_service_frame {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="__ADDON__/layer/layer.js"></script>
+<script type="text/javascript">document.write('<iframe id="online_service_frame" width="450" height="550" frameborder="0" scrolling="no" src="{:addon_url('onlineservice/index/deploy')}?group_id={$group_id}&admin_id={$admin_id}"></iframe>')</script>
+</body>
+</html>

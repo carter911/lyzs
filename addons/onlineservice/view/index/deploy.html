@@ -1,0 +1,157 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="__ADDON__/css/reset.min.css">
+<link rel="stylesheet" href="__ADDON__/css/client.css">
+<link rel="stylesheet" href="__ADDON__/layui/css/layui.css">
+<div class="">
+    <div class="container" id="container">
+        <div class="right">
+            <div class="top">
+                <div class="logo" style="display: inline-block;">
+                    <img id="logo"
+                         src="{$config.service_logo}"/>
+                </div>
+                <span class="name">{$config.service_title}</span>
+                <span id="speck" style="margin-left: 10px;display: none"></span>
+                <span id="ichat_close" class="iconfont"
+                      style="font-size: 26px;float: right;margin-right: 10px;line-height: 36px;cursor: pointer">&#xe646;</span>
+            </div>
+            <div class="chat active-chat" id="message-box">
+
+            </div>
+            <div class="write">
+                <a href="javascript:void(0);" class="write-link attach" id="clickUpload" title="上传附件"></a>
+                <input type="text" id="content" name="content" placeholder="你想说点什么..."/>
+                <a href="javascript:;" class="write-link smiley" id="addsmile" title="发送表情"></a>
+                <div class="smile">
+                    <div class="clearfix">
+                        <a href="javascript:grin(':razz:')">
+                            <img src="__ADDON__/img/smilies/razz.png" alt=""
+                                 class="d-block"/>
+                        </a>
+                        <a href="javascript:grin(':evil:')">
+                            <img src="__ADDON__/img/smilies/evil.png" alt=""
+                                 class="d-block"/>
+                        </a>
+                        <a href="javascript:grin(':exclaim:')">
+                            <img src="__ADDON__/img/smilies/exclaim.png" alt=""
+                                 class="d-block"/>
+                        </a>
+                        <a href="javascript:grin(':smile:')">
+                            <img src="__ADDON__/img/smilies/smile.png"
+                                 alt="" class="d-block"/></a><a
+                            href="javascript:grin(':redface:')"><img
+                            src="__ADDON__/img/smilies/redface.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':biggrin:')"><img
+                            src="__ADDON__/img/smilies/biggrin.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':eek:')"><img
+                            src="__ADDON__/img/smilies/eek.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':confused:')"><img
+                            src="__ADDON__/img/smilies/confused.png"
+                            alt="" class="d-block"/></a><a href="javascript:grin(':idea:')"><img
+                            src="__ADDON__/img/smilies/idea.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':lol:')"><img
+                            src="__ADDON__/img/smilies/lol.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':mad:')"><img
+                            src="__ADDON__/img/smilies/mad.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':twisted:')"><img
+                            src="__ADDON__/img/smilies/twisted.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':rolleyes:')"><img
+                            src="__ADDON__/img/smilies/rolleyes.png"
+                            alt="" class="d-block"/></a><a href="javascript:grin(':wink:')"><img
+                            src="__ADDON__/img/smilies/wink.png"
+                            alt="" class="d-block"/></a><a href="javascript:grin(':cool:')"><img
+                            src="__ADDON__/img/smilies/cool.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':arrow:')"><img
+                            src="__ADDON__/img/smilies/arrow.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':neutral:')"><img
+                            src="__ADDON__/img/smilies/neutral.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':cry:')"><img
+                            src="__ADDON__/img/smilies/cry.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':mrgreen:')"><img
+                            src="__ADDON__/img/smilies/mrgreen.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':drooling:')"><img
+                            src="__ADDON__/img/smilies/drooling.png"
+                            alt="" class="d-block"/></a><a
+                            href="javascript:grin(':persevering:')"><img
+                            src="__ADDON__/img/smilies/persevering.png"
+                            alt="" class="d-block"/></a>
+                        <a href="javascript:grin(':question:')">
+                            <img src="__ADDON__/img/smilies/question.png" alt=""
+                                 class="d-block"/>
+                        </a><a href="javascript:grin(':icon_confused:')">
+                        <img src="__ADDON__/img/smilies/icon_confused.png" alt=""
+                             class="d-block"/>
+                    </a><a href="javascript:grin(':shit:')">
+                        <img src="__ADDON__/img/smilies/shit.png" alt=""
+                             class="d-block"/>
+                    </a><a href="javascript:grin(':symbols:')">
+                        <img src="__ADDON__/img/smilies/symbols.png" alt=""
+                             class="d-block"/>
+                    </a><a href="javascript:grin(':icon_wink:')">
+                        <img src="__ADDON__/img/smilies/icon_wink.png" alt=""
+                             class="d-block"/>
+                    </a>
+                        <a href="javascript:grin(':icon_neutral:')">
+                            <img src="__ADDON__/img/smilies/icon_neutral.png" alt=""
+                                 class="d-block"/>
+                        </a>
+                        <a href="javascript:grin(':icon_eek:')">
+                            <img src="__ADDON__/img/smilies/icon_eek.png" alt=""
+                                 class="d-block"/>
+                        </a>
+                    </div>
+                </div>
+                <a href="javascript:;" class="write-link send" title="发送"></a>
+            </div>
+            <div style="display: none">
+                <input type="file" id="uploadFile" class="file" name="file" onchange="handleFiles(this.files)">
+            </div>
+        </div>
+    </div>
+    <ul class="layui-fixbar" title="在线客服">
+        <li class="layui-icon" lay-type="bar1" style="" id="online_ervice"></li>
+    </ul>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="__ADDON__/layer/layer.js"></script>
+<script>
+    var PORT = "{$config['port']}";
+    var SECRET_KEY = "{$config['secret_key']}";
+    var GROUP_ID = '{$group_id}';
+    var USER_ID = '{$user_id}';
+    var ADMIN_ID = '{$admin_id}';
+    var JOIN_IP = '{$join_ip}';
+    var cache_admin_id = localStorage.getItem('cache_admin_id');
+    if (cache_admin_id) {
+        ADMIN_ID = cache_admin_id;
+    } else {
+        localStorage.setItem('cache_admin_id', ADMIN_ID); //将第一次分配的客服管理ID，记录缓存！
+    }
+    var USER_AGENT = '{$user_agent}';
+    var REQUEST_MSG_LIST = "{:addon_url('onlineservice/message/getMessage')}";
+    var UPLOAD_FILE = "{:addon_url('onlineservice/index/upload')}";
+    var GUUID = '';
+    var cache_uuid = localStorage.getItem('cache_uuid');
+    if (cache_uuid) {
+        GUUID = cache_uuid;
+    } else {
+        GUUID = '{$uuid}';
+    }
+    var isHTTPS = '{$isHttps}';
+</script>
+<script src="__ADDON__/js/common.js"></script>
+<script src="__ADDON__/js/client.js"></script>
+
+
