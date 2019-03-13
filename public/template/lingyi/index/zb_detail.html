@@ -28,7 +28,7 @@
         margin-bottom: 3rem;
         min-height: 800px;
         padding: 0 1.45rem 5rem;
-        background-color: #f9f9f9;
+        background-color: #f2f2f2;
     }
 
     .box .title {
@@ -107,7 +107,7 @@
         margin-top: 8px;
         padding: 1.45rem;
         background-color: #fff;
-        font-size: 0.875rem;
+        font-size: 1.1rem;
         color: #666666
     }
 
@@ -135,11 +135,11 @@
         font-size: 1.45rem;
         min-height: 500px;
         border-right: 2px solid black;
-        /*background-color: #ddd;*/
     }
 
     .time-line li {
         list-style: none;
+        min-height: 5rem;
         text-align: center;
         padding: 0.8rem 0;
         position: relative;
@@ -147,7 +147,10 @@
     }
 
     .time-line li a {
+        display: block;
+        height: inherit;
         text-decoration: none;
+        color: #333 !important;
     }
 
     .time-line li a span {
@@ -173,10 +176,6 @@
         margin-bottom: 10px;
     }
 
-    .time-box-images {
-
-    }
-
     .time-box-images .img-box {
         width: 30%;
         min-height: 180px;
@@ -192,6 +191,9 @@
     }
 
     .select_status .img_scale {
+        position: absolute;
+        right: -10px;
+        top: 15px;
         display: block;
     }
 
@@ -250,9 +252,7 @@
                                 <img class="img_scale" src="/assets/img/zb_detail/scale.png">
                                 <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
-
-                            <!-- 选择状态 -->
-                            <li class="select_status">
+                            <li>
                                 <a href="#">户型改建 <span>2</span></a>
                                 <img class="img_scale" src="/assets/img/zb_detail/scale.png">
                                 <img class="img_dot" src="/assets/img/zb_detail/dot.png">
@@ -403,3 +403,12 @@
     </div>
 
 </div>
+
+<script>
+    $(function () {
+        $(".time-line li").hover(function () {
+            $(".time-line li").removeClass("select_status");
+            $(this).addClass("select_status");
+        })
+    });
+</script>

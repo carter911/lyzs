@@ -38,6 +38,33 @@
 	}
 
 </style>
+<style>
+    .apply_left_img .left_btn1 {
+        width: 44px;
+        height: 198px;
+        padding: 56px 8px;
+        background-image: url('/assets/img/gxj/left_white.png');
+        background-repeat: no-repeat;
+    }
+
+    .apply_left_img .left_btn1:hover {
+        background-image: url('/assets/img/gxj/left_gray.png');
+        background-repeat: no-repeat;
+    }
+
+    .apply_right_img .right_btn1 {
+        width: 44px;
+        height: 198px;
+        padding: 56px 8px;
+        background-image: url('/assets/img/gxj/right_white.png');
+        background-repeat: no-repeat;
+    }
+
+    .apply_right_img .right_btn1:hover {
+        background-image: url('/assets/img/gxj/right_gray.png');
+        background-repeat: no-repeat;
+    }
+</style>
 
 <!---------------------------------主体内容---------------------------------------------->
 <div class="inner_info">
@@ -156,11 +183,9 @@
 					{volist name="procedure_list" id="procedure" key="key"}
 					<div  role="tabpanel" class="tab-pane fade in {eq name="key" value="1"}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
 						<div class="apply">
-							<div class="img_l pull-left"><img style="background-color: #f2f2f2"
-															  src="/assets/img/frontend/stand_btn5.png"
-															  onmouseout="this.src='/assets/img/frontend/stand_btn5.png'"
-															  onmouseover="this.src='/assets/img/frontend/stand_btn2.png'"/></div>
-
+							<div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
+								<div class="left_btn1"></div>
+							</div>
 							<div class="apply_nav pull-left">
 								<div class="apply_w pull-left" style="left:-50px;">
 									{volist name="procedure.images" id="img"}
@@ -171,12 +196,9 @@
 									<div class="clearfix"></div>
 								</div>
 							</div>
-							<div class="img_r pull-left"><img
-														style="background-color: #f2f2f2"
-														src="/assets/img/frontend/stand_btn1.png"
-														onmouseout="this.src='/assets/img/frontend/stand_btn1.png'"
-														onmouseover="this.src='/assets/img/frontend/stand_btn4.png'"
-									/></div>
+							<div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
+								<div class="right_btn1"></div>
+							</div>
 							<div class="clearfix"></div>
 						</div>
 					</div>

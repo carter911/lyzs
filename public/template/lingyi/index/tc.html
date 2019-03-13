@@ -1,7 +1,33 @@
 <link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
 <link href="/assets/css/frontend/personality.css" rel="stylesheet">
 <link href="/assets/css/frontend/setmeal.css" rel="stylesheet">
+<style>
+    .apply_left_img .left_btn1 {
+        width: 44px;
+        height: 198px;
+        padding: 56px 8px;
+        background-image: url('/assets/img/gxj/left_white.png');
+        background-repeat: no-repeat;
+    }
 
+    .apply_left_img .left_btn1:hover {
+        background-image: url('/assets/img/gxj/left_gray.png');
+        background-repeat: no-repeat;
+    }
+
+    .apply_right_img .right_btn1 {
+        width: 44px;
+        height: 198px;
+        padding: 56px 8px;
+        background-image: url('/assets/img/gxj/right_white.png');
+        background-repeat: no-repeat;
+    }
+
+    .apply_right_img .right_btn1:hover {
+        background-image: url('/assets/img/gxj/right_gray.png');
+        background-repeat: no-repeat;
+    }
+</style>
 
 <!---------------------------------主体内容---------------------------------------------->
 <style>
@@ -194,8 +220,8 @@
                     {volist name="procedure_list" id="procedure" key="k"}
                     <div role="tabpanel" class="tab-pane fade in {eq name='$k' value='1'}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
                         <div class="apply">
-                            <div class="img_l pull-left" style="margin-right: 15px;">
-                                <img src="/assets/img/frontend/stand_leftbtn.jpg"/>
+                            <div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
+                                <div class="left_btn1"></div>
                             </div>
                             <div class="apply_nav pull-left" style="width: 880px;">
                                 <div class="apply_w pull-left">
@@ -209,8 +235,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="img_r pull-right" style="margin-left: 15px;">
-                                <img src="/assets/img/frontend/stand_rightbtn.jpg"/>
+                            <div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
+                                <div class="right_btn1"></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
