@@ -24,6 +24,21 @@
     .search_case{
         height: 32px;
     }
+
+    .pagselec{
+        margin-left: 0;
+        margin-bottom: 80px;
+    }
+
+    .pagination {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
 </style>
 
 <div class="container">
@@ -117,41 +132,72 @@
     </form>
 
     <div class="style_list" style="padding: 15px">
-        <div class="row">
-            {volist name='$team_list' id='team_item'}
-            <div class="col-xs-3" style="margin-bottom: 10px;">
+
+         {volist name='$team_list' id='team_item' key='key'}
+
+             {if condition="$key % 4 eq 1"}
+                 <div class="row">
+             {/if}
+
+              <div class="col-xs-3">
                 <a href="./sjtd_detail.html?detail_id={$team_item.id}">
-                <div class="designer_area" style="margin-bottom: 1rem;">
-                    <div class="designer_img" style="height: 265.5px;overflow: hidden;">
-                        <img src="{$team_item.image}" class="img-responsive center-block">
-                        <div class="free_consult pull-left" style="display: none">
-                            <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
-                        </div>
-                        <div class="free_plan pull-right" style="display: none">
-                            <a href="#" class="btn btn-default center-block free_link">免费规划</a>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="designer_info">
-                        <h2 class="text-center"><span class="des_name">{$team_item.name}</span>{$team_item.work_name}</h2>
-                        <div class="des_infodeta">
-                            <p class="pull-left">从业经验<span class="des_time">{$team_item.work_num}</span>年</p>
-                            <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>{$team_item.work_num + 100}</span>人预约</p>
+                    <div class="designer_area" style="margin-bottom: 1rem;">
+                        <div class="designer_img" style="height: 265.5px;overflow: hidden;">
+                            <img src="{$team_item.image}" class="img-responsive center-block">
+                            <div class="free_consult pull-left" style="display: none">
+                                <a href="#" class="btn btn-default center-block free_link">免费咨询</a>
+                            </div>
+                            <div class="free_plan pull-right" style="display: none">
+                                <a href="#" class="btn btn-default center-block free_link">免费规划</a>
+                            </div>
                             <div class="clearfix"></div>
                         </div>
-                    </div>
-                </div>
-                </a>
-            </div>
-            {/volist}
 
-        </div>
+                        <div class="designer_info">
+                            <h2 class="text-center"><span class="des_name">{$team_item.name}</span>{$team_item.work_name}</h2>
+                            <div class="des_infodeta">
+                                <p class="pull-left">从业经验<span class="des_time">{$team_item.work_num}</span>年</p>
+                                <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>{$team_item.work_num + 100}</span>人预约</p>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+              </div>
+
+            {if condition="$key % 4 eq 0"}
+                 </div>
+            {/if}
+
+         {/volist}
+
     </div>
 
-    <nav aria-label="Page navigation" class="pagselec" style="margin-left: 40%;">
-        {$page}
-    </nav>
 
+    <nav aria-label="Page navigation" class="pagselec">
+        <ul class="pagination pagination-lg">
+
+            <li><a href="/index/index/sjtd?{$pageParams}page={$page['first_page']}">首页</a></li>
+
+            <li>
+                <a href="/index/index/sjtd??{$pageParams}page={$page['prev_page']}" aria-label="Previous">
+                    <span aria-hidden="true">&lt;</span>
+                </a>
+            </li>
+
+            {for start="$page['start_page']" end="$page['end_page']" name="m"}
+            <li><a href="/index/index/sjtd?{$pageParams}page={$m}">{$m}</a></li>
+            {/for}
+
+            <li>
+                <a href="/index/index/sjtd?{$pageParams}page={$page['next_page']}" aria-label="Next">
+                    <span aria-hidden="true">&gt;</span>
+                </a>
+            </li>
+
+            <li><a href="/index/index/sjtd?{$pageParams}page={$page['last_page']}">末页</a></li>
+        </ul>
+    </nav>
 </div>
 <script>
     $(".searchContent a").click(function () {
@@ -160,4 +206,11 @@
         $("select[name="+$(this).attr('name')+"]").val($(this).attr('data-id'));
         $(".searchForm").submit();
     })
+
+    $('.designer_area .designer_img').hover(function(){
+        $(this).find('div').show();
+    },function(){
+        $(this).find('div').hide();
+    });
+
 </script>

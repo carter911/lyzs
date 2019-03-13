@@ -139,10 +139,11 @@ class Cases extends Model
     }
 
 
-    private function get_page($pageIndex, $totalSize)
-    {
+    private function get_page($pageIndex, $totalSize){
+
         $lastPage = $totalSize % 12 == 0 ? intval($totalSize / 12) : intval($totalSize / 12) + 1;
         if($pageIndex > $lastPage) $pageIndex = $lastPage;
+
 
         return array(
             "first_page" => 1,

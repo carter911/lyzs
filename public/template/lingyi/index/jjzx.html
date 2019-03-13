@@ -12,7 +12,29 @@
 
 <style>
     .article_detail{background: #ccc;color: black}
+
     .article_detail:hover{background: #000;color: #fff;}
+
+    .activity_image {
+        margin: 2% auto;
+        width: 96%;
+        height: 96%;
+    }
+
+    .pagselec{
+        margin-left: 0;
+        margin-bottom: 80px;
+    }
+
+    .pagination {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
 </style>
 <div class="container">
     <div class="current_loca">
@@ -33,8 +55,9 @@
             {volist name="article_list" id='article'}
             <div class="row article">
                 <div class="article_img">
-                    <img style="width: 75%" src="{$article.image}" class="img-responsive">
+                    <img src="{$article.image}" class="activity_image">
                 </div>
+
                 <div class="article_info">
                     <h3 style="margin-bottom: 15px"><a href="/index/index/look_article_detail?id={$article.id}">{$article.title}</a></h3>
                     <p style="height: 100px;">{$article.desc|mb_substr=0,100}...</p>

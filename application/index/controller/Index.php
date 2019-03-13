@@ -237,6 +237,7 @@ class Index extends Frontend
             $search['door'] = $door;
             $where[] = ['exp', Db::raw("FIND_IN_SET('$door',team_door_ids)")];
         }
+
         if (isset($param['style']) && $param['style'] > 0) {
             $style = $param['style'];
             $search['style'] = $style;
@@ -253,21 +254,37 @@ class Index extends Frontend
             $where['sex'] = $param['sex'];
         }
 
-        $lists = Db::name('team')->where($where)->paginate(10, false, [
-            'type' => 'page\Page'
+        $page = 1 ;
+        if(isset($param['page']) && is_numeric($param['page'])){
+            $page = $param['page'];
+        }
+
+        $lists = Db::name('team')->where($where)->paginate(12,false, [
+            'page' => $page
         ]);
+
+
         // 擅长户型
         $team_door = Db::name('team_door')->field('id,name')->select();
         // 风格
         $team_style = Db::name('team_style')->field('id,name')->select();
+
         $this->assign('team_style', $team_style);
         $this->assign('team_door', $team_door);
-        $this->assign('lists', $lists);
-        $this->assign('page', $lists->render());
-        $this->assign('team_list', $lists);
+        $this->assign('team_list', $lists -> items());
         $this->assign('search', $search);
+
+        $page = $this->get_page($lists->currentPage(), $lists->total());
+        $this->assign('page', $page);
+
+        $pageParams = $this -> parse_query_params($search);
+        $this->assign("pageParams",$pageParams);
+
+
         return $this->view->fetch("sjtd");
     }
+
+
 
     //设计团队 详情
     public function sjtd_detail($detail_id)
@@ -401,5 +418,36 @@ class Index extends Frontend
 
         return $this->view->fetch('sjal0');
     }
+
+
+    private function get_page($pageIndex, $totalSize){
+
+        $lastPage = $totalSize % 12 == 0 ? intval($totalSize / 12) : intval($totalSize / 12) + 1;
+        if($pageIndex > $lastPage) $pageIndex = $lastPage;
+
+        return array(
+            "first_page" => 1,
+            "last_page" => $lastPage,
+            "prev_page" => $pageIndex - 1 < 1 ? 1 : $pageIndex - 1,
+            "next_page" => $pageIndex + 1 > $lastPage ? $lastPage : $pageIndex + 1,
+
+            "start_page" => $pageIndex - 2 < 1 ? 1 : $pageIndex - 2,
+            "end_page" => $pageIndex + 2 > $lastPage ? $lastPage + 1 : $pageIndex + 3,
+
+            "current_page" => $pageIndex,
+            "total_page"   => $totalSize,
+        );
+    }
+
+    private function parse_query_params($array) {
+
+        $target = '';
+        foreach($array as $key => $value){
+            $target = $target . $key . '=' . $value . '&';
+        }
+
+        return $target ;
+    }
+
 
 }

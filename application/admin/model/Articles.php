@@ -10,7 +10,7 @@ class Articles extends Model
     protected $name = 'articles';
     
     // 自动写入时间戳字段
-    protected $autoWriteTimestamp = 'int';
+    protected $autoWriteTimestamp = true;
 
     // 定义时间戳字段名
     protected $createTime = 'createtime';
@@ -20,9 +20,7 @@ class Articles extends Model
     protected $append = [
         'status_text'
     ];
-    
 
-    
     public function getStatusList()
     {
         return ['1' => __('Status 1'),'2' => __('Status 2')];
