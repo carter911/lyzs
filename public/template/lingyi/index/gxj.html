@@ -4,6 +4,33 @@
 <link href="/assets/css/frontend/personality.css" rel="stylesheet">
 <script src="/assets/js/frontend/jquery.min.js"></script>
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
+<style>
+    .apply_left_img .left_btn1 {
+        width: 44px;
+        height: 198px;
+        padding: 56px 8px;
+        background-image: url('/assets/img/gxj/left_white.png');
+        background-repeat: no-repeat;
+    }
+
+    .apply_left_img .left_btn1:hover {
+        background-image: url('/assets/img/gxj/left_gray.png');
+        background-repeat: no-repeat;
+    }
+
+    .apply_right_img .right_btn1 {
+        width: 44px;
+        height: 198px;
+        padding: 56px 8px;
+        background-image: url('/assets/img/gxj/right_white.png');
+        background-repeat: no-repeat;
+    }
+
+    .apply_right_img .right_btn1:hover {
+        background-image: url('/assets/img/gxj/right_gray.png');
+        background-repeat: no-repeat;
+    }
+</style>
 <!---------------------------------主体内容---------------------------------------------->
 <div class="container-fluid inner_info">
     <!--<img src="/assets/img/frontend/personial.png" class="img-responsive center-block">-->
@@ -25,7 +52,6 @@
                 <div class="container inner_info">
                     <div class="col-xs-9 inner_info">
                         <ul id="myTabs" class="nav nav-tabs" role="tablist">
-
                             {volist name='$caseList' id='case' key='key'}
                             <li role="presentation" class="{eq name='$key' value='1'}active{/eq}">
                                 <a href="#s_{$case.style_id}" id="simplicity-tab" role="tab"
@@ -33,10 +59,7 @@
                                    aria-expanded="true"
                                    style="padding-left: 31px;padding-right: 31px">{$case.style_name}</a>
                             </li>
-
                             {/volist}
-
-
                         </ul>
                     </div>
                     <div class="col-xs-3">
@@ -220,12 +243,11 @@
 
             <div class="case_tab" data-example-id="togglable-tabs">
                 <div id="standTabContent" class="tab-content tabinfo">
-
                     {volist name="procedure_list" id="procedure" key="k"}
                     <div role="tabpanel" class="tab-pane fade in {eq name='$k' value='1'}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
                         <div class="apply">
-                            <div class="img_l pull-left" style="margin-right: 15px;">
-                                <img src="/assets/img/frontend/stand_leftbtn.jpg"/>
+                            <div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
+                                <div class="left_btn1"></div>
                             </div>
                             <div class="apply_nav pull-left" style="width: 880px;">
                                 <div class="apply_w pull-left">
@@ -239,8 +261,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="img_r pull-right" style="margin-left: 15px;">
-                                <img src="/assets/img/frontend/stand_rightbtn.jpg"/>
+                            <div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
+                                <div class="right_btn1"></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -328,6 +350,7 @@
     <script>
         var speed = 30;
         demo2.innerHTML = demo1.innerHTML;
+
         function Marquee() {
             if (demo2.offsetWidth - demo.scrollLeft <= 0)
                 demo.scrollLeft -= demo1.offsetWidth;
@@ -335,6 +358,7 @@
                 demo.scrollLeft++
             }
         }
+
         var MyMar = setInterval(Marquee, speed);
         demo.onmouseover = function () {
             clearInterval(MyMar)
