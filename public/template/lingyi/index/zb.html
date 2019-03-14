@@ -10,8 +10,80 @@
 <script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/frontend/current.js"></script>
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
-
 <style>
+    .time_cards_box {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .time_cards_box::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+
+        background-color: #c8c8c8;
+        width: 100%;
+        height: 1px;
+    }
+
+    .time_card {
+        text-align: center;
+        line-height: 50px;
+        position: relative;
+        width: 10%;
+        height: 50px;
+        color: #c8c8c8;
+        cursor: pointer;
+        font-size: 1.28rem;
+        text-overflow: ellipsis;
+    }
+
+    .time_card:nth-child(odd) {
+        align-self: flex-start;
+    }
+
+    .time_card:nth-child(even) {
+        align-self: flex-end;
+    }
+
+    .time_card:nth-child(odd):before {
+        z-index: 10;
+        position: absolute;
+        left: calc(45.11% - 1.5px);
+        bottom: -4px;
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 10px;
+        background-color: #c8c8c8;
+        box-shadow: 0 0 1px 6px #fff;
+    }
+
+    .time_card:nth-child(even):before {
+        z-index: 10;
+        position: absolute;
+        right: calc(45.11% - 1.5px);
+        top: -4px;
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 10px;
+        background-color: #c8c8c8;
+        box-shadow: 0 0 1px 6px #fff;
+    }
+
+    .select_status {
+        color: #333;
+        font-weight: bold;
+    }
+
+    .select_status:before {
+        width: 12px;
+        height: 12px;
+        background-color: #000 !important;
+    }
+
     .look_detail a {
         margin-top: 12%;
         background-color: #000;
@@ -118,7 +190,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-xs-8">
                 <div class="row">
                     <div class="col-xs-10">
@@ -148,25 +219,28 @@
                         <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="const_process">
-                        <div class="col-xs-10">
-                            <div><span style="vertical-align: top">施工进度：</span>
-                                <span class="triangle"></span>
+                        <div class="col-xs-12">
+                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
+                            <div class="time_cards_box" style="height: 100px;">
+                                <div class="time_card select_status">拆除/拆旧</div>
+                                <div class="time_card">户型改建</div>
+                                <div class="time_card">3D放样</div>
+                                <div class="time_card">水电改造</div>
+                                <div class="time_card">木工阶段</div>
+                                <div class="time_card">软装</div>
+                                <div class="time_card">清场/竣工</div>
+                                <div class="time_card">安装/调试</div>
+                                <div class="time_card">油漆阶段</div>
+                                <div class="time_card">瓷砖铺贴</div>
                             </div>
-                            <div>
-                                <img src="/assets/img/frontend/contrust_proce.jpg" class="img-responsive" style="display: inline-block">
-                            </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
         <hr>
-
         <div class="row">
             <div class="col-xs-4">
                 <div class="row construction_lis margin_c">
@@ -205,7 +279,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-xs-8">
                 <div class="row">
                     <div class="col-xs-10">
@@ -231,22 +304,32 @@
                             <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
                         </div>
                     </div>
+                    <div class="col-xs-2 look_detail">
+                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                    </div>
                 </div>
-
                 <div class="row">
                     <div class="const_process">
-                        <div class="col-xs-10">
-                            <span style="vertical-align: top">施工进度：</span><img src="/assets/img/frontend/contrust_proce.jpg" class="img-responsive" style="display: inline-block">
-                        </div>
-                        <div class="col-xs-2 proce_detail">
-                            <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                        <div class="col-xs-12">
+                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
+                            <div class="time_cards_box" style="height: 100px;">
+                                <div class="time_card select_status">拆除/拆旧</div>
+                                <div class="time_card">户型改建</div>
+                                <div class="time_card">3D放样</div>
+                                <div class="time_card">水电改造</div>
+                                <div class="time_card">木工阶段</div>
+                                <div class="time_card">软装</div>
+                                <div class="time_card">清场/竣工</div>
+                                <div class="time_card">安装/调试</div>
+                                <div class="time_card">油漆阶段</div>
+                                <div class="time_card">瓷砖铺贴</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <hr>
-
         <div class="row">
             <div class="col-xs-4">
                 <div class="row construction_lis margin_c">
@@ -285,7 +368,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-xs-8">
                 <div class="row">
                     <div class="col-xs-10">
@@ -311,23 +393,32 @@
                             <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
                         </div>
                     </div>
+                    <div class="col-xs-2 look_detail">
+                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                    </div>
                 </div>
-
                 <div class="row">
                     <div class="const_process">
-                        <div class="col-xs-10">
-                            <span style="vertical-align: top">施工进度：</span><img src="/assets/img/frontend/contrust_proce.jpg" class="img-responsive" style="display: inline-block">
-                        </div>
-                        <div class="col-xs-2 proce_detail">
-                            <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                        <div class="col-xs-12">
+                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
+                            <div class="time_cards_box" style="height: 100px;">
+                                <div class="time_card select_status">拆除/拆旧</div>
+                                <div class="time_card">户型改建</div>
+                                <div class="time_card">3D放样</div>
+                                <div class="time_card">水电改造</div>
+                                <div class="time_card">木工阶段</div>
+                                <div class="time_card">软装</div>
+                                <div class="time_card">清场/竣工</div>
+                                <div class="time_card">安装/调试</div>
+                                <div class="time_card">油漆阶段</div>
+                                <div class="time_card">瓷砖铺贴</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
-
-        <div class="row">
+        <hr> <div class="row">
             <div class="col-xs-4">
                 <div class="row construction_lis margin_c">
                     <div class="col-xs-4 padding_c">
@@ -365,7 +456,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-xs-8">
                 <div class="row">
                     <div class="col-xs-10">
@@ -391,23 +481,32 @@
                             <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
                         </div>
                     </div>
+                    <div class="col-xs-2 look_detail">
+                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                    </div>
                 </div>
-
                 <div class="row">
                     <div class="const_process">
-                        <div class="col-xs-10">
-                            <span style="vertical-align: top">施工进度：</span><img src="/assets/img/frontend/contrust_proce.jpg" class="img-responsive" style="display: inline-block">
-                        </div>
-                        <div class="col-xs-2 proce_detail">
-                            <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                        <div class="col-xs-12">
+                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
+                            <div class="time_cards_box" style="height: 100px;">
+                                <div class="time_card select_status">拆除/拆旧</div>
+                                <div class="time_card">户型改建</div>
+                                <div class="time_card">3D放样</div>
+                                <div class="time_card">水电改造</div>
+                                <div class="time_card">木工阶段</div>
+                                <div class="time_card">软装</div>
+                                <div class="time_card">清场/竣工</div>
+                                <div class="time_card">安装/调试</div>
+                                <div class="time_card">油漆阶段</div>
+                                <div class="time_card">瓷砖铺贴</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
-
-        <div class="row">
+        <hr> <div class="row">
             <div class="col-xs-4">
                 <div class="row construction_lis margin_c">
                     <div class="col-xs-4 padding_c">
@@ -445,7 +544,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-xs-8">
                 <div class="row">
                     <div class="col-xs-10">
@@ -471,42 +569,67 @@
                             <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
                         </div>
                     </div>
+                    <div class="col-xs-2 look_detail">
+                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                    </div>
                 </div>
-
                 <div class="row">
                     <div class="const_process">
-                        <div class="col-xs-10">
-                            <span style="vertical-align: top">施工进度：</span><img src="/assets/img/frontend/contrust_proce.jpg" class="img-responsive" style="display: inline-block">
-                        </div>
-                        <div class="col-xs-2 proce_detail">
-                            <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                        <div class="col-xs-12">
+                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
+                            <div class="time_cards_box" style="height: 100px;">
+                                <div class="time_card select_status">拆除/拆旧</div>
+                                <div class="time_card">户型改建</div>
+                                <div class="time_card">3D放样</div>
+                                <div class="time_card">水电改造</div>
+                                <div class="time_card">木工阶段</div>
+                                <div class="time_card">软装</div>
+                                <div class="time_card">清场/竣工</div>
+                                <div class="time_card">安装/调试</div>
+                                <div class="time_card">油漆阶段</div>
+                                <div class="time_card">瓷砖铺贴</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <hr>
+
+        <nav aria-label="Page navigation" class="pagselec">
+            <ul class="pagination pagination-lg">
+                <li><a href="#">首页</a></li>
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&lt;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&gt;</span>
+                    </a>
+                </li>
+                <li><a href="#">末页</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <nav aria-label="Page navigation" class="pagselec">
-        <ul class="pagination pagination-lg">
-            <li><a href="#">首页</a></li>
-            <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&lt;</span>
-                </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&gt;</span>
-                </a>
-            </li>
-            <li><a href="#">末页</a></li>
-        </ul>
-    </nav>
-</div>
+
+    <script>
+        $(function () {
+            $(".time_cards_box .time_card").hover(function () {
+                $(".time_cards_box .time_card").removeClass("select_status");
+                $(this).prevAll().addClass("select_status");
+                $(this).addClass("select_status");
+            });
+
+            // $(".time_cards_box .time_card").mouseout(function () {
+            //     $(".time_cards_box .time_card").removeClass("select_status");
+            // })
+        });
+    </script>
