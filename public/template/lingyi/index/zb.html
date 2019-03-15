@@ -57,7 +57,7 @@
         height: 8px;
         border-radius: 10px;
         background-color: #c8c8c8;
-        box-shadow: 0 0 1px 6px #fff;
+        /*box-shadow: 0 0 1px 6px #fff;*/
     }
 
     .time_card:nth-child(even):before {
@@ -70,7 +70,7 @@
         height: 8px;
         border-radius: 10px;
         background-color: #c8c8c8;
-        box-shadow: 0 0 1px 6px #fff;
+        /*box-shadow: 0 0 1px 6px #fff;*/
     }
 
     .select_status {
@@ -79,8 +79,6 @@
     }
 
     .select_status:before {
-        width: 12px;
-        height: 12px;
         background-color: #000 !important;
     }
 
@@ -418,7 +416,8 @@
                 </div>
             </div>
         </div>
-        <hr> <div class="row">
+        <hr>
+        <div class="row">
             <div class="col-xs-4">
                 <div class="row construction_lis margin_c">
                     <div class="col-xs-4 padding_c">
@@ -506,7 +505,8 @@
                 </div>
             </div>
         </div>
-        <hr> <div class="row">
+        <hr>
+        <div class="row">
             <div class="col-xs-4">
                 <div class="row construction_lis margin_c">
                     <div class="col-xs-4 padding_c">
@@ -619,17 +619,12 @@
         </nav>
     </div>
 
-
     <script>
         $(function () {
             $(".time_cards_box .time_card").hover(function () {
-                $(".time_cards_box .time_card").removeClass("select_status");
+                $(this).parent().children(".time_card").removeClass("select_status");
                 $(this).prevAll().addClass("select_status");
                 $(this).addClass("select_status");
             });
-
-            // $(".time_cards_box .time_card").mouseout(function () {
-            //     $(".time_cards_box .time_card").removeClass("select_status");
-            // })
         });
     </script>
