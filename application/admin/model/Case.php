@@ -4,8 +4,7 @@ namespace app\admin\model;
 
 use think\Model;
 
-class Case extends Model
-{
+class Case extends Model {
     // 表名
     protected $name = 'case';
     
