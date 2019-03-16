@@ -104,7 +104,9 @@
 				<div class="case_list">
 					<div class="case_villa">
 						<div class="cart_img">
-							<a href="#"><img src="{$items.image}" class="img-responsive center-block"></a>
+							<a href="#">
+								<img style="height: 175.5px;" src="{$items.image}" class="img-responsive center-block">
+							</a>
 						</div>
 						<div class="villa_info">
 							<h2 class="text-center margin_c"><b>0{$key +1 }</b></h2>
@@ -122,16 +124,15 @@
 			<img src="/assets/img/frontend/lis_team.jpg" class="center-block img-responsive">
 			<img src="/assets/img/frontend/team_classify.jpg" class="center-block img-responsive" style="margin-top: 50px">
 
-			<div class="row teamer">
+			<div class="teamer">
                 {volist name="me_team_list" id="items"}
                     {if condition="$key%2===0"}
                     <div class="col-xs-3 padding_c">
                         <div class="thumbnail designer_link">
-                            <div class="cart_img">
-                                <a href="#"><img src="{$items.image}" class="img-responsive center-block"></a>
+                            <div class="cart_img" >
+                                <a href="#"><img style="height: 252.5px" src="{$items.image}" class="img-responsive center-block"></a>
                             </div>
-
-                            <div class="caption">
+                            <div class="caption" style="height: 97px;">
                                 <h4>{$items.name}</h4>
                                 <p>{$items.work_name}<a href="./sjtd_detail.html?detail_id=3">点击进入</a></p>
                                 <p>{$items.content}</p>
@@ -141,13 +142,13 @@
                     {else /}
                     <div class="col-xs-3 padding_c">
                         <div class="thumbnail designer_link">
-                            <div class="caption">
+                            <div class="caption" style="height: 97px;">
                                 <h4>{$items.name}</h4>
                                 <p>{$items.work_name}<a href="./sjtd_detail.html?detail_id=3">点击进入</a></p>
                                 <p>{$items.content}</p>
                             </div>
-                            <div class="cart_img">
-                                <a href="#"><img src="{$items.image}" class="img-responsive center-block"></a>
+                            <div class="cart_img" >
+                                <a href="#"><img style="height: 252.5px" src="{$items.image}" class="img-responsive center-block"></a>
                             </div>
                         </div>
                     </div>

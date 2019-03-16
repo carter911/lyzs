@@ -59,9 +59,9 @@
             </div>
         </div>
     </div>
-    
+
     <div id="carousel1" class="carousel slide img-responsive center-block" data-ride="carousel">
-    
+
         <ol class="carousel-indicators">
             {volist name="banner" key="k" id='b'}
             <li data-target="#carousel1" data-slide-to="{$k}" class="lass="item {eq name='$k' value='1'}active{/eq}"></li>
@@ -109,7 +109,7 @@
 
         <div class="cons_live">
             <a href="zb.html"><img src="/assets/img/frontend/cons_process_top.gif" class="img-responsive center-block">
-           
+
             <div class="cons_process_center">
                 <img src="/assets/img/frontend/cons_process_center.jpg" class="img-responsive center-block">
                 <a href="zb.html" class="left_btn btn">了解更多</a>
@@ -217,13 +217,13 @@
 
             <div class="dynamic_area">
                 <div class="row" style="height: 380px;overflow: hidden;">
-
                     <div class="col-xs-5" style="padding-right: 0">
                         <div class="dynamic_lis" style="height: 400px;">
-                            <a style="width: 100%" href="index/index/look_article_detail}"><img src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block article_img"></a>
+                            <a style="width: 100%" href="index/index/look_article_detail">
+                                <img style="width: 100%;height: 100%;" src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block article_img">
+                            </a>
                         </div>
                     </div>
-
                     <div class="col-xs-7">
                         {volist name="article_list" id='article'}
                         <div class="dynamic_lis dynamic_art" style="height: 83px;">
@@ -346,7 +346,7 @@
             $('.dynamic_art').hover(function(){
                var img = $(this).find('h2').attr('data-url');
                $('.article_img').attr('src',img);
-                
+
             });
         </script>
     </div>

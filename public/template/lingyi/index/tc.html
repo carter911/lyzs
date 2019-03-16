@@ -134,7 +134,9 @@
                         <ul style="text-align: center;width: 1200px;" id="meatrTabs" class="nav nav-tabs" role="tablist">
                             {volist name="material_master_list" id="vo"}
                             <li style="width: 195px;text-align: center;margin-right:5px;" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <a style="padding: 7px 10px;" href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">{$vo.name|substr=0,18}</a>
+                                <a style="padding: 7px 10px;" href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                                    {$vo.name|substr=0,18}
+                                </a>
                             </li>
                             {/volist}
                         </ul>
@@ -143,8 +145,7 @@
 
                 <div id="meatrTabContent" style="width: 1194px;" class="tab-content tabinfo">
                     {volist name="material_master_list" id="vo" key="key"}
-                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in "
-                         id="floor{$vo.id}" aria-labelledby="floor-tab">
+                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
                         <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
@@ -169,26 +170,22 @@
         <!-- 辅材 -->
         <div class="lis_advmeat margin_t">
             <img src="/assets/img/frontend/lis_advmeat.png" class="center-block img-responsive">
-
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
-                    <div class="inner_info">
-                        <ul style="text-align: center;width: 1200px;" id="admeatrTabs" class="nav nav-tabs" role="tablist">
-                            {volist name="material_auxiliary_list" id="vo"}
-                            <li style="width: 195px;text-align: center;margin-right:5px;overflow: hidden" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <a style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab"
-                                   data-toggle="tab" aria-controls="floor"
-                                   aria-expanded="true">{$vo.name|substr=0,18}</a>
-                            </li>
-                            {/volist}
-                        </ul>
-                    </div>
+                    <ul style="text-align: center;width: 1200px;" id="admeatrTabs" class="nav nav-tabs" role="tablist">
+                        {volist name="material_auxiliary_list" id="vo"}
+                        <li style="width: 195px;text-align: center;margin-right:5px;overflow: hidden" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                            <a style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                                {$vo.name|substr=0,18}
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
                 </div>
 
                 <div id="admeatrTabContent" style="width: 1194px;" class="tab-content tabinfo">
                     {volist name="material_auxiliary_list" id="vo" key="key"}
-                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in "
-                         id="floor{$vo.id}" aria-labelledby="floor-tab">
+                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
                         <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
@@ -313,11 +310,11 @@
                     <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}" id="simplestyle{$key}"
                          aria-labelledby="simplestyle-tab">
                         <div class="row case_area">
-                            <div class="col-xs-7 padding_c">
+                            <div class="col-xs-7 padding_c" style="height: 584.5px;overflow: hidden;">
                                 <div class="leftop_area">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img src="{$vo.style['image']}" class="img-responsive center-block">
+                                            <img style="width: 100%;height: 370px;" src="{$vo.style['image']}" class="img-responsive center-block">
                                         </a>
                                     </div>
                                 </div>
@@ -327,7 +324,7 @@
                                         <div class="rel_leftbotleft">
                                             <div class="cart_img">
                                                 <a href="#">
-                                                    <img src="{$vo.style['image']}" class="img-responsive center-block">
+                                                    <img <img style="width: 100%;height: 200px;" src="{$vo.style['image']}" class="img-responsive center-block">
                                                 </a>
                                             </div>
                                         </div>
@@ -336,7 +333,7 @@
                                         <div class="rel_leftbotrigh">
                                             <div class="cart_img">
                                                 <a href="#">
-                                                    <img src="{$vo.style['image']}" class="img-responsive center-block">
+                                                    <img <img style="width: 100%;height: 200px;" src="{$vo.style['image']}" class="img-responsive center-block">
                                                 </a>
                                             </div>
                                         </div>
@@ -347,14 +344,14 @@
                                 <div class="rel_rightopimg">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img style="height: 285px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                            <img style="width: 100%;height: 285px;" src="{$vo.style['image']}" class="img-responsive center-block">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="rel_righbotimg">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img style="height: 285px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                            <img style="width: 100%;height: 285px;" src="{$vo.style['image']}" class="img-responsive center-block">
                                         </a>
                                     </div>
                                 </div>
@@ -366,7 +363,7 @@
             </div>
         </div>
     </div>
-    <div style="width: 100%">
+    <div style="width: 96%;margin: 0 auto;">
 
         <div class="lis_cust margin_t">
             <img src="/assets/img/frontend/lis_cust.jpg" class="center-block img-responsive">

@@ -132,7 +132,9 @@
                                                 </table>
                                                 <form class="case_detail">
                                                     <div class="form-group">
-                                                        <textarea class="form-control intro_info" rows="3">{$case.content}</textarea>
+                                                        <textarea class="form-control intro_info" rows="3">
+                                                            {$case.content}
+                                                        </textarea>
                                                     </div>
                                                 </form>
                                             </div>
@@ -152,17 +154,15 @@
             <img src="/assets/img/frontend/lis_meatr.png" class="center-block img-responsive">
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
-                    <div class="inner_info">
-                        <ul style="display:flex;justify-content: space-between;" id="meatrTabs" class="nav nav-tabs" role="tablist">
-                            {volist name="material_master_list" id="vo" key="k"}
-                            <li role="presentation" class="{eq name='$k' value='1'}active{/eq}" style="margin:0;flex: 1;">
-                                <a style="padding: 7px 79px;" href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
-                                    {$vo.name}
-                                </a>
-                            </li>
-                            {/volist}
-                        </ul>
-                    </div>
+                    <ul style="display:flex;justify-content: space-between;" id="meatrTabs" class="nav nav-tabs" role="tablist">
+                        {volist name="material_master_list" id="vo" key="k"}
+                        <li role="presentation" class="{eq name='$k' value='1'}active{/eq}" style="margin:0;flex: 1;">
+                            <a href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                                {$vo.name|mb_substr=0,4}
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
                 </div>
 
                 <div id="meatrTabContent" class="tab-content tabinfo">
@@ -194,18 +194,17 @@
             <img src="/assets/img/frontend/lis_advmeat.png" class="center-block img-responsive">
 
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
+
                 <div class="inner_info">
-                    <div class="inner_info">
-                        <ul id="admeatrTabs" style="display:flex;justify-content: space-between;" class="nav nav-tabs" role="tablist">
-                            {volist name="material_auxiliary_list" id="vo"}
-                            <li role="presentation" class="{eq name='$key' value='0'}active{/eq}" style="margin:0;flex: 1;">
-                                <a style="padding: 7px 79px;" href="#floor{$vo.id}" role="tab"
-                                   data-toggle="tab" aria-controls="floor"
-                                   aria-expanded="true" style="padding: 10px 81px;">{$vo.name}</a>
-                            </li>
-                            {/volist}
-                        </ul>
-                    </div>
+                    <ul id="admeatrTabs" style="display:flex;justify-content: space-between;" class="nav nav-tabs" role="tablist">
+                        {volist name="material_auxiliary_list" id="vo"}
+                        <li role="presentation" class="{eq name='$key' value='0'}active{/eq}" style="margin:0;flex: 1;">
+                            <a href="#floor{$vo.id}" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                                {$vo.name|mb_substr=0,6}
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
                 </div>
 
                 <div id="admeatrTabContent" class="tab-content tabinfo">
@@ -367,50 +366,6 @@
             MyMar = setInterval(Marquee, speed)
         }
     </script>
-</div>
-<!----------------------------------固定区域--------------------------------------------->
-<div class="bot_scroll navbar-inverse container-fluid navbar-fixed-bottom">
-    <div class="container fix_content">
-        <div class="row">
-            <div class="col-xs-1">
-                <img src="/assets/img/frontend/bot_scro1.gif" class="img-responsive">
-            </div>
-            <div class="col-xs-8">
-                <form class="form-inline count_area row">
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control" id="iptname" placeholder="请输入您的名字" style="width: 130px">
-                    </div>
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control" id="mobile" placeholder="手机号"
-                               style="width: 130px;margin-left: 8px">
-                    </div>
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control pull-right" id="space" placeholder="房产证面积"
-                               style="width: 100px;margin-left: 10px;">
-                    </div>
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control" id="room" placeholder="输入数字"
-                               style="width: 78px;margin-left: 5px">
-                        <label for="room" class="color_f" style="font-size: 18px">室</label>
-                    </div>
-                    <div class="form-group col-xs-2">
-                        <input type="text" class="form-control" id="toilet" placeholder="输入数字" style="width: 80px">
-                        <label for="toilet" class="color_f" style="font-size: 18px">卫</label>
-                    </div>
-                    <div class="col-xs-2">
-                        <button type="submit" class="btn search_btn sub_btn color_f"
-                                style="border-radius: 4px;background-color: #0099DD">开始计算报价
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-            <div class="col-xs-3">
-                <img src="/assets/img/frontend/telimg.png" class="img-responsive telnum">
-            </div>
-        </div>
-
-    </div>
 </div>
 
 <script type="text/javascript">
