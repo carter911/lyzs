@@ -3,6 +3,5 @@
 runtime/
 vendor/*
 composer.lock
-database.php
 *.sql
 .env
