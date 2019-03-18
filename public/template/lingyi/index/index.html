@@ -64,7 +64,8 @@
 
         <ol class="carousel-indicators">
             {volist name="banner" key="k" id='b'}
-            <li data-target="#carousel1" data-slide-to="{$k}" class="lass="item {eq name='$k' value='1'}active{/eq}"></li>
+            <li data-target="#carousel1" data-slide-to="{$k}" class="lass=" item {eq name='$k' value='1' }active{
+            /eq}"></li>
             {/volist}
         </ol>
         <div class="carousel-inner" role="listbox">
@@ -110,12 +111,12 @@
         <div class="cons_live">
             <a href="zb.html"><img src="/assets/img/frontend/cons_process_top.gif" class="img-responsive center-block">
 
-            <div class="cons_process_center">
-                <img src="/assets/img/frontend/cons_process_center.jpg" class="img-responsive center-block">
-                <a href="zb.html" class="left_btn btn">了解更多</a>
-                <a href="zb.html" class="right_btn btn"></a>
-            </div>
-            <img src="/assets/img/frontend/cons_process_bot.gif" class="img-responsive center-block">
+                <div class="cons_process_center">
+                    <img src="/assets/img/frontend/cons_process_center.jpg" class="img-responsive center-block">
+                    <a href="zb.html" class="left_btn btn">了解更多</a>
+                    <a href="zb.html" class="right_btn btn"></a>
+                </div>
+                <img src="/assets/img/frontend/cons_process_bot.gif" class="img-responsive center-block">
             </a>
         </div>
     </div>
@@ -128,17 +129,16 @@
         </div>
 
         <div class="desinger_case row">
-            <div class="col-xs-3 gold_team">
-                <img style="width: 100%"  src="/assets/img/frontend/gold_team.png" class="img-responsive center-block">
+            <div class="col-xs-3 gold_team" style="padding-right: 10px;">
+                <img style="width: 100%" src="/assets/img/frontend/gold_team.png" class="img-responsive center-block">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         {volist name='$team_img' id='item' key='key'}
                         {if condition="$key eq 1"}
                         <div class="item active">
-                            <img  src="{$item.image}" class=""
-                                  style="width: 280px;height: 284px">
-                            <div class="designer_info" style="margin-top: 10px;">
-                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;" class="des_name">{$item.name}</span>  {$item.work_name}</h4>
+                            <img src="{$item.image}" class="" style="width: 280px;height: 284px">
+                            <div class="designer_info" style="padding-top: 10px;background-color:#043e46;color: #fff;">
+                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;" class="des_name">{$item.name}</span> {$item.work_name}</h4>
                                 <div class="des_infodeta" style="border-top: 1px solid #ccc;padding: 5px;">
                                     <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年</p>
                                     <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img style="float: left;" src="/assets/img/frontend/des_star.png" class="img-responsive des_star"> <span>100</span>人预约</p>
@@ -150,8 +150,8 @@
                         <div class="item">
                             <img src="{$item.image}" class="img-responsive center-block"
                                  style="width: 280px;height: 284px">
-                            <div class="designer_info" style="margin-top: 10px;">
-                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;" class="des_name">{$item.name}</span>  {$item.work_name}</h4>
+                            <div class="designer_info" style="padding-top: 10px;background-color:#043e46;color: #fff;">
+                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;" class="des_name">{$item.name}</span> {$item.work_name}</h4>
                                 <div class="des_infodeta" style="border-top: 1px solid #ccc;padding-top: 5px;margin-top: 5px;">
                                     <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年</p>
                                     <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img style="float: left;" src="/assets/img/frontend/des_star.png" class="img-responsive des_star"> <span>100</span>人预约</p>
@@ -175,10 +175,10 @@
 
             <div class="row" style="height: 462px;overflow:hidden;">
                 {volist name="cases_lists" id='item'}
-                <div class="col-xs-4">
+                <div class="col-xs-4" style="padding-left:10px;padding-right:10px;">
                     <div class="goldcase_area">
                         <div class="gold_caselis text-center" style="margin-bottom: 30px">
-                            <img src="{$item.image}" style="height: 224px;">
+                            <img src="{$item.image}" style="width:288px;height: 216px;">
                             <div class="gold-content">
                                 <a class="title" href=""><h5 class="title" style="padding-top: 0">{$item.name}</h5>
                                 </a>
@@ -220,7 +220,7 @@
                     <div class="col-xs-5" style="padding-right: 0">
                         <div class="dynamic_lis" style="height: 400px;">
                             <a style="width: 100%" href="index/index/look_article_detail">
-                                <img style="width: 100%;height: 100%;" src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block article_img">
+                                <img src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block article_img">
                             </a>
                         </div>
                     </div>
@@ -229,13 +229,12 @@
                         <div class="dynamic_lis dynamic_art" style="height: 83px;">
                             <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
                             <h2 data-url="{$article.image}" data-id="{$article.id}" class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
-                                <a  href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
+                                <a href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
                                     {$article.desc}
                                 </a>
                             </h2>
                         </div>
                         {/volist}
-
                     </div>
                 </div>
             </div>
@@ -313,7 +312,7 @@
                             <tbody>
                             <tr class="roll_area">
                                 {volist name='witness_lists' id='item'}
-                                <td  class="roll_img text-center"><img style="width: 210px;height: 250px;" src="{$item.image}"></td>
+                                <td class="roll_img text-center"><img style="width: 210px;height: 250px;" src="{$item.image}"></td>
                                 {/volist}
                             </tr>
                             </tbody>
@@ -343,9 +342,9 @@
             demo.onmouseout = function () {
                 MyMar = setInterval(Marquee, speed)
             }
-            $('.dynamic_art').hover(function(){
-               var img = $(this).find('h2').attr('data-url');
-               $('.article_img').attr('src',img);
+            $('.dynamic_art').hover(function () {
+                var img = $(this).find('h2').attr('data-url');
+                $('.article_img').attr('src', img);
 
             });
         </script>
