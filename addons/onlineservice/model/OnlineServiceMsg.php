@@ -135,7 +135,10 @@ class OnlineServiceMsg extends Model
         $where['uuid'] = $uuid;
         $where['group_id'] = $group_id;
         $where['admin_id'] = $admin_id;
-        $list = self::where($where)->order('createtime desc')->paginate($limit, false, ['page' => $page]);
+        $list = self::where($where)->order('createtime desc')->paginate($limit, false, [
+        	'page' => $page,
+			'type'=>'Bootstrap',
+		]);
         #echo self::getLastSql();die;
         return $list;
     }
