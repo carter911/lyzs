@@ -6,26 +6,22 @@
         width: 44px;
         height: 198px;
         padding: 56px 8px;
-        background-image: url('/assets/img/gxj/left_gray.png');
-        background-repeat: no-repeat;
-    }
-
-    .apply_left_img .left_btn1:hover {
         background-image: url('/assets/img/gxj/left_white.png');
         background-repeat: no-repeat;
     }
 
+    .apply_left_img .left_btn1:hover {
+        background-image: url('/assets/img/gxj/left_gray.png');
+        background-repeat: no-repeat;
+    }
     .apply_right_img .right_btn1 {
         width: 44px;
         height: 198px;
         padding: 56px 8px;
-        background-image: url('/assets/img/gxj/right_gray.png');
-        background-repeat: no-repeat;
+        background:url("/assets/img/gxj/right_white.png") no-repeat;
     }
-
     .apply_right_img .right_btn1:hover {
-        background-image: url('/assets/img/gxj/right_white.png');
-        background-repeat: no-repeat;
+        background:url("/assets/img/gxj/right_gray.png") no-repeat;
     }
 </style>
 
@@ -174,8 +170,8 @@
                 <div class="inner_info">
                     <ul style="text-align: center;width: 1200px;" id="admeatrTabs" class="nav nav-tabs" role="tablist">
                         {volist name="material_auxiliary_list" id="vo"}
-                        <li style="width: 195px;text-align: center;margin-right:5px;overflow: hidden" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                            <a style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                        <li   style="width: 195px;text-align: center;margin-right:5px;overflow: hidden" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                            <a   style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
                                 {$vo.name|substr=0,18}
                             </a>
                         </li>
