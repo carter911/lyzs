@@ -7,9 +7,12 @@
 <link href="/assets/css/frontend/brandstr.css" rel="stylesheet">
 <link href="/assets/css/frontend/install.css" rel="stylesheet">
 <link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+<link href="/assets/css/frontend/ly_dialog_base.css" rel="stylesheet">
 
 <script src="/assets/js/frontend/jquery.min.js"></script>
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
+<script src="/assets/js/frontend/ly_base.js"></script>
+
 
 <style>
     .article_detail{background: #ccc;color: black}
@@ -62,9 +65,8 @@
                     <h3 style="margin-bottom: 15px"><a href="/index/index/look_article_detail?id={$article.id}">{$article.title}</a></h3>
                     <p style="height: 100px;">{$article.desc|mb_substr=0,100}...</p>
                     <div class="activ_btn pull-right">
-                        <a href="/index/index/look_article_detail?id={$article.id}"
+                        <a href="javascript:void();" onclick="showLyDialog('canjia_activity')"
                            class="article_detail btn btn-default artmore_btn">参加活动</a>
-
                     </div>
                     <div class="clearfix"></div>
                 </div>

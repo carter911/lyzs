@@ -94,16 +94,27 @@ class Index extends Frontend
         return $this->view->fetch('ppsl');
     }
 
-    public function gxj()
-    {
+    /**
+     *
+     * 个性家
+     *
+     * @return string
+     * @throws \think\Exception
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function gxj() {
         // 轮播图
         $banner = Db::name('banner')->field('id,image')->where(['status' => 4])->find();
         $this->assign('banner', $banner);
+
         // 主材
         $material_master_list = Db::name('Material')->field('id,name,images,status')->where(['status' => 1])->limit(6)->select();
         foreach ($material_master_list as $key => $val) {
             $material_master_list[$key]['images'] = explode(",", $val['images']);
         }
+
         // 辅材
         $material_auxiliary_list = Db::name('Material')->where(['status' => 2])->limit(6)->select();
         foreach ($material_auxiliary_list as $key => $val) {
@@ -115,6 +126,7 @@ class Index extends Frontend
         foreach ($procedure_list as $key => $val) {
             $procedure_list[$key]['images'] = explode(",", $val['images']);
         }
+
 
         $this->assign('procedure_list', $procedure_list);
         $this->assign('material_master_list', $material_master_list);
@@ -352,7 +364,6 @@ class Index extends Frontend
         return $this->view->fetch("lxwm");
     }
 
-
     /**
      * 查看家居咨询&最新活动详情
      */
@@ -448,6 +459,42 @@ class Index extends Frontend
 
         return $target ;
     }
+
+
+    public function showDialog(Request $request) {
+        $param = $request->get();
+
+
+
+
+        if(empty($param["type"])){
+            return "";
+        }
+
+        //TODO data to deal with
+        return $this->showDialogData($param["type"]);
+
+    }
+
+
+    /**
+     *
+     * 预约专属管家
+     * @type
+     * @throws \think\Exception
+     *
+
+     * @return no data
+     */
+    private function showDialogData($type) {
+        $result =  $this -> view -> fetch("dialog/".$type);
+        $result = explode("<!---------------------------------主体内容---------------------------------------------->",$result);
+        $result = explode("<!----------------------------------固定区域--------------------------------------------->",$result[1]);
+        return $result[0];
+
+    }
+
+
 
 
 }

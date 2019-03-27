@@ -1,6 +1,11 @@
 <link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
 <link href="/assets/css/frontend/personality.css" rel="stylesheet">
 <link href="/assets/css/frontend/setmeal.css" rel="stylesheet">
+<link href="/assets/css/frontend/ly_dialog_base.css" rel="stylesheet">
+
+<script src="/assets/js/frontend/ly_base.js"></script>
+
+
 <style>
     .apply_left_img .left_btn1 {
         width: 44px;
@@ -148,7 +153,7 @@
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner" role="listbox">
+                            <div class="carousel-inner" role="listbox" style="cursor: pointer;">
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='0'}active{/eq}">
                                     <div class="material_area">
@@ -188,7 +193,7 @@
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner" role="listbox">
+                            <div class="carousel-inner" role="listbox" style="cursor: pointer;">
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='0'}active{/eq}">
                                     <div class="material_area">
@@ -203,9 +208,10 @@
                 </div>
             </div>
         </div>
+
         <div class="lis_stand margin_t" style="text-align: center;">
             <img style="width: 500px;" src="/assets/img/frontend/lis_stand.jpg" class="center-block img-responsive">
-            <a href="#" class="btn btn-default case_mor freebtn">参观距您最近的工地</a>
+            <a href="javascript:void();" onclick="showLyDialog('gongdi')" class="btn btn-default case_mor freebtn">参观距您最近的工地</a>
             <p class="text-center" style="font-size: 18px">我们通过标准工序，指导工人施工、自检，同时为管理人员检查提供依据，保障施工按质量完成</p>
             <div class="case_tab" data-example-id="togglable-tabs">
                 <div id="standTabContent" class="tab-content tabinfo">

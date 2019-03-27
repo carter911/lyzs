@@ -2,19 +2,24 @@
 <link href="/assets/css/frontend/style.css" rel="stylesheet">
 <link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
 <link href="/assets/css/frontend/personality.css" rel="stylesheet">
+<link href="/assets/css/frontend/ly_dialog_base.css" rel="stylesheet">
+
 <script src="/assets/js/frontend/jquery.min.js"></script>
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
+
+<script src="/assets/js/frontend/ly_base.js"></script>
+
 <style>
     .apply_left_img .left_btn1 {
         width: 44px;
         height: 198px;
         padding: 56px 8px;
-        background-image: url('/assets/img/gxj/left_gray.png');
+        background-image: url('/assets/img/gxj/left_white.png');
         background-repeat: no-repeat;
     }
 
     .apply_left_img .left_btn1:hover {
-        background-image: url('/assets/img/gxj/left_white.png');
+        background-image: url('/assets/img/gxj/left_gray.png');
         background-repeat: no-repeat;
     }
 
@@ -22,14 +27,21 @@
         width: 44px;
         height: 198px;
         padding: 56px 8px;
-        background-image: url('/assets/img/gxj/right_gray.png');
+        background-image: url('/assets/img/gxj/right_white.png');
         background-repeat: no-repeat;
     }
 
     .apply_right_img .right_btn1:hover {
-        background-image: url('/assets/img/gxj/right_white.png');
+        background-image: url('/assets/img/gxj/right_gray.png');
         background-repeat: no-repeat;
     }
+
+    .apply_img2{
+        width:272px;
+        display:table-cell;
+        height:374px;
+    }
+
 </style>
 <!---------------------------------主体内容---------------------------------------------->
 <div class="container-fluid inner_info">
@@ -125,8 +137,8 @@
                                                     <tr>
                                                         <td class="tab_lab text-center">设计师</td>
                                                         <td class="text-center">
-                                                            <span style="padding-left: 70px">{$case.designer}</span>
-                                                            <a href="#" class="pull-right table_link">预约设计师</a>
+                                                            <a href="/index/index/sjtd_detail.html?detail_id=3"><span style="padding-left: 70px">{$case.designer}</span></a>
+                                                            <a href="javascript:void();" onclick="showLyDialog('yuyue_ta')" class="pull-right table_link">预约设计师</a>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -174,7 +186,7 @@
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner" role="listbox">
+                            <div class="carousel-inner" role="listbox" style="cursor: pointer;">
                                 {volist name="vo.images" id="v" key="k"}
                                 <div class="item {eq name='$k' value='1'}active{/eq}" style="height: 548px;">
                                     <div class="material_area">
@@ -217,7 +229,7 @@
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner" role="listbox">
+                            <div class="carousel-inner" role="listbox" style="cursor: pointer;">
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='0'}active{/eq}">
                                     <div class="material_area">
@@ -233,26 +245,24 @@
             </div>
         </div>
 
-        <div class="lis_stand margin_t">
-            <img style="width: 500px;margin: 0 auto;" src="/assets/img/frontend/lis_stand.jpg"
-                 class="center-block img-responsive">
-            <div style="margin: 0 auto;width: 210px;"><a href="#" class="btn btn-default case_mor freebtn">参观距您最近的工地</a>
-            </div>
+        <div class="lis_stand margin_t" style="text-align: center;">
+            <img style="width: 500px;" src="/assets/img/frontend/lis_stand.jpg" class="center-block img-responsive">
+            <a href="javascript:void();" onclick="showLyDialog('gongdi')" class="btn btn-default case_mor freebtn">参观距您最近的工地</a>
             <p class="text-center" style="font-size: 18px">我们通过标准工序，指导工人施工、自检，同时为管理人员检查提供依据，保障施工按质量完成</p>
-
             <div class="case_tab" data-example-id="togglable-tabs">
                 <div id="standTabContent" class="tab-content tabinfo">
+
                     {volist name="procedure_list" id="procedure" key="k"}
                     <div role="tabpanel" class="tab-pane fade in {eq name='$k' value='1'}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
-                        <div class="apply" style="background: red;width: 1120px;">
+                        <div class="apply">
                             <div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
                                 <div class="left_btn1"></div>
                             </div>
-                            <div class="apply_nav pull-left" style="width: 1000px;">
+                            <div class="apply_nav pull-left" style="width: 880px;">
                                 <div class="apply_w pull-left">
                                     {volist name="procedure.images" id="img"}
                                     <div class="apply_array pull-left">
-                                        <div class="apply_img">
+                                        <div class="apply_img2">
                                             <img src="{$img}" class="img-responsive"/>
                                         </div>
                                     </div>
@@ -268,7 +278,6 @@
                     </div>
                     {/volist}
                 </div>
-
                 <div class="inner_info stand_tab">
                     <div class="inner_info">
                         <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist" style="display:flex;justify-content: center;">
@@ -296,11 +305,11 @@
                     <div class="col-xs-4" style="height: 542px;position: relative;">
                         <h3 style="margin: 10px 0">设计师团队介绍</h3>
                         <p>
-                            设计师团队介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队
-                            介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队
-                            介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队介绍设计师团队介绍
+                            拥有8年以上行业经验的资深设计团队，定制匹配上海小区的主流房型，上千套实景案例，广受业主好评。
+                            我们的设计团队追求将设计融于人性，不仅仅在意颜色搭配，功能满足，文化气息，更注重每个项目细节的打磨。
+                            设计点亮新居，尊享品质生活。
                         </p>
-                        <a href="#" class="btn btn-default case_mor" style="font-size: 20px;position: absolute;bottom: 0;right:10px;">
+                        <a href="javascript:void();" onclick="showLyDialog('yuyue_manager')" class="btn btn-default case_mor" style="font-size: 20px;position: absolute;bottom: 0;right:10px;">
                             <b>预约设计师免费上门</b>
                         </a>
                     </div>
@@ -311,7 +320,7 @@
 
         <div class="lis_profe margin_t" style="text-align: center">
             <img src="/assets/img/frontend/lis_profe.jpg" class="center-block img-responsive">
-            <a href="#" class="btn btn-default case_mor freebtn">免费体验APP</a>
+            <a href="javascript:void();"  onclick="showLyDialog('tiyan_app')"  class="btn btn-default case_mor freebtn">免费体验APP</a>
             <img src="/assets/img/frontend/appintro.jpg" class="center-block img-responsive">
         </div>
 
@@ -374,7 +383,7 @@
     });
 
     $(function () {
-        $li1 = $(".apply_nav .apply_array");
+        $li1 = $(".apply_img2");
         $window1 = $(".apply .apply_w");
         $left1 = $(".apply .img_l");
         $right1 = $(".apply .img_r");
