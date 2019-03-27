@@ -244,11 +244,11 @@
                 <div id="standTabContent" class="tab-content tabinfo">
                     {volist name="procedure_list" id="procedure" key="k"}
                     <div role="tabpanel" class="tab-pane fade in {eq name='$k' value='1'}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
-                        <div class="apply">
+                        <div class="apply" style="background: red;width: 1120px;">
                             <div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
                                 <div class="left_btn1"></div>
                             </div>
-                            <div class="apply_nav pull-left" style="width: 880px;">
+                            <div class="apply_nav pull-left" style="width: 1000px;">
                                 <div class="apply_w pull-left">
                                     {volist name="procedure.images" id="img"}
                                     <div class="apply_array pull-left">
