@@ -427,6 +427,9 @@ class Index extends Frontend
         $this->assign("caseResult", $caseResult);
         $this->assign("caseResultSize", sizeof($caseResult));
 
+        $video = DB::name("cases_video")->limit(4)->select();
+        $this->assign("video", $video);
+
         return $this->view->fetch('sjal0');
     }
 

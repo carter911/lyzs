@@ -1,0 +1,64 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Department_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-department_phone" class="form-control form-control" name="row[department_phone]" type="text" value="{$row.department_phone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Service_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-service_phone" class="form-control form-control" name="row[service_phone]" type="text" value="{$row.service_phone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Hr_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-hr_phone" class="form-control form-control" name="row[hr_phone]" type="text" value="{$row.hr_phone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Join_phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-join_phone" class="form-control form-control" name="row[join_phone]" type="text" value="{$row.join_phone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Address')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-address" class="form-control form-control" name="row[address]" type="text" value="{$row.address}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Email')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-email" class="form-control form-control" name="row[email]" type="text" value="{$row.email}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Top_state')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="topStateList" item="vo"}
+            <label for="row[top_state]-{$key}"><input id="row[top_state]-{$key}" name="row[top_state]" type="radio" value="{$key}" {in name="key" value="$row.top_state"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Department_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-department_name" class="form-control form-control" name="row[department_name]" type="text" value="{$row.department_name}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

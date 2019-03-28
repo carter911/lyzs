@@ -1,4 +1,9 @@
 <!--文章详情-->
+<style>
+    .art_content img{
+        max-width: 100%;
+    }
+</style>
 
 
 <link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
@@ -30,8 +35,9 @@
                     <p class="art_patch">来源：{$article_detail.articlesource}&nbsp;&nbsp;|&nbsp;&nbsp;浏览次数<span class="counter_are">{$article_detail.readcount}</span>次&nbsp;&nbsp;|&nbsp;&nbsp;更新时间：<span class="date_are">{$article_detail.updatetime}</span>&nbsp;&nbsp;<span class="time_are">11:27:40</span></p>
                     <hr>
                 </div>
-
-                        {$article_detail.content}
+                <div class="art_content">
+                    {$article_detail.content}
+                </div>
 
 
                 <div class="art_info">

@@ -36,9 +36,6 @@
 		height: 430px;
 	}
 
-	.col-xs-3 {
-		width: 240px;
-	}
 
 </style>
 <style>
@@ -133,7 +130,7 @@
                     <div class="col-xs-3 padding_c">
                         <div class="thumbnail designer_link">
                             <div class="cart_img" >
-                                <a href="#"><img style="height: 252.5px;width: 100%" src="{$items.image}" class="img-responsive center-block"></a>
+                                <a href="#"><img style="height: 288.5px;width: 288.5px;display: block;object-fit:cover" src="{$items.image}" class="img-responsive center-block"></a>
                             </div>
                             <div class="caption" style="height: 97px;">
                                 <h4>{$items.name}</h4>
@@ -151,7 +148,7 @@
                                 <p>{$items.content}</p>
                             </div>
                             <div class="cart_img" >
-                                <a href="#"><img style="height: 252.5px;width: 100%" src="{$items.image}" class="img-responsive center-block"></a>
+                                <a href="#"><img style="height: 288.5px;width: 288.5px;;object-fit:cover" src="{$items.image}" class="img-responsive center-block"></a>
                             </div>
                         </div>
                     </div>
@@ -169,7 +166,7 @@
 				<h2 class="pull-left">23年定制设计经验，让经典一直延续！</h2>
 				<div class="customization_apply pull-left">
 					<a href="javascript:void();" onclick="showLyDialog('dingzhi_service')" class="btn btn-lg btn-default">立即申请定制服务</a>
-					<p style="margin-bottom: 30px">定制热线：<span><b>400-000-0000</b></span></p>
+					<p style="margin-bottom: 30px">定制热线：<span><b>{$site.telphone}</b></span></p>
 				</div>
 			</div>
 		</div>
