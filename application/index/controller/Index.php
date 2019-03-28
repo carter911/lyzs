@@ -401,8 +401,10 @@ class Index extends Frontend
 
     public function sjal_detail($detail_id)
     {
-//        $article_detail = $this->article->where(["id" => $id])->find();
+        $article_detail = $this->article->where(["id" => $detail_id])->find();
         $this->assign('title', '实景案例详情-岭艺装饰');
+
+        $this->assign("info", $article_detail);
         return $this->view->fetch('sjal-detail');
     }
 
