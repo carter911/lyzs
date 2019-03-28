@@ -135,7 +135,7 @@
                         <ul style="text-align: center;width: 1200px;" id="meatrTabs" class="nav nav-tabs" role="tablist">
                             {volist name="material_master_list" id="vo"}
                             <li style="width: 195px;text-align: center;margin-right:5px;" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <a style="padding: 7px 10px;" href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                                <a  onmouseover="$(this).click()" style="padding: 7px 10px;" href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
                                     {$vo.name|substr=0,18}
                                 </a>
                             </li>
@@ -176,7 +176,7 @@
                     <ul style="text-align: center;width: 1200px;" id="admeatrTabs" class="nav nav-tabs" role="tablist">
                         {volist name="material_auxiliary_list" id="vo"}
                         <li   style="width: 195px;text-align: center;margin-right:5px;overflow: hidden" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                            <a   style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                            <a onmouseover="$(this).click()"   style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
                                 {$vo.name|substr=0,18}
                             </a>
                         </li>
@@ -250,7 +250,7 @@
                                 <span class="stand_icon">
                                     <img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
                                 </span>
-                                <a href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab" data-toggle="tab" aria-controls="prophase" aria-expanded="true" style="padding: 6px 10px;">{$procedure.name}</a>
+                                <a onmouseover="$(this).click()" href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab" data-toggle="tab" aria-controls="prophase" aria-expanded="true" style="padding: 6px 10px;">{$procedure.name}</a>
                             </li>
                             {/volist}
                         </ul>
@@ -293,7 +293,7 @@
                             <ul id="realcaseTabs" class="nav nav-tabs" role="tablist">
                                 {volist name="live_cases_list" id="items"}
                                 <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                    <a href="#simplestyle{$key}" id="simplestyle-tab" role="tab" data-toggle="tab"
+                                    <a onmouseover="$(this).click()" href="#simplestyle{$key}" id="simplestyle-tab" role="tab" data-toggle="tab"
                                        aria-controls="simplestyle" aria-expanded="true" style="padding: 10px 50px;">{$items.name}</a>
                                 </li>
                                 {/volist}
