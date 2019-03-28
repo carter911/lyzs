@@ -127,17 +127,17 @@
 			<img src="/assets/img/frontend/lis_team.jpg" class="center-block img-responsive">
 			<img src="/assets/img/frontend/team_classify.jpg" class="center-block img-responsive" style="margin-top: 50px">
 
-			<div class="teamer">
+			<div class="teamer" style="background: red">
                 {volist name="me_team_list" id="items"}
                     {if condition="$key%2===0"}
                     <div class="col-xs-3 padding_c">
                         <div class="thumbnail designer_link">
                             <div class="cart_img" >
-                                <a href="#"><img style="height: 252.5px" src="{$items.image}" class="img-responsive center-block"></a>
+                                <a href="#"><img style="height: 252.5px;width: 100%" src="{$items.image}" class="img-responsive center-block"></a>
                             </div>
                             <div class="caption" style="height: 97px;">
                                 <h4>{$items.name}</h4>
-                                <p>{$items.work_name}<a href="./sjtd_detail.html?detail_id=3">点击进入</a></p>
+                                <p>{$items.work_name}<a href="./sjtd_detail.html?detail_id={$items.id}">点击进入</a></p>
                                 <p>{$items.content}</p>
                             </div>
                         </div>
@@ -147,11 +147,11 @@
                         <div class="thumbnail designer_link">
                             <div class="caption" style="height: 97px;">
                                 <h4>{$items.name}</h4>
-                                <p>{$items.work_name}<a href="./sjtd_detail.html?detail_id=3">点击进入</a></p>
+                                <p>{$items.work_name}<a href="./sjtd_detail.html?detail_id={$items.id}">点击进入</a></p>
                                 <p>{$items.content}</p>
                             </div>
                             <div class="cart_img" >
-                                <a href="#"><img style="height: 252.5px" src="{$items.image}" class="img-responsive center-block"></a>
+                                <a href="#"><img style="height: 252.5px;width: 100%" src="{$items.image}" class="img-responsive center-block"></a>
                             </div>
                         </div>
                     </div>
