@@ -2,8 +2,8 @@
 
 
 
-<div style="overflow: hidden">
-    <div style="width: 1200px;margin: 0 auto;position: relative;z-index: 9999">
+<div style="overflow: hidden;">
+    <div style="width: 1200px;margin: 0 auto;position: relative;z-index:999">
         <div class="ban_quote">
             <div class="quote_area" style="padding-top: 10%;">
                 <h4 class="quote_title text-center">家装快速报价</h4>
@@ -62,9 +62,7 @@
             </div>
         </div>
     </div>
-
-    <div id="carousel1" class="carousel slide img-responsive center-block" data-ride="carousel">
-
+    <div style="z-index: -1" id="carousel1" class="carousel slide img-responsive center-block" data-ride="carousel">
         <ol class="carousel-indicators">
             {volist name="banner" key="k" id='b'}
             <li data-target="#carousel1" data-slide-to="{$k}" class="lass=" item {eq name='$k' value='1' }active{
@@ -79,6 +77,7 @@
             {/volist}
         </div>
     </div>
+
 </div>
 
 
@@ -326,31 +325,7 @@
                 </tbody>
             </table>
         </div>
-        <script>
-            var speed = 30
-            demo2.innerHTML = demo1.innerHTML
 
-            function Marquee() {
-                if (demo2.offsetWidth - demo.scrollLeft <= 0)
-                    demo.scrollLeft -= demo1.offsetWidth
-                else {
-                    demo.scrollLeft++
-                }
-            }
-
-            var MyMar = setInterval(Marquee, speed)
-            demo.onmouseover = function () {
-                clearInterval(MyMar)
-            }
-            demo.onmouseout = function () {
-                MyMar = setInterval(Marquee, speed)
-            }
-            $('.dynamic_art').hover(function () {
-                var img = $(this).find('h2').attr('data-url');
-                $('.article_img').attr('src', img);
-
-            });
-        </script>
     </div>
 </div>
 <div class="container" style="width: 1200px;margin: 0 auto">
@@ -400,3 +375,32 @@
         </div>
     </div>
 </div>
+<script>
+
+    var speed = 30
+    demo2.innerHTML = demo1.innerHTML
+    function Marquee() {
+        if (demo2.offsetWidth - demo.scrollLeft <= 0)
+            demo.scrollLeft -= demo1.offsetWidth
+        else {
+            demo.scrollLeft++
+        }
+    }
+
+    var MyMar = setInterval(Marquee, speed)
+    demo.onmouseover = function () {
+        clearInterval(MyMar)
+    }
+    demo.onmouseout = function () {
+        MyMar = setInterval(Marquee, speed)
+    }
+    $('.dynamic_art').hover(function () {
+        var img = $(this).find('h2').attr('data-url');
+        $('.article_img').attr('src', img);
+
+    });
+    /*********************信息滚动*************************/
+    $(function () {
+        $(".record_list").RollTitle({line: 1, speed: 800, timespan: 1});
+    });
+</script>
