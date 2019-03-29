@@ -402,10 +402,19 @@ class Index extends Frontend
     public function look_article_detail($id)
     {
         $article_detail = $this->article->where(["id" => $id])->find();
+        $article_prev = $this->article->field('id,title')->where(["id" => $id-1])->find();
+        $article_next = $this->article->field('id,title')->where(["id" => $id+1])->find();
+        $this->assign("article_prev", $article_prev);
+        $this->assign("article_next", $article_next);
         $this->assign("article_detail", $article_detail);
+        // 获取文章列表
+        $article_list = Db::name('articles')->field('id,title,image,createtime')->limit(6)->select();
+        $this->assign("article_list", $article_list);
+        // 获取实景案例
+        $cases_list = Db::name('cases')->field('id,name,image')->where('status',1)->limit(3)->select();
+        $this->assign('cases_list', $cases_list);
         $this->assign('title', '文章详情-岭艺装饰');
         return $this->view->fetch("article_detail");
-
     }
 
     public function sjal($caseStyle = -1, $doorStyle = -1, $areaStyle = -1)
