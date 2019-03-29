@@ -301,6 +301,11 @@ class Index extends Frontend
     //设计团队 详情
     public function sjtd_detail($detail_id)
     {
+        $stylist = Db::name('team')->find($detail_id);
+        // 擅长户型
+        $stylist_door = Db::name('team_door')->field('name')->where('id','in',$stylist['team_door_ids'])->limit(3)->select();
+        $stylist['team_door_ids'] = implode(', ', array_column($stylist_door,'name') );
+        $this->assign('stylist', $stylist);
         $this->assign('title', '设计团队详情');
         return $this->view->fetch("sjtd_detail");
     }
