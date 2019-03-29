@@ -5,6 +5,7 @@ namespace app\index\controller;
 use app\common\controller\Frontend;
 use app\index\model\Articles;
 use app\index\model\Cases;
+use fast\Date;
 use think\Db;
 
 use app\common\library\Token;
@@ -104,7 +105,8 @@ class Index extends Frontend
      * @throws \think\db\exception\ModelNotFoundException
      * @throws \think\exception\DbException
      */
-    public function gxj() {
+    public function gxj()
+    {
         // 轮播图
         $banner = Db::name('banner')->field('id,image')->where(['status' => 4])->find();
         $this->assign('banner', $banner);
@@ -266,12 +268,12 @@ class Index extends Frontend
             $where['sex'] = $param['sex'];
         }
 
-        $page = 1 ;
-        if(isset($param['page']) && is_numeric($param['page'])){
+        $page = 1;
+        if (isset($param['page']) && is_numeric($param['page'])) {
             $page = $param['page'];
         }
 
-        $lists = Db::name('team')->where($where)->paginate(12,false, [
+        $lists = Db::name('team')->where($where)->paginate(12, false, [
             'page' => $page
         ]);
 
@@ -283,19 +285,18 @@ class Index extends Frontend
 
         $this->assign('team_style', $team_style);
         $this->assign('team_door', $team_door);
-        $this->assign('team_list', $lists -> items());
+        $this->assign('team_list', $lists->items());
         $this->assign('search', $search);
 
         $page = $this->get_page($lists->currentPage(), $lists->total());
         $this->assign('page', $page);
 
-        $pageParams = $this -> parse_query_params($search);
-        $this->assign("pageParams",$pageParams);
+        $pageParams = $this->parse_query_params($search);
+        $this->assign("pageParams", $pageParams);
 
 
         return $this->view->fetch("sjtd");
     }
-
 
 
     //设计团队 详情
@@ -303,9 +304,35 @@ class Index extends Frontend
     {
         $stylist = Db::name('team')->find($detail_id);
         // 擅长户型
-        $stylist_door = Db::name('team_door')->field('name')->where('id','in',$stylist['team_door_ids'])->limit(3)->select();
-        $stylist['team_door_ids'] = implode(', ', array_column($stylist_door,'name') );
+        $stylist_door = Db::name('team_door')->field('name')->where('id', 'in', $stylist['team_door_ids'])->limit(3)->select();
+        $stylist['team_door_ids'] = implode(', ', array_column($stylist_door, 'name'));
         $this->assign('stylist', $stylist);
+        // 设计师案例列表
+        $case_list = Db::name('cases')->where('team_team_id', $detail_id)->limit(10)->select();
+        // 案例 总和
+        $case_total = Db::name('cases')->where('team_team_id', $detail_id)->count('id');
+        // 户型
+        $door_list = Db::name('team_door')->field('id,name')->select();
+        $style_list = Db::name('team_style')->field('id,name')->select();
+        foreach ($case_list as $key => &$value) {
+            foreach ($door_list as $k => &$val) {
+                if (intval($value['team_door_ids']) === $val['id']) {
+                    $case_list[$key]['team_door_ids'] = $val['name'];
+                }
+            }
+            foreach ($style_list as $k => &$val) {
+                if (intval($value['team_style_ids']) === $val['id']) {
+                    $case_list[$key]['team_style_ids'] = $val['name'];
+                }
+            }
+        }
+        $this->assign('case_total', $case_total);
+        $this->assign('case_list', $case_list);
+        // 获取当前小时
+        $current_hour = Date('H',time());
+        // 其他设计师列表  用当前时间作为 页数
+        $team_list = Db::name('team')->field('id,name,image,work_name,work_num')->limit(intval($current_hour%2),5)->select();
+        $this->assign('team_list', $team_list);
         $this->assign('title', '设计团队详情');
         return $this->view->fetch("sjtd_detail");
     }
@@ -408,7 +435,7 @@ class Index extends Frontend
     {
         $id = $request->get('detail_id');
         $article_detail = $this->cases->where(["id" => $id])->find();
-        $team = Db::name('team')->where(['id'=>$article_detail['team_team_id']])->find();
+        $team = Db::name('team')->where(['id' => $article_detail['team_team_id']])->find();
         $this->assign('title', '实景案例详情-岭艺装饰');
         $this->assign("info", $article_detail);
         $this->assign("team", $team);
@@ -443,10 +470,11 @@ class Index extends Frontend
     }
 
 
-    private function get_page($pageIndex, $totalSize){
+    private function get_page($pageIndex, $totalSize)
+    {
 
         $lastPage = $totalSize % 12 == 0 ? intval($totalSize / 12) : intval($totalSize / 12) + 1;
-        if($pageIndex > $lastPage) $pageIndex = $lastPage;
+        if ($pageIndex > $lastPage) $pageIndex = $lastPage;
 
         return array(
             "first_page" => 1,
@@ -458,28 +486,28 @@ class Index extends Frontend
             "end_page" => $pageIndex + 2 > $lastPage ? $lastPage + 1 : $pageIndex + 3,
 
             "current_page" => $pageIndex,
-            "total_page"   => $totalSize,
+            "total_page" => $totalSize,
         );
     }
 
-    private function parse_query_params($array) {
+    private function parse_query_params($array)
+    {
 
         $target = '';
-        foreach($array as $key => $value){
+        foreach ($array as $key => $value) {
             $target = $target . $key . '=' . $value . '&';
         }
 
-        return $target ;
+        return $target;
     }
 
 
-    public function showDialog(Request $request) {
+    public function showDialog(Request $request)
+    {
         $param = $request->get();
 
 
-
-
-        if(empty($param["type"])){
+        if (empty($param["type"])) {
             return "";
         }
 
@@ -495,18 +523,16 @@ class Index extends Frontend
      * @type
      * @throws \think\Exception
      *
-
      * @return no data
      */
-    private function showDialogData($type) {
-        $result =  $this -> view -> fetch("dialog/".$type);
-        $result = explode("<!---------------------------------主体内容---------------------------------------------->",$result);
-        $result = explode("<!----------------------------------固定区域--------------------------------------------->",$result[1]);
+    private function showDialogData($type)
+    {
+        $result = $this->view->fetch("dialog/" . $type);
+        $result = explode("<!---------------------------------主体内容---------------------------------------------->", $result);
+        $result = explode("<!----------------------------------固定区域--------------------------------------------->", $result[1]);
         return $result[0];
 
     }
-
-
 
 
 }
