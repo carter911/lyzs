@@ -108,55 +108,8 @@
                 <!-- main-->
                 <div class="box" style="border: 1px solid #E2E2E2;">
                     {$info.content}
-                    <!--<div class="box-top" style="border-bottom: 1px solid #E2E2E2;">-->
-                        <!--&lt;!&ndash;&ndash;&gt;-->
-                        <!--<div id="carousel-example-generic" style="min-height:600px;" class="carousel slide" data-ride="carousel">-->
-                            <!--&lt;!&ndash; Indicators &ndash;&gt;-->
-                            <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-                            <!--<div class="carousel-inner" role="listbox">-->
-                                <!--<div class="item active">-->
-                                    <!--<img style="width: 100%;height: 600px;" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=8732501,3217174520&fm=26&gp=0.jpg" alt="...">-->
-                                    <!--<div class="carousel-caption"></div>-->
-                                <!--</div>-->
-                                <!--<div class="item">-->
-                                    <!--<img style="width: 100%;height: 600px;" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3478990368,3362047568&fm=26&gp=0.jpg" alt="...">-->
-                                    <!--<div class="carousel-caption"></div>-->
-                                <!--</div>-->
-                                <!--<div class="item">-->
-                                    <!--<img style="width: 100%;height: 600px;" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3478990368,3362047568&fm=26&gp=0.jpg" alt="...">-->
-                                    <!--<div class="carousel-caption"></div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-
-                            <!--&lt;!&ndash; Controls &ndash;&gt;-->
-                            <!--<a class="left carousel-control" style="min-height:600px;line-height: 600px;" href="#carousel-example-generic" role="button" data-slide="prev">-->
-                                <!--<i class="fa fa-angle-left" style="font-size: 8rem;"></i>-->
-                            <!--</a>-->
-                            <!--<a class="right carousel-control" style="min-height:600px;line-height: 600px;" href="#carousel-example-generic" role="button" data-slide="next">-->
-                                <!--<i class="fa fa-angle-right" style="font-size: 8rem;"></i>-->
-                            <!--</a>-->
-                            <!--<ol class="carousel-indicators">-->
-                                <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
-                                <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
-                                <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
-                            <!--</ol>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash;&ndash;&gt;-->
-                        <!--<div class="type_box">-->
-                            <!--<span class="active_type">-->
-                                <!--<i class="fa fa-caret-up active_type_icon"></i>-->
-                                <!--户型图(5)-->
-                            <!--</span>-->
-                            <!--<span>客厅(5)</span>-->
-                            <!--<span>卧室(5)</span>-->
-                            <!--<span>厨房(5)</span>-->
-                            <!--<span>餐厅(5)</span>-->
-                            <!--<span>衣帽间(5)</span>-->
-                            <!--<span>楼梯间(5)</span>-->
-                            <!--<span>其他区域(5)</span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <div class="box-bottom" style="padding: 2rem 2rem;">
+                    {eq name='info.status' value='2'}
+                        <div class="box-bottom" style="padding: 2rem 2rem;">
                         <div class="row none-margin">
                             <span><i class="fa fa-file-text-o">&nbsp;</i>&nbsp;费用明细</span>
                             <span>&nbsp;&nbsp;</span>
@@ -246,6 +199,7 @@
                             </span>
                         </div>
                     </div>
+                    {/eq}
                 </div>
             </div>
             <div class="col-md-3 none-padding">
@@ -254,17 +208,17 @@
                     <h4 style="margin-bottom: 1rem;">本案设计师简介</h4>
                     <div class="row none-margin">
                         <div class="col-md-5 none-padding" style="background-color:#ccc;height: 120px;">
-                            <img style="width: 100%;height: 100%" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=195463780,3901485650&fm=26&gp=0.jpg" alt="">
+                            <img style="width: 100%;height: 100%" src="{$team.image}" alt="">
                         </div>
                         <div class="col-md-7 none-padding" style="padding-left: 8px;">
-                            <div class="row none-margin">设计师: 某某 <span style="padding: 1px 5px;color: #fff;background-color:#000;" onclick="showLyDialog('yuyue_ta')">预约</span></div>
-                            <div class="row none-margin">级别: 设计师总监</div>
-                            <div class="row none-margin">从业年限: 20年</div>
-                            <div class="row none-margin">电话: 400-000-3000</div>
+                            <div class="row none-margin">设计师: {$team.name} <span style="padding: 1px 5px;color: #fff;background-color:#000;" onclick="showLyDialog('yuyue_ta')">预约</span></div>
+                            <div class="row none-margin">级别: {$team.work_name}</div>
+                            <div class="row none-margin">从业年限: {$team.work_num}年</div>
+                            <div class="row none-margin">电话: {$team.mobile}</div>
                             <div class="row none-margin">
-                                <span style="padding: 2px 8px;color: #fff;background-color:#C7000B;">
+                                <a href="/index/index/sjtd_detail.html?detail_id={$team.id}" style="padding: 2px 8px;color: #fff;background-color:#C7000B;">
                                     查看Ta的其他案例
-                                </span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -275,7 +229,7 @@
                         <tbody>
                         <tr class="tr-style">
                             <td>案例名称</td>
-                            <td>丁香湖</td>
+                            <td>{$info.name}</td>
                         </tr>
                         <tr class="tr-style">
                             <td>案例风格</td>

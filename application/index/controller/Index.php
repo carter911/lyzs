@@ -399,12 +399,14 @@ class Index extends Frontend
         return $this->view->fetch('sjal');
     }
 
-    public function sjal_detail($detail_id)
+    public function sjal_detail(Request $request)
     {
-        $article_detail = $this->article->where(["id" => $detail_id])->find();
+        $id = $request->get('detail_id');
+        $article_detail = $this->cases->where(["id" => $id])->find();
+        $team = Db::name('team')->where(['id'=>$article_detail['team_team_id']])->find();
         $this->assign('title', '实景案例详情-岭艺装饰');
-
         $this->assign("info", $article_detail);
+        $this->assign("team", $team);
         return $this->view->fetch('sjal-detail');
     }
 
