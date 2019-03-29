@@ -35,7 +35,7 @@ class Customer extends Frontend
 	public function store(Request $request)
 	{
 		try{
-			$param = $request->only(['name','mobile','door','area','toilet']);
+			$param = $request->only(['name','mobile','door','area','toilet','type']);
 			if(!isset($param['name']) || empty($param['name'])){
 				return ['code'=>3001,'msg'=>'请输入您的姓名','data'=>null];
 			}
@@ -55,9 +55,8 @@ class Customer extends Frontend
 			}
 			return ['code'=>200,'msg'=>'恭喜您提交成功','data'=>null];
 		}catch (Exception $e){
-			return ['code'=>200,'msg'=>'系统异常 请稍后重试','data'=>$e];
+			return ['code'=>500,'msg'=>'系统异常 请稍后重试','data'=>$e];
 		}
-
 	}
 
 }
