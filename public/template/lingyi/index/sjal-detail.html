@@ -104,12 +104,12 @@
 
     <div class="cation-content" style="margin: 2rem 0;">
         <div class="row none-margin">
-            <div class="col-md-9 none-padding" style="padding-right: 1.45rem;">
+            <div class="col-md-9 none-padding" style="width:300px;padding-right: 1.45rem;">
                 <!-- main-->
                 <div class="box" style="border: 1px solid #E2E2E2;">
                     {$info.content}
                     {eq name='info.status' value='2'}
-                        <div class="box-bottom" style="padding: 2rem 2rem;">
+                    <div class="box-bottom" style="padding: 2rem 2rem;">
                         <div class="row none-margin">
                             <span><i class="fa fa-file-text-o">&nbsp;</i>&nbsp;费用明细</span>
                             <span>&nbsp;&nbsp;</span>
@@ -211,12 +211,15 @@
                             <img style="width: 100%;height: 100%" src="{$team.image}" alt="">
                         </div>
                         <div class="col-md-7 none-padding" style="padding-left: 8px;">
-                            <div class="row none-margin">设计师: {$team.name} <span style="padding: 1px 5px;color: #fff;background-color:#000;" onclick="showLyDialog('yuyue_ta')">预约</span></div>
+                            <div class="row none-margin">设计师: {$team.name} <span
+                                    style="padding: 1px 5px;color: #fff;background-color:#000;"
+                                    onclick="showLyDialog('yuyue_ta')">预约</span></div>
                             <div class="row none-margin">级别: {$team.work_name}</div>
                             <div class="row none-margin">从业年限: {$team.work_num}年</div>
-                            <div class="row none-margin">电话: {$team.mobile}</div>
+                            <div class="row none-margin">电话: {$team.mobile?$team.mobile:''}</div>
                             <div class="row none-margin">
-                                <a href="/index/index/sjtd_detail.html?detail_id={$team.id}" style="padding: 2px 8px;color: #fff;background-color:#C7000B;">
+                                <a href="/index/index/sjtd_detail.html?detail_id={$team.id}"
+                                   style="padding: 2px 8px;color: #fff;background-color:#C7000B;">
                                     查看Ta的其他案例
                                 </a>
                             </div>

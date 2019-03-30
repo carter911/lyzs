@@ -228,7 +228,7 @@
                     <ul>
                         {volist name="article_list" id="vo"}
                         <li class="col-xs-6" style="padding-right: 3rem;">
-                            <a href="look_article_detail?id={$vo.id??1}"  class="pull-left">{$vo.title}</a>
+                            <a href="look_article_detail?id={$vo.id??1}" class="pull-left">{$vo.title}</a>
                             <p class="pull-right">{$vo.createtime|substr=0,10}</p>
                         </li>
                         {/volist}
@@ -243,7 +243,10 @@
                     <div class="row">
                         {volist name="cases_list" id="vo"}
                         <div class="col-xs-4" style="height: 200px;margin: 8px 0;">
-                            <img style="width:100%;height: 100%;" src="{$vo.image}" class="img-responsive center-block">
+                            <a href="/index/index/sjal_detail?detail_id={$vo.id??1}">
+                                <img style="width:100%;height: 100%;" src="{$vo.image}"
+                                     class="img-responsive center-block">
+                            </a>
                         </div>
                         {/volist}
                     </div>
@@ -257,10 +260,12 @@
                 <p class="art_patch" style="font-size: 15px;margin-bottom: 10px">提交您的信息专业家装顾问1对1服务</p>
                 <form action="#" onsubmit="submitAction()">
                     <div class="form-group">
-                        <input type="text" class="form-control apply_area" id="art_address" name="name" placeholder="称呼">
+                        <input type="text" class="form-control apply_area" id="art_address" name="name"
+                               placeholder="称呼">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control apply_area" id="art_phone" name="mobile" placeholder="电话">
+                        <input type="text" class="form-control apply_area" id="art_phone" name="mobile"
+                               placeholder="电话">
                     </div>
                     <button type="submit" class="btn btn-default case_mor btn-block">提交申请</button>
                 </form>
@@ -271,9 +276,13 @@
 
             <div class="side_group box">
                 <div class="record_list" style="margin-top:0;padding-top: 0;min-height: 12rem;">
-                    {for start="1" end="10"}
-                    <p>t**&nbsp;185*******{$i}提交预约信息<span class="app_date">[07/15]</span></p>
-                    {/for}
+                    {volist name="customer_list" id="vo"}
+                    <div class="row" style="margin: 0;    font-size: 12px;">
+                        <div class="col-xs-2" style="padding: 0;">{$vo.name|mb_substr=0,1}**</div>
+                        <div class="col-xs-8" style="padding: 0;">{$vo.mobile|substr_replace='****', 3, 4}提交预约信息</div>
+                        <div class="col-xs-2" style="padding: 0;"><span class="app_date">[<?php echo date("m/d",time()) ?>]</span></div>
+                    </div>
+                    {/volist}
                 </div>
             </div>
 
@@ -284,7 +293,7 @@
                     {volist name="article_list" id="vo"}
                     <div class="media list_recoart" style="padding: 10px 0">
                         <div class="media-body">
-                            <h4 class="media-heading"><a href="#">{$vo.title}</a></h4>
+                            <h4 class="media-heading"><a href="look_article_detail?id={$vo.id??1}">{$vo.title}</a></h4>
                         </div>
                         <div class="media-right">
                             <a href="#">

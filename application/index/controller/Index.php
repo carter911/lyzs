@@ -412,7 +412,10 @@ class Index extends Frontend
         $this->assign("article_list", $article_list);
         // 获取实景案例
         $cases_list = Db::name('cases')->field('id,name,image')->where('status',1)->limit(3)->select();
+        // 顾客列表
+        $customer_list = Db::name('customer')->where('status',1)->select();
         $this->assign('cases_list', $cases_list);
+        $this->assign('customer_list', $customer_list);
         $this->assign('title', '文章详情-岭艺装饰');
         return $this->view->fetch("article_detail");
     }
@@ -444,11 +447,12 @@ class Index extends Frontend
     {
         $id = $request->get('detail_id');
         $article_detail = $this->cases->where(["id" => $id])->find();
+        $info_data = $article_detail->toArray();
         $team = Db::name('team')->where(['id' => $article_detail['team_team_id']])->find();
         $this->assign('title', '实景案例详情-岭艺装饰');
-        $this->assign("info", $article_detail);
+        $this->assign("info", $info_data);
         $this->assign("team", $team);
-        return $this->view->fetch('sjal-detail');
+        return $this->fetch('sjal-detail');
     }
 
 
