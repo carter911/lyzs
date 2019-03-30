@@ -17,7 +17,7 @@
 	<script src="/assets/js/frontend/bootstrap.min.js"></script>
 </head>
 <body style="min-width: 1200px;">
-<script type="text/javascript">document.write('<iframe style="position: fixed;bottom: 0;right: 0;z-index: 9999;" width="450" height="550" frameborder="0" scrolling="no" src="http://ly.e-shigong.com/addons/onlineservice/index/deploy?group_id=1"></iframe>')</script>
+<script type="text/javascript">document.write('<iframe id="chat" name="chat" style="position: fixed;bottom: 0;right: 0;z-index: 9999;" width="450" height="550" frameborder="0" scrolling="no" src="http://ly.e-shigong.com/addons/onlineservice/index/deploy?group_id=1"></iframe>')</script>
 <!-------------------------------顶部导航条------------------------------------------->
 <div class=" toparea" style="width: 1200px;margin: 0 auto;text-align: left">
 	<div class="col-xs-3" style="padding: 0px;">
@@ -169,7 +169,7 @@
 		<li><a href="#"><img src="/assets/img/frontend/2.png" onmouseover="this.src='/assets/img/frontend/2_2.png'"
 							 onmouseout="this.src='/assets/img/frontend/2.png'" class="img-responsive center-block"></a>
 		</li>
-		<li><a href="#"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
+		<li><a onclick="$('#chat').contents().find('#online_ervice').click()" href="javascript:void(0)"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
 							 onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
 		</li>
 		<li><a href="#"><img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
@@ -254,13 +254,9 @@
 </div>
 
 <script type="text/javascript">
+
     $(".dropdown-toggle").hover(function () {
         $(this).dropdown("toggle");
-    });
-
-    /*********************信息滚动*************************/
-    $(function () {
-        $(".record_list").RollTitle({line: 1, speed: 1000, timespan: 1});
     });
 
     $('.nav_content .dropdown').hover(function () {

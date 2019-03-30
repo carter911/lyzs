@@ -18,18 +18,17 @@
                 <span class="msg-box n-right" for="c-image"></span>
             </div>
             <ul class="row list-inline plupload-preview" id="p-image"></ul>
+            <p>图片宽高比为1：1 大小<1M</p>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Is_home')}:</label>
         <div class="col-xs-12 col-sm-8">
-                        
             <select  id="c-is_home" class="form-control selectpicker" name="row[is_home]">
                 {foreach name="isHomeList" item="vo"}
                     <option value="{$key}" {in name="key" value="$row.is_home"}selected{/in}>{$vo}</option>
                 {/foreach}
             </select>
-
         </div>
     </div>
     <div class="form-group">

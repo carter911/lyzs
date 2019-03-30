@@ -1,29 +1,46 @@
-define(['jquery', 'bootstrap', 'frontend', 'form', 'template'], function ($, undefined, Frontend, Form, Template) {
+//getYuyue
 
-    var Controller = {
+function gotoYuyue() {
+    console.log("-------------->>>");
 
-        index:function () {
-
-            $(document).on("click", ".freebtn", function () {
-
-                Layer.open({
-                    type: 1,
-                    title: "修改",
-                    area: ["400px", "250px"],
-                    content: content,
-                    success: function (layero) {
-                        var form = $("form", layero);
-                        Form.api.bindevent(form, function (data) {
-                            location.reload();
-                            Layer.closeAll();
-                        });
-                    }
-                });
-
-            });
+    $.ajax({
+        url: '/index/index/showDialog',
+        type: 'get',
+        data: {
+            type: 'yuyue_manager'
+        },
+        success: function (data) {
+            $("body").append(data);
         }
-    };
+    })
+}
+
+function showLyDialog(params) {
+    console.log("-----showLyDialog----->>" + params);
+
+    $.ajax({
+        url: '/index/index/showDialog',
+        type: 'get',
+        data: {
+            type: params
+        },
+
+        success: function (data) {
+            $("body").append(data);
+        }
+    });
+
+}
 
 
-    return Controller;
+function init() {
+    $("body").on("click", ".popup-close", function () {
+        $(".common-tender-wrapper").parent().remove();
+    });
+
+}
+
+
+$(document).ready(function () {
+    init()
 });
