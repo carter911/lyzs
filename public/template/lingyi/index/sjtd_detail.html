@@ -222,6 +222,14 @@
             <!-- list 列表 end -->
             <div class="row none-margin" >
                 <nav aria-label="Page navigation" class="pagselec">
+                    <div>
+                        <ul>
+                            {volist name='list' id='vo'}
+                            <li> {$key}</li>
+                            {/volist}
+                        </ul>
+                    </div>
+                    {$page}
                     <ul class="pagination pagination-lg">
                         <li><a href="#">首页</a></li>
                         <li>

@@ -21,31 +21,35 @@
 
                             <div class="construction_name" style="margin-top: 24px">
                                 <span class="span_name_construction" style="width: 140px;">用以登录APP的手机号</span>
-                                <input class="input_name_construction" name="user_phone" style="outline: none;width:116px;margin-left: 4px;"
+                                <input class="input_name_construction" id="app_user_phone"
+                                       name="user_phone"
+                                       style="outline: none;width:116px;margin-left: 4px;"
+                                       maxlength="11"
+                                       oninput="value=value.replace(/[^\d]/g,'')"
                                        placeholder="手机号码"/>
                             </div>
 
                             <div class="construction_name" style="margin-top: 12px">
                                 <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
-                                <input class="input_name_construction" name="user_name" style="outline: none;"
+                                <input class="input_name_construction" id="app_user_name" name="user_name" style="outline: none;"
                                        placeholder="先生/女士"/>
                             </div>
 
                             <div class="construction_name" style="margin-top: 12px">
                                 <span class="span_name_construction">您的位置</span>
-                                <input class="input_name_construction" name="user_location" style="outline: none;"
+                                <input class="input_name_construction" id="app_user_location" name="user_location" style="outline: none;"
                                        placeholder="上海市（区）"/>
                             </div>
 
-                            <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;"
-                                 onclick="submitForm('#tiyan_app')">
+                            <div style="cursor:pointer; text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;"
+                                 onclick="app_user_phone()">
                                 <img src="/assets/img/frontend/tiyuan_app_btn.png" style="width: 100%;"/>
                             </div>
 
                             <div style="text-align: center;margin-top: 2px;">
                                 <div class="construction_tip">
                                     <span>已有<span
-                                            style="color: #FF0000;font-size: 15px">{$totalCount}</span>预约参观工地</span><br/>
+                                            style="color: #FF0000;font-size: 15px">{$totalCount}</span>预约了体验APP</span><br/>
 
                                     {volist name='managerList' id='id' key='key'}
                                     <span>{$id.name}&emsp; {$id.phone} &emsp; 提交预约信息[{$id.time}]</span><br/>

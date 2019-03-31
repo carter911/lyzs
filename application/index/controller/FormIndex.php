@@ -57,6 +57,8 @@ class FormIndex extends Frontend {
             case "tiyan_app":
                 return $this -> tiyan_app();
 
+            case "liaojie_more" :
+                return $this -> liaojie_more();
 
         }
 
@@ -97,7 +99,7 @@ class FormIndex extends Frontend {
 
     private function baojia() {
         $totalCount = DB::name("appointment") -> where(["type" => "baojia"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "baojia"]) -> limit(3) -> select();
+        $managerList = DB::name("appointment") -> where(["type" => "baojia"]) -> limit(2) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -177,6 +179,20 @@ class FormIndex extends Frontend {
         return $this -> showDialogData("tiyan_app");
     }
 
+    private function liaojie_more(){
+        $totalCount = DB::name("appointment") -> where(["type" => "liaojie_more"]) -> count();
+        $managerList = DB::name("appointment") -> where(["type" => "liaojie_more"]) -> limit(3) -> select();
+        $managerList = $this->parseArrayData($managerList);
+
+        $this->assign("totalCount",$totalCount);
+        $this->assign("managerList",$managerList);
+
+        return $this -> showDialogData("liaojie_more");
+
+
+
+    }
+
 
     /**
      *
@@ -236,6 +252,9 @@ class FormIndex extends Frontend {
 
             case "tiyan_app":
                 return $this -> goto_tiyan_app($postValue);
+
+            case "liaojie_more":
+                return $this -> goto_liaojie_more($postValue);
         }
     }
 
@@ -320,6 +339,14 @@ class FormIndex extends Frontend {
         return $this -> saveData($data);
     }
 
+    private function goto_liaojie_more($value) {
+        $data["type"] = "liaojie_more";
+        $data["name"] = $value["user_name"];
+        $data["phone"] = $value["user_phone"];
+        $data["location"] = $value["user_location"];
+        $data["time"] = time();
+        return $this -> saveData($data);
+    }
 
     private function  saveData($data) {
         $result = 0 ;

@@ -308,7 +308,7 @@ class Index extends Frontend
         $stylist['team_door_ids'] = implode(', ', array_column($stylist_door, 'name'));
         $this->assign('stylist', $stylist);
         // 设计师案例列表
-        $case_list = Db::name('cases')->where('team_team_id', $detail_id)->limit(10)->select();
+        $case_list = Db::name('cases')->where('team_team_id', $detail_id)->select();
         // 案例 总和
         $case_total = Db::name('cases')->where('team_team_id', $detail_id)->count('id');
         // 户型
@@ -326,6 +326,11 @@ class Index extends Frontend
                 }
             }
         }
+        $case_list = Db::name('cases')->where('team_team_id', $detail_id)->paginate(10);
+        $page = $case_list->render();
+// 模板变量赋值
+        $this->assign('list', $case_list);
+        $this->assign('page', $page);
         $this->assign('case_total', $case_total);
         $this->assign('case_list', $case_list);
         // 获取当前小时
@@ -414,8 +419,10 @@ class Index extends Frontend
         $cases_list = Db::name('cases')->field('id,name,image')->where('status',1)->limit(3)->select();
         // 顾客列表
         $customer_list = Db::name('customer')->where('status',1)->select();
+        $customer_total = Db::name('customer')->count('id');
         $this->assign('cases_list', $cases_list);
         $this->assign('customer_list', $customer_list);
+        $this->assign('customer_total', $customer_total);
         $this->assign('title', '文章详情-岭艺装饰');
         return $this->view->fetch("article_detail");
     }
