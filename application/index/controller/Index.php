@@ -447,6 +447,10 @@ class Index extends Frontend
     {
         $id = $request->get('detail_id');
         $article_detail = $this->cases->where(["id" => $id])->find();
+        $article_prev = $this->cases->where(["id" => $id-1])->find();
+        $article_next = $this->cases->where(["id" => $id+1])->find();
+        $this->assign("article_prev",$article_prev);
+        $this->assign("article_next",$article_next);
         $info_data = $article_detail->toArray();
         $team = Db::name('team')->where(['id' => $article_detail['team_team_id']])->find();
         $this->assign('title', '实景案例详情-岭艺装饰');
@@ -515,37 +519,6 @@ class Index extends Frontend
     }
 
 
-    public function showDialog(Request $request)
-    {
-        $param = $request->get();
-
-
-        if (empty($param["type"])) {
-            return "";
-        }
-
-        //TODO data to deal with
-        return $this->showDialogData($param["type"]);
-
-    }
-
-
-    /**
-     *
-     * 预约专属管家
-     * @type
-     * @throws \think\Exception
-     *
-     * @return no data
-     */
-    private function showDialogData($type)
-    {
-        $result = $this->view->fetch("dialog/" . $type);
-        $result = explode("<!---------------------------------主体内容---------------------------------------------->", $result);
-        $result = explode("<!----------------------------------固定区域--------------------------------------------->", $result[1]);
-        return $result[0];
-
-    }
 
 
 }
