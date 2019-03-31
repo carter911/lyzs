@@ -26,21 +26,29 @@
 
                         <div class="construction_name" style="margin-top: 12px">
                             <span class="span_name_construction">您的位置</span>
-                            <input class="input_name_construction" name="user_location" style="outline: none;" placeholder="上海市（区）" />
+                            <input class="input_name_construction" id="manager_user_location" name="user_location" style="outline: none;" placeholder="上海市（区）" />
                         </div>
 
                         <div class="construction_name" style="margin-top: 12px">
                             <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
-                            <input class="input_name_construction" name="user_name" style="outline: none;" placeholder="先生/女士" />
+                            <input class="input_name_construction" id="manager_user_name" name="user_name" style="outline: none;" placeholder="先生/女士" />
                         </div>
 
 
                         <div class="construction_name" style="margin-top: 12px">
                             <span class="span_name_construction">联系方式</span>
-                            <input class="input_name_construction" name="user_phone" style="outline: none;" placeholder="手机号码" />
+                            <input class="input_name_construction"
+                                   id="manager_user_phone"
+                                   name="user_phone"
+                                   style="outline: none;"
+                                   placeholder="手机号码"
+                                   maxlength="11"
+                                   oninput="value=value.replace(/[^\d]/g,'')"
+                            />
+
                         </div>
 
-                        <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;" onclick="submitForm('#yuyue_manager_form')">
+                        <div style="cursor:pointer; text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;" onclick="checkManager();">
                             <img src="/assets/img/frontend/yuyue_manager_btn.png" style="width: 100%;"/>
                         </div>
 
