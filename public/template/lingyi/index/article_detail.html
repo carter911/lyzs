@@ -100,8 +100,6 @@
                             <img src="/assets/img/frontend/calculate_btn.jpg" class="img-responsive center-block"
                                  style="">
                         </a>
-
-
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
@@ -128,8 +126,10 @@
                                     <label class="pull-left">设计费用</label>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="#"><img src="/assets/img/frontend/calculate_cost02.jpg"
-                                                     class="img-responsive center-block" style="margin-left: 60%"></a>
+                                    <a href="#">
+                                        <img src="/assets/img/frontend/calculate_cost02.jpg"
+                                                     class="img-responsive center-block" style="margin-left: 60%">
+                                    </a>
                                 </div>
                                 <div class="col-xs-4">
                                     <label class="pull-right">元</label>
@@ -143,9 +143,10 @@
                                     <label class="pull-left">半包费用</label>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="#" class="text-center"><img src="/assets/img/frontend/calculate_cost02.jpg"
-                                                                         class="img-responsive center-block"
-                                                                         style="margin-left: 60%"></a>
+                                    <a href="#" class="text-center">
+                                        <img src="/assets/img/frontend/calculate_cost02.jpg"
+                                             class="img-responsive center-block" style="margin-left: 60%">
+                                    </a>
                                 </div>
                                 <div class="col-xs-4">
                                     <label class="pull-right">元</label>
@@ -159,9 +160,10 @@
                                     <label class="pull-left">主材费用</label>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="#" class="text-center"><img src="/assets/img/frontend/calculate_cost02.jpg"
-                                                                         class="img-responsive center-block"
-                                                                         style="margin-left: 60%"></a>
+                                    <a href="#" class="text-center">
+                                        <img src="/assets/img/frontend/calculate_cost02.jpg"
+                                             class="img-responsive center-block" style="margin-left: 60%">
+                                    </a>
                                 </div>
                                 <div class="col-xs-4">
                                     <label class="pull-right">元</label>
@@ -175,9 +177,10 @@
                                     <label class="pull-left">家居费用</label>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href="#" class="text-center"><img src="/assets/img/frontend/calculate_cost02.jpg"
-                                                                         class="img-responsive center-block"
-                                                                         style="margin-left: 60%"></a>
+                                    <a href="#" class="text-center">
+                                        <img src="/assets/img/frontend/calculate_cost02.jpg"
+                                             class="img-responsive center-block" style="margin-left: 60%">
+                                    </a>
                                 </div>
                                 <div class="col-xs-4">
                                     <label class="pull-right">元</label>
@@ -187,7 +190,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- 报价速算 表单提交 -->
             <script>
                 function submitAction() {
@@ -195,7 +197,7 @@
                     let input_phone = $("input[name='mobile']").val();
                     let input_space = $("input[name='area']").val();
                     let input_toilet = $("input[name='toilet']").val();
-                    if(!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(input_phone))){
+                    if (!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(input_phone))) {
                         alert("您填写的电话格式不正确,或者不是11位数电话!!!");
                         return false;
                     }
@@ -224,7 +226,6 @@
                     return false;
                 }
             </script>
-
             <div class="art_list">
                 <h4><b>看过本文的人还看过</b></h4>
                 <hr>
@@ -239,7 +240,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="art_list">
                 <h4><b>精彩实景案例推荐</b></h4>
                 <hr>
@@ -257,7 +257,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-xs-3 sidebar">
             <div class="side_group" style="padding-top: 20px">
                 <h1 class="text-center side_title"><b>免费申请家装规划</b></h1>
@@ -277,19 +276,19 @@
                 <p class="text-center" style="font-size: 14px">免费电话申请：<span class="specolor">400-000-0000</span></p>
                 <p class="text-center" style="font-size: 14px">马上提交申请即送<span class="specolor">1000元</span>家装抵用券</p>
             </div>
-
             <div class="side_group box">
                 <div class="record_list" style="margin-top:0;padding-top: 0;min-height: 12rem;">
                     {volist name="customer_list" id="vo"}
                     <div class="row" style="margin: 0;    font-size: 12px;">
                         <div class="col-xs-2" style="padding: 0;">{$vo.name|mb_substr=0,1}**</div>
                         <div class="col-xs-8" style="padding: 0;">{$vo.mobile|substr_replace='****', 3, 4}提交预约信息</div>
-                        <div class="col-xs-2" style="padding: 0;"><span class="app_date">[<?php echo date("m/d",time()) ?>]</span></div>
+                        <div class="col-xs-2" style="padding: 0;">
+                            <span class="app_date">[{$vo.createtime|date='m/d',###}]</span>
+                        </div>
                     </div>
                     {/volist}
                 </div>
             </div>
-
             <div class="side_recommend">
                 <h1 class="text-center side_title"><b>推荐精彩内容</b></h1>
                 <hr>
@@ -319,7 +318,7 @@
     function submitForm() {
         let input_name = $("input[id='art_user']").val();
         let input_phone = $("input[id='art_phone']").val();
-        if(!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(input_phone))){
+        if (!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(input_phone))) {
             alert("您填写的电话格式不正确,或者不是11位数电话!!!");
             return false;
         }
