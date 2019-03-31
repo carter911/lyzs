@@ -12,7 +12,11 @@
 
                     </div>
 
-                    <div class="popup-content-right">
+                    <form id="dingzhi_service">
+
+                        <input hidden name="type" value="dingzhi_service">
+
+                        <div class="popup-content-right">
 
                         <div style="margin-top: 32px;text-align: center">
                             <span class="construction_title"> 立即申请定制服务</span>
@@ -25,33 +29,48 @@
 
                         <div class="construction_name" style="margin-top: 12px">
                             <span class="span_name_construction">您的位置</span>
-                            <input class="input_name_construction" name="user_phone" style="outline: none;" placeholder="上海市（区）" />
+                            <input class="input_name_construction" name="user_location" style="outline: none;" placeholder="上海市（区）" />
                         </div>
 
-                        <div class="construction_name" style="margin-top: 12px">
+                        <div class="construction_name" style="margin-top: 6px">
                             <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
                             <input class="input_name_construction" name="user_name" style="outline: none;" placeholder="先生/女士" />
                         </div>
 
-                        <div class="construction_name" style="margin-top: 12px">
+                        <div class="construction_name" style="margin-top: 6px">
                             <span class="span_name_construction">手机号码</span>
-                            <input class="input_name_construction" name="user_location" style="outline: none;" placeholder="收取报价短信的手机号码" />
+                            <input class="input_name_construction" name="user_phone" style="outline: none;" placeholder="收取报价短信的手机号码" />
                         </div>
 
+                        <div class="construction_name"  style="margin-top: 10px;">
+                            <span class="span_name_construction" style="width: 100px;">想预约的设计师</span>
 
-                        <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;">
+                            <select class="construction_name_select" name="designerId">
+                                <option value="">选择设计师</option>
+                                {volist name="teamList" id="item"}
+                                <option value="{$item.id}">{$item.name}</option>
+                                {/volist}
+                            </select>
+
+                            <span style="color: red;font-size: 14px;">选填</span>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;" onclick="submitForm('#dingzhi_service')">
                             <img src="/assets/img/frontend/dingzhi_service_btn.png" style="width: 100%;"/>
                         </div>
 
                         <div style="text-align: center;margin-top: 2px;">
                             <div class="construction_tip">
-                                <span>已有<span style="color: #FF0000;font-size: 15px">888</span>申请了定制服务</span><br/>
-                                <span>何**&emsp; 189****9823 提交预约信息[1/89]</span><br/>
-                                <span>范**&emsp; 183****2345 提交预约信息[7/89]</span>
+                                <span>已有<span style="color: #FF0000;font-size: 15px">{$totalCount}</span>申请了定制服务</span><br/>
+
+                                {volist name='managerList' id='id' key='key'}
+                                     <span>{$id.name}&emsp; {$id.phone} &emsp; 提交预约信息[{$id.time}]</span><br/>
+                                {/volist}
                             </div>
                         </div>
                     </div>
 
+                    </form>
                 </div>
 
             </div>

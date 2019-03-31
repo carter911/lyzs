@@ -515,37 +515,6 @@ class Index extends Frontend
     }
 
 
-    public function showDialog(Request $request)
-    {
-        $param = $request->get();
-
-
-        if (empty($param["type"])) {
-            return "";
-        }
-
-        //TODO data to deal with
-        return $this->showDialogData($param["type"]);
-
-    }
-
-
-    /**
-     *
-     * 预约专属管家
-     * @type
-     * @throws \think\Exception
-     *
-     * @return no data
-     */
-    private function showDialogData($type)
-    {
-        $result = $this->view->fetch("dialog/" . $type);
-        $result = explode("<!---------------------------------主体内容---------------------------------------------->", $result);
-        $result = explode("<!----------------------------------固定区域--------------------------------------------->", $result[1]);
-        return $result[0];
-
-    }
 
 
 }

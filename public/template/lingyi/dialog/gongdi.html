@@ -1,4 +1,3 @@
-
 <div id="dialogContent">
     <div class="common-tender-wrapper">
         <div class="common-tender-popup">
@@ -11,44 +10,56 @@
 
                     </div>
 
-                    <div class="popup-content-right">
+                    <form id="gongdi">
 
-                        <div style="margin-top: 32px;text-align: center">
-                            <span class="construction_title"> 参观距您最近的工地</span>
-                        </div>
+                        <input hidden name="type" value="gongdi">
 
-                        <div style="margin-top: 12px;text-align: center">
-                            <span class="construction_desc">填写信息获取最近的工地信息，预约参观接送</span>
-                        </div>
+                        <div class="popup-content-right">
 
-                        <div class="construction_name" style="margin-top: 24px">
-                            <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
-                            <input class="input_name_construction" name="user_name" style="outline: none;" placeholder="先生/女士" />
-                        </div>
+                            <div style="margin-top: 32px;text-align: center">
+                                <span class="construction_title"> 参观距您最近的工地</span>
+                            </div>
 
-                        <div class="construction_name" style="margin-top: 12px">
-                            <span class="span_name_construction">您的位置</span>
-                            <input class="input_name_construction" name="user_location" style="outline: none;" placeholder="上海市（区）" />
-                        </div>
+                            <div style="margin-top: 12px;text-align: center">
+                                <span class="construction_desc">填写信息获取最近的工地信息，预约参观接送</span>
+                            </div>
 
-                        <div class="construction_name" style="margin-top: 12px">
-                            <span class="span_name_construction">联系方式</span>
-                            <input class="input_name_construction" name="user_phone" style="outline: none;" placeholder="手机号码" />
-                        </div>
+                            <div class="construction_name" style="margin-top: 24px">
+                                <span class="span_name_construction">您的位置</span>
+                                <input class="input_name_construction" name="user_location" style="outline: none;"
+                                       placeholder="上海市（区）"/>
+                            </div>
 
-                        <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;">
-                            <img src="/assets/img/frontend/gongdi_btn.png" style="width: 100%;"/>
-                        </div>
+                            <div class="construction_name" style="margin-top: 12px">
+                                <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
+                                <input class="input_name_construction" name="user_name" style="outline: none;"
+                                       placeholder="先生/女士"/>
+                            </div>
 
-                        <div style="text-align: center;margin-top: 2px;">
-                            <div class="construction_tip">
-                                <span>已有<span style="color: #FF0000;font-size: 15px">888</span>预约参观工地</span><br/>
-                                <span>何**&emsp; 189****9823 提交预约信息[1/89]</span><br/>
-                                <span>范**&emsp; 183****2345 提交预约信息[7/89]</span>
+                            <div class="construction_name" style="margin-top: 12px">
+                                <span class="span_name_construction">联系方式</span>
+                                <input class="input_name_construction" name="user_phone" style="outline: none;"
+                                       placeholder="手机号码"/>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;"
+                                 onclick="submitForm('#gongdi')">
+                                <img src="/assets/img/frontend/gongdi_btn.png" style="width: 100%;"/>
+                            </div>
+
+                            <div style="text-align: center;margin-top: 2px;">
+                                <div class="construction_tip">
+                                    <span>已有<span
+                                            style="color: #FF0000;font-size: 15px">{$totalCount}</span>预约参观工地</span><br/>
+
+                                    {volist name='managerList' id='id' key='key'}
+                                    <span>{$id.name}&emsp; {$id.phone} &emsp; 提交预约信息[{$id.time}]</span><br/>
+                                    {/volist}
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </form>
                 </div>
 
             </div>

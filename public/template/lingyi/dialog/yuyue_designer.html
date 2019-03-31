@@ -7,9 +7,13 @@
                 <div class="popup-mfbj popup-content clearfix">
 
                     <div class="popup-content-left mfbj-left-init">
-                        <img src="./image/yuyue_desginer.png" width="100%" height="100%"/>
+                        <img src="/assets/img/frontend/yuyue_desginer.png" width="100%" height="100%"/>
 
                     </div>
+
+                    <form id="yuyue_designer">
+
+                        <input hidden name="type" value="yuyue_designer">
 
                     <div class="popup-content-right">
 
@@ -22,13 +26,13 @@
                         </div>
 
                         <div class="construction_name" style="margin-top: 24px">
-                            <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
-                            <input class="input_name_construction" name="user_name" style="outline: none;" placeholder="先生/女士" />
+                            <span class="span_name_construction">您的位置</span>
+                            <input class="input_name_construction" name="user_location" style="outline: none;" placeholder="上海市（区）" />
                         </div>
 
                         <div class="construction_name" style="margin-top: 12px">
-                            <span class="span_name_construction">您的位置</span>
-                            <input class="input_name_construction" name="user_location" style="outline: none;" placeholder="上海市（区）" />
+                            <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
+                            <input class="input_name_construction" name="user_name" style="outline: none;" placeholder="先生/女士" />
                         </div>
 
                         <div class="construction_name" style="margin-top: 12px">
@@ -36,18 +40,23 @@
                             <input class="input_name_construction" name="user_phone" style="outline: none;" placeholder="手机号码" />
                         </div>
 
-                        <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;">
-                            <img src="./image/yuyue_desginer_btn.png" style="width: 100%;"/>
+                        <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;"
+                             onclick="submitForm('#yuyue_designer')">
+                            <img src="/assets/img/frontend/yuyue_desginer_btn.png" style="width: 100%;"/>
                         </div>
 
                         <div style="text-align: center;margin-top: 2px;">
                             <div class="construction_tip">
-                                <span>已有<span style="color: #FF0000;font-size: 15px">888</span>预约了设计师</span><br/>
-                                <span>何**&emsp; 189****9823 提交预约信息[1/89]</span><br/>
-                                <span>范**&emsp; 183****2345 提交预约信息[7/89]</span>
+                                <span>已有<span style="color: #FF0000;font-size: 15px">{$totalCount}</span>预约了设计师</span><br/>
+
+                                {volist name='managerList' id='id' key='key'}
+                                    <span>{$id.name}&emsp; {$id.phone} &emsp; 提交预约信息[{$id.time}]</span><br/>
+                                {/volist}
                             </div>
                         </div>
                     </div>
+
+                    </form>
 
                 </div>
 
