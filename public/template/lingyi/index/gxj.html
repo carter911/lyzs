@@ -127,14 +127,14 @@
                                                         <td class="tab_lab text-center">造价（￥）</td>
                                                         <td class="text-center">
                                                             <span style="padding-left: 60px">{$case.price}</span>
-                                                            <a href="#" class="pull-right table_link">项目清单</a>
+                                                            <a href="javascript:void();" onclick="showLyDialog('liaojie_more')" class="pull-right table_link">项目清单</a>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="tab_lab text-center">设计师</td>
                                                         <td class="text-center">
                                                             <a href="/index/index/sjtd_detail.html?detail_id=3"><span style="padding-left: 70px">{$case.designer}</span></a>
-                                                            <a href="javascript:void();" onclick="showLyDialog('yuyue_ta')" class="pull-right table_link">预约设计师</a>
+                                                            <a href="javascript:void();" onclick="showLyDialogWithId('yuyue_ta', '{$case.id}')" class="pull-right table_link">预约设计师</a>
                                                         </td>
                                                     </tr>
                                                 </table>

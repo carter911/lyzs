@@ -1,4 +1,3 @@
-
 <div id="app">
 
     <div class="common-tender-wrapper">
@@ -17,57 +16,62 @@
 
                         <div class="popup-content-right">
 
-                        <div style="margin-top: 32px;text-align: center">
-                            <span class="construction_title"> 在线获取免费报价</span>
-                        </div>
+                            <div style="margin-top: 32px;text-align: center">
+                                <span class="construction_title"> 在线获取免费报价</span>
+                            </div>
 
-                        <div style="margin-top: 12px;text-align: center">
-                            <span class="construction_desc">报价结果将以短信发送到您的手机</span>
-                        </div>
+                            <div style="margin-top: 12px;text-align: center">
+                                <span class="construction_desc">报价结果将以短信发送到您的手机</span>
+                            </div>
 
-                        <div class="construction_name" style="margin-top: 16px">
-                            <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
-                            <input class="input_name_construction" name="user_name" style="outline: none;" placeholder="先生/女士" />
-                        </div>
+                            <div class="construction_name" style="margin-top: 16px">
+                                <span class="span_name_construction"> 称&emsp;&emsp;呼</span>
+                                <input class="input_name_construction" id="baojia_user_name" name="user_name"
+                                       style="outline: none;" placeholder="先生/女士"/>
+                            </div>
 
-                        <div class="construction_name" style="margin-top: 8px">
-                            <span class="span_name_construction">手机号码</span>
-                            <input class="input_name_construction" name="user_phone" style="outline: none;" placeholder="收取报价短信的手机号码" />
-                        </div>
+                            <div class="construction_name" style="margin-top: 8px">
+                                <span class="span_name_construction">手机号码</span>
+                                <input class="input_name_construction" id="baojia_user_phone" name="user_phone"
+                                       style="outline: none;" placeholder="收取报价短信的手机号码"
+                                       maxlength="11"
+                                       oninput="value=value.replace(/[^\d]/g,'')"/>
+                            </div>
 
-                        <div class="construction_name" style="margin-top: 8px">
-                            <span class="span_name_construction">产证面积</span>
-                            <input class="input_name_construction" name="user_area" style="outline: none;" placeholder="单位（㎡）" />
-                        </div>
 
-                        <div class="construction_name" style="margin-top: 8px">
-                            <span class="span_name_construction">户&emsp;型</span>
+                            <div class="construction_name" style="margin-top: 8px">
+                                <span class="span_name_construction">产证面积</span>
+                                <input class="input_name_construction" id="baojia_user_area" name="user_area"
+                                       style="outline: none;" placeholder="单位（㎡）"/>
+                            </div>
 
-                            <input name="shi" placeholder="几"  class="input_baojia_cell" style="margin-left: 12px;"> 室
-                            <input name="ting" placeholder="几" class="input_baojia_cell"> 厅
-                            <input name="wei" placeholder="几"  class="input_baojia_cell"> 卫
+                            <div class="construction_name" style="margin-top: 8px">
+                                <span class="span_name_construction">户&emsp;型</span>
 
-                        </div>
+                                <input name="shi" placeholder="几" class="input_baojia_cell" style="margin-left: 12px;">
+                                室
+                                <input name="ting" placeholder="几" class="input_baojia_cell"> 厅
+                                <input name="wei" placeholder="几" class="input_baojia_cell"> 卫
 
-                        <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;" onclick="submitForm('#baojia')">
-                            <img src="/assets/img/frontend/baojia_btn.png" style="width: 100%;"/>
-                        </div>
+                            </div>
 
-                        <div style="text-align: center;margin-top: 2px;">
-                            <div class="construction_tip">
-                                <span>已有<span style="color: #FF0000;font-size: 15px">{$totalCount}</span>位获取在线报价</span><br/>
+                            <div style="text-align: center; margin-top: 17px;margin-left: 46px;margin-right: 46px;cursor:pointer"
+                                 onclick="checkBaojiaData()">
+                                <img src="/assets/img/frontend/baojia_btn.png" style="width: 100%;"/>
+                            </div>
 
-                                {volist name='managerList' id='id' key='key'}
-                                     <span>{$id.name}&emsp; {$id.phone} &emsp; 提交预约信息[{$id.time}]</span><br/>
-                                {/volist}
+                            <div style="text-align: center;margin-top: 2px;">
+                                <div class="construction_tip">
+                                    <span>已有<span
+                                            style="color: #FF0000;font-size: 15px">{$totalCount}</span>位获取在线报价</span><br/>
+
+                                    {volist name='managerList' id='id' key='key'}
+                                    <span>{$id.name}&emsp; {$id.phone} &emsp; 提交预约信息[{$id.time}]</span><br/>
+                                    {/volist}
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-
                     </form>
-
-
                 </div>
 
             </div>
@@ -76,3 +80,4 @@
     </div>
 
 </div>
+
