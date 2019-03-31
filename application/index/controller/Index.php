@@ -447,6 +447,10 @@ class Index extends Frontend
     {
         $id = $request->get('detail_id');
         $article_detail = $this->cases->where(["id" => $id])->find();
+        $article_prev = $this->cases->where(["id" => $id-1])->find();
+        $article_next = $this->cases->where(["id" => $id+1])->find();
+        $this->assign("article_prev",$article_prev);
+        $this->assign("article_next",$article_next);
         $info_data = $article_detail->toArray();
         $team = Db::name('team')->where(['id' => $article_detail['team_team_id']])->find();
         $this->assign('title', '实景案例详情-岭艺装饰');
