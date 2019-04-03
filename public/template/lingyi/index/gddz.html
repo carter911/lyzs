@@ -32,7 +32,7 @@
 		display: block;
 		margin-right: auto;
 		margin-left: auto;
-		width: 240px;
+		/*width: 240px;*/
 		height: 430px;
 	}
 
@@ -210,8 +210,10 @@
 					<div class="inner_info">
 						<ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist">
 							{volist name="procedure_list" id="procedure" key="key"}
-							<li role="presentation" class="{eq name="key" value="1"}active{/eq}">
-								<span class="stand_icon"><img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block"></span>
+							<li role="presentation" class="{eq name='key' value='1'}active{/eq}">
+								<span class="stand_icon">
+									<img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
+								</span>
 								<a href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab" data-toggle="tab" aria-controls="prophase" aria-expanded="true" style="padding: 6px 10px;">{$procedure.name}</a>
 							</li>
 							{/volist}
@@ -229,14 +231,12 @@
 				<div style="margin-top: 20px;" class="col-xs-3 padding_c">
 					<div class="foreman_area">
 						<img src="{$vo.image}" class="img-responsive center-user-block">
-
 						<div class="foreman_info" style="height: 150px;width: 100%">
 							<div class="serve_area" >
 								<h3 class="pull-left margin_c">服务区域</h3>
 								<a href="javascript:void();" onclick="showLyDialog('yuyue_manager')" class="pull-right apply_link">预约专属管家</a>
 								<div class="clearfix"></div>
 							</div>
-
 							<ul class="list-inline">
 								{volist name="vo.cases" id="v"}
 								<li>{$v.name}</li>
