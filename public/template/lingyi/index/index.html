@@ -65,11 +65,10 @@
     <div style="z-index: -1" id="carousel1" class="carousel slide img-responsive center-block" data-ride="carousel">
         <ol class="carousel-indicators">
             {volist name="banner" key="k" id='b'}
-            <li data-target="#carousel1" data-slide-to="{$k}" class="lass item {eq name='$k' value='1' }active{/eq}"></li>
+            <li data-target="#carousel1" data-slide-to="{$k}" class="lass {eq name='$k' value='1' }active{/eq}"></li>
             {/volist}
         </ol>
-
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner" role="listbox" >
             {volist name="banner" key="k" id='b'}
             <div class="item {eq name='$k' value='1'}active{/eq}">
                 <img src="{$b.image}" alt="">
@@ -77,8 +76,6 @@
             {/volist}
         </div>
     </div>
-
-
 </div>
 
 
