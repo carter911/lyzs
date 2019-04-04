@@ -224,8 +224,7 @@
                     <div class="col-xs-5" style="padding-right: 0">
                         {volist name="article_list" id='article'}
                         <div class="dynamic_lis" style="height: 400px;overflow:hidden;position: relative;">
-                            <a style="width: 100%" href="/index/index/look_article_detail?id={$article.id}">
-                                <!--<img style="height:100%;display: block;object-fit: cover;" src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block article_img">-->
+                            <a style="width: 100%" href="#">
                                 <img style="height:100%;display: block;object-fit: cover;" src="{$article.image}" class="img-responsive center-block article_img">
                             </a>
                         </div>
@@ -406,11 +405,9 @@
 
     $('.dynamic_art').hover(function () {
         var img = $(this).find('h2').attr('data-url');
-        var href = $(this).find("h2").attr("data-href");
-
+        var art_id = $(this).find("h2").attr("data-id");
         $('.article_img').attr('src', img);
-        $(".article_img").parent('a').attr("href", href);
-
+        $(".article_img").parent().attr("href", "/index/index/look_article_detail?id="+art_id);
     });
 
 
