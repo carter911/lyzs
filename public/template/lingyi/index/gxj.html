@@ -173,7 +173,7 @@
                     </ul>
                 </div>
 
-                <div id="meatrTabContent" class="tab-content tabinfo">
+                <div id="meatrTabContent" class="tab-content tabinfo" style="height: 548px;overflow: hidden;">
                     {volist name="material_master_list" id="vo" key="k"}
                     <div role="tabpanel" class="{eq name='$k' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
                         <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
@@ -215,7 +215,7 @@
                     </ul>
                 </div>
 
-                <div id="admeatrTabContent" class="tab-content tabinfo">
+                <div id="admeatrTabContent" class="tab-content tabinfo" style="height: 548px;overflow: hidden;">
                     {volist name="material_auxiliary_list" id="vo" key="key"}
                     <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in "
                          id="floor{$vo.id}" aria-labelledby="floor-tab">
