@@ -81,10 +81,7 @@
             </div>
 
             <div class="swiper-pagination"></div>
-
         </div>
-
-
     </div>
 
 
@@ -442,11 +439,11 @@
 
         loop: true,
 
-        // autoplay: {
-        //     delay: 4000,
-        //     stopOnLastSlide: false,
-        //     disableOnInteraction: true,
-        // }
+        autoplay: {
+            delay: 4000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+        }
     });
 
 
@@ -492,10 +489,4 @@
         $(".record_list").RollTitle({line: 1, speed: 800, timespan: 1});
     });
 
-    function checkMove(e) {
-
-        console.dir(e);
-
-
-    }
 </script>
