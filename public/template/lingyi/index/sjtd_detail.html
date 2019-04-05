@@ -133,7 +133,7 @@
         <ol class="breadcrumb">
             <li><a href="index.html">首页</a></li>
             <li><a href="#" onclick="javascript:history.back(-1)">设计团队</a></li>
-            <li class="active">设计团队_详情</li>
+            <li class="active">团队详情</li>
         </ol>
     </div>
 
@@ -219,38 +219,7 @@
                 {/volist}
                 <!-- end -->
             </div>
-            <!-- list 列表 end -->
-            <div class="row none-margin" >
-                <nav aria-label="Page navigation" class="pagselec">
-                    <div>
-                        <ul>
-                            {volist name='list' id='vo'}
-                            <li> {$key}</li>
-                            {/volist}
-                        </ul>
-                    </div>
-                    {$page}
-                    <ul class="pagination pagination-lg">
-                        <li><a href="#">首页</a></li>
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&lt;</span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&gt;</span>
-                            </a>
-                        </li>
-                        <li><a href="#">末页</a></li>
-                    </ul>
-                </nav>
-            </div>
+
             <div class="row none-margin recommend">
                 <div class="recommend-header">
                     相关设计师推荐 <a href="#"><span>更多 >>></span></a>
