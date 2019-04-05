@@ -9,7 +9,7 @@
 namespace app\index\controller;
 
 use app\common\controller\Frontend;
-use app\index\model\Appointment;
+use app\index\model\Customer;
 use think\Db;
 use think\Exception;
 use think\Request;
@@ -20,12 +20,12 @@ class FormIndex extends Frontend {
     protected $noNeedRight = '*';
     protected $layout = '';
 
-    private $appointment ;
+    private $customer;
 
 
     public function _initialize() {
         parent::_initialize();
-        $this->appointment = new Appointment;
+        $this->customer = new Customer();
     }
 
     public function showDialog(Request $request){
@@ -87,8 +87,8 @@ class FormIndex extends Frontend {
      * 预约项目管家
      */
     private function yuyue_manager(){
-        $totalCount = DB::name("appointment") -> where(["type" => "yuyue_manager"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "yuyue_manager"]) -> limit(3) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "yuyue_manager"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "yuyue_manager"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -98,8 +98,8 @@ class FormIndex extends Frontend {
     }
 
     private function baojia() {
-        $totalCount = DB::name("appointment") -> where(["type" => "baojia"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "baojia"]) -> limit(2) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "baojia"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "baojia"]) -> limit(2) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -109,8 +109,8 @@ class FormIndex extends Frontend {
     }
 
     private function canjia_activity() {
-        $totalCount = DB::name("appointment") -> where(["type" => "canjia_activity"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "canjia_activity"]) -> limit(3) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "canjia_activity"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "canjia_activity"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -120,8 +120,8 @@ class FormIndex extends Frontend {
     }
 
     private function yuyue_ta($param) {
-        $totalCount = DB::name("appointment") -> where(["type" => "yuyue_ta"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "yuyue_ta"]) -> limit(3) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "yuyue_ta"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "yuyue_ta"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -132,8 +132,8 @@ class FormIndex extends Frontend {
     }
 
     private function dingzhi_service() {
-        $totalCount = DB::name("appointment") -> where(["type" => "dingzhi_service"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "dingzhi_service"]) -> limit(3) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "dingzhi_service"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "dingzhi_service"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         //TODO 获取设计师 设计师排序
@@ -147,8 +147,8 @@ class FormIndex extends Frontend {
     }
 
     private function gongdi() {
-        $totalCount = DB::name("appointment") -> where(["type" => "gongdi"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "gongdi"]) -> limit(3) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "gongdi"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "gongdi"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -158,8 +158,8 @@ class FormIndex extends Frontend {
     }
 
     private function yuyue_designer(){
-        $totalCount = DB::name("appointment") -> where(["type" => "yuyue_designer"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "yuyue_designer"]) -> limit(3) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "yuyue_designer"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "yuyue_designer"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -169,8 +169,8 @@ class FormIndex extends Frontend {
     }
 
     private function tiyan_app(){
-        $totalCount = DB::name("appointment") -> where(["type" => "tiyan_app"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "tiyan_app"]) -> limit(3) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "tiyan_app"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "tiyan_app"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -180,8 +180,8 @@ class FormIndex extends Frontend {
     }
 
     private function liaojie_more(){
-        $totalCount = DB::name("appointment") -> where(["type" => "liaojie_more"]) -> count();
-        $managerList = DB::name("appointment") -> where(["type" => "liaojie_more"]) -> limit(3) -> select();
+        $totalCount = DB::name("customer") -> where(["form_type" => "liaojie_more"]) -> count();
+        $managerList = DB::name("customer") -> where(["form_type" => "liaojie_more"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -214,8 +214,8 @@ class FormIndex extends Frontend {
     private function parseArrayData($dataArray) {
         foreach ($dataArray as $key => $val) {
             $dataArray[$key]['name'] = mb_substr($val['name'], 0, 1). "**";
-            $dataArray[$key]['phone'] = substr($val['phone'], 0, 3) . '****' . substr($val['phone'], 7, 4);
-            $dataArray[$key]['time'] = date("m/d", $val['time']);
+            $dataArray[$key]['phone'] = substr($val['mobile'], 0, 3) . '****' . substr($val['mobile'], 7, 4);
+            $dataArray[$key]['time'] = date("m/d", $val['createtime']);
         }
 
         return $dataArray;
@@ -259,99 +259,108 @@ class FormIndex extends Frontend {
     }
 
     private function goto_dingzhi_service($value) {
-        $data["type"] = "dingzhi_service";
+        $data["form_type"] = "dingzhi_service";
         $data["name"] = $value["user_name"];
         $data["location"] = $value["user_location"];
-        $data["phone"] = $value["user_phone"];
+        $data["mobile"] = $value["user_phone"];
         $data["designer_id"] = $value["designerId"];
-        $data["time"] = time();
+        $data["createtime"] = time();
 
         return $this -> saveData($data);
     }
 
     private function goto_yuyue_ta($value) {
-        $data["type"] = "yuyue_ta";
+        $data["form_type"] = "yuyue_ta";
         $data["name"] = $value["user_name"];
         $data["location"] = $value["user_location"];
-        $data["phone"] = $value["user_phone"];
+        $data["mobile"] = $value["user_phone"];
         $data["designer_id"] = $value["designerId"];
-        $data["time"] = time();
+        $data["createtime"] = time();
 
         return $this -> saveData($data);
     }
 
 
     private function goto_yuyue_manager($value) {
-        $data["type"] = "yuyue_manager";
+        $data["form_type"] = "yuyue_manager";
         $data["name"] = $value["user_name"];
-        $data["phone"] = $value["user_phone"];
+        $data["mobile"] = $value["user_phone"];
         $data["location"] = $value["user_location"];
-        $data["time"] = time();
+        $data["createtime"] = time();
+
         return $this -> saveData($data);
     }
 
     private function goto_baojia($value) {
-        $data["type"] = "baojia";
+        $data["form_type"] = "baojia";
         $data["name"] = $value["user_name"];
-        $data["phone"] = $value["user_phone"];
-        $data["time"] = time();
+        $data["mobile"] = $value["user_phone"];
+        $data["createtime"] = time();
         $data["area"] = $value["user_area"];
-        $data["area_detail"] = $value["shi"] . "," . $value["ting"] . "," . $value["wei"];
+        $data["door"] = $value["shi"];
+        $data["hall"] = $value["wei"];
+        $data["toilet"] = $value["wei"];
 
         return $this -> saveData($data);
     }
 
     private function goto_canjia_activity($value) {
-        $data["type"] = "canjia_activity";
+        $data["form_type"] = "canjia_activity";
         $data["name"] = $value["user_name"];
-        $data["phone"] = $value["user_phone"];
+        $data["mobile"] = $value["user_phone"];
         $data["location"] = $value["user_location"];
-        $data["time"] = time();
+        $data["createtime"] = time();
 
         return $this -> saveData($data);
     }
 
     private function goto_gongdi($value) {
-        $data["type"] = "gongdi";
+        $data["form_type"] = "gongdi";
         $data["name"] = $value["user_name"];
-        $data["phone"] = $value["user_phone"];
+        $data["mobile"] = $value["user_phone"];
         $data["location"] = $value["user_location"];
-        $data["time"] = time();
+        $data["createtime"] = time();
 
         return $this -> saveData($data);
     }
 
     private function goto_yuyue_designer($value) {
-        $data["type"] = "yuyue_designer";
+        $data["form_type"] = "yuyue_designer";
         $data["name"] = $value["user_name"];
-        $data["phone"] = $value["user_phone"];
+        $data["mobile"] = $value["user_phone"];
         $data["location"] = $value["user_location"];
-        $data["time"] = time();
+        $data["createtime"] = time();
+
+
         return $this -> saveData($data);
     }
 
     private function goto_tiyan_app($value) {
-        $data["type"] = "tiyan_app";
+        $data["form_type"] = "tiyan_app";
         $data["name"] = $value["user_name"];
-        $data["phone"] = $value["user_phone"];
+        $data["mobile"] = $value["user_phone"];
         $data["location"] = $value["user_location"];
-        $data["time"] = time();
+        $data["createtime"] = time();
+
+
         return $this -> saveData($data);
     }
 
     private function goto_liaojie_more($value) {
-        $data["type"] = "liaojie_more";
+        $data["form_type"] = "liaojie_more";
         $data["name"] = $value["user_name"];
-        $data["phone"] = $value["user_phone"];
+        $data["mobile"] = $value["user_phone"];
         $data["location"] = $value["user_location"];
-        $data["time"] = time();
+        $data["createtime"] = time();
+
+
         return $this -> saveData($data);
     }
 
     private function  saveData($data) {
         $result = 0 ;
         try  {
-            $result = $this->appointment -> save($data);
+            $result = $this->customer -> save($data);
         }catch (Exception $e) {
             echo $e -> getMessage();
         }
