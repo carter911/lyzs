@@ -254,8 +254,8 @@
                                 {volist name='info.circle' id='circle' key='key'}
                                 <li class="{eq name='key' value='1'}select_status{/eq}">
                                     <a href="#flag{$circle.id}"> {$circle.name} <span>{$key}</span></a>
-                                    <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                    <img class="img_dot" src="/assets/img/zb_detail/dot.png">
+                                    <img class="img_scale" src="{$site.cdnurl}/assets/img/zb_detail/scale.png">
+                                    <img class="img_dot" src="{$site.cdnurl}/assets/img/zb_detail/dot.png">
                                 </li>
                                 {/volist}
                             </ul>
