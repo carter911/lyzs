@@ -355,11 +355,8 @@ class Index extends Frontend
                 }
             }
         }
-        $case_list = Db::name('cases')->where('team_team_id', $detail_id)->paginate(10);
-        $page = $case_list->render();
-// 模板变量赋值
-        $this->assign('list', $case_list);
-        $this->assign('page', $page);
+        $case_list = Db::name('cases')->where('team_team_id', $detail_id)->limit(4)->select();
+
         $this->assign('case_total', $case_total);
         $this->assign('case_list', $case_list);
         // 获取当前小时

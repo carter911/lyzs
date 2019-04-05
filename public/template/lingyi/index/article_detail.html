@@ -128,7 +128,7 @@
                                 <div class="col-xs-4">
                                     <a href="#">
                                         <img src="/assets/img/frontend/calculate_cost02.jpg"
-                                                     class="img-responsive center-block" style="margin-left: 60%">
+                                             class="img-responsive center-block" style="margin-left: 60%">
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
@@ -234,7 +234,7 @@
                         {volist name="article_list" id="vo"}
                         <li class="col-xs-6" style="padding-right: 3rem;">
                             <a href="look_article_detail?id={$vo.id??1}" class="pull-left">{$vo.title}</a>
-                            <p class="pull-right">{$vo.createtime|substr=0,10}</p>
+                            <p class="pull-right">{$vo.createtime|substr=0,10|date='Y-m-d',###}</p>
                         </li>
                         {/volist}
                     </ul>
@@ -272,7 +272,8 @@
                     </div>
                     <button type="submit" class="btn btn-default case_mor btn-block">提交申请</button>
                 </form>
-                <p class="text-center" style="font-size: 14px">累计已有<span class="specolor">{$customer_total + 500}</span>人成功预约</p>
+                <p class="text-center" style="font-size: 14px">累计已有<span class="specolor">{$customer_total + 500}</span>人成功预约
+                </p>
                 <p class="text-center" style="font-size: 14px">免费电话申请：<span class="specolor">400-000-0000</span></p>
                 <p class="text-center" style="font-size: 14px">马上提交申请即送<span class="specolor">1000元</span>家装抵用券</p>
             </div>
@@ -295,14 +296,14 @@
                 <div class="recom_list">
                     {volist name="article_list" id="vo"}
                     <div class="media list_recoart" style="padding: 10px 0">
-                        <div class="media-body">
-                            <h4 class="media-heading"><a href="look_article_detail?id={$vo.id??1}">{$vo.title}</a></h4>
-                        </div>
-                        <div class="media-right">
-                            <a href="#">
+                        <a href="look_article_detail?id={$vo.id??1}" style="display: block;min-height: 80px;">
+                            <div class="media-body">
+                                <h4 class="media-heading">{$vo.title}</h4>
+                            </div>
+                            <div class="media-right">
                                 <img class="media-object" style="width: 80px;height: 80px;" src="{$vo.image}" alt="...">
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                     {/volist}
                     <hr>
