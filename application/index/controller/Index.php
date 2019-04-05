@@ -443,7 +443,6 @@ class Index extends Frontend
 		$info['circle'] = json_decode($info['circle'],true);
 		$info['task'] = json_decode($info['task'],true);
 		$info['image'] = json_decode($info['image'],true);
-
 		foreach ($info['image'] as $key => $val){
 			if(empty($val)){
 				unset($info['image'][$key]);
@@ -454,6 +453,10 @@ class Index extends Frontend
 		$this->assign('next', $next);
 		$this->assign('pre', $pre);
 		$this->assign('info', $info);
+        $customer_list = Db::name('customer')->where('status',1)->select();
+        $customer_total = Db::name('customer')->count('id');
+        $this->assign('customer_list', $customer_list);
+        $this->assign('customer_total', $customer_total);
         return $this->view->fetch("zb_detail");
     }
 

@@ -11,6 +11,8 @@
 <script type="text/javascript" src="/assets/js/frontend/current.js"></script>
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
 
+<script src="/assets/layer/layer.js"></script>
+
 
 <style>
     .none-margin {
@@ -169,7 +171,7 @@
         font-size: 1.35rem;
         background-color: #fff;
         padding: 3rem 10rem;
-        min-height: 500px;
+        /*min-height: 500px;*/
     }
 
     .time-box .text {
@@ -208,7 +210,6 @@
     .img_dot {
         display: block;
     }
-
 </style>
 
 <div class="container">
@@ -242,24 +243,23 @@
                 欢迎预约参观工地,现场见证岭艺装饰专业工艺, 更有专车免费接送服务, VIP预约热线:{$site.telphone}
             </div>
             <div class="row none-margin" style="margin-top: 5rem;">
-                <div class="col-md-9 none-padding">
-                    <!-- timeline-->
-                    <div class="col-md-2">
-                        <ul class="time-line">
+                    <div class="col-md-9 none-padding">
+                        <!-- timeline-->
+                        <div class="col-md-2">
+                            <ul class="time-line">
+                                {volist name='info.circle' id='circle' key='key'}
+                                <li class="{eq name='key' value='1'}select_status{/eq}">
+                                    <a href="#flag{$circle.id}"> {$circle.name} <span>{$key}</span></a>
+                                    <img class="img_scale" src="/assets/img/zb_detail/scale.png">
+                                    <img class="img_dot" src="/assets/img/zb_detail/dot.png">
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                        <!-- 中间的 列表 box-->
+                        <div class="col-md-10">
                             {volist name='info.circle' id='circle' key='key'}
-                            <li class="{eq name='key' value='1'}select_status{/eq}">
-                                <a href="#flag{$circle.id}"> {$circle.name} <span>{$key}</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-                            {/volist}
-                        </ul>
-                    </div>
-                    <!-- 中间的 列表 box-->
-                    <div class="col-md-10">
-                        {volist name='info.circle' id='circle' key='key'}
-                        <!--end-->
-                        
+                            <!--end-->
                             {volist name ="info.task" id="task"}
                             {eq name='circle.id' value='$task.circle_id'}
                             <!--start-->
@@ -269,56 +269,70 @@
                                 <hr>
                                 <div class="text">任务描述: {$task.detail}</div>
                                 {notempty name='task.image'}
-                                    <div class="row none-margin time-box-images">
-                                        {volist name='$task.image' id='image'}
-                                        <div  class="img-box"><img style="width: 100%;height: 200px;object-fit:cover" src="{$image}" alt=""></div>
-                                        {/volist}
+                                <div id="layer-photos-demo" class="layer-photos-demo row none-margin time-box-images">
+                                    {volist name='$task.image' id='image'}
+                                    <div class="img-box">
+                                        <img style="width: 100%;height: 200px;object-fit:cover" src="{$image}"
+                                             layer-src="{$image}" alt="">
                                     </div>
+                                    {/volist}
+                                </div>
                                 {/notempty}
                             </div>
                             {/eq}
                             <!--end-->
                             {/volist}
-                       
-                        {/volist}
-                        <!--start-->
-                       
-                        <!--end-->
-                    </div>
-                </div>
-                <div class="col-md-3" style="padding-left: 1rem">
-                    <div class="visit-box">
-                        <h3>参观工地</h3>
-                        <div class="intro">参观工地现场 / 了解家装全过程</div>
-                        <form onsubmit="return submitForm()">
-                            <div class="form-group">
-                                <input type="text" class="form-control apply_area" id="art_user" name="name"
-                                       placeholder="称呼">
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" class="form-control apply_area" id="art_phone" name="mobile"
-                                       placeholder="电话">
-                            </div>
-                            <button type="submit" class="btn btn-default case_mor btn-block">预约参观</button>
-                        </form>
-                        <div style="padding: 0.675rem 0;">
-                            累计已有<span style="color: #ff0000;">153</span>人成功预约
-                        </div>
-                        <div>
-                            免费电话申请: <span style="color: #ff0000;">4000-000-0000</span>
+                            {/volist}
+                            <!--start-->
+                            <!--end-->
                         </div>
                     </div>
-                    <div class="information">
-                        <div class="row none-margin">L** 186****4 提交预约信息 [07/16]</div>
-                        <div class="row none-margin">Liu** 186****1234 提交预约信息 [07/16]</div>
-                        <div class="row none-margin">Liu** 186****1234 提交预约信息 [07/16]</div>
-                        <div class="row none-margin">Liu** 186****1234 提交预约信息 [07/16]</div>
-                        <div class="row none-margin">Liu** 186****1234 提交预约信息 [07/16]</div>
+                    <div class="col-md-3" style="padding-left: 1rem">
+                        <div class="visit-box">
+                            <h3>参观工地</h3>
+                            <div class="intro">参观工地现场 / 了解家装全过程</div>
+                            <form onsubmit="return submitForm()">
+                                <div class="form-group">
+                                    <input type="text" class="form-control apply_area" id="art_user" name="name"
+                                           placeholder="称呼">
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control apply_area" id="art_phone" name="mobile"
+                                           placeholder="电话">
+                                </div>
+                                <button type="submit" class="btn btn-default case_mor btn-block">预约参观</button>
+                            </form>
+                            <div style="padding: 0.675rem 0;">
+                                累计已有<span style="color: #ff0000;">{$customer_total + 500}</span>人成功预约
+                            </div>
+                            <div>
+                                免费电话申请: <span style="color: #ff0000;">4000-000-0000</span>
+                            </div>
+                        </div>
+                        <div class="information">
+                            {volist name="customer_list" id="vo"}
+                            <div class="row" style="margin: 0;    font-size: 12px;">
+                                <div class="col-xs-2" style="padding: 0;">{$vo.name|mb_substr=0,1}**</div>
+                                <div class="col-xs-8" style="padding: 0;">{$vo.mobile|substr_replace='****', 3, 4}
+                                    提交预约信息
+                                </div>
+                                <div class="col-xs-2" style="padding: 0;">
+                                    <span class="app_date">[{$vo.createtime|date='m/d',###}]</span>
+                                </div>
+                            </div>
+                            {/volist}
+                        </div>
                     </div>
                 </div>
-            </div>
+
             <div class="row none-margin"></div>
         </div>
+        <script>
+            //调用示例
+            layer.photos({
+                photos: '.layer-photos-demo'
+            });
+        </script>
         <div class="box-footer">
             <div class="row none-margin">
                 <div class="col-md-6">
