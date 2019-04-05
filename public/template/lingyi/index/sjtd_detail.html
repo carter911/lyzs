@@ -143,7 +143,7 @@
 
                 <div class="row none-margin" style="padding: 3.2rem 2rem 3.2rem 0;min-height: 355px;">
                     <div class="col-md-4">
-                        <img style="width: 100%;height: 290px;" src="{$stylist.image}" alt="">
+                        <img style="width: 100%;height: 290px;" src="{$site.cdnurl}{$stylist.image}" alt="">
                     </div>
                     <div class="col-md-8" style="font-size: 1.45rem;">
                         <div class="row none-margin" style="margin-bottom: 1rem;padding-bottom:1rem;border-bottom: 1px solid #e5e5e5">
@@ -200,7 +200,7 @@
                 {volist name="case_list" id="vo"}
                 <div class="list-item" style="background-color:#eeeeee;">
                     <div class="row none-margin" style="background-color:#ddd;">
-                        <img style="width: 390px;height: 295px;" src="{$vo.image}" alt="">
+                        <img style="width: 390px;height: 295px;" src="{$site.cdnurl}{$vo.image}" alt="">
                     </div>
                     <div class="row none-margin" style="padding: 1rem 1rem;">
                         <div class="row none-margin" style="padding: 1rem 0;">
@@ -229,7 +229,7 @@
                     {volist name="team_list" id="vo"}
                     <div style="display: inline-block;width: 24%;min-height: 280px;border: 1px solid #f3f3f3;">
                         <div class="recommend-img">
-                            <img style="width: 100%;height: 240px;" src="{$vo.image}" alt="">
+                            <img style="width: 100%;height: 240px;" src="{$site.cdnurl}{$vo.image}" alt="">
                             <div class="btn-group">
                                 <span class="btn1">免费咨询</span>
                                 <span class="btn2">免费规划</span>

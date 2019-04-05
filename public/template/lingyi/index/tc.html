@@ -48,7 +48,7 @@
 
 <div class="container-fluid inner_info">
     <!--<img src="/assets/img/frontend/setmeal.png" class="img-responsive center-block">-->
-    <img src="{$banner['image']}" class="img-responsive center-block">
+    <img src="{$site.cdnurl}{$banner['image']}" class="img-responsive center-block">
     <div class="container">
         <div class="lis_advta margin_t" style="text-align: center">
             <img src="/assets/img/frontend/lis_advta.jpg" class="img-responsive center-block">
@@ -171,7 +171,7 @@
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='0'}active{/eq}">
                                     <div class="material_area">
-                                        <img style="width: 100%;height: 548px;" src="{$v}"
+                                        <img style="width: 100%;height: 548px;" src="{$site.cdnurl}{$v}"
                                              class="img-responsive center-block">
                                     </div>
                                 </div>
@@ -215,7 +215,7 @@
                             <div class="carousel-inner" role="listbox">
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='1'}active{/eq}" style="min-height: 650px;">
-                                    <img style="width: 100%;height: 548px;" src="{$v}"
+                                    <img style="width: 100%;height: 548px;" src="{$site.cdnurl}{$v}"
                                          class="img-responsive center-block">
                                 </div>
                                 {/volist}
@@ -241,7 +241,7 @@
                             <div class="swiper-wrapper">
                                 {volist name="procedure_image_list" id="img"}
                                 <div class="swiper-slide" style="width: 310px;">
-                                    <img src="{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
+                                    <img src="{$site.cdnurl}{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
                                 </div>
                                 {/volist}
                             </div>
@@ -346,7 +346,7 @@
                                 <div class="leftop_area">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img style="width: 100%;height: 370px;" src="{$vo.style['image']}"
+                                            <img style="width: 100%;height: 370px;" src="{$site.cdnurl}{$vo.style['image']}"
                                                  class="img-responsive center-block">
                                         </a>
                                     </div>
@@ -357,8 +357,8 @@
                                         <div class="rel_leftbotleft">
                                             <div class="cart_img">
                                                 <a href="#">
-                                                    <img <img style="width: 100%;height: 200px;"
-                                                              src="{$vo.style['image']}"
+                                                    <img style="width: 100%;height: 200px;"
+                                                              src="{$site.cdnurl}{$vo.style['image']}"
                                                               class="img-responsive center-block">
                                                 </a>
                                             </div>
@@ -368,8 +368,8 @@
                                         <div class="rel_leftbotrigh">
                                             <div class="cart_img">
                                                 <a href="#">
-                                                    <img <img style="width: 100%;height: 200px;"
-                                                              src="{$vo.style['image']}"
+                                                    <img style="width: 100%;height: 200px;"
+                                                              src="{$site.cdnurl}{$vo.style['image']}"
                                                               class="img-responsive center-block">
                                                 </a>
                                             </div>
@@ -381,7 +381,7 @@
                                 <div class="rel_rightopimg">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img style="width: 100%;height: 285px;" src="{$vo.style['image']}"
+                                            <img style="width: 100%;height: 285px;" src="{$site.cdnurl}{$vo.style['image']}"
                                                  class="img-responsive center-block">
                                         </a>
                                     </div>
@@ -389,7 +389,7 @@
                                 <div class="rel_righbotimg">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img style="width: 100%;height: 285px;" src="{$vo.style['image']}"
+                                            <img style="width: 100%;height: 285px;" src="{$site.cdnurl}{$vo.style['image']}"
                                                  class="img-responsive center-block">
                                         </a>
                                     </div>
@@ -417,7 +417,7 @@
                                     <tr class="roll_area">
                                         {volist name='witness_lists' id='item'}
                                         <td class="roll_img text-center">
-                                            <img style="width: 210px;height: 250px;" src="{$item.image}"></td>
+                                            <img style="width: 210px;height: 250px;" src="{$site.cdnurl}{$item.image}"></td>
                                         {/volist}
                                     </tr>
                                     </tbody>
