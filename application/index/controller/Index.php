@@ -245,12 +245,25 @@ class Index extends Frontend
         }
 
 
+        //工序
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
+        //添加所以数组
+        $procedure_image_list = [] ;
+        $procedure_title_list = [] ;
         foreach ($procedure_list as $key => $val) {
-            $procedure_list[$key]['images'] = explode(",", $val['images']);
+            $tempImageList = explode(",", $val['images']);
+            $tempCount = sizeof($procedure_image_list);
+
+            $procedure_image_list = array_merge($procedure_image_list,$tempImageList);
+            $procedure_title_list[] = array(
+                "title" => $val["name"],
+                "start" => $tempCount,
+                "end" => sizeof($procedure_image_list)
+            ) ;
         }
 
-        $this->assign('procedure_list', $procedure_list);
+        $this->assign('procedure_image_list', $procedure_image_list);
+        $this->assign("procedure_title_list", $procedure_title_list);
 
         $this->assign('butler_list', $butler_list);
 
@@ -528,7 +541,7 @@ class Index extends Frontend
         return $this->view->fetch("article_detail");
     }
 
-    public function sjal($caseStyle = -1, $doorStyle = -1, $areaStyle = -1)
+    public function sjal($caseStyle = -1, $doorStyle = -1, $areaStyle = -1, $pageIndex=0)
     {
         $this->assign('title', '实景案例-岭艺装饰');
 
@@ -544,7 +557,7 @@ class Index extends Frontend
         $this->assign("doorStyle", $doorStyle);
         $this->assign("areaStyle", $areaStyle);
         //案例
-        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle);
+        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle,$areaStyle, "",1 ,$pageIndex);
         $this->assign("caseResult", $caseResult);
         $this->assign("caseResultSize", sizeof($caseResult));
 		$video = DB::name("cases_video")->limit(4)->select();

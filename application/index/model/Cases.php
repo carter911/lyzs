@@ -84,7 +84,7 @@ class Cases extends Model
      *
      * @throws Exception
      */
-    public function queryStyleCase($caseStyle=-1, $doorStyle=-1, $areaStyle=-1, $keywords = "", $status=1, $pageIndex=0 , $pageSize=8) {
+    public function queryStyleCase($caseStyle=-1, $doorStyle=-1, $areaStyle=-1, $keywords = "", $status=1, $pageIndex=0 , $pageSize=6) {
         $result = [] ;
         $whereParam = "status = ".$status." ";
 
@@ -112,7 +112,8 @@ class Cases extends Model
         $pageCount = DB::name("cases") -> where($whereParam) -> count();
         $result["page"] = $this->get_page($pageIndex,$pageCount);
 
-        $resultCase = DB::name("cases") -> where($whereParam) -> limit($pageIndex * $pageSize, $pageSize) -> select();
+        $resultCase = DB::name("cases") -> where($whereParam) -> limit(max(0,($pageIndex - 1) * $pageSize), $pageSize) -> select();
+
         $caseArray = array();
         foreach ($resultCase as $case) {
             $style = Db::name('cases')->where(["team_style_ids" => $case["id"]]) -> find();
@@ -149,9 +150,8 @@ class Cases extends Model
 
     private function get_page($pageIndex, $totalSize){
 
-        $lastPage = $totalSize % 8 == 0 ? intval($totalSize / 8) : intval($totalSize / 8) + 1;
+        $lastPage = $totalSize % 6 == 0 ? intval($totalSize / 6) : intval($totalSize / 6) + 1;
         if($pageIndex > $lastPage) $pageIndex = $lastPage;
-
 
         return array(
             "first_page" => 1,
