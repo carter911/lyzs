@@ -3,11 +3,15 @@
 <link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
 <link href="/assets/css/frontend/personality.css" rel="stylesheet">
 <link href="/assets/css/frontend/ly_dialog_base.css" rel="stylesheet">
+<link href="/assets/css/frontend/swiper.min.css" rel="stylesheet">
+
 
 <script src="/assets/js/frontend/jquery.min.js"></script>
 <script src="/assets/js/frontend/bootstrap.min.js"></script>
 
 <script src="/assets/js/frontend/ly_base.js"></script>
+<script src="/assets/js/frontend/swiper.min.js"></script>
+
 <style>
     .apply_left_img .left_btn1 {
         width: 44px;
@@ -22,20 +26,23 @@
         background-image: url('/assets/img/gxj/left_white.png');
         background-repeat: no-repeat;
     }
+
     .apply_right_img .right_btn1 {
         width: 44px;
         height: 198px;
         padding: 56px 8px;
-        background:url("/assets/img/gxj/right_gray.png") no-repeat;
+        background: url("/assets/img/gxj/right_gray.png") no-repeat;
     }
+
     .apply_right_img .right_btn1:hover {
-        background:url("/assets/img/gxj/right_white.png") no-repeat;
+        background: url("/assets/img/gxj/right_white.png") no-repeat;
 
     }
-    .apply_img2{
-        width:272px;
-        display:table-cell;
-        height:374px;
+
+    .apply_img2 {
+        width: 272px;
+        display: table-cell;
+        height: 374px;
     }
 </style>
 <!---------------------------------主体内容---------------------------------------------->
@@ -62,7 +69,8 @@
                         <ul id="myTabs" class="nav nav-tabs" role="tablist">
                             {volist name='$caseList' id='case' key='key'}
                             <li role="presentation" class="{eq name='$key' value='1'}active{/eq}">
-                                <a onmouseover="$(this).click()" href="#s_{$case.style_id}" id="simplicity-tab" role="tab"
+                                <a onmouseover="$(this).click()" href="#s_{$case.style_id}" id="simplicity-tab"
+                                   role="tab"
                                    data-toggle="tab" aria-controls="s_{$case.style_id}"
                                    aria-expanded="true"
                                    style="padding-left: 31px;padding-right: 31px">{$case.style_name}</a>
@@ -71,7 +79,8 @@
                         </ul>
                     </div>
                     <div class="col-xs-3">
-                        <a href="/index/index/sjal" class="btn btn-default pull-right case_mor" style="margin-right: 15px">&gt;&nbsp;&gt;&nbsp;&gt;&nbsp;&nbsp;更多案例</a>
+                        <a href="/index/index/sjal" class="btn btn-default pull-right case_mor"
+                           style="margin-right: 15px">&gt;&nbsp;&gt;&nbsp;&gt;&nbsp;&nbsp;更多案例</a>
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -79,7 +88,8 @@
                 <div id="myTabContent" class="tab-content tabinfo">
 
                     {volist name='$caseList' id='case' key='key'}
-                    <div role="tabpanel" class="tab-pane fade {if condition='$key eq 1'}in active{/if}" id="s_{$case.style_id}"
+                    <div role="tabpanel" class="tab-pane fade {if condition='$key eq 1'}in active{/if}"
+                         id="s_{$case.style_id}"
                          aria-labelledby="s_{$case.style_id}}-tab">
                         <div class="tab_img">
                             <div id="carousel-simplicity" class="carousel slide" data-ride="carousel">
@@ -93,7 +103,8 @@
 
                                         <div class="col-xs-5">
                                             <div class="case_intro" style="height: 510px;font-size: 14px;">
-                                                <h3 style="text-align:center;margin-bottom: 1.25rem;"><b>{$case.name}</b></h3>
+                                                <h3 style="text-align:center;margin-bottom: 1.25rem;">
+                                                    <b>{$case.name}</b></h3>
                                                 <table class="table">
                                                     <tr>
                                                         <td class="tab_lab text-center">案例名称</td>
@@ -127,14 +138,19 @@
                                                         <td class="tab_lab text-center">造价（￥）</td>
                                                         <td class="text-center">
                                                             <span style="padding-left: 60px">{$case.price}</span>
-                                                            <a href="javascript:void();" onclick="showLyDialog('liaojie_more')" class="pull-right table_link">项目清单</a>
+                                                            <a href="javascript:void();"
+                                                               onclick="showLyDialog('liaojie_more')"
+                                                               class="pull-right table_link">项目清单</a>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="tab_lab text-center">设计师</td>
                                                         <td class="text-center">
-                                                            <a href="/index/index/sjtd_detail.html?detail_id=3"><span style="padding-left: 70px">{$case.designer}</span></a>
-                                                            <a href="javascript:void();" onclick="showLyDialogWithId('yuyue_ta', '{$case.id}')" class="pull-right table_link">预约设计师</a>
+                                                            <a href="/index/index/sjtd_detail.html?detail_id=3"><span
+                                                                    style="padding-left: 70px">{$case.designer}</span></a>
+                                                            <a href="javascript:void();"
+                                                               onclick="showLyDialogWithId('yuyue_ta', '{$case.id}')"
+                                                               class="pull-right table_link">预约设计师</a>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -162,10 +178,12 @@
             <img src="/assets/img/frontend/lis_meatr.png" class="center-block img-responsive">
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
-                    <ul style="display:flex;justify-content: space-between;" id="meatrTabs" class="nav nav-tabs" role="tablist">
+                    <ul style="display:flex;justify-content: space-between;" id="meatrTabs" class="nav nav-tabs"
+                        role="tablist">
                         {volist name="material_master_list" id="vo" key="k"}
                         <li role="presentation" class="{eq name='$k' value='1'}active{/eq}" style="margin:0;flex: 1;">
-                            <a onmouseover="$(this).click()" href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                            <a onmouseover="$(this).click()" href="#floor{$vo.id}" id="floor-tab" role="tab"
+                               data-toggle="tab" aria-controls="floor" aria-expanded="true">
                                 {$vo.name|mb_substr=0,4}
                             </a>
                         </li>
@@ -175,7 +193,8 @@
 
                 <div id="meatrTabContent" class="tab-content tabinfo" style="height: 548px;overflow: hidden;">
                     {volist name="material_master_list" id="vo" key="k"}
-                    <div role="tabpanel" class="{eq name='$k' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
+                    <div role="tabpanel" class="{eq name='$k' value='1'}active{/eq}  tab-pane fade in "
+                         id="floor{$vo.id}" aria-labelledby="floor-tab">
                         <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
@@ -186,7 +205,8 @@
                                 {volist name="vo.images" id="v" key="k"}
                                 <div class="item {eq name='$k' value='1'}active{/eq}" style="height: 548px;">
                                     <div class="material_area">
-                                        <img style="width:100%;height: 548px;" src="{$v}" class="img-responsive center-block">
+                                        <img style="width:100%;height: 548px;" src="{$v}"
+                                             class="img-responsive center-block">
                                     </div>
                                 </div>
                                 {/volist}
@@ -204,10 +224,12 @@
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
 
                 <div class="inner_info">
-                    <ul id="admeatrTabs" style="display:flex;justify-content: space-between;" class="nav nav-tabs" role="tablist">
+                    <ul id="admeatrTabs" style="display:flex;justify-content: space-between;" class="nav nav-tabs"
+                        role="tablist">
                         {volist name="material_auxiliary_list" id="vo"}
                         <li role="presentation" class="{eq name='$key' value='0'}active{/eq}" style="margin:0;flex: 1;">
-                            <a onmouseover="$(this).click()" href="#floor{$vo.id}" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                            <a onmouseover="$(this).click()" href="#floor{$vo.id}" role="tab" data-toggle="tab"
+                               aria-controls="floor" aria-expanded="true">
                                 {$vo.name|mb_substr=0,6}
                             </a>
                         </li>
@@ -229,7 +251,8 @@
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='0'}active{/eq}">
                                     <div class="material_area">
-                                        <img style="width:100%;height: 548px;" src="{$v}" class="img-responsive center-block">
+                                        <img style="width:100%;height: 548px;" src="{$v}"
+                                             class="img-responsive center-block">
                                     </div>
                                 </div>
                                 {/volist}
@@ -251,50 +274,52 @@
 
                 <div id="standTabContent" class="tab-content tabinfo">
 
-                    {volist name="procedure_list" id="procedure" key="k"}
-                    <div role="tabpanel" class="tab-pane fade in {eq name='$k' value='1'}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
-                        <div class="apply">
-                            <div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
-                                <div class="left_btn1"></div>
-                            </div>
+                    <div class="apply" style="position: relative">
 
-
-                            <div class="apply_nav pull-left" style="width: 880px;">
-                                <div class="apply_w pull-left">
-                                    {volist name="procedure.images" id="img"}
-                                    <div class="apply_array pull-left">
-                                        <div class="apply_img2">
-                                            <img src="{$img}" class="img-responsive"/>
-                                        </div>
-                                    </div>
-                                    {/volist}
-                                    <div class="clearfix"></div>
+                        <div class="swiper-container" style="width:900px; height: 360px; margin-left: 5%;">
+                            <div class="swiper-wrapper">
+                                {volist name="procedure_image_list" id="img"}
+                                <div class="swiper-slide" style="width: 310px;">
+                                    <img src="{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
                                 </div>
+                                {/volist}
                             </div>
+                        </div>
 
-                            <div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
-                                <div class="right_btn1"></div>
-                            </div>
-                            <div class="clearfix"></div>
+                        <div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
+                            <div class="left_btn1"></div>
+                        </div>
 
+                        <div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
+                            <div class="right_btn1"></div>
                         </div>
                     </div>
-                    {/volist}
                 </div>
+            </div>
 
-                <div class="inner_info stand_tab">
-                    <div class="inner_info">
-                        <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist" style="display:flex;justify-content: center;">
-                            {volist name="procedure_list" id="procedure" key="k"}
-                            <li role="presentation" class="{eq name='$k' value='1'}active{/eq}">
-                                <span class="stand_icon">
-                                    <img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
-                                </span>
-                                <a onmouseover="$(this).click()" href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab" data-toggle="tab" aria-controls="prophase" aria-expanded="true" style="padding: 6px 10px;">{$procedure.name}</a>
-                            </li>
-                            {/volist}
-                        </ul>
-                    </div>
+            <div class="inner_info stand_tab">
+                <div class="inner_info">
+                    <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist"
+                        style="display:flex;justify-content: center;">
+                        {volist name="$procedure_title_list" id="title" key="k"}
+
+                        <li class="swiper_li_item" data_start="{$title.start}" data_end="{$title.end}">
+
+                            <span class="stand_icon">
+                                 <img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
+                            </span>
+
+                            <a class="switch_swiper_a"
+                               data_start="{$title.start}"
+                               href="#"
+                               class="select_tablink" id="prophase-tab"
+                               role="tab" data-toggle="tab"
+                               aria-controls="prophase"
+                               aria-expanded="true"
+                               style="padding: 6px 10px;">{$title.title}</a>
+                        </li>
+                        {/volist}
+                    </ul>
                 </div>
             </div>
 
@@ -315,7 +340,9 @@
                             我们的设计团队追求将设计融于人性，不仅仅在意颜色搭配，功能满足，文化气息，更注重每个项目细节的打磨。
                             设计点亮新居，尊享品质生活。
                         </p>
-                        <a href="javascript:void();" onclick="showLyDialog('yuyue_designer')" class="btn btn-default case_mor" style="font-size: 20px;position: absolute;bottom: 0;right:10px;">
+                        <a href="javascript:void();" onclick="showLyDialog('yuyue_designer')"
+                           class="btn btn-default case_mor"
+                           style="font-size: 20px;position: absolute;bottom: 0;right:10px;">
                             <b>预约设计师免费上门</b>
                         </a>
                     </div>
@@ -326,7 +353,7 @@
 
         <div class="lis_profe margin_t" style="text-align: center">
             <img src="/assets/img/frontend/lis_profe.jpg" class="center-block img-responsive">
-            <a href="javascript:void();"  onclick="showLyDialog('tiyan_app')"  class="btn btn-default case_mor freebtn">免费体验APP</a>
+            <a href="javascript:void();" onclick="showLyDialog('tiyan_app')" class="btn btn-default case_mor freebtn">免费体验APP</a>
             <img src="/assets/img/frontend/appintro.jpg" class="center-block img-responsive">
         </div>
 
@@ -384,44 +411,59 @@
 </div>
 
 <script type="text/javascript">
+
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: '.apply .img_r',
+            prevEl: '.apply .img_l',
+        },
+
+        on: {
+            slideChangeTransitionEnd: function () {
+                changeItem(this.activeIndex);
+            },
+
+            init: function () {
+                changeItem(0);
+            },
+        },
+    });
+
+    function changeItem(index) {
+        var list = $("#standTabs").find(".swiper_li_item");
+        for (var i = 0; i < list.length; i++) {
+
+            var startValue = list[i].getAttribute("data_start");
+            var endValue = list[i].getAttribute("data_end");
+
+            list[i].classList.remove("active");
+            if (startValue <= index && endValue > index) {
+                list[i].classList.add("active");
+            }
+        }
+    }
+
+
     $(".dropdown-toggle").hover(function () {
         $(this).dropdown("toggle");
     });
 
-    $(function () {
-        $li1 = $(".apply_img2");
-        $window1 = $(".apply .apply_w");
-        $left1 = $(".apply .img_l");
-        $right1 = $(".apply .img_r");
-        $window1.css("width", $li1.length * 170);
 
-        var lc1 = 0;
-        var rc1 = $li1.length - 6;
-
-        $left1.click(function () {
-            if (lc1 < 1) {
-                return;
-            }
-            lc1--;
-            rc1++;
-            $window1.animate({left: '+=166px'}, 1000);
-        });
-
-        $right1.click(function () {
-            if (rc1 < 1) {
-                return;
-            }
-            lc1++;
-            rc1--;
-            $window1.animate({left: '-=166px'}, 1000);
-        });
-
+    $(".switch_swiper_a").on("click", function () {
+        var startValue = $(this).attr("data_start");
+        swiper.slideTo(parseInt(startValue), 1000, false);
     });
+
+
     $('.nav_content .dropdown').hover(function () {
         $(this).find('ul').show();
     }, function () {
         $(this).find('ul').hide();
     });
+
+
 </script>
 </body>
 </html>

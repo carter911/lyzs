@@ -124,12 +124,25 @@ class Index extends Frontend
 
         //工序
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
+
+        //添加所以数组
+        $procedure_image_list = [] ;
+        $procedure_title_list = [] ;
         foreach ($procedure_list as $key => $val) {
-            $procedure_list[$key]['images'] = explode(",", $val['images']);
+            $tempImageList = explode(",", $val['images']);
+            $tempCount = sizeof($procedure_image_list);
+
+            $procedure_image_list = array_merge($procedure_image_list,$tempImageList);
+            $procedure_title_list[] = array(
+                "title" => $val["name"],
+               "start" => $tempCount,
+               "end" => sizeof($procedure_image_list)
+            ) ;
         }
 
+        $this->assign('procedure_image_list', $procedure_image_list);
+        $this->assign("procedure_title_list", $procedure_title_list);
 
-        $this->assign('procedure_list', $procedure_list);
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
         // 客户见证
