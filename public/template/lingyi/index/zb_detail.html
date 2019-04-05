@@ -210,6 +210,10 @@
     .img_dot {
         display: block;
     }
+
+    .scrollbox::-webkit-scrollbar{
+        display: none;
+    }
 </style>
 
 <div class="container">
@@ -243,7 +247,7 @@
                 欢迎预约参观工地,现场见证岭艺装饰专业工艺, 更有专车免费接送服务, VIP预约热线:{$site.telphone}
             </div>
             <div class="row none-margin" style="margin-top: 5rem;">
-                    <div class="col-md-9 none-padding">
+                    <div class="col-md-9 none-padding" >
                         <!-- timeline-->
                         <div class="col-md-2">
                             <ul class="time-line">
@@ -257,9 +261,8 @@
                             </ul>
                         </div>
                         <!-- 中间的 列表 box-->
-                        <div class="col-md-10">
+                        <div class="col-md-10 scrollbox" style="overflow-y: scroll;height: 1200px;">
                             {volist name='info.circle' id='circle' key='key'}
-                            <!--end-->
                             {volist name ="info.task" id="task"}
                             {eq name='circle.id' value='$task.circle_id'}
                             <!--start-->
@@ -283,9 +286,7 @@
                             <!--end-->
                             {/volist}
                             {/volist}
-                            <!--start-->
-                            <!--end-->
-                        </div>
+                            </div>
                     </div>
                     <div class="col-md-3" style="padding-left: 1rem">
                         <div class="visit-box">
@@ -328,7 +329,6 @@
             <div class="row none-margin"></div>
         </div>
         <script>
-            //调用示例
             layer.photos({
                 photos: '.layer-photos-demo'
             });
