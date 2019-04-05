@@ -302,7 +302,7 @@ class Index extends Frontend
             $page = $param['page'];
         }
 
-        $lists = Db::name('team')->where($where)->paginate(12, false, [
+        $lists = Db::name('team')->where($where)->paginate(8, false, [
             'page' => $page
         ]);
 
@@ -602,7 +602,7 @@ class Index extends Frontend
     private function get_page($pageIndex, $totalSize)
     {
 
-        $lastPage = $totalSize % 12 == 0 ? intval($totalSize / 12) : intval($totalSize / 12) + 1;
+        $lastPage = $totalSize % 8 == 0 ? intval($totalSize / 8) : intval($totalSize / 8) + 1;
         if ($pageIndex > $lastPage) $pageIndex = $lastPage;
 
         return array(

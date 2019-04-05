@@ -81,7 +81,7 @@ function showLyDialog(params) {
     console.log("-----showLyDialog----->>" + params);
 
     $.ajax({
-        url: '/index/FormIndex/showDialog',
+        url: '/index/Form/showDialog',
         type: 'get',
         data: {
             type: params
@@ -97,7 +97,7 @@ function showLyDialogWithId(params, otherId) {
     console.log("-----showLyDialogWidthId----->>" + params);
 
     $.ajax({
-        url: '/index/FormIndex/showDialogWithId',
+        url: '/index/Form/showDialogWithId',
         type: 'get',
         data: {
             type: params,
@@ -117,7 +117,7 @@ function showLyDialogWithId(params, otherId) {
 function submitForm(formId) {
     console.log("-----submitForm----->>" + formId);
     $.ajax({
-        url: '/index/FormIndex/submitForm',
+        url: '/index/Form/submitForm',
         type: 'post',
         data: $(formId).serialize(),
         success: function (data) {

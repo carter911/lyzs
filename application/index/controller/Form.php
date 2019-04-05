@@ -14,7 +14,7 @@ use think\Db;
 use think\Exception;
 use think\Request;
 
-class FormIndex extends Frontend {
+class Form extends Frontend {
 
     protected $noNeedLogin = '*';
     protected $noNeedRight = '*';
