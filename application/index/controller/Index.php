@@ -124,12 +124,25 @@ class Index extends Frontend
 
         //工序
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
+
+        //添加所以数组
+        $procedure_image_list = [] ;
+        $procedure_title_list = [] ;
         foreach ($procedure_list as $key => $val) {
-            $procedure_list[$key]['images'] = explode(",", $val['images']);
+            $tempImageList = explode(",", $val['images']);
+            $tempCount = sizeof($procedure_image_list);
+
+            $procedure_image_list = array_merge($procedure_image_list,$tempImageList);
+            $procedure_title_list[] = array(
+                "title" => $val["name"],
+               "start" => $tempCount,
+               "end" => sizeof($procedure_image_list)
+            ) ;
         }
 
+        $this->assign('procedure_image_list', $procedure_image_list);
+        $this->assign("procedure_title_list", $procedure_title_list);
 
-        $this->assign('procedure_list', $procedure_list);
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
         // 客户见证
@@ -165,11 +178,24 @@ class Index extends Frontend
             $material_auxiliary_list[$key]['images'] = explode(",", $val['images']);
         }
 
+
         //工序
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
+        //添加所以数组
+        $procedure_image_list = [] ;
+        $procedure_title_list = [] ;
         foreach ($procedure_list as $key => $val) {
-            $procedure_list[$key]['images'] = explode(",", $val['images']);
+            $tempImageList = explode(",", $val['images']);
+            $tempCount = sizeof($procedure_image_list);
+
+            $procedure_image_list = array_merge($procedure_image_list,$tempImageList);
+            $procedure_title_list[] = array(
+                "title" => $val["name"],
+                "start" => $tempCount,
+                "end" => sizeof($procedure_image_list)
+            ) ;
         }
+
         // 根据 风格 展示 实景案例
         $team_style_list = Db::name('team_style')->field("id,name")->limit(5)->order('id desc')->select();
         $cases_list = Db::name('cases')->field("id,name,image,team_style_ids")
@@ -190,6 +216,10 @@ class Index extends Frontend
         $this->assign('procedure_list', $procedure_list);
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
+
+        $this->assign('procedure_image_list', $procedure_image_list);
+        $this->assign("procedure_title_list", $procedure_title_list);
+
         $this->assign('title', '优家-岭艺装饰');
         return $this->view->fetch('tc');
     }
@@ -413,7 +443,6 @@ class Index extends Frontend
 		$info['circle'] = json_decode($info['circle'],true);
 		$info['task'] = json_decode($info['task'],true);
 		$info['image'] = json_decode($info['image'],true);
-
 		foreach ($info['image'] as $key => $val){
 			if(empty($val)){
 				unset($info['image'][$key]);
@@ -424,6 +453,10 @@ class Index extends Frontend
 		$this->assign('next', $next);
 		$this->assign('pre', $pre);
 		$this->assign('info', $info);
+        $customer_list = Db::name('customer')->where('status',1)->select();
+        $customer_total = Db::name('customer')->count('id');
+        $this->assign('customer_list', $customer_list);
+        $this->assign('customer_total', $customer_total);
         return $this->view->fetch("zb_detail");
     }
 

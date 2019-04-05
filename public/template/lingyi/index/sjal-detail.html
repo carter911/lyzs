@@ -96,8 +96,8 @@
         <ol class="breadcrumb">
             <li><a href="index.html">首页</a></li>
             <li><a href="#">案例时光机</a></li>
-            <li><a href="#" onclick="javascript:history.back(-1)">{$info.status===1?'实景案例':"设计案例"}</a></li>
-            <li class="active">{$info.status===1?'实景案例详情':"设计案例详情"}</li>
+            <li><a href="#" onclick="javascript:history.back(-1)">{$info.status==1?'实景案例':"设计案例"}</a></li>
+            <li class="active">{$info.status==1?'实景案例详情':"设计案例详情"}</li>
         </ol>
     </div>
 
@@ -106,20 +106,25 @@
             <div class="left_table" style="flex: 1;margin-right: 1rem;">
                 <!-- 设计案例-->
                 {eq name='info.status' value='2'}
+                {if condition="$info.url"}
+                <iframe width="900" height="700" src="{$info.url}" frameborder="0"></iframe>
+                {else /}
                 <iframe width="900" height="700" src="https://yun.kujiale.com/design/3FO41LMY00U6/show?from=timeline&isappinstalled=0" frameborder="0"></iframe>
+                {/if}
                 <div class="art_link">
                     <a href="/index/index/sjal_detail.html?detail_id={$article_prev.id??1}" class="pull-left text-center">上一篇：{$article_prev.name??'待更新'}</a>
                     <a href="/index/index/sjal_detail.html?detail_id={$article_next.id??1}" class="pull-right text-center">下一篇：{$article_next.name??'待更新'}</a>
                     <div class="clearfix"></div>
                 </div>
                 {/eq}
-                <!-- 实景案例-->
-                {eq name='info.status' value='1'}
+                <!-- 案例内容 -->
                 <div style="min-height:5rem;overflow:hidden;display: block;">
                     <article>
                         {$info.content|htmlspecialchars_decode}
                     </article>
                 </div>
+                <!-- 实景案例-->
+                {eq name='info.status' value='1'}
                 <div class="box-bottom" style="padding: 2rem 1px;border: 1px solid #E2E2E2;box-sizing: border-box;">
                     <div class="row none-margin" style="text-align: center;">
                         <span><i class="fa fa-file-text-o">&nbsp;</i>&nbsp;费用明细</span>
