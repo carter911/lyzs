@@ -1,16 +1,22 @@
 <!---------------------------------主体内容---------------------------------------------->
 
+<link href="/assets/css/frontend/swiper.min.css" rel="stylesheet">
+
+<script src="/assets/js/frontend/ly_base.js"></script>
+<script src="/assets/js/frontend/swiper.min.js"></script>
 
 
 <div style="overflow: hidden;">
     <div style="width: 1200px;margin: 0 auto;position: relative;z-index:999">
         <div class="ban_quote">
             <div class="quote_area">
+
                 <h4 class="quote_title text-center">家装快速报价</h4>
                 <div class="quote_intro">
                     <p class="text-center">报价结果</p>
                     <p class="text-center">将以短信发送到您的手机</p>
                 </div>
+
                 <div class="quote_form">
                     <form class="customer">
                         <div class="form-group">
@@ -62,20 +68,26 @@
             </div>
         </div>
     </div>
-    <div style="z-index: -1" id="carousel1" class="carousel slide img-responsive center-block" data-ride="carousel">
-        <ol class="carousel-indicators">
-            {volist name="banner" key="k" id='b'}
-            <li data-target="#carousel1" data-slide-to="{$k}" class="lass {eq name='$k' value='1' }active{/eq}"></li>
-            {/volist}
-        </ol>
-        <div class="carousel-inner" role="listbox" >
-            {volist name="banner" key="k" id='b'}
-            <div class="item {eq name='$k' value='1'}active{/eq}">
-                <img src="{$b.image}" alt="">
+
+    <div id="carousel1" class="carousel slide img-responsive center-block cur-left" data-ride="carousel">
+
+        <div class="swiper-container" style="width:100%; height: auto;">
+            <div class="swiper-wrapper">
+                {volist name="banner" key="k" id='b'}
+                <div class="swiper-slide ">
+                    <img src="{$b.image}" class="banner_image img-responsive" style="width: 100%;"/>
+                </div>
+                {/volist}
             </div>
-            {/volist}
+
+            <div class="swiper-pagination"></div>
+
         </div>
+
+
     </div>
+
+
 </div>
 
 
@@ -138,10 +150,15 @@
                         <div class="item active">
                             <img src="{$item.image}" class="" style="width: 280px;height: 284px">
                             <div class="designer_info" style="padding-top: 10px;background-color:#043e46;color: #fff;">
-                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;" class="des_name">{$item.name}</span> {$item.work_name}</h4>
+                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
+                                                                                       class="des_name">{$item.name}</span>
+                                    {$item.work_name}</h4>
                                 <div class="des_infodeta" style="border-top: 1px solid #ccc;padding: 5px;">
-                                    <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年</p>
-                                    <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img style="float: left;" src="/assets/img/des_star.png" class="img-responsive des_star"> <span>100</span>人预约</p>
+                                    <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年
+                                    </p>
+                                    <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img
+                                            style="float: left;" src="/assets/img/des_star.png"
+                                            class="img-responsive des_star"> <span>100</span>人预约</p>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -151,10 +168,16 @@
                             <img src="{$item.image}" class="img-responsive center-block"
                                  style="width: 280px;height: 284px">
                             <div class="designer_info" style="padding-top: 10px;background-color:#043e46;color: #fff;">
-                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;" class="des_name">{$item.name}</span> {$item.work_name}</h4>
-                                <div class="des_infodeta" style="border-top: 1px solid #ccc;padding-top: 5px;margin-top: 5px;">
-                                    <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年</p>
-                                    <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img style="float: left;" src="/assets/img/des_star.png" class="img-responsive des_star"> <span>100</span>人预约</p>
+                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
+                                                                                       class="des_name">{$item.name}</span>
+                                    {$item.work_name}</h4>
+                                <div class="des_infodeta"
+                                     style="border-top: 1px solid #ccc;padding-top: 5px;margin-top: 5px;">
+                                    <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年
+                                    </p>
+                                    <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img
+                                            style="float: left;" src="/assets/img/des_star.png"
+                                            class="img-responsive des_star"> <span>100</span>人预约</p>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -224,7 +247,8 @@
                         {volist name="article_list" id='article'}
                         <div class="dynamic_lis" style="height: 400px;overflow:hidden;position: relative;">
                             <a style="width: 100%" href="#">
-                                <img style="height:100%;display: block;object-fit: cover;" src="{$article.image}" class="img-responsive center-block article_img">
+                                <img style="height:100%;display: block;object-fit: cover;" src="{$article.image}"
+                                     class="img-responsive center-block article_img">
                             </a>
                         </div>
                         {/volist}
@@ -233,12 +257,15 @@
                         {volist name="article_list" id='article'}
                         <div class="dynamic_lis dynamic_art" style="height: 83px;">
                             <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
-                            <h2 data-url="{$article.image}" data-id="{$article.id}"  class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
-                            <h2 data-url="{$article.image}" data-id="{$article.id}" data-href="/index/index/look_article_detail?id={$article.id}" class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
-                                <a href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
-                                    {$article.desc}
-                                </a>
-                            </h2>
+                            <h2 data-url="{$article.image}" data-id="{$article.id}" class="margin_c"
+                                style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
+                                <h2 data-url="{$article.image}" data-id="{$article.id}"
+                                    data-href="/index/index/look_article_detail?id={$article.id}" class="margin_c"
+                                    style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
+                                    <a href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
+                                        {$article.desc}
+                                    </a>
+                                </h2>
                         </div>
                         {/volist}
                     </div>
@@ -320,7 +347,8 @@
                             <tbody>
                             <tr class="roll_area">
                                 {volist name='witness_lists' id='item'}
-                                <td class="roll_img text-center"><img style="width: 210px;height: 250px;" src="{$item.image}"></td>
+                                <td class="roll_img text-center"><img style="width: 210px;height: 250px;"
+                                                                      src="{$item.image}"></td>
                                 {/volist}
                             </tr>
                             </tbody>
@@ -385,6 +413,9 @@
 
     var speed = 30
     demo2.innerHTML = demo1.innerHTML
+    var willGotoRight = false;
+
+
     function Marquee() {
         if (demo2.offsetWidth - demo.scrollLeft <= 0)
             demo.scrollLeft -= demo1.offsetWidth
@@ -402,11 +433,56 @@
     }
 
 
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        loop: true,
+
+        // autoplay: {
+        //     delay: 4000,
+        //     stopOnLastSlide: false,
+        //     disableOnInteraction: true,
+        // }
+    });
+
+
     $('.dynamic_art').hover(function () {
         var img = $(this).find('h2').attr('data-url');
         var art_id = $(this).find("h2").attr("data-id");
         $('.article_img').attr('src', img);
-        $(".article_img").parent().attr("href", "/index/index/look_article_detail?id="+art_id);
+        $(".article_img").parent().attr("href", "/index/index/look_article_detail?id=" + art_id);
+    });
+
+
+    $(".banner_image").mousemove(function (e) {
+        var swiperContent = $("#carousel1");
+        var status = e.pageX < 600;
+
+        console.log("------status---", status + "---" + willGotoRight);
+
+        if (status !== willGotoRight) {
+            willGotoRight = status;
+
+            if (willGotoRight) {
+                swiperContent.removeClass("cur-left");
+                swiperContent.addClass("cur-right");
+            } else {
+                swiperContent.removeClass("cur-right");
+                swiperContent.addClass("cur-left");
+            }
+        }
+    });
+
+    $(".banner_image").click(function () {
+        if (willGotoRight) {
+            swiper.slideTo(Math.max(0, swiper.activeIndex - 1), 1000, false)
+        } else {
+            swiper.slideTo(swiper.activeIndex + 1, 1000, false)
+        }
+
     });
 
 
@@ -414,4 +490,11 @@
     $(function () {
         $(".record_list").RollTitle({line: 1, speed: 800, timespan: 1});
     });
+
+    function checkMove(e) {
+
+        console.dir(e);
+
+
+    }
 </script>

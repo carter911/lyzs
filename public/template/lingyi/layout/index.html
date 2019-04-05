@@ -169,130 +169,102 @@
             </div>
         </div>
 
-    </div>
+	</div>
 </div>
-<style>
-    .tel_show {
-        background-color: #fff;
-        position: relative;
-    }
 
-    .tel_show:before {
-        position: absolute;
-        left: -180px;
-        height: 60px;
-        width: 220px;
-        background-image: url('/assets/img/tel.png');
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        -moz-background-size: 100% 100%;
-        content: "400-400-18878";
-        text-align: center;
-        color: #333;
-        font-size: 26px;
-        font-weight: bold;
-        line-height: 60px;
-        padding-right: 10px;
-    }
-</style>
-<div class="rightfix_bar">
-    <ul class="list-unstyled">
-        <li><a href="#top"><img src="/assets/img/frontend/1.png" onmouseover="this.src='/assets/img/frontend/1_1.png'"
-                                onmouseout="this.src='/assets/img/frontend/1.png'" class="img-responsive center-block"></a>
-        </li>
-        <li><a href="#"><img src="/assets/img/frontend/2.png"
-                             onclick="showLyDialog('baojia')"
-                             onmouseover="this.src='/assets/img/frontend/2_2.png'"
-                             onmouseout="this.src='/assets/img/frontend/2.png'"
-                             class="img-responsive center-block"></a>
-        </li>
-        <li><a onclick="$('#chat').contents().find('#online_ervice').click()" href="javascript:void(0)"><img
-                src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
-                onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
-        </li>
-        <li>
-            <a href="#"  onmouseover="$(this).addClass('tel_show')" onmouseout="$(this).removeClass('tel_show')">
-                <img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
-                     onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block">
-            </a>
-        </li>
-        <li><img style="z-index: 99999" width="150px" src="/assets/img/rightfix_ad.gif"
-                 class="img-responsive center-block"></li>
-    </ul>
+<div class="rightfix_bar" style="z-index: 1000;">
+	<ul class="list-unstyled">
+		<li><a href="#top"><img src="/assets/img/frontend/1.png" onmouseover="this.src='/assets/img/frontend/1_1.png'"
+								onmouseout="this.src='/assets/img/frontend/1.png'" class="img-responsive center-block"></a>
+		</li>
+		<li><a href="#"><img src="/assets/img/frontend/2.png"
+							 onclick="showLyDialog('baojia')"
+							 onmouseover="this.src='/assets/img/frontend/2_2.png'"
+							 onmouseout="this.src='/assets/img/frontend/2.png'"
+							 class="img-responsive center-block"></a>
+		</li>
+		<li><a onclick="$('#chat').contents().find('#online_ervice').click()" href="javascript:void(0)"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
+							 onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
+		</li>
+		<li><a href="#"><img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
+							 onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block"></a>
+		</li>
+		<li><img style="z-index: 99999" width="150px" src="/assets/img/rightfix_ad.gif"
+				 class="img-responsive center-block"></li>
+	</ul>
 </div>
 
 <!-----------------------------------底部导航------------------------------------->
 <div id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-3">
-                <h4>关于岭艺装饰</h4>
-                <div class="row">
-                    <div class="col-xs-6">
-                        <ul>
-                            <li class="listnon"><a href="#gsje">公司简介</a></li>
-                            <li class="listnon"><a href="ppsl">品牌实力</a></li>
-                            <li class="listnon"><a href="#lydt">岭艺动态</a></li>
-                            <li class="listnon"><a href="#zpxx">招聘信息</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-6">
-                        <ul>
-                            <li class="listnon"><a href="gxj">岭艺个性家</a></li>
-                            <li class="listnon"><a href="tc">598乐享温馨家</a></li>
-                            <li class="listnon"><a href="zxhd">最新活动</a></li>
-                            <li class="listnon"><a href="lxwm">联系我们</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <div class="row">
-                    <div class="col-xs-4">
-                        <h4>施工直播</h4>
-                        <ul>
-                            <li class="listnon"><a href="#">精选案例</a></li>
-                            <li class="listnon"><a href="#">全景案例</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-8">
-                        <h4>为您推荐</h4>
-                        <a href="#"><img src="/assets/img/frontend/fotad.jpg" class="img-responsive"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <h4>在线预约尊享贵宾体验</h4>
-                <form class="customer1">
-                    <div class="form-group">
-                        <input name="name" value="" type="text" class="form-control" id="username" placeholder="联系人">
-                    </div>
-                    <div class="form-group">
-                        <input name="mobile" value="" type="text" class="form-control" id="userphone"
-                               placeholder="联系电话">
-                    </div>
-                    <button type="submit" class="btn btn-default color_f search_btn sub_btn foot_sechbtn">提交</button>
-                </form>
-                <p>已有<span class="spenumber"><b>{$config.customer_count}</b></span>位业主预约</p>
-            </div>
-            <div class="col-xs-2">
-                <h4>关注我们</h4>
-                <img src="/assets/img/frontend/copcode.jpg" class="img-responsive">
-            </div>
-        </div>
-        <hr/>
-        <div class="link_area">
-            <ul class="list-inline">
-                <li><h4>友情链接</h4></li>
-                {volist name="config.link" id='link'}
-                <li class="listnon"><a target="_blank" href="{$link.link}">{$link.name}</a></li>
-                {/volist}
-            </ul>
-            <p style="text-align: center">
-                <small>{$site.name}&nbsp;&nbsp;备案号&nbsp;&nbsp;&nbsp;&nbsp;{$site.beian}</small>
-            </p>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-3">
+				<h4>关于岭艺装饰</h4>
+				<div class="row">
+					<div class="col-xs-6">
+						<ul>
+							<li class="listnon"><a href="#gsje">公司简介</a></li>
+							<li class="listnon"><a href="ppsl">品牌实力</a></li>
+							<li class="listnon"><a href="#lydt">岭艺动态</a></li>
+							<li class="listnon"><a href="#zpxx">招聘信息</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-6">
+						<ul>
+							<li class="listnon"><a href="gxj">岭艺个性家</a></li>
+							<li class="listnon"><a href="tc">598乐享温馨家</a></li>
+							<li class="listnon"><a href="zxhd">最新活动</a></li>
+							<li class="listnon"><a href="lxwm">联系我们</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="row">
+					<div class="col-xs-4">
+						<h4>施工直播</h4>
+						<ul>
+							<li class="listnon"><a href="#">精选案例</a></li>
+							<li class="listnon"><a href="#">全景案例</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-8">
+						<h4>为您推荐</h4>
+						<a href="#"><img src="/assets/img/frontend/fotad.jpg" class="img-responsive"></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<h4>在线预约尊享贵宾体验</h4>
+				<form class="customer1">
+					<div class="form-group">
+						<input name="name" value="" type="text" class="form-control" id="username" placeholder="联系人">
+					</div>
+					<div class="form-group">
+						<input name="mobile" value=""  type="text" class="form-control" id="userphone" placeholder="联系电话">
+					</div>
+					<button  type="submit" class="btn btn-default color_f search_btn sub_btn foot_sechbtn">提交</button>
+				</form>
+				<p>已有<span class="spenumber"><b>{$config.customer_count}</b></span>位业主预约</p>
+			</div>
+			<div class="col-xs-2">
+				<h4>关注我们</h4>
+				<img src="/assets/img/frontend/copcode.jpg" class="img-responsive">
+			</div>
+		</div>
+		<hr/>
+		<div class="link_area">
+			<ul class="list-inline">
+				<li><h4>友情链接</h4></li>
+				{volist name="config.link" id='link'}
+					<li class="listnon"><a target="_blank" href="{$link.link}">{$link.name}</a></li>
+				{/volist}
+			</ul>
+			<p style="text-align: center">
+				<small>{$site.name}&nbsp;&nbsp;备案号&nbsp;&nbsp;&nbsp;&nbsp;{$site.beian}</small>
+			</p>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript">
@@ -307,18 +279,18 @@
         $(this).find('ul').hide();
     });
 
-    $(".count_area,.customer1,.customer").submit(function () {
+    $(".count_area,.customer1,.customer").submit(function(){
         $.ajax({
-            url: '/index/customer/store',
-            type: 'post',
-            data: $(this).serializeArray(),
-            dataType: 'json',
-            success: function (data) {
+			url:'/index/customer/store',
+			type:'post',
+			data:$(this).serializeArray(),
+			dataType:'json',
+			success:function(data){
                 alert(data.msg);
-            }
-        })
-        return false;
-    });
+			}
+		})
+       return false;
+	});
 </script>
 </body>
 </html>
