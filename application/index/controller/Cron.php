@@ -42,8 +42,6 @@ class Cron extends Controller
 			if(!empty($val['city'])){
 				$city = Db::name('area')->where(['code'=>$val['city']])->find();
 			}
-
-
 			$add[] = [
 				'sgb_id'=>$val['id'],
 				'name'=>$val['name'],
@@ -69,6 +67,26 @@ class Cron extends Controller
 		}
 		}catch (Exception $e){
 			print_r($e);
+		}
+    }
+
+
+	public function update_circle()
+	{
+		$list = Db::name('project')->order(['update_time asc'])->limit(20)->select();
+		foreach ($list as $key => $val){
+			$flag = false;
+			$circle_list = json_decode($val['circle'],true);
+			foreach ($circle_list as $k=>$v){
+				if(time()>=$v['start_time'] && time()<=$v['end_time']){
+					$flag = true;
+					Db::name('project')->where(['id'=>$val['id']])->update(['circle_name'=>$v['name'],'update_time'=>date("Y-m-d H:i:s",time())]);
+					break;
+				}
+			}
+			if(!$flag){
+				Db::name('project')->where(['id'=>$val['id']])->update(['update_time'=>date("Y-m-d H:i:s",time())]);
+			}
 		}
     }
 
