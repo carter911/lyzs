@@ -53,6 +53,7 @@ class Cron extends Controller
 				'task'=> json_encode($val['task']),
 				'image'=>json_encode($val['images_list']),
 				'circle_name'=>$val['circle_name'],
+				'circle_id'=>$val['circle_id'],
 //				'type'=>$val['id'],
 //				'area'=>$val['id'],
 				'look_num'=>rand(1,100),
@@ -80,7 +81,7 @@ class Cron extends Controller
 			foreach ($circle_list as $k=>$v){
 				if(time()>=$v['start_time'] && time()<=$v['end_time']){
 					$flag = true;
-					Db::name('project')->where(['id'=>$val['id']])->update(['circle_name'=>$v['name'],'update_time'=>date("Y-m-d H:i:s",time())]);
+					Db::name('project')->where(['id'=>$val['id']])->update(['circle_name'=>$v['name'],'circle_id'=>$v['id'],'update_time'=>date("Y-m-d H:i:s",time())]);
 					break;
 				}
 			}

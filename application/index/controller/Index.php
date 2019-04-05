@@ -411,13 +411,15 @@ class Index extends Frontend
 		$list = Db::name('project')->where($where)->limit($pageStart,20)->order($order)->select();
 		foreach ($list as $key =>$val){
 			$list[$key]['circle'] = json_decode($val['circle'],true);
+
+			foreach ($list[$key]['circle'] as $k => $v){
+
+			}
 			$list[$key]['image'] = array_slice(json_decode($val['image'],true),0,6);
 		}
 
 		$area = Db::name('area')->where(['parent_id'=>24])->select();
 		$circle = Db::name('project_circle')->select();
-
-
 
 		$this->assign('area', $area);
 		$this->assign('list', $list);
@@ -439,7 +441,7 @@ class Index extends Frontend
 		$info = Db::name('project')->where('id',$id)->find();
 		$info['circle'] = json_decode($info['circle'],true);
 		$info['task'] = json_decode($info['task'],true);
-		$info['image'] = json_decode($info['image'],true);
+		$info['image'] = array_slice(json_decode($info['image'],true),0,6);
 		foreach ($info['image'] as $key => $val){
 			if(empty($val)){
 				unset($info['image'][$key]);

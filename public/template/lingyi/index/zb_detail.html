@@ -263,6 +263,7 @@
                         <!-- 中间的 列表 box-->
                         <div class="col-md-10 scrollbox" style="overflow-y: scroll;height: 1200px;">
                             {volist name='info.circle' id='circle' key='key'}
+                            {elt name='circle.id' value='info.circle_id'}
                             {volist name ="info.task" id="task"}
                             {eq name='circle.id' value='$task.circle_id'}
                             <!--start-->
@@ -285,6 +286,7 @@
                             {/eq}
                             <!--end-->
                             {/volist}
+                            {/elt}
                             {/volist}
                             </div>
                     </div>

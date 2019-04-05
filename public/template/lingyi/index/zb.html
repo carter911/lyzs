@@ -242,7 +242,7 @@
                             <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
                             <div class="time_cards_box" style="height: 100px;">
                                 {volist name='project.circle' key='key' id='circle'}
-                                <div  class="time_card select_status ">{$circle.name}</div>
+                                <div  class="time_card {elt name='circle.id' value='$project.circle_id'}select_status{/elt}  ">{$circle.name}</div>
                                 {/volist}
                             </div>
                         </div>
