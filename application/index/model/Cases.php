@@ -84,7 +84,7 @@ class Cases extends Model
      *
      * @throws Exception
      */
-    public function queryStyleCase($caseStyle=-1, $doorStyle=-1, $areaStyle=-1, $keywords = "", $status=1, $pageIndex=0 , $pageSize=9) {
+    public function queryStyleCase($caseStyle=-1, $doorStyle=-1, $areaStyle=-1, $keywords = "", $status=1, $pageIndex=0 , $pageSize=8) {
         $result = [] ;
         $whereParam = "status = ".$status." ";
 
@@ -149,7 +149,7 @@ class Cases extends Model
 
     private function get_page($pageIndex, $totalSize){
 
-        $lastPage = $totalSize % 12 == 0 ? intval($totalSize / 12) : intval($totalSize / 12) + 1;
+        $lastPage = $totalSize % 8 == 0 ? intval($totalSize / 8) : intval($totalSize / 8) + 1;
         if($pageIndex > $lastPage) $pageIndex = $lastPage;
 
 
