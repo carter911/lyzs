@@ -177,12 +177,13 @@
 .apply .img_l{
     cursor:pointer;
     margin-right: 50px;
-    margin-top: 90px;
+    margin-top: -260px;
 }
 .apply .img_r{
     cursor:pointer;
     margin-left: 50px;
-    margin-top: 90px;
+    margin-top: -260px;
+
 }
 .stand_tab{
     border-top: 3px solid #DADADA;

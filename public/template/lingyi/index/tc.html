@@ -2,9 +2,10 @@
 <link href="/assets/css/frontend/personality.css" rel="stylesheet">
 <link href="/assets/css/frontend/setmeal.css" rel="stylesheet">
 <link href="/assets/css/frontend/ly_dialog_base.css" rel="stylesheet">
+<link href="/assets/css/frontend/swiper.min.css" rel="stylesheet">
 
 <script src="/assets/js/frontend/ly_base.js"></script>
-
+<script src="/assets/js/frontend/swiper.min.js"></script>
 
 <style>
     .apply_left_img .left_btn1 {
@@ -20,14 +21,16 @@
         background-image: url('/assets/img/gxj/left_white.png');
         background-repeat: no-repeat;
     }
+
     .apply_right_img .right_btn1 {
         width: 44px;
         height: 198px;
         padding: 56px 8px;
-        background:url("/assets/img/gxj/right_gray.png") no-repeat;
+        background: url("/assets/img/gxj/right_gray.png") no-repeat;
     }
+
     .apply_right_img .right_btn1:hover {
-        background:url("/assets/img/gxj/right_white.png") no-repeat;
+        background: url("/assets/img/gxj/right_white.png") no-repeat;
 
     }
 </style>
@@ -111,10 +114,13 @@
                 </div>
                 <div class="col-xs-4" style="text-align: center;">
                     <ul class="costimg_lis" style="width: 350px;padding: 0px;margin: 0 auto;">
-                        <li style="width: 340px;"><img src="/assets/img/frontend/liscos_img02.png" class="img-responsive"></li>
-                        <li style="width: 340px;"><img src="/assets/img/frontend/lis_costeffect.jpg" class="img-responsive"
+                        <li style="width: 340px;"><img src="/assets/img/frontend/liscos_img02.png"
+                                                       class="img-responsive"></li>
+                        <li style="width: 340px;"><img src="/assets/img/frontend/lis_costeffect.jpg"
+                                                       class="img-responsive"
                                                        style="padding: 32px 0;width: 100%;width: 310px;"></li>
-                        <li style="width: 340px;"><img src="/assets/img/frontend/liscos_img09.png" class="img-responsive"></li>
+                        <li style="width: 340px;"><img src="/assets/img/frontend/liscos_img09.png"
+                                                       class="img-responsive"></li>
                     </ul>
                 </div>
                 <div class="col-xs-4">
@@ -134,10 +140,14 @@
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
                 <div class="inner_info">
                     <div class="inner_info">
-                        <ul style="text-align: center;width: 1200px;" id="meatrTabs" class="nav nav-tabs" role="tablist">
+                        <ul style="text-align: center;width: 1200px;" id="meatrTabs" class="nav nav-tabs"
+                            role="tablist">
                             {volist name="material_master_list" id="vo"}
-                            <li style="width: 195px;text-align: center;margin-right:5px;" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                <a  onmouseover="$(this).click()" style="padding: 7px 10px;" href="#floor{$vo.id}" id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                            <li style="width: 195px;text-align: center;margin-right:5px;" role="presentation"
+                                class="{eq name='$key' value='0'}active{/eq}">
+                                <a onmouseover="$(this).click()" style="padding: 7px 10px;" href="#floor{$vo.id}"
+                                   id="floor-tab" role="tab" data-toggle="tab" aria-controls="floor"
+                                   aria-expanded="true">
                                     {$vo.name|substr=0,18}
                                 </a>
                             </li>
@@ -146,9 +156,11 @@
                     </div>
                 </div>
 
-                <div id="meatrTabContent" style="width: 1194px;height: 548px;overflow:hidden;" class="tab-content tabinfo">
+                <div id="meatrTabContent" style="width: 1194px;height: 548px;overflow:hidden;"
+                     class="tab-content tabinfo">
                     {volist name="material_master_list" id="vo" key="key"}
-                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
+                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in "
+                         id="floor{$vo.id}" aria-labelledby="floor-tab">
                         <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
@@ -159,7 +171,8 @@
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='0'}active{/eq}">
                                     <div class="material_area">
-                                        <img style="width: 100%;height: 548px;" src="{$v}" class="img-responsive center-block">
+                                        <img style="width: 100%;height: 548px;" src="{$v}"
+                                             class="img-responsive center-block">
                                     </div>
                                 </div>
                                 {/volist}
@@ -177,8 +190,10 @@
                 <div class="inner_info">
                     <ul style="text-align: center;width: 1200px;" id="admeatrTabs" class="nav nav-tabs" role="tablist">
                         {volist name="material_auxiliary_list" id="vo"}
-                        <li   style="width: 195px;text-align: center;margin-right:5px;overflow: hidden" role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                            <a onmouseover="$(this).click()"   style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab" data-toggle="tab" aria-controls="floor" aria-expanded="true">
+                        <li style="width: 195px;text-align: center;margin-right:5px;overflow: hidden"
+                            role="presentation" class="{eq name='$key' value='0'}active{/eq}">
+                            <a onmouseover="$(this).click()" style="padding: 7px 10px;" href="#floor{$vo.id}" role="tab"
+                               data-toggle="tab" aria-controls="floor" aria-expanded="true">
                                 {$vo.name|substr=0,18}
                             </a>
                         </li>
@@ -186,9 +201,11 @@
                     </ul>
                 </div>
 
-                <div id="admeatrTabContent" style="width: 1194px;height: 548px;overflow:hidden;" class="tab-content tabinfo">
+                <div id="admeatrTabContent" style="width: 1194px;height: 548px;overflow:hidden;"
+                     class="tab-content tabinfo">
                     {volist name="material_auxiliary_list" id="vo" key="key"}
-                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in" id="floor{$vo.id}" aria-labelledby="floor-tab">
+                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in"
+                         id="floor{$vo.id}" aria-labelledby="floor-tab">
                         <div id="carousel-floor{$vo.id}" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators" style="width:20%;left: 30%;">
                                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -198,7 +215,8 @@
                             <div class="carousel-inner" role="listbox">
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='1'}active{/eq}" style="min-height: 650px;">
-                                    <img style="width: 100%;height: 548px;" src="{$v}" class="img-responsive center-block">
+                                    <img style="width: 100%;height: 548px;" src="{$v}"
+                                         class="img-responsive center-block">
                                 </div>
                                 {/volist}
                             </div>
@@ -214,49 +232,59 @@
             <a href="javascript:void();" onclick="showLyDialog('gongdi')" class="btn btn-default case_mor freebtn">参观距您最近的工地</a>
             <p class="text-center" style="font-size: 18px">我们通过标准工序，指导工人施工、自检，同时为管理人员检查提供依据，保障施工按质量完成</p>
             <div class="case_tab" data-example-id="togglable-tabs">
+
                 <div id="standTabContent" class="tab-content tabinfo">
 
-                    {volist name="procedure_list" id="procedure" key="k"}
-                    <div role="tabpanel" class="tab-pane fade in {eq name='$k' value='1'}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
-                        <div class="apply">
-                            <div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
-                                <div class="left_btn1"></div>
-                            </div>
-                            <div class="apply_nav pull-left" style="width: 880px;">
-                                <div class="apply_w pull-left">
-                                    {volist name="procedure.images" id="img"}
-                                    <div class="apply_array pull-left">
-                                        <div class="apply_img">
-                                            <img src="{$img}" class="img-responsive"/>
-                                        </div>
-                                    </div>
-                                    {/volist}
-                                    <div class="clearfix"></div>
+                    <div class="apply" style="position: relative">
+
+                        <div class="swiper-container" style="width:900px; height: 360px; margin-left: 5%;">
+                            <div class="swiper-wrapper">
+                                {volist name="procedure_image_list" id="img"}
+                                <div class="swiper-slide" style="width: 310px;">
+                                    <img src="{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
                                 </div>
+                                {/volist}
                             </div>
-                            <div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
-                                <div class="right_btn1"></div>
-                            </div>
-                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
+                            <div class="left_btn1"></div>
+                        </div>
+
+                        <div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
+                            <div class="right_btn1"></div>
                         </div>
                     </div>
-                    {/volist}
-                </div>
-                <div class="inner_info stand_tab">
-                    <div class="inner_info">
-                        <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist" style="display:flex;justify-content: center;">
-                            {volist name="procedure_list" id="procedure" key="k"}
-                            <li role="presentation" class="{eq name='$k' value='1'}active{/eq}">
-                                <span class="stand_icon">
-                                    <img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
-                                </span>
-                                <a onmouseover="$(this).click()" href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab" data-toggle="tab" aria-controls="prophase" aria-expanded="true" style="padding: 6px 10px;">{$procedure.name}</a>
-                            </li>
-                            {/volist}
-                        </ul>
-                    </div>
+
                 </div>
             </div>
+
+            <div class="inner_info stand_tab">
+                <div class="inner_info">
+                    <ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist"
+                        style="display:flex;justify-content: center;">
+                        {volist name="$procedure_title_list" id="title" key="k"}
+
+                        <li class="swiper_li_item" data_start="{$title.start}" data_end="{$title.end}">
+
+                            <span class="stand_icon">
+                                 <img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
+                            </span>
+
+                            <a class="switch_swiper_a"
+                               data_start="{$title.start}"
+                               href="#"
+                               class="select_tablink" id="prophase-tab"
+                               role="tab" data-toggle="tab"
+                               aria-controls="prophase"
+                               aria-expanded="true"
+                               style="padding: 6px 10px;">{$title.title}</a>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
         <div class="lis_offercost margin_t">
@@ -293,7 +321,8 @@
                             <ul id="realcaseTabs" class="nav nav-tabs" role="tablist">
                                 {volist name="live_cases_list" id="items"}
                                 <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
-                                    <a onmouseover="$(this).click()" href="#simplestyle{$key}" id="simplestyle-tab" role="tab" data-toggle="tab"
+                                    <a onmouseover="$(this).click()" href="#simplestyle{$key}" id="simplestyle-tab"
+                                       role="tab" data-toggle="tab"
                                        aria-controls="simplestyle" aria-expanded="true" style="padding: 10px 50px;">{$items.name}</a>
                                 </li>
                                 {/volist}
@@ -309,14 +338,16 @@
 
                 <div id="realcaseTabContent" class="tab-content tabinfo" style="height: 700;overflow:hidden;">
                     {volist name="live_cases_list" id="vo"}
-                    <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}" id="simplestyle{$key}"
+                    <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}"
+                         id="simplestyle{$key}"
                          aria-labelledby="simplestyle-tab">
                         <div class="row case_area">
                             <div class="col-xs-7 padding_c" style="height: 584.5px;overflow: hidden;">
                                 <div class="leftop_area">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img style="width: 100%;height: 370px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                            <img style="width: 100%;height: 370px;" src="{$vo.style['image']}"
+                                                 class="img-responsive center-block">
                                         </a>
                                     </div>
                                 </div>
@@ -326,7 +357,9 @@
                                         <div class="rel_leftbotleft">
                                             <div class="cart_img">
                                                 <a href="#">
-                                                    <img <img style="width: 100%;height: 200px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                                    <img <img style="width: 100%;height: 200px;"
+                                                              src="{$vo.style['image']}"
+                                                              class="img-responsive center-block">
                                                 </a>
                                             </div>
                                         </div>
@@ -335,7 +368,9 @@
                                         <div class="rel_leftbotrigh">
                                             <div class="cart_img">
                                                 <a href="#">
-                                                    <img <img style="width: 100%;height: 200px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                                    <img <img style="width: 100%;height: 200px;"
+                                                              src="{$vo.style['image']}"
+                                                              class="img-responsive center-block">
                                                 </a>
                                             </div>
                                         </div>
@@ -346,14 +381,16 @@
                                 <div class="rel_rightopimg">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img style="width: 100%;height: 285px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                            <img style="width: 100%;height: 285px;" src="{$vo.style['image']}"
+                                                 class="img-responsive center-block">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="rel_righbotimg">
                                     <div class="cart_img">
                                         <a href="#">
-                                            <img style="width: 100%;height: 285px;" src="{$vo.style['image']}" class="img-responsive center-block">
+                                            <img style="width: 100%;height: 285px;" src="{$vo.style['image']}"
+                                                 class="img-responsive center-block">
                                         </a>
                                     </div>
                                 </div>
@@ -504,34 +541,45 @@
         $(this).find('ul').hide();
     });
 
-    $(function () {
-        $li1 = $(".apply_nav .apply_array");
-        $window1 = $(".apply .apply_w");
-        $left1 = $(".apply .img_l");
-        $right1 = $(".apply .img_r");
-        $window1.css("width", $li1.length * 170);
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: '.apply .img_r',
+            prevEl: '.apply .img_l',
+        },
 
-        var lc1 = 0;
-        var rc1 = $li1.length - 6;
+        on: {
+            slideChangeTransitionEnd: function () {
+                changeItem(this.activeIndex);
+            },
 
-        $left1.click(function () {
-            if (lc1 < 1) {
-                return;
-            }
-            lc1--;
-            rc1++;
-            $window1.animate({left: '+=166px'}, 1000);
-        });
-
-        $right1.click(function () {
-            if (rc1 < 1) {
-                return;
-            }
-            lc1++;
-            rc1--;
-            $window1.animate({left: '-=166px'}, 1000);
-        });
-
+            init: function () {
+                changeItem(0);
+            },
+        },
     });
+
+    function changeItem(index) {
+        var list = $("#standTabs").find(".swiper_li_item");
+        for (var i = 0; i < list.length; i++) {
+
+            var startValue = list[i].getAttribute("data_start");
+            var endValue = list[i].getAttribute("data_end");
+
+            list[i].classList.remove("active");
+            if (startValue <= index && endValue > index) {
+                list[i].classList.add("active");
+            }
+        }
+    }
+
+
+    $(".switch_swiper_a").on("click", function () {
+        var startValue = $(this).attr("data_start");
+        swiper.slideTo(parseInt(startValue), 1000, false);
+    });
+
+
 </script>
 
