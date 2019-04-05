@@ -5,7 +5,7 @@
 <div style="overflow: hidden;">
     <div style="width: 1200px;margin: 0 auto;position: relative;z-index:999">
         <div class="ban_quote">
-            <div class="quote_area" style="padding-top: 10%;">
+            <div class="quote_area">
                 <h4 class="quote_title text-center">家装快速报价</h4>
                 <div class="quote_intro">
                     <p class="text-center">报价结果</p>
@@ -65,11 +65,10 @@
     <div style="z-index: -1" id="carousel1" class="carousel slide img-responsive center-block" data-ride="carousel">
         <ol class="carousel-indicators">
             {volist name="banner" key="k" id='b'}
-            <li data-target="#carousel1" data-slide-to="{$k}" class="lass=" item {eq name='$k' value='1' }active{
-            /eq}"></li>
+            <li data-target="#carousel1" data-slide-to="{$k}" class="lass {eq name='$k' value='1' }active{/eq}"></li>
             {/volist}
         </ol>
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner" role="listbox" >
             {volist name="banner" key="k" id='b'}
             <div class="item {eq name='$k' value='1'}active{/eq}">
                 <img src="{$b.image}" alt="">
@@ -77,7 +76,6 @@
             {/volist}
         </div>
     </div>
-
 </div>
 
 
@@ -175,14 +173,15 @@
                 </div>
             </div>
 
-            <div class="row" style="height: 462px;overflow:hidden;">
+            <div class="row" style="height: 462px;width:75%;overflow:hidden;">
                 {volist name="cases_lists" id='item'}
                 <div class="col-xs-4" style="padding-left:10px;padding-right:10px;">
                     <div class="goldcase_area">
                         <div class="gold_caselis text-center" style="margin-bottom: 30px">
                             <img src="{$item.image}" style="width:288px;height: 216px;">
                             <div class="gold-content">
-                                <a class="title" href=""><h5 class="title" style="padding-top: 0">{$item.name}</h5>
+                                <a class="title" href="/index/index/sjal_detail.html?detail_id={$item.id}">
+                                    <h5 class="title" style="padding-top: 0">{$item.name}</h5>
                                 </a>
                                 <ul class="goldcase_info">
                                     <li class="text-left">
@@ -220,17 +219,20 @@
             <div class="dynamic_area">
                 <div class="row" style="height: 380px;overflow: hidden;">
                     <div class="col-xs-5" style="padding-right: 0">
+                        {volist name="article_list" id='article'}
                         <div class="dynamic_lis" style="height: 400px;overflow:hidden;position: relative;">
-                            <a style="width: 100%" href="index/index/look_article_detail">
-                                <img style="height:100%;display: block;object-fit: cover;" src="/assets/img/frontend/dynamic_img.png" class="img-responsive center-block article_img">
+                            <a style="width: 100%" href="#">
+                                <img style="height:100%;display: block;object-fit: cover;" src="{$article.image}" class="img-responsive center-block article_img">
                             </a>
                         </div>
+                        {/volist}
                     </div>
                     <div class="col-xs-7">
                         {volist name="article_list" id='article'}
                         <div class="dynamic_lis dynamic_art" style="height: 83px;">
                             <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
-                            <h2 data-url="{$article.image}" data-id="{$article.id}" class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
+                            <h2 data-url="{$article.image}" data-id="{$article.id}"  class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
+                            <h2 data-url="{$article.image}" data-id="{$article.id}" data-href="/index/index/look_article_detail?id={$article.id}" class="margin_c" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
                                 <a href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
                                     {$article.desc}
                                 </a>
@@ -246,55 +248,57 @@
             <div class="chuntcase_lis">
                 <div class="case_list">
                     <div class="case_villa">
-                        <div class="culture_link">
+                        <div class="culture_link" onclick="window.location.href='/index/index/ppsl'">
                             <img src="/assets/img/frontend/culutre_link.png"
                                  class="img-responsive center-block culture_icon">
-                            <h4 class="text-center"><a href="#">岭&nbsp;艺&nbsp;文&nbsp;化</a></h4>
+                            <h4 class="text-center"><a href="/index/index/ppsl">岭&nbsp;艺&nbsp;文&nbsp;化</a></h4>
                         </div>
                     </div>
                 </div>
 
                 <div class="case_list">
                     <div class="case_villa">
-                        <div class="culture_link">
+                        <div class="culture_link" onclick="window.location.href='/index/index/zb'">
                             <img src="/assets/img/frontend/competitive_link.png"
                                  class="img-responsive center-block culture_icon">
-                            <h4 class="text-center"><a href="#">精&nbsp;品&nbsp;工&nbsp;地</a></h4>
+
+                            <h4 class="text-center"><a href="/index/index/zb">精&nbsp;品&nbsp;工&nbsp;地</a></h4>
                         </div>
                     </div>
                 </div>
 
                 <div class="case_list">
                     <div class="case_villa">
-                        <div class="culture_link">
+                        <div class="culture_link" onclick="window.location.href='/index/index/sjtd'">
                             <img src="/assets/img/frontend/team_link.png"
                                  class="img-responsive center-block culture_icon">
-                            <h4 class="text-center"><a href="sjtd.html">设&nbsp;计&nbsp;团&nbsp;队</a></h4>
+                            <h4 class="text-center"><a href="/index/index/sjtd">设&nbsp;计&nbsp;团&nbsp;队</a></h4>
                         </div>
                     </div>
                 </div>
 
                 <div class="case_list">
                     <div class="case_villa">
-                        <div class="culture_link">
+                        <div class="culture_link" onclick="window.location.href='/index/index/sjal0'">
                             <img src="/assets/img/frontend/720_link.png"
                                  class="img-responsive center-block culture_icon">
-                            <h4 class="text-center"><a href="#">720&nbsp;全&nbsp;景</a></h4>
+                            <h4 class="text-center"><a href="/index/index/sjal0">720&nbsp;全&nbsp;景</a></h4>
                         </div>
                     </div>
                 </div>
 
                 <div class="case_list">
                     <div class="case_villa">
-                        <div class="culture_link">
+                        <div class="culture_link" onclick="window.location.href='/index/index/zxhd'">
                             <img src="/assets/img/frontend/activity_link.png"
                                  class="img-responsive center-block culture_icon">
-                            <h4 class="text-center"><a href="tc.html">钜&nbsp;惠&nbsp;活&nbsp;动</a></h4>
+                            <h4 class="text-center"><a href="/index/index/zxhd">钜&nbsp;惠&nbsp;活&nbsp;动</a></h4>
                         </div>
                     </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
+
 
             <img src="/assets/img/frontend/Phone.png" class="img-responsive center-block" style="margin-top: 50px">
             <h3 class="text-center"><b>联系电话</b></h3>
@@ -394,11 +398,16 @@
     demo.onmouseout = function () {
         MyMar = setInterval(Marquee, speed)
     }
+
+
     $('.dynamic_art').hover(function () {
         var img = $(this).find('h2').attr('data-url');
+        var art_id = $(this).find("h2").attr("data-id");
         $('.article_img').attr('src', img);
-
+        $(".article_img").parent().attr("href", "/index/index/look_article_detail?id="+art_id);
     });
+
+
     /*********************信息滚动*************************/
     $(function () {
         $(".record_list").RollTitle({line: 1, speed: 800, timespan: 1});

@@ -146,7 +146,7 @@
                     </div>
                 </div>
 
-                <div id="meatrTabContent" style="width: 1194px;" class="tab-content tabinfo">
+                <div id="meatrTabContent" style="width: 1194px;height: 548px;overflow:hidden;" class="tab-content tabinfo">
                     {volist name="material_master_list" id="vo" key="key"}
                     <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
                         <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
@@ -159,7 +159,7 @@
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='0'}active{/eq}">
                                     <div class="material_area">
-                                        <img src="{$v}" class="img-responsive center-block">
+                                        <img style="width: 100%;height: 548px;" src="{$v}" class="img-responsive center-block">
                                     </div>
                                 </div>
                                 {/volist}
@@ -186,21 +186,19 @@
                     </ul>
                 </div>
 
-                <div id="admeatrTabContent" style="width: 1194px;" class="tab-content tabinfo">
+                <div id="admeatrTabContent" style="width: 1194px;height: 548px;overflow:hidden;" class="tab-content tabinfo">
                     {volist name="material_auxiliary_list" id="vo" key="key"}
-                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in " id="floor{$vo.id}" aria-labelledby="floor-tab">
-                        <div id="carousel-floor{$vo.id}" class="carousel slide carous_material" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="1"></li>
-                                <li data-target="#carousel-floor{$vo.id}" data-slide-to="2"></li>
+                    <div role="tabpanel" class="{eq name='$key' value='1'}active{/eq}  tab-pane fade in" id="floor{$vo.id}" aria-labelledby="floor-tab">
+                        <div id="carousel-floor{$vo.id}" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators" style="width:20%;left: 30%;">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner" role="listbox" style="cursor: pointer;">
+                            <div class="carousel-inner" role="listbox">
                                 {volist name="vo.images" id="v"}
-                                <div class="item {eq name='$key' value='0'}active{/eq}">
-                                    <div class="material_area">
-                                        <img src="{$v}" class="img-responsive center-block">
-                                    </div>
+                                <div class="item {eq name='$key' value='1'}active{/eq}" style="min-height: 650px;">
+                                    <img style="width: 100%;height: 548px;" src="{$v}" class="img-responsive center-block">
                                 </div>
                                 {/volist}
                             </div>

@@ -134,7 +134,7 @@ class Index extends Frontend
         $this->assign('material_master_list', $material_master_list);
         $this->assign('material_auxiliary_list', $material_auxiliary_list);
         // 客户见证
-        $witness_lists = Db::name('witness')->field('image')->select();
+        $witness_lists = Db::name('witness')->field('image')->where(['status' => 1])->select();
         $this->assign('witness_lists', $witness_lists);
 
         $this->assign('title', '个性家-岭艺装饰');
@@ -153,7 +153,7 @@ class Index extends Frontend
         $banner = Db::name('banner')->field('id,image')->where(['status' => 2])->find();
         $this->assign('banner', $banner);
         // 客户见证
-        $witness_lists = Db::name('witness')->field('image')->select();
+        $witness_lists = Db::name('witness')->field('image')->where(['status' => 1])->select();
         $this->assign('witness_lists', $witness_lists);
         // 主材
         $material_master_list = Db::name('Material')->where(['status' => 1])->limit(6)->select();
