@@ -171,7 +171,30 @@
 
 	</div>
 </div>
+<style>
+    .tel_show {
+        background-color: #fff;
+        position: relative;
+    }
 
+    .tel_show:before {
+        position: absolute;
+        left: -180px;
+        height: 60px;
+        width: 220px;
+        background-image: url('/assets/img/tel.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        content: "400-400-18878";
+        text-align: center;
+        color: #333;
+        font-size: 26px;
+        font-weight: bold;
+        line-height: 60px;
+        padding-right: 10px;
+    }
+</style>
 <div class="rightfix_bar" style="z-index: 1000;">
 	<ul class="list-unstyled">
 		<li><a href="#top"><img src="/assets/img/frontend/1.png" onmouseover="this.src='/assets/img/frontend/1_1.png'"
@@ -186,7 +209,8 @@
 		<li><a onclick="$('#chat').contents().find('#online_ervice').click()" href="javascript:void(0)"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
 							 onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
 		</li>
-		<li><a href="#"><img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
+		<li><a href="#" onmouseover="$(this).addClass('tel_show')" onmouseout="$(this).removeClass('tel_show')">
+            <img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
 							 onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block"></a>
 		</li>
 		<li><img style="z-index: 99999" width="150px" src="/assets/img/rightfix_ad.gif"
