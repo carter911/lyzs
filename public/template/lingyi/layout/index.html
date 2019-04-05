@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{$title|default=''}</title>
-	<link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
-	<link href="/assets/css/frontend/style.css" rel="stylesheet">
-	<link href="/assets/css/frontend/index.css" rel="stylesheet">
-	<link href="/assets/css/frontend/highend.css" rel="stylesheet">
-	<link href="/assets/css/frontend/personality.css" rel="stylesheet">
-	<link href="/assets/css/frontend/detail.css" rel="stylesheet">
-	<link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
-	<link href="/assets/css/frontend/ly_dialog_base.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$title|default=''}</title>
+    <link href="/assets/css/frontend/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/frontend/style.css" rel="stylesheet">
+    <link href="/assets/css/frontend/index.css" rel="stylesheet">
+    <link href="/assets/css/frontend/highend.css" rel="stylesheet">
+    <link href="/assets/css/frontend/personality.css" rel="stylesheet">
+    <link href="/assets/css/frontend/detail.css" rel="stylesheet">
+    <link href="/assets/css/frontend/contactselet.css" rel="stylesheet">
+    <link href="/assets/css/frontend/ly_dialog_base.css" rel="stylesheet">
 
-	<script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/js/frontend/current.js"></script>
-	<script type="text/javascript" src="/assets/js/frontend/recordRoll.js"></script>
-	<script src="/assets/js/frontend/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/frontend/current.js"></script>
+    <script type="text/javascript" src="/assets/js/frontend/recordRoll.js"></script>
+    <script src="/assets/js/frontend/bootstrap.min.js"></script>
 
-	<script src="/assets/js/frontend/ly_base.js"></script>
+    <script src="/assets/js/frontend/ly_base.js"></script>
 
 
 </head>
@@ -26,240 +26,273 @@
 <script type="text/javascript">document.write('<iframe style="position: fixed;bottom: 0;right: 0;z-index: 9999;display: none;" width="450" height="550" frameborder="0" scrolling="no" src="http://ly.e-shigong.com/addons/onlineservice/index/deploy?group_id=1"></iframe>')</script>
 <!-------------------------------顶部导航条------------------------------------------->
 <div class=" toparea" style="width: 1200px;margin: 0 auto;text-align: left">
-	<div class="col-xs-3" style="padding: 0px;">
-		<a style="padding: 0px;"  href="/index.html"> <img style="width: 245px;" height="55px" src="{$site.logo}" class="img-responsive"></a>
-	</div>
-	<div class="col-xs-6">
-		<form class="form-inline nav_searcharea">
-			<div class="form-group">
-				<div class="input-group">
-					<div style="padding: 0px 7px;"  class="input-group-addon padding_c addon_area addon_left ">
-						<select class="nav_select" style="background: none">
-							<option class="nav_option">案例</option>
-							<option class="nav_option">施工直播</option>
-							<option class="nav_option">设计师</option>
-							<option class="nav_option">活动资讯</option>
-							<option class="nav_option">最新活动</option>
-						</select>
-					</div>
-					<input type="text" class="form-control" id="nav_serarch" placeholder="关键词">
-					<div class="input-group-addon padding_c addon_area">
-						<button type="submit" class="btn btn-primary nav_searchbtn">搜索</button>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
+    <div class="col-xs-3" style="padding: 0px;">
+        <a style="padding: 0px;" href="/index.html"> <img style="width: 245px;" height="55px" src="{$site.logo}"
+                                                          class="img-responsive"></a>
+    </div>
+    <div class="col-xs-6">
+        <form class="form-inline nav_searcharea">
+            <div class="form-group">
+                <div class="input-group">
+                    <div style="padding: 0px 7px;" class="input-group-addon padding_c addon_area addon_left ">
+                        <select class="nav_select" style="background: none">
+                            <option class="nav_option">案例</option>
+                            <option class="nav_option">施工直播</option>
+                            <option class="nav_option">设计师</option>
+                            <option class="nav_option">活动资讯</option>
+                            <option class="nav_option">最新活动</option>
+                        </select>
+                    </div>
+                    <input type="text" class="form-control" id="nav_serarch" placeholder="关键词">
+                    <div class="input-group-addon padding_c addon_area">
+                        <button type="submit" class="btn btn-primary nav_searchbtn">搜索</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
-	<div class="col-xs-3 telecom_area">
-		<img src="/assets/img/frontend/telecom.jpg" class="img-responsive pull-left">
-		<h1 class="pull-left margin_c">{$site.telphone}</h1>
-		<div class="clearfix"></div>
-	</div>
+    <div class="col-xs-3 telecom_area">
+        <img src="/assets/img/frontend/telecom.jpg" class="img-responsive pull-left">
+        <h1 class="pull-left margin_c">{$site.telphone}</h1>
+        <div class="clearfix"></div>
+    </div>
 
-	<div class="clearfix"></div>
+    <div class="clearfix"></div>
 </div>
 
 <div class="top_nav">
-	<div class="nav_content text-center" style="width: 1200px;margin: 0 auto;text-align: left">
-		<ul class="list-inline margin_c">
-			{volist name='menu' id='m'}
-			{empty name="m.chid"}
-			<li	class="
-			{if condition="$m.url == $config.path"}active {else /}{/if}
-			"
-			><a href="{$m.url}">{$m.name}</a></li>
-			{else /}
-			<li  class="dropdown <?php $urls = array_column($m['chid'],'url'); if(in_array($config['path'],$urls)){echo 'active';}?>">
-				<a href="{$m.url}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-				   aria-haspopup="true" aria-expanded="false">{$m.name}</a>
-				<ul class="list-unstyled">
-					{volist name='m.chid' id='m1'}
-						<li><a href="{$m1.url}">{$m1.name}</a></li>
-					{/volist}
-				</ul>
-			</li>
-			{/empty}
+    <div class="nav_content text-center" style="width: 1200px;margin: 0 auto;text-align: left">
+        <ul class="list-inline margin_c">
+            {volist name='menu' id='m'}
+            {empty name="m.chid"}
+            <li class="
+			{if condition=" $m.url== $config.path
+            "}active {else /}{/if}
+            "
+            ><a href="{$m.url}">{$m.name}</a></li>
+            {else /}
+            <li class="dropdown <?php $urls = array_column($m['chid'],'url'); if(in_array($config['path'],$urls)){echo 'active';}?>">
+                <a href="{$m.url}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">{$m.name}</a>
+                <ul class="list-unstyled">
+                    {volist name='m.chid' id='m1'}
+                    <li><a href="{$m1.url}">{$m1.name}</a></li>
+                    {/volist}
+                </ul>
+            </li>
+            {/empty}
 
-			{/volist}
-			<!--<li><a href="/index/brandstr/index.html">品牌实力</a></li>-->
-			<!--<li><a href="personality.html">岭艺个性家</a></li>-->
-			<!--<li><a href="setmeal.html">套餐</a></li>-->
-			<!--<li><a href="highend.html">高端定制</a></li>-->
-			<!---->
-			<!--<li class="dropdown">-->
-				<!--<a href="realcase.html" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
-				   <!--aria-haspopup="true" aria-expanded="false">案例时光机</a>-->
-				<!--<ul class="list-unstyled">-->
-					<!--<li><a href="realcase.html">实景案例</a></li>-->
-					<!--<li><a href="panorama.html">设计案例</a></li>-->
-				<!--</ul>-->
-			<!--</li>-->
-			<!---->
-			<!--<li><a href="construction.html">施工直播</a></li>-->
-			<!--<li><a href="designgroup.html">设计团队</a></li>-->
-			<!---->
-			<!--<li class="dropdown">-->
-				<!--<a href="activity.html" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
-				   <!--aria-haspopup="true" aria-expanded="false">岭艺动态</a>-->
-				<!--<ul class="list-unstyled">-->
-					<!--<li><a href="activity.html" class="innlink">最新活动</a></li>-->
-					<!--<li><a href="install.html">家居资讯</a></li>-->
-				<!--</ul>-->
-			<!--</li>-->
-			<!--<li><a href="quality.html">售后保障</a></li>-->
-			<!--<li><a href="contact.html">联系我们</a></li>-->
+            {/volist}
+            <!--<li><a href="/index/brandstr/index.html">品牌实力</a></li>-->
+            <!--<li><a href="personality.html">岭艺个性家</a></li>-->
+            <!--<li><a href="setmeal.html">套餐</a></li>-->
+            <!--<li><a href="highend.html">高端定制</a></li>-->
+            <!---->
+            <!--<li class="dropdown">-->
+            <!--<a href="realcase.html" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+            <!--aria-haspopup="true" aria-expanded="false">案例时光机</a>-->
+            <!--<ul class="list-unstyled">-->
+            <!--<li><a href="realcase.html">实景案例</a></li>-->
+            <!--<li><a href="panorama.html">设计案例</a></li>-->
+            <!--</ul>-->
+            <!--</li>-->
+            <!---->
+            <!--<li><a href="construction.html">施工直播</a></li>-->
+            <!--<li><a href="designgroup.html">设计团队</a></li>-->
+            <!---->
+            <!--<li class="dropdown">-->
+            <!--<a href="activity.html" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+            <!--aria-haspopup="true" aria-expanded="false">岭艺动态</a>-->
+            <!--<ul class="list-unstyled">-->
+            <!--<li><a href="activity.html" class="innlink">最新活动</a></li>-->
+            <!--<li><a href="install.html">家居资讯</a></li>-->
+            <!--</ul>-->
+            <!--</li>-->
+            <!--<li><a href="quality.html">售后保障</a></li>-->
+            <!--<li><a href="contact.html">联系我们</a></li>-->
 
-		</ul>
-	</div>
+        </ul>
+    </div>
 
 </div>
 
 <!---------------------------------主体内容---------------------------------------------->
 <div>
-	{__CONTENT__}
+    {__CONTENT__}
 </div>
 
 
 <!----------------------------------固定区域--------------------------------------------->
 <div class="bot_scroll navbar-inverse container-fluid navbar-fixed-bottom">
-	<div class="container fix_content">
-		<div class="row">
-			<div class="col-xs-1">
-				<img src="/assets/img/frontend/bot_scro1.gif" class="img-responsive">
-			</div>
-			<div class="col-xs-8">
-				<form class="form-inline count_area row">
-					<div class="form-group col-xs-2">
-						<input name="name" value="" type="text" class="form-control" id="iptname" placeholder="请输入您的名字" style="width: 130px">
-					</div>
-					<div class="form-group col-xs-2">
-						<input name="mobile" value="" type="text" class="form-control" id="mobile" placeholder="手机号"
-							   style="width: 130px;margin-left: 8px">
-					</div>
-					<div class="form-group col-xs-2">
-						<input name="door"  value="" type="text" class="form-control pull-right" id="space" placeholder="房产证面积"
-							   style="width: 100px;margin-left: 10px;">
-					</div>
-					<div class="form-group col-xs-2">
-						<input name="area" value="" type="text" class="form-control" id="room" placeholder="输入数字"
-							   style="width: 78px;margin-left: 5px">
-						<label for="room" class="color_f" style="font-size: 18px">室</label>
-					</div>
-					<div class="form-group col-xs-2">
-						<input name="toilet" value="" type="text" class="form-control" id="toilet" placeholder="输入数字" style="width: 80px">
-						<label for="toilet" class="color_f" style="font-size: 18px">卫</label>
-					</div>
-					<div class="col-xs-2">
-						<button type="submit" class="btn search_btn sub_btn color_f"
-								style="border-radius: 4px;background-color: #0099DD">开始计算报价
-						</button>
-					</div>
+    <div class="container fix_content">
+        <div class="row">
+            <div class="col-xs-1">
+                <img src="/assets/img/frontend/bot_scro1.gif" class="img-responsive">
+            </div>
+            <div class="col-xs-8">
+                <form class="form-inline count_area row">
+                    <div class="form-group col-xs-2">
+                        <input name="name" value="" type="text" class="form-control" id="iptname" placeholder="请输入您的名字"
+                               style="width: 130px">
+                    </div>
+                    <div class="form-group col-xs-2">
+                        <input name="mobile" value="" type="text" class="form-control" id="mobile" placeholder="手机号"
+                               style="width: 130px;margin-left: 8px">
+                    </div>
+                    <div class="form-group col-xs-2">
+                        <input name="door" value="" type="text" class="form-control pull-right" id="space"
+                               placeholder="房产证面积"
+                               style="width: 100px;margin-left: 10px;">
+                    </div>
+                    <div class="form-group col-xs-2">
+                        <input name="area" value="" type="text" class="form-control" id="room" placeholder="输入数字"
+                               style="width: 78px;margin-left: 5px">
+                        <label for="room" class="color_f" style="font-size: 18px">室</label>
+                    </div>
+                    <div class="form-group col-xs-2">
+                        <input name="toilet" value="" type="text" class="form-control" id="toilet" placeholder="输入数字"
+                               style="width: 80px">
+                        <label for="toilet" class="color_f" style="font-size: 18px">卫</label>
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="submit" class="btn search_btn sub_btn color_f"
+                                style="border-radius: 4px;background-color: #0099DD">开始计算报价
+                        </button>
+                    </div>
 
-				</form>
-			</div>
-			<div class="col-xs-3">
-				<span style="font-size: 20px;color: #fff;line-height: 50px;">免费报价：{$site.telphone}</span>
-				<!--<img src="/assets/img/frontend/telimg.png" class="img-responsive telnum">-->
-			</div>
-		</div>
+                </form>
+            </div>
+            <div class="col-xs-3">
+                <span style="font-size: 20px;color: #fff;line-height: 50px;">免费报价：{$site.telphone}</span>
+                <!--<img src="/assets/img/frontend/telimg.png" class="img-responsive telnum">-->
+            </div>
+        </div>
 
-	</div>
+    </div>
 </div>
+<style>
+    .tel_show {
+        background-color: #fff;
+        position: relative;
+    }
 
+    .tel_show:before {
+        position: absolute;
+        left: -180px;
+        height: 60px;
+        width: 220px;
+        background-image: url('/assets/img/tel.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        content: "400-400-18878";
+        text-align: center;
+        color: #333;
+        font-size: 26px;
+        font-weight: bold;
+        line-height: 60px;
+        padding-right: 10px;
+    }
+</style>
 <div class="rightfix_bar">
-	<ul class="list-unstyled">
-		<li><a href="#top"><img src="/assets/img/frontend/1.png" onmouseover="this.src='/assets/img/frontend/1_1.png'"
-								onmouseout="this.src='/assets/img/frontend/1.png'" class="img-responsive center-block"></a>
-		</li>
-		<li><a href="#"><img src="/assets/img/frontend/2.png"
-							 onclick="showLyDialog('baojia')"
-							 onmouseover="this.src='/assets/img/frontend/2_2.png'"
-							 onmouseout="this.src='/assets/img/frontend/2.png'"
-							 class="img-responsive center-block"></a>
-		</li>
-		<li><a onclick="$('#chat').contents().find('#online_ervice').click()" href="javascript:void(0)"><img src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
-							 onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
-		</li>
-		<li><a href="#"><img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
-							 onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block"></a>
-		</li>
-		<li><img style="z-index: 99999" width="150px" src="/assets/img/rightfix_ad.gif"
-				 class="img-responsive center-block"></li>
-	</ul>
+    <ul class="list-unstyled">
+        <li><a href="#top"><img src="/assets/img/frontend/1.png" onmouseover="this.src='/assets/img/frontend/1_1.png'"
+                                onmouseout="this.src='/assets/img/frontend/1.png'" class="img-responsive center-block"></a>
+        </li>
+        <li><a href="#"><img src="/assets/img/frontend/2.png"
+                             onclick="showLyDialog('baojia')"
+                             onmouseover="this.src='/assets/img/frontend/2_2.png'"
+                             onmouseout="this.src='/assets/img/frontend/2.png'"
+                             class="img-responsive center-block"></a>
+        </li>
+        <li><a onclick="$('#chat').contents().find('#online_ervice').click()" href="javascript:void(0)"><img
+                src="/assets/img/frontend/3.png" onmouseover="this.src='/assets/img/frontend/3_3.png'"
+                onmouseout="this.src='/assets/img/frontend/3.png'" class="img-responsive center-block"></a>
+        </li>
+        <li>
+            <a href="#"  onmouseover="$(this).addClass('tel_show')" onmouseout="$(this).removeClass('tel_show')">
+                <img src="/assets/img/frontend/4.png" onmouseover="this.src='/assets/img/frontend/4_4.png'"
+                     onmouseout="this.src='/assets/img/frontend/4.png'" class="img-responsive center-block">
+            </a>
+        </li>
+        <li><img style="z-index: 99999" width="150px" src="/assets/img/rightfix_ad.gif"
+                 class="img-responsive center-block"></li>
+    </ul>
 </div>
 
 <!-----------------------------------底部导航------------------------------------->
 <div id="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-3">
-				<h4>关于岭艺装饰</h4>
-				<div class="row">
-					<div class="col-xs-6">
-						<ul>
-							<li class="listnon"><a href="#gsje">公司简介</a></li>
-							<li class="listnon"><a href="ppsl">品牌实力</a></li>
-							<li class="listnon"><a href="#lydt">岭艺动态</a></li>
-							<li class="listnon"><a href="#zpxx">招聘信息</a></li>
-						</ul>
-					</div>
-					<div class="col-xs-6">
-						<ul>
-							<li class="listnon"><a href="gxj">岭艺个性家</a></li>
-							<li class="listnon"><a href="tc">598乐享温馨家</a></li>
-							<li class="listnon"><a href="zxhd">最新活动</a></li>
-							<li class="listnon"><a href="lxwm">联系我们</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-4">
-				<div class="row">
-					<div class="col-xs-4">
-						<h4>施工直播</h4>
-						<ul>
-							<li class="listnon"><a href="#">精选案例</a></li>
-							<li class="listnon"><a href="#">全景案例</a></li>
-						</ul>
-					</div>
-					<div class="col-xs-8">
-						<h4>为您推荐</h4>
-						<a href="#"><img src="/assets/img/frontend/fotad.jpg" class="img-responsive"></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-3">
-				<h4>在线预约尊享贵宾体验</h4>
-				<form class="customer1">
-					<div class="form-group">
-						<input name="name" value="" type="text" class="form-control" id="username" placeholder="联系人">
-					</div>
-					<div class="form-group">
-						<input name="mobile" value=""  type="text" class="form-control" id="userphone" placeholder="联系电话">
-					</div>
-					<button  type="submit" class="btn btn-default color_f search_btn sub_btn foot_sechbtn">提交</button>
-				</form>
-				<p>已有<span class="spenumber"><b>{$config.customer_count}</b></span>位业主预约</p>
-			</div>
-			<div class="col-xs-2">
-				<h4>关注我们</h4>
-				<img src="/assets/img/frontend/copcode.jpg" class="img-responsive">
-			</div>
-		</div>
-		<hr/>
-		<div class="link_area">
-			<ul class="list-inline">
-				<li><h4>友情链接</h4></li>
-				{volist name="config.link" id='link'}
-					<li class="listnon"><a target="_blank" href="{$link.link}">{$link.name}</a></li>
-				{/volist}
-			</ul>
-			<p style="text-align: center">
-				<small>{$site.name}&nbsp;&nbsp;备案号&nbsp;&nbsp;&nbsp;&nbsp;{$site.beian}</small>
-			</p>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                <h4>关于岭艺装饰</h4>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <ul>
+                            <li class="listnon"><a href="#gsje">公司简介</a></li>
+                            <li class="listnon"><a href="ppsl">品牌实力</a></li>
+                            <li class="listnon"><a href="#lydt">岭艺动态</a></li>
+                            <li class="listnon"><a href="#zpxx">招聘信息</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6">
+                        <ul>
+                            <li class="listnon"><a href="gxj">岭艺个性家</a></li>
+                            <li class="listnon"><a href="tc">598乐享温馨家</a></li>
+                            <li class="listnon"><a href="zxhd">最新活动</a></li>
+                            <li class="listnon"><a href="lxwm">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <h4>施工直播</h4>
+                        <ul>
+                            <li class="listnon"><a href="#">精选案例</a></li>
+                            <li class="listnon"><a href="#">全景案例</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-8">
+                        <h4>为您推荐</h4>
+                        <a href="#"><img src="/assets/img/frontend/fotad.jpg" class="img-responsive"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <h4>在线预约尊享贵宾体验</h4>
+                <form class="customer1">
+                    <div class="form-group">
+                        <input name="name" value="" type="text" class="form-control" id="username" placeholder="联系人">
+                    </div>
+                    <div class="form-group">
+                        <input name="mobile" value="" type="text" class="form-control" id="userphone"
+                               placeholder="联系电话">
+                    </div>
+                    <button type="submit" class="btn btn-default color_f search_btn sub_btn foot_sechbtn">提交</button>
+                </form>
+                <p>已有<span class="spenumber"><b>{$config.customer_count}</b></span>位业主预约</p>
+            </div>
+            <div class="col-xs-2">
+                <h4>关注我们</h4>
+                <img src="/assets/img/frontend/copcode.jpg" class="img-responsive">
+            </div>
+        </div>
+        <hr/>
+        <div class="link_area">
+            <ul class="list-inline">
+                <li><h4>友情链接</h4></li>
+                {volist name="config.link" id='link'}
+                <li class="listnon"><a target="_blank" href="{$link.link}">{$link.name}</a></li>
+                {/volist}
+            </ul>
+            <p style="text-align: center">
+                <small>{$site.name}&nbsp;&nbsp;备案号&nbsp;&nbsp;&nbsp;&nbsp;{$site.beian}</small>
+            </p>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -274,18 +307,18 @@
         $(this).find('ul').hide();
     });
 
-    $(".count_area,.customer1,.customer").submit(function(){
+    $(".count_area,.customer1,.customer").submit(function () {
         $.ajax({
-			url:'/index/customer/store',
-			type:'post',
-			data:$(this).serializeArray(),
-			dataType:'json',
-			success:function(data){
+            url: '/index/customer/store',
+            type: 'post',
+            data: $(this).serializeArray(),
+            dataType: 'json',
+            success: function (data) {
                 alert(data.msg);
-			}
-		})
-       return false;
-	});
+            }
+        })
+        return false;
+    });
 </script>
 </body>
 </html>

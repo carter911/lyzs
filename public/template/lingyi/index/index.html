@@ -176,6 +176,7 @@
             <div class="row" style="height: 462px;width:75%;overflow:hidden;">
                 {volist name="cases_lists" id='item'}
                 <div class="col-xs-4" style="padding-left:10px;padding-right:10px;">
+                <a class="title" href="/index/index/sjal_detail.html?detail_id={$item.id}">
                     <div class="goldcase_area">
                         <div class="gold_caselis text-center" style="margin-bottom: 30px">
                             <img src="{$item.image}" style="width:288px;height: 216px;">
@@ -204,6 +205,7 @@
                             </div>
                         </div>
                     </div>
+                </a>
                 </div>
                 {/volist}
             </div>
