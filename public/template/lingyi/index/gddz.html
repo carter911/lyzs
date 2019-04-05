@@ -4,20 +4,20 @@
 <link href="/assets/css/frontend/setmeal.css" rel="stylesheet">
 <link href="/assets/css/frontend/highend.css" rel="stylesheet">
 <link href="/assets/css/frontend/ly_dialog_base.css" rel="stylesheet">
+<link href="/assets/css/frontend/swiper.min.css" rel="stylesheet">
 
 <script src="/assets/js/frontend/ly_base.js"></script>
+<script src="/assets/js/frontend/swiper.min.js"></script>
 
 <style >
 	.apply .img_l {
 		cursor: pointer;
 		margin-right: 50px;
-		margin-top: 120px;
 	}
 
 	.apply .img_r {
 		cursor: pointer;
 		margin-left: 50px;
-		margin-top: 120px;
 	}
 
 	.nav-tabs {
@@ -181,40 +181,50 @@
 			<div class="case_tab" data-example-id="togglable-tabs">
 				<div id="standTabContent" class="tab-content tabinfo">
 
-					{volist name="procedure_list" id="procedure" key="key"}
-					<div  role="tabpanel" class="tab-pane fade in {eq name="key" value="1"}active{/eq}" id="procedure{$procedure.id}" aria-labelledby="prophase-tab">
-						<div class="apply">
-							<div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
-								<div class="left_btn1"></div>
-							</div>
-							<div class="apply_nav pull-left">
-								<div class="apply_w pull-left" style="left:-50px;">
-									{volist name="procedure.images" id="img"}
-									<div class="apply_array pull-left">
-										<div class="apply_img"><img src="{$img}" class="img-responsive"/></div>
-									</div>
-									{/volist}
-									<div class="clearfix"></div>
+					<div class="apply" style="position: relative">
+
+						<div class="swiper-container" style="width:900px; height: 360px; margin-left: 5%;">
+							<div class="swiper-wrapper">
+								{volist name="procedure_image_list" id="img"}
+								<div class="swiper-slide" style="width: 310px;">
+									<img src="{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
 								</div>
+								{/volist}
 							</div>
-							<div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
-								<div class="right_btn1"></div>
-							</div>
-							<div class="clearfix"></div>
+						</div>
+
+						<div class="img_l pull-left apply_left_img" style="margin-right: 15px;">
+							<div class="left_btn1"></div>
+						</div>
+
+						<div class="img_r pull-right apply_right_img" style="margin-left: 15px;">
+							<div class="right_btn1"></div>
 						</div>
 					</div>
-					{/volist}
+
 				</div>
+
 
 				<div class="inner_info stand_tab">
 					<div class="inner_info">
-						<ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist">
-							{volist name="procedure_list" id="procedure" key="key"}
-							<li role="presentation" class="{eq name='key' value='1'}active{/eq}">
-								<span class="stand_icon">
-									<img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
-								</span>
-								<a href="#procedure{$procedure.id}" class="select_tablink" id="prophase-tab" role="tab" data-toggle="tab" aria-controls="prophase" aria-expanded="true" style="padding: 6px 10px;">{$procedure.name}</a>
+						<ul id="standTabs" class="nav nav-tabs standlis_tab" role="tablist"
+							style="display:flex;justify-content: center;">
+							{volist name="$procedure_title_list" id="title" key="k"}
+
+							<li class="swiper_li_item" data_start="{$title.start}" data_end="{$title.end}">
+
+                            <span class="stand_icon">
+                                 <img src="/assets/img/frontend/stand_icon.jpg" class="img-responsive center-block">
+                            </span>
+
+								<a class="switch_swiper_a"
+								   data_start="{$title.start}"
+								   href="#"
+								   class="select_tablink" id="prophase-tab"
+								   role="tab" data-toggle="tab"
+								   aria-controls="prophase"
+								   aria-expanded="true"
+								   style="padding: 6px 10px;">{$title.title}</a>
 							</li>
 							{/volist}
 						</ul>
@@ -311,34 +321,44 @@
         $(this).find('ul').hide();
     });
 
-    $(function(){
-        $li1 = $(".apply_nav .apply_array");
-        $window1 = $(".apply .apply_w");
-        $left1 = $(".apply .img_l");
-        $right1 = $(".apply .img_r");
-        $window1.css("width", $li1.length*170);
 
-        var lc1 = 0;
-        var rc1 = $li1.length-6;
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: '.apply .img_r',
+            prevEl: '.apply .img_l',
+        },
 
-        $left1.click(function(){
-            if (lc1 < 1) {
-                return;
-            }
-            lc1--;
-            rc1++;
-            $window1.animate({left:'+=166px'}, 1000);
-        });
+        on: {
+            slideChangeTransitionEnd: function () {
+                changeItem(this.activeIndex);
+            },
 
-        $right1.click(function(){
-            if (rc1 < 1){
-                return;
-            }
-            lc1++;
-            rc1--;
-            $window1.animate({left:'-=166px'}, 1000);
-        });
-
+            init: function () {
+                changeItem(0);
+            },
+        },
     });
+
+    function changeItem(index) {
+        var list = $("#standTabs").find(".swiper_li_item");
+        for (var i = 0; i < list.length; i++) {
+
+            var startValue = list[i].getAttribute("data_start");
+            var endValue = list[i].getAttribute("data_end");
+
+            list[i].classList.remove("active");
+            if (startValue <= index && endValue > index) {
+                list[i].classList.add("active");
+            }
+        }
+    }
+
+    $(".switch_swiper_a").on("click", function () {
+        var startValue = $(this).attr("data_start");
+        swiper.slideTo(parseInt(startValue), 1000, false);
+    });
+
 </script>
 
