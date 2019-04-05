@@ -388,7 +388,7 @@ class Index extends Frontend
 		}
 
 		if(isset($param['rate']) && !empty($param['rate'])){
-
+			$where['circle_name'] = ['like','%'.$param['rate'].'%'];
 		}else{
 			$param['rate'] ='';
 		}
@@ -414,7 +414,7 @@ class Index extends Frontend
 		$list = Db::name('project')->where($where)->limit($pageStart,20)->order($order)->select();
 		foreach ($list as $key =>$val){
 			$list[$key]['circle'] = json_decode($val['circle'],true);
-			$list[$key]['image'] = json_decode($val['image'],true);
+			$list[$key]['image'] = array_slice(json_decode($val['image'],true),0,6);
 		}
 
 		$area = Db::name('area')->where(['parent_id'=>24])->select();

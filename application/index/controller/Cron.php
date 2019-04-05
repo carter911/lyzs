@@ -52,7 +52,7 @@ class Cron extends Controller
 				'circle'=> json_encode($val['circle']),
 				'task'=> json_encode($val['task']),
 				'image'=>json_encode($val['images_list']),
-//				'status'=>$val['id'],
+				'circle_name'=>$val['circle_name'],
 //				'type'=>$val['id'],
 //				'area'=>$val['id'],
 				'look_num'=>rand(1,100),

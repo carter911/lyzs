@@ -70,16 +70,14 @@
     </div>
 
     <div id="carousel1" class="carousel slide img-responsive center-block cur-left" data-ride="carousel">
-
         <div class="swiper-container" style="width:100%; height: auto;">
             <div class="swiper-wrapper">
                 {volist name="banner" key="k" id='b'}
                 <div class="swiper-slide ">
-                    <img src="{$b.image}" class="banner_image img-responsive" style="width: 100%;"/>
+                    <img src="{$site.cdnurl}{$b.image}" class="banner_image img-responsive" style="width: 100%;"/>
                 </div>
                 {/volist}
             </div>
-
             <div class="swiper-pagination"></div>
         </div>
     </div>
