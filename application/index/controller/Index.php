@@ -26,7 +26,6 @@ class Index extends Frontend
         parent::_initialize();
         $this->article = new Articles;
         $this->cases = new Cases;
-
     }
 
     public function index()
@@ -44,10 +43,10 @@ class Index extends Frontend
             $customer_list[$key]['createtime'] = date("m/d", $val['createtime']);
         }
         // 团队banner
-        $team_img = Db::name('team')->limit(10)->order('id desc')->select();
+        $team_img = Db::name('team')->limit(10)->order('id desc')->where(['is_home'=>1])->select();
         // 团队案例
         $casesModel = new Cases();
-        $casesObj = $casesModel->limit(6)->order('id desc')->select();
+        $casesObj = $casesModel->limit(6)->order('id desc')->where(['is_home'=>1])->select();
         $cases_lists = $casesObj/*$casesObj->toArray()*/
         ;
         foreach ($cases_lists as $key => $val) {
@@ -73,7 +72,7 @@ class Index extends Frontend
         // 客户见证
         $witness_lists = Db::name('witness')->where(['status' => 1])->limit(50)->select();
         // 最新活动
-        $article_list = Db::name('articles')->where(['status' => 1])->limit(4)->select();
+        $article_list = Db::name('articles')->where(['status' => 1,'is_home'=>1])->limit(4)->order('id desc')->select();
         $this->assign("article_list", $article_list);
 
         $this->assign('witness_lists', $witness_lists);
@@ -141,7 +140,7 @@ class Index extends Frontend
 
 
         //典型案例介绍
-        $caseList = $this->cases->queryAllKindStyleCases();
+        $caseList = $this->cases->queryAllKindStyleCases(['is_gxj'=>1]);
         $this->assign("caseList", $caseList);
 
         return $this->view->fetch('gxj');
@@ -198,10 +197,10 @@ class Index extends Frontend
     public function gddz()
     {
         // 我们的团队
-        $me_team_list = Db::name('team')->field("id,name,image,work_name,content")->limit(4)->order('id asc')->select();
+        $me_team_list = Db::name('team')->field("id,name,image,work_name,content")->where(['is_gddz'=>1])->limit(4)->order('id desc')->select();
         $this->assign('me_team_list', $me_team_list);
         // 案例  品质境界即刻体验
-        $cases_list = Db::name('cases')->field("id,name,image,team_door_ids")->limit(5)->order('id desc')->select();
+        $cases_list = Db::name('cases')->field("id,name,image,team_door_ids,xq_name")->where(['is_gddz'=>1])->limit(5)->order('id desc')->select();
         foreach ($cases_list as $key => $val) {
             $tmp_team_door_ids = substr($val['team_door_ids'], -1);
             $team_door_name = Db::name('team_door')->field('name')->where(['id' => $tmp_team_door_ids])->find();
@@ -209,7 +208,7 @@ class Index extends Frontend
         }
 
         $this->assign('cases_list', $cases_list);
-        $butler_list = Db::name('butler')->limit(8)->select();
+        $butler_list = Db::name('butler')->limit(8)->where(['is_gdzd'=>1])->select();
         foreach ($butler_list as $key => $val) {
             $cases = Db::name('cases')->field('name')->where(['butler_id' => $val['id']])->limit(4)->select();
             $butler_list[$key]['cases'] = $cases;
@@ -343,16 +342,88 @@ class Index extends Frontend
     }
 
     //直播
-    public function zb()
+    public function zb(Request $request)
     {
         $this->assign('title', '首页-直播');
-        return $this->view->fetch("zb");
+		$param = $request->param();
+		$where = [];
+		if(isset($param['city_name']) && !empty($param['city_name'])){
+			if($param['city_name'] == 'other'){
+				$where['city_name'] = ['eq',''];
+			}else{
+				$where['city_name'] = ['like','%'.$param['city_name'].'%'];
+			}
+		}else{
+			$param['city_name'] ='';
+		}
+
+		if(isset($param['rate']) && !empty($param['rate'])){
+
+		}else{
+			$param['rate'] ='';
+		}
+
+		$order = 'id desc';
+		if(isset($param['sort']) && !empty($param['sort'])){
+			if(intval($param['sort']) ==1){
+				$order = 'look_num desc';
+			}else if(intval($param['sort']) ==2){
+				$order = 'id desc';
+			}
+
+		}else{
+			$param['sort'] =0;
+		}
+		if(empty($param['pageSize'])){
+			$param['pageSize'] = 1;
+		}
+		$pageStart = intval(intval($param['pageSize'])-1)*20;
+
+
+		$count = Db::name('project')->where($where)->count();
+		$list = Db::name('project')->where($where)->limit($pageStart,20)->order($order)->select();
+		foreach ($list as $key =>$val){
+			$list[$key]['circle'] = json_decode($val['circle'],true);
+			$list[$key]['image'] = json_decode($val['image'],true);
+		}
+
+		$area = Db::name('area')->where(['parent_id'=>24])->select();
+		$circle = Db::name('project_circle')->select();
+
+
+
+		$this->assign('area', $area);
+		$this->assign('list', $list);
+		$this->assign('count', $count);
+		$this->assign('pageNum', ceil($count/20));
+		$this->assign('pageSize', $param['pageSize']);
+		$this->assign('param', $param);
+		$this->assign('circle', $circle);
+
+		return $this->view->fetch("zb");
     }
 
     //直播详情
-    public function zb_detail($detail_id)
+    public function zb_detail(Request $request)
     {
+		$id = $request->get('detail_id');
         $this->assign('title', '直播详情');
+		Db::name('project')->where('id',$id)->setInc('look_num');
+		$info = Db::name('project')->where('id',$id)->find();
+		$info['circle'] = json_decode($info['circle'],true);
+		$info['task'] = json_decode($info['task'],true);
+		$info['image'] = json_decode($info['image'],true);
+
+		foreach ($info['image'] as $key => $val){
+			if(empty($val)){
+				unset($info['image'][$key]);
+			}
+		}
+		$next = Db::name('project')->where(['id'=>['gt',$id]])->find();
+		$pre = Db::name('project')->where(['id'=>['lt',$id]])->find();
+		$this->assign('next', $next);
+		$this->assign('pre', $pre);
+		$this->assign('info', $info);
         return $this->view->fetch("zb_detail");
     }
 
@@ -446,7 +517,8 @@ class Index extends Frontend
         $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle);
         $this->assign("caseResult", $caseResult);
         $this->assign("caseResultSize", sizeof($caseResult));
-
+		$video = DB::name("cases_video")->limit(4)->select();
+		$this->assign("video", $video);
         return $this->view->fetch('sjal');
     }
 

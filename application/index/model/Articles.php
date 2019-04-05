@@ -18,7 +18,7 @@ class Articles extends Model
     public function get_article_list($pageIndex = 1, $status=1)
     {
         $pageIndex = $pageIndex - 1 < 0 ? 0 : $pageIndex - 1;
-        return $this->where(["status" => $status])->limit($pageIndex * Articles::PAGE_SIZE, Articles::PAGE_SIZE)->field(["id", "title", "desc", "image", "createtime"])->select();
+        return $this->where(["status" => $status])->limit($pageIndex * Articles::PAGE_SIZE, Articles::PAGE_SIZE)->field(["id", "title", "desc", "image", "createtime"])->order('id desc')->select();
     }
 
 

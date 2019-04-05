@@ -29,12 +29,17 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'title', title: __('Title')},
                         {field: 'desc', title: __('Desc'),cellStyle: function () {return {css: {"max-width": "300px",'overflow':'hidden'}}}},
                         {field: 'image', title: __('Image'), formatter: Table.api.formatter.image},
-                        {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange'},
-                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange'},
-                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate,cellStyle: function () {return {css: {"max-width": "300px",'overflow':'hidden'}}}}
+                        {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
+                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
+                        {field: 'readcount', title: __('Readcount')},
+                        {field: 'articlesource', title: __('Articlesource')},
+                        {field: 'is_home', title: __('Is_home'), searchList: {"1":__('Is_home 1'),"2":__('Is_home 2')}, formatter: Table.api.formatter.normal},
+                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]
             });
+
+            
             // 绑定TAB事件
             $('.panel-heading a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 var field = $(this).closest("ul").data("field");

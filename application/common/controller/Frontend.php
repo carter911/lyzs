@@ -103,6 +103,7 @@ class Frontend extends Controller
 		$menu_list = array_values($menu_list);
 		$link          = Db::name('Link')->order('weigh desc')->select();
 		$cusomer_count = Db::name('customer')->count();
+		$num = intval((time()-strtotime('2019-01-01'))/(3600*36));
 		// 配置信息
 		$config = [
 			'site'           => array_intersect_key($site, array_flip(['name', 'cdnurl', 'version', 'timezone', 'languages', 'beian', 'telphone', 'logo'])),
@@ -115,12 +116,19 @@ class Frontend extends Controller
 			'moduleurl'      => rtrim(url("/{$modulename}", '', false), '/'),
 			'language'       => $lang,
 			'link'           => $link,
-			'customer_count' => $cusomer_count+500
+			'customer_count' => $cusomer_count+500+$num
 		];
+
 		$config = array_merge($config, Config::get("view_replace_str"));
 
 		Config::set('upload', array_merge(Config::get('upload'), $upload));
 
+		$result = $this->search_word_from();
+		if(!empty($result['form'])){
+			session('form',$result);
+		}else{
+			session('form',[]);
+		}
 		// 配置信息后
 		Hook::listen("config_init", $config);
 		// 加载当前控制器语言包
@@ -147,6 +155,38 @@ class Frontend extends Controller
 	protected function assignconfig($name, $value = '')
 	{
 		$this->view->config = array_merge($this->view->config ? $this->view->config : [], is_array($name) ? $name : [$name => $value]);
+	}
+
+
+
+	public function search_word_from() {
+		$referer = isset($_SERVER['HTTP_REFERER'])?$_SERVER['HTTP_REFERER']:'';
+		if(strstr( $referer, 'baidu.com')){ //百度
+			preg_match( "|baidu.+wo?r?d=([^\\&]*)|is", $referer, $tmp );
+			$keyword = urldecode( $tmp[1] );
+			$from = 'baidu';
+    	}elseif(strstr( $referer, 'google.com') or strstr( $referer, 'google.cn')){ //谷歌
+			preg_match( "|google.+q=([^\\&]*)|is", $referer, $tmp );
+			$keyword = urldecode( $tmp[1] );
+			$from = 'google';
+		}elseif(strstr( $referer, 'so.com')){ //360搜索
+			preg_match( "|so.+q=([^\\&]*)|is", $referer, $tmp );
+			$keyword = urldecode( $tmp[1] );
+			$from = '360';
+		}elseif(strstr( $referer, 'sogou.com')){ //搜狗
+			preg_match( "|sogou.com.+query=([^\\&]*)|is", $referer, $tmp );
+			$keyword = urldecode( $tmp[1] );
+			$from = 'sogou';
+		}elseif(strstr( $referer, 'soso.com')){ //搜搜
+			preg_match( "|soso.com.+w=([^\\&]*)|is", $referer, $tmp );
+			$keyword = urldecode( $tmp[1] );
+			$from = 'soso';
+		}else {
+			$keyword ='';
+			$from = '';
+		}
+
+		return array('keyword'=>$keyword,'from'=>$from);
 	}
 
 }

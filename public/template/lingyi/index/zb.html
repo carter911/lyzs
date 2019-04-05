@@ -119,102 +119,120 @@
             <dl class="cation-list">
                 <dt class="select_title text-center">装修进度</dt>
                 <dd>
-                    <a href="#" rel="" name="style" class="all on">全部</a>
-                    <a href="#" rel="开工大吉" name="style" class="default">开工大吉</a>
-                    <a href="#" rel="前期施工" name="style" class="default">前期施工</a>
-                    <a href="#" rel="中期施工" name="style" class="default">中期施工</a>
-                    <a href="#" rel="尾期施工" name="style" class="default">尾期施工</a>
-                    <a href="#" rel="竣工" name="style" class="default">竣工</a>
+                    <a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize=1" rel="" name="time" class="all {eq name='param.rate' value=''}on{/eq}">全部</a>
+                    {volist name='circle' id='c'}
+                    <a href="/index/index/zb?rate={$c.name}&city_name={$param.city_name}&sort={$param.sort}&pageSize=1"  name="time" class="default {eq name='param.rate' value='$c.name'}on{/eq}">{$c.name}</a>
+    
+                    {/volist}
+                    
                 </dd>
             </dl>
             <dl class="cation-list">
                 <dt class="select_title text-center">所在区域</dt>
                 <dd>
-                    <a href="#" rel="" name="time" class="all on">全部</a>
-                    <a href="#" rel="松江区" name="time" class="default">松江区</a>
-                    <a href="#" rel="金山区" name="time" class="default">金山区</a>
-                    <a href="#" rel="浦东新区" name="time" class="default">浦东新区</a>
-                    <a href="#" rel="奉贤区" name="time" class="default">奉贤区</a>
-                    <a href="#" rel="其他区域" name="time" class="default">其他区域</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=&sort={$param.sort}&pageSize=1" rel="" name="time" class="all {eq name='param.city_name' value=''}on{/eq}">全部</a>
+                    <!--{volist name='area' id='a'}-->
+                    <!--<a href="/index/index/zb?rate={$param.sort}&city_name={$a.code}&sort={$param.sort}" rel="金山区" name="time" class="default {eq name='param.city_name' value='a.code'}on{/eq}">{$a.name}</a>-->
+                    <!--{/volist}-->
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=松江区&sort={$param.sort}&pageSize=1" rel="松江区" name="time" class="default {eq name='param.city_name' value='松江区'}on{/eq}">松江区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=金山区&sort={$param.sort}&pageSize=1" rel="金山区" name="time" class="default {eq name='param.city_name' value='金山区'}on{/eq}">金山区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=浦东新区&sort={$param.sort}&pageSize=1" rel="浦东新区" name="time" class="default {eq name='param.city_name' value='浦东新区'}on{/eq}">浦东新区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=奉贤区&sort={$param.sort}&pageSize=1" rel="奉贤区" name="time" class="default {eq name='param.city_name' value='奉贤区'}on{/eq}">奉贤区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=闵行区&sort={$param.sort}&pageSize=1" rel="闵行区" name="time" class="default {eq name='param.city_name' value='闵行区'}on{/eq}">闵行区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=other&sort=0&pageSize=1" rel="其他区域" name="time" class="default {eq name='param.city_name' value='other'}on{/eq}">其他区域</a>
                 </dd>
             </dl>
             <dl class="cation-list">
                 <dt class="select_title text-center" style="border-bottom: none">进一步筛选</dt>
                 <dd style="border-bottom: none">
-                    <a href="#" rel="" name="sex" class="all on">全部</a>
-                    <a href="#" rel="最近" name="sex" class="default">最近</a>
-                    <a href="#" rel="最新" name="sex" class="default">最新</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name={$param.city_name}&sort=0&pageSize=1" rel="" name="sex" class="all {eq name='param.sort' value='0'}on{/eq}">全部</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name={$param.city_name}&sort=1&pageSize=1" rel='最热' name="sex" class="default {eq name='param.sort' value='1'}on{/eq}">最热</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name={$param.city_name}&sort=2&pageSize=1" rel="最新" name="sex" class="default {eq name='param.sort' value='2'}on{/eq}">最新</a>
                 </dd>
             </dl>
         </div>
     </div>
 
     <div class="contruction_area">
+      
+        {volist name='list' id='project'}
         <div class="row">
             <div class="col-xs-4">
                 <div class="row construction_lis margin_c">
+                    {empty name ='project.image'}
                     <div class="col-xs-4 padding_c">
                         <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img01.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img02.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img03.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img04.jpg" class="img-responsive center-block">
+                            <img src="/assets/img/frontend/task_default.png" class="img-responsive center-block">
                         </div>
                     </div>
                     <div class="col-xs-4 padding_c">
                         <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img05.jpg" class="img-responsive center-block">
+                            <img src="/assets/img/frontend/task_default.png" class="img-responsive center-block">
                         </div>
                     </div>
                     <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img06.jpg" class="img-responsive center-block">
+                        <div class="work_area const_img">
+                            <img src="/assets/img/frontend/task_default.png" class="img-responsive center-block">
                         </div>
                     </div>
+                    <div class="col-xs-12" style="margin-bottom: 2px;">
+                    
+                    </div>
+                    <div class="col-xs-4 padding_c">
+                        <div class="work_area const_img">
+                            <img src="/assets/img/frontend/task_default.png" class="img-responsive center-block">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 padding_c">
+                        <div class="work_area const_img">
+                            <img src="/assets/img/frontend/task_default.png" class="img-responsive center-block">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 padding_c">
+                        <div class="work_area const_img">
+                            <img src="/assets/img/frontend/task_default.png" class="img-responsive center-block">
+                        </div>
+                    </div>
+                    {/empty}
+                    {notempty name ='project.image'}
+                    
+                    {volist name='project.image' id='img'}
+                        <div class="col-xs-4 padding_c" style="margin-bottom: 3px;">
+                            <div class="work_area const_img">
+                                <img style="width: 100%;height: 130px;object-fit:cover" src="{$img}" class="img-responsive center-block">
+                            </div>
+                        </div>
+                    {/volist}
+                    {/notempty}
                 </div>
             </div>
             <div class="col-xs-8">
                 <div class="row">
                     <div class="col-xs-10">
                         <div class="construction_info">
-                            <h2>华山丽苑·装修在施工地（<span>10</span>人浏览过）</h2>
+                            <h2>{$project.name}·装修在施工地（<span>{$project.look_num}</span>人浏览过）</h2>
                             <hr>
                             <div class="row">
-                                <div class="col-xs-4">
-                                    <p>楼盘名称：华山丽苑</p>
+                                <div class="col-xs-6">
+                                    <p>楼盘名称：{$project.name}</p>
                                 </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>所属区域：上海长宁区</p>
+                                <div class="col-xs-6">
+                                    <p>所属区域：{$project.city_name|default="上海"}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-4">
-                                    <p>面积：XXX平米</p>
+                                    <p>面积：未知</p>
                                 </div>
                                 <div class="col-xs-offset-2 col-xs-6">
-                                    <p>住宅类型：公寓</p>
+                                    <p>住宅类型：普通住宅</p>
                                 </div>
                             </div>
-                            <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
+                            <p>施工时间：{$project.start_time}&nbsp;至&nbsp;{$project.end_time}</p>
                         </div>
                     </div>
                     <div class="col-xs-2 look_detail">
-                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
+                        <a href="./zb_detail.html?detail_id={$project.id}" class="btn btn-default">查看详情</a>
                     </div>
                 </div>
                 <div class="row">
@@ -222,16 +240,9 @@
                         <div class="col-xs-12">
                             <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
                             <div class="time_cards_box" style="height: 100px;">
-                                <div class="time_card select_status">拆除/拆旧</div>
-                                <div class="time_card">户型改建</div>
-                                <div class="time_card">3D放样</div>
-                                <div class="time_card">水电改造</div>
-                                <div class="time_card">木工阶段</div>
-                                <div class="time_card">软装</div>
-                                <div class="time_card">清场/竣工</div>
-                                <div class="time_card">安装/调试</div>
-                                <div class="time_card">油漆阶段</div>
-                                <div class="time_card">瓷砖铺贴</div>
+                                {volist name='project.circle' id='circle'}
+                                <div class="time_card select_status">{$circle.name}</div>
+                                {/volist}
                             </div>
                         </div>
                     </div>
@@ -239,382 +250,26 @@
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img01.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img02.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img03.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img04.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img05.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img06.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-8">
-                <div class="row">
-                    <div class="col-xs-10">
-                        <div class="construction_info">
-                            <h2>华山丽苑·装修在施工地（<span>10</span>人浏览过）</h2>
-                            <hr>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>楼盘名称：华山丽苑</p>
-                                </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>所属区域：上海长宁区</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>面积：XXX平米</p>
-                                </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>住宅类型：公寓</p>
-                                </div>
-                            </div>
-                            <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 look_detail">
-                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="const_process">
-                        <div class="col-xs-12">
-                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
-                            <div class="time_cards_box" style="height: 100px;">
-                                <div class="time_card select_status">拆除/拆旧</div>
-                                <div class="time_card">户型改建</div>
-                                <div class="time_card">3D放样</div>
-                                <div class="time_card">水电改造</div>
-                                <div class="time_card">木工阶段</div>
-                                <div class="time_card">软装</div>
-                                <div class="time_card">清场/竣工</div>
-                                <div class="time_card">安装/调试</div>
-                                <div class="time_card">油漆阶段</div>
-                                <div class="time_card">瓷砖铺贴</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img01.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img02.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img03.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img04.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img05.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img06.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-8">
-                <div class="row">
-                    <div class="col-xs-10">
-                        <div class="construction_info">
-                            <h2>华山丽苑·装修在施工地（<span>10</span>人浏览过）</h2>
-                            <hr>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>楼盘名称：华山丽苑</p>
-                                </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>所属区域：上海长宁区</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>面积：XXX平米</p>
-                                </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>住宅类型：公寓</p>
-                                </div>
-                            </div>
-                            <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 look_detail">
-                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="const_process">
-                        <div class="col-xs-12">
-                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
-                            <div class="time_cards_box" style="height: 100px;">
-                                <div class="time_card select_status">拆除/拆旧</div>
-                                <div class="time_card">户型改建</div>
-                                <div class="time_card">3D放样</div>
-                                <div class="time_card">水电改造</div>
-                                <div class="time_card">木工阶段</div>
-                                <div class="time_card">软装</div>
-                                <div class="time_card">清场/竣工</div>
-                                <div class="time_card">安装/调试</div>
-                                <div class="time_card">油漆阶段</div>
-                                <div class="time_card">瓷砖铺贴</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img01.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img02.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img03.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img04.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img05.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img06.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-8">
-                <div class="row">
-                    <div class="col-xs-10">
-                        <div class="construction_info">
-                            <h2>华山丽苑·装修在施工地（<span>10</span>人浏览过）</h2>
-                            <hr>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>楼盘名称：华山丽苑</p>
-                                </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>所属区域：上海长宁区</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>面积：XXX平米</p>
-                                </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>住宅类型：公寓</p>
-                                </div>
-                            </div>
-                            <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 look_detail">
-                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="const_process">
-                        <div class="col-xs-12">
-                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
-                            <div class="time_cards_box" style="height: 100px;">
-                                <div class="time_card select_status">拆除/拆旧</div>
-                                <div class="time_card">户型改建</div>
-                                <div class="time_card">3D放样</div>
-                                <div class="time_card">水电改造</div>
-                                <div class="time_card">木工阶段</div>
-                                <div class="time_card">软装</div>
-                                <div class="time_card">清场/竣工</div>
-                                <div class="time_card">安装/调试</div>
-                                <div class="time_card">油漆阶段</div>
-                                <div class="time_card">瓷砖铺贴</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img01.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img02.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img03.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row construction_lis margin_c">
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img04.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img">
-                            <img src="/assets/img/frontend/construct_img05.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                    <div class="col-xs-4 padding_c">
-                        <div class="work_area const_img" style="border-right: 1px solid transparent;">
-                            <img src="/assets/img/frontend/construct_img06.jpg" class="img-responsive center-block">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-8">
-                <div class="row">
-                    <div class="col-xs-10">
-                        <div class="construction_info">
-                            <h2>华山丽苑·装修在施工地（<span>10</span>人浏览过）</h2>
-                            <hr>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>楼盘名称：华山丽苑</p>
-                                </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>所属区域：上海长宁区</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <p>面积：XXX平米</p>
-                                </div>
-                                <div class="col-xs-offset-2 col-xs-6">
-                                    <p>住宅类型：公寓</p>
-                                </div>
-                            </div>
-                            <p>施工时间：2018-03-28&nbsp;至&nbsp;2018-10-19</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 look_detail">
-                        <a href="./zb_detail.html?detail_id=9" class="btn btn-default">查看详情</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="const_process">
-                        <div class="col-xs-12">
-                            <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
-                            <div class="time_cards_box" style="height: 100px;">
-                                <div class="time_card select_status">拆除/拆旧</div>
-                                <div class="time_card">户型改建</div>
-                                <div class="time_card">3D放样</div>
-                                <div class="time_card">水电改造</div>
-                                <div class="time_card">木工阶段</div>
-                                <div class="time_card">软装</div>
-                                <div class="time_card">清场/竣工</div>
-                                <div class="time_card">安装/调试</div>
-                                <div class="time_card">油漆阶段</div>
-                                <div class="time_card">瓷砖铺贴</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
+        {/volist}
 
         <nav aria-label="Page navigation" class="pagselec">
             <ul class="pagination pagination-lg">
-                <li><a href="#">首页</a></li>
+                <li><a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize=1">首页</a></li>
+                
                 <li>
-                    <a href="#" aria-label="Previous">
+                    <a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize={$param['pageSize']>1?$param['pageSize']-1:1}" aria-label="Previous">
                         <span aria-hidden="true">&lt;</span>
                     </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                <?php for($i=1;$i<=$pageNum;$i++){?>
+                <li><a class="actived" href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize={$i}">{$i}</a></li>
+                <?php } ?>
                 <li>
-                    <a href="#" aria-label="Next">
+                    <a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize={$param['pageSize']>=$pageNum?$pageNum:$param['pageSize']+1}" aria-label="Next">
                         <span aria-hidden="true">&gt;</span>
                     </a>
                 </li>
-                <li><a href="#">末页</a></li>
+                <li><a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize={$pageNum}">末页</a></li>
             </ul>
         </nav>
     </div>

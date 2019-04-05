@@ -224,139 +224,65 @@
     <div class="cation-content">
         <div class="box">
             <div class="row none-margin title">
-                <h2>华山丽苑 · 装修在施工地</h2>
+                <h2>{$info.name} · 装修在施工地</h2>
             </div>
             <div class="row none-margin title-info">
                 <span>来源: 岭艺装饰</span>
                 <span>&nbsp;&nbsp;|&nbsp;</span>
-                <span>浏览数: 110次</span>
+                <span>浏览数: {$info.look_num}次</span>
                 <span>&nbsp;&nbsp;|&nbsp;</span>
-                <span>更新时间: <?php echo date('Y-m-d H:i:s', time())?></span>
+                <span>更新时间: {$info.update_time}</span>
             </div>
             <div class="row none-margin tag">
-                <span>长宁区</span>
-                <span>长宁区</span>
-                <span>长宁区</span>
+                <span>{$info.city_name|default='上海市'}</span>
+                <span>{$info.area|default='面积未知'}</span>
+                <span>{$info.type|default='普通住宅'}</span>
             </div>
             <div class="row none-margin welcome_text">
-                欢迎预约参观工地,现场见证东易日盛装饰专业工艺, 更有专车免费接送服务, VIP预约热线: 400-000-0000
+                欢迎预约参观工地,现场见证岭艺装饰专业工艺, 更有专车免费接送服务, VIP预约热线:{$site.telphone}
             </div>
             <div class="row none-margin" style="margin-top: 5rem;">
                 <div class="col-md-9 none-padding">
                     <!-- timeline-->
                     <div class="col-md-2">
                         <ul class="time-line">
-                            <li class="select_status">
-                                <a href="#flag1"> 拆除/拆旧 <span>1</span></a>
+                            {volist name='info.circle' id='circle' key='key'}
+                            <li class="{eq name='key' value='1'}select_status{/eq}">
+                                <a href="#flag{$circle.id}"> {$circle.name} <span>{$key}</span></a>
                                 <img class="img_scale" src="/assets/img/zb_detail/scale.png">
                                 <img class="img_dot" src="/assets/img/zb_detail/dot.png">
                             </li>
-                            <li>
-                                <a href="#flag2">户型改建 <span>2</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-
-                            <li>
-                                <a href="#flag3">3D放样 <span>3</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-                            <li>
-                                <a href="#flag4">水电改造 <span>4</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-                            <li>
-                                <a href="#flag5">木工阶段 <span>5</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-                            <li>
-                                <a href="#flag6">瓷砖铺贴 <span>6</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-                            <li>
-                                <a href="#flag7">油漆阶段 <span>7</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-                            <li>
-                                <a href="#flag8">安装/调试 <span>8</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-                            <li>
-                                <a href="#">满场/竣工 <span>9</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
-                            <li>
-                                <a href="#">软装 <span>10</span></a>
-                                <img class="img_scale" src="/assets/img/zb_detail/scale.png">
-                                <img class="img_dot" src="/assets/img/zb_detail/dot.png">
-                            </li>
+                            {/volist}
                         </ul>
                     </div>
                     <!-- 中间的 列表 box-->
                     <div class="col-md-10">
-                        <!--start-->
-                        <a name="flag2"></a>
-                        <div class="time-box">
-                            <h2 style="text-align: center;">户型改造</h2>
-                            <hr>
-                            <div class="text">任务描述: 切墙, 粉补项目</div>
-                            <div class="text">1, 是否符合设计要求</div>
-                            <div class="text">2, 新砌墙图横平竖直</div>
-                            <div class="text">3, 原墙面墙皮铲除(如有), 90%面积露出原水泥粉层</div>
-                            <div class="text">注: 节点检查图片上传验收</div>
-                            <div class="row none-margin time-box-images">
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                            </div>
-                        </div>
+                        {volist name='info.circle' id='circle' key='key'}
                         <!--end-->
-                        <!--start-->
-                        <div class="time-box">
-                            <a name="flag3"></a>
-                            <h2 style="text-align: center;">3D放样</h2>
-                            <hr>
-                            <div class="text">任务描述: 切墙, 粉补项目</div>
-                            <div class="text">1, 是否符合设计要求</div>
-                            <div class="text">2, 新砌墙图横平竖直</div>
-                            <div class="text">3, 原墙面墙皮铲除(如有), 90%面积露出原水泥粉层</div>
-                            <div class="text">注: 节点检查图片上传验收</div>
-                            <div class="row none-margin time-box-images">
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
-                                <div class="img-box"><img src="" alt=""></div>
+                        
+                            {volist name ="info.task" id="task"}
+                            {eq name='circle.id' value='$task.circle_id'}
+                            <!--start-->
+                            <div class="time-box">
+                                <a name="flag{$circle.id}"></a>
+                                <h2 style="text-align: center;">{$task.name}</h2>
+                                <hr>
+                                <div class="text">任务描述: {$task.detail}</div>
+                                {notempty name='task.image'}
+                                    <div class="row none-margin time-box-images">
+                                        {volist name='$task.image' id='image'}
+                                        <div  class="img-box"><img style="width: 100%;height: 200px;object-fit:cover" src="{$image}" alt=""></div>
+                                        {/volist}
+                                    </div>
+                                {/notempty}
                             </div>
-                        </div>
-                        <!--end-->
+                            {/eq}
+                            <!--end-->
+                            {/volist}
+                       
+                        {/volist}
                         <!--start-->
-                        <div class="time-box">
-                            <a name="flag4"></a>
-                            <h2 style="text-align: center;">水电改造</h2>
-                            <hr>
-                            <div class="text">为发展到次阶段</div>
-                            <div class="row none-margin time-box-images">
-                                <img style="width: 100%;min-height: 180px;" src="/assets/img/zb_detail/update.png" alt="">
-                            </div>
-                        </div>
+                       
                         <!--end-->
                     </div>
                 </div>
@@ -364,10 +290,16 @@
                     <div class="visit-box">
                         <h3>参观工地</h3>
                         <div class="intro">参观工地现场 / 了解家装全过程</div>
-                        <form class="form-box" action="#" onsubmit="return false">
-                            <input type="text" name="username" placeholder="称呼">
-                            <input type="text" name="telephone" placeholder="电话">
-                            <input type="submit" value="预约参观">
+                        <form onsubmit="return submitForm()">
+                            <div class="form-group">
+                                <input type="text" class="form-control apply_area" id="art_user" name="name"
+                                       placeholder="称呼">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control apply_area" id="art_phone" name="mobile"
+                                       placeholder="电话">
+                            </div>
+                            <button type="submit" class="btn btn-default case_mor btn-block">预约参观</button>
                         </form>
                         <div style="padding: 0.675rem 0;">
                             累计已有<span style="color: #ff0000;">153</span>人成功预约
@@ -390,13 +322,13 @@
         <div class="box-footer">
             <div class="row none-margin">
                 <div class="col-md-6">
-                    <a href="#">
-                        <div class="page" style="">上一篇 : 已最新</div>
+                    <a href="./zb_detail.html?detail_id={$pre.id}">
+                        <div class="page" style="">上一篇 : {$pre.name|default='暂无上一篇'}</div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="#">
-                        <div class="page">下一篇 : 金碧家园</div>
+                    <a href="./zb_detail.html?detail_id={$next.id}">
+                        <div class="page">下一篇 : {$next.name|default='暂无下一篇'}</div>
                     </a>
                 </div>
             </div>
@@ -412,4 +344,38 @@
             $(this).addClass("select_status");
         })
     });
+</script>
+
+<script>
+    function submitForm() {
+        let input_name = $("input[id='art_user']").val();
+        let input_phone = $("input[id='art_phone']").val();
+        let type = 1;
+        if (!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(input_phone))) {
+            alert("您填写的电话格式不正确,或者不是11位数电话!!!");
+            return false;
+        }
+        $.ajax({
+            url: "/index/Customer/store",
+            method: "POST",
+            data: {
+                name: input_name,
+                mobile: input_phone
+            },
+            success: function (res) {
+                console.log(res);
+                if (res.code === 200) {
+                    alert(res.msg);
+                } else if (res.code === 3001) {
+                    alert(res.msg);
+                    return false;
+                } else {
+                    alert("网络错误,请稍后重试 !!!");
+                    return false;
+                }
+                return false;
+            }
+        });
+        return false;
+    }
 </script>

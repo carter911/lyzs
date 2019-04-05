@@ -219,21 +219,15 @@
 
     <div class="lis_interview">
         <h2 style="margin-top: 50px"><b>访谈案例</b>&nbsp;&nbsp;|&nbsp;&nbsp;<small>INTERVIEW CASE</small></h2>
-
+    
         <div class="interview_lis">
             <div class="row">
+                {volist name='$video' id='v' key='key' mod='3'}
                 <div class="col-xs-3">
-                    <a href="#"><img src="/assets/img/frontend/interview_img.jpg" class="img-responsive"></a>
+                    <a target="_blank" href="{$v.url}"><img src="{$v.image}" class="img-responsive"></a>
                 </div>
-                <div class="col-xs-3">
-                    <a href="#"><img src="/assets/img/frontend/interview_img.jpg" class="img-responsive"></a>
-                </div>
-                <div class="col-xs-3">
-                    <a href="#"><img src="/assets/img/frontend/interview_img.jpg" class="img-responsive"></a>
-                </div>
-                <div class="col-xs-3">
-                    <a href="#"><img src="/assets/img/frontend/interview_img.jpg" class="img-responsive"></a>
-                </div>
+                {/volist}
+        
             </div>
         </div>
     </div>

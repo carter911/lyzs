@@ -17,19 +17,27 @@ class Cases extends Model
 //    }
 
 
-    /**
-     * 查询每一个风格的案例
-     *
-     * @throws Exception
-     */
-    public function queryAllKindStyleCases(){
+	/**
+	 * 查询每一个风格的案例
+	 * @param array $where
+	 * @return array
+	 * @throws \think\db\exception\DataNotFoundException
+	 * @throws \think\db\exception\ModelNotFoundException
+	 * @throws \think\exception\DbException
+	 */
+    public function queryAllKindStyleCases($param=[]){
         $result = [] ;
-
         //获取所有的案例
         $styles_list = Db::name('team_style')->field('id,name')->limit(0,5)->order('id asc')->select();
 
         foreach ($styles_list as $style) {
-            $case = Db::name('cases')->where(["team_style_ids" => $style["id"]]) -> find();
+        	$where = ["team_style_ids" => $style["id"]];
+        	if($param){
+        		foreach ($param as $k=>$v){
+					$where[$k]=$v;
+				}
+			}
+            $case = Db::name('cases')->where($where)->order(['id desc']) -> find();
             //没有查询到
             if(!$case) continue;
 
