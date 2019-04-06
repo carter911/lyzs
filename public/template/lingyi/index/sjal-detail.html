@@ -118,15 +118,11 @@
                 {eq name='info.status' value='2'}
                 {if condition="$info.url"}
                 <iframe width="900" height="700" src="{$info.url}" frameborder="0"></iframe>
-                {else /}
-                <iframe width="900" height="700"
-                        src="https://yun.kujiale.com/design/3FO41LMY00U6/show?from=timeline&isappinstalled=0"
-                        frameborder="0"></iframe>
                 {/if}
                 <div class="art_link">
-                    <a href="/index/index/sjal_detail.html?detail_id={$article_prev.id??1}"
+                    <a href="/index/index/sjal_detail.html?detail_id={$article_prev.id}"
                        class="pull-left text-center">上一篇：{$article_prev.name??'待更新'}</a>
-                    <a href="/index/index/sjal_detail.html?detail_id={$article_next.id??1}"
+                    <a href="/index/index/sjal_detail.html?detail_id={$article_next.id}"
                        class="pull-right text-center">下一篇：{$article_next.name??'待更新'}</a>
                     <div class="clearfix"></div>
                 </div>
