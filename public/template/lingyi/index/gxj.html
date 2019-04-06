@@ -157,7 +157,7 @@
                                                 <form class="case_detail">
                                                     <div class="form-group">
                                                         <textarea class="form-control intro_info" rows="3">
-                                                            {$case.content}
+                                                            {$case.content|htmlspecialchars_decode}
                                                         </textarea>
                                                     </div>
                                                 </form>
