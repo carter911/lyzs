@@ -42,10 +42,10 @@ class Index extends Frontend
             $customer_list[$key]['createtime'] = date("m/d", $val['createtime']);
         }
         // 团队banner
-        $team_img = Db::name('team')->limit(10)->order('id desc')->where(['is_home'=>1])->select();
+        $team_img = Db::name('team')->limit(10)->order('id desc')->where(['is_home' => 1])->select();
         // 团队案例
         $casesModel = new Cases();
-        $casesObj = $casesModel->limit(6)->order('id desc')->where(['is_home'=>1])->select();
+        $casesObj = $casesModel->limit(6)->order('id desc')->where(['is_home' => 1])->select();
         $cases_lists = $casesObj/*$casesObj->toArray()*/
         ;
         foreach ($cases_lists as $key => $val) {
@@ -71,7 +71,7 @@ class Index extends Frontend
         // 客户见证
         $witness_lists = Db::name('witness')->where(['status' => 1])->limit(50)->select();
         // 最新活动
-        $article_list = Db::name('articles')->where(['status' => 1,'is_home'=>1])->limit(4)->order('id desc')->select();
+        $article_list = Db::name('articles')->where(['status' => 1, 'is_home' => 1])->limit(4)->order('id desc')->select();
         $this->assign("article_list", $article_list);
 
         $this->assign('witness_lists', $witness_lists);
@@ -125,18 +125,18 @@ class Index extends Frontend
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
 
         //添加所以数组
-        $procedure_image_list = [] ;
-        $procedure_title_list = [] ;
+        $procedure_image_list = [];
+        $procedure_title_list = [];
         foreach ($procedure_list as $key => $val) {
             $tempImageList = explode(",", $val['images']);
             $tempCount = sizeof($procedure_image_list);
 
-            $procedure_image_list = array_merge($procedure_image_list,$tempImageList);
+            $procedure_image_list = array_merge($procedure_image_list, $tempImageList);
             $procedure_title_list[] = array(
                 "title" => $val["name"],
-               "start" => $tempCount,
-               "end" => sizeof($procedure_image_list)
-            ) ;
+                "start" => $tempCount,
+                "end" => sizeof($procedure_image_list)
+            );
         }
 
         $this->assign('procedure_image_list', $procedure_image_list);
@@ -152,7 +152,7 @@ class Index extends Frontend
 
 
         //典型案例介绍
-        $caseList = $this->cases->queryAllKindStyleCases(['is_gxj'=>1]);
+        $caseList = $this->cases->queryAllKindStyleCases(['is_gxj' => 1]);
         $this->assign("caseList", $caseList);
 
         return $this->view->fetch('gxj');
@@ -181,18 +181,18 @@ class Index extends Frontend
         //工序
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
         //添加所以数组
-        $procedure_image_list = [] ;
-        $procedure_title_list = [] ;
+        $procedure_image_list = [];
+        $procedure_title_list = [];
         foreach ($procedure_list as $key => $val) {
             $tempImageList = explode(",", $val['images']);
             $tempCount = sizeof($procedure_image_list);
 
-            $procedure_image_list = array_merge($procedure_image_list,$tempImageList);
+            $procedure_image_list = array_merge($procedure_image_list, $tempImageList);
             $procedure_title_list[] = array(
                 "title" => $val["name"],
                 "start" => $tempCount,
                 "end" => sizeof($procedure_image_list)
-            ) ;
+            );
         }
 
         // 根据 风格 展示 实景案例
@@ -226,10 +226,10 @@ class Index extends Frontend
     public function gddz()
     {
         // 我们的团队
-        $me_team_list = Db::name('team')->field("id,name,image,work_name,content")->where(['is_gddz'=>1])->limit(4)->order('id desc')->select();
+        $me_team_list = Db::name('team')->field("id,name,image,work_name,content")->where(['is_gddz' => 1])->limit(4)->order('id desc')->select();
         $this->assign('me_team_list', $me_team_list);
         // 案例  品质境界即刻体验
-        $cases_list = Db::name('cases')->field("id,name,image,team_door_ids,xq_name")->where(['is_gddz'=>1])->limit(5)->order('id desc')->select();
+        $cases_list = Db::name('cases')->field("id,name,image,team_door_ids,xq_name")->where(['is_gddz' => 1])->limit(5)->order('id desc')->select();
         foreach ($cases_list as $key => $val) {
             $tmp_team_door_ids = substr($val['team_door_ids'], -1);
             $team_door_name = Db::name('team_door')->field('name')->where(['id' => $tmp_team_door_ids])->find();
@@ -237,7 +237,7 @@ class Index extends Frontend
         }
 
         $this->assign('cases_list', $cases_list);
-        $butler_list = Db::name('butler')->limit(8)->where(['is_gdzd'=>1])->select();
+        $butler_list = Db::name('butler')->limit(8)->where(['is_gdzd' => 1])->select();
         foreach ($butler_list as $key => $val) {
             $cases = Db::name('cases')->field('name')->where(['butler_id' => $val['id']])->limit(4)->select();
             $butler_list[$key]['cases'] = $cases;
@@ -247,18 +247,18 @@ class Index extends Frontend
         //工序
         $procedure_list = Db::name('procedure')->limit(10)->order('sort desc')->select();
         //添加所以数组
-        $procedure_image_list = [] ;
-        $procedure_title_list = [] ;
+        $procedure_image_list = [];
+        $procedure_title_list = [];
         foreach ($procedure_list as $key => $val) {
             $tempImageList = explode(",", $val['images']);
             $tempCount = sizeof($procedure_image_list);
 
-            $procedure_image_list = array_merge($procedure_image_list,$tempImageList);
+            $procedure_image_list = array_merge($procedure_image_list, $tempImageList);
             $procedure_title_list[] = array(
                 "title" => $val["name"],
                 "start" => $tempCount,
                 "end" => sizeof($procedure_image_list)
-            ) ;
+            );
         }
 
         $this->assign('procedure_image_list', $procedure_image_list);
@@ -372,9 +372,9 @@ class Index extends Frontend
         $this->assign('case_total', $case_total);
         $this->assign('case_list', $case_list);
         // 获取当前小时
-        $current_hour = Date('H',time());
+        $current_hour = Date('H', time());
         // 其他设计师列表  用当前时间作为 页数
-        $team_list = Db::name('team')->field('id,name,image,work_name,work_num')->limit(intval($current_hour%2),5)->select();
+        $team_list = Db::name('team')->field('id,name,image,work_name,work_num')->limit(intval($current_hour % 2), 5)->select();
         $this->assign('team_list', $team_list);
         $this->assign('title', '设计团队详情');
         return $this->view->fetch("sjtd_detail");
@@ -384,87 +384,87 @@ class Index extends Frontend
     public function zb(Request $request)
     {
         $this->assign('title', '首页-直播');
-		$param = $request->param();
-		$where = [];
-		if(isset($param['city_name']) && !empty($param['city_name'])){
-			if($param['city_name'] == 'other'){
-				$where['city_name'] = ['eq',''];
-			}else{
-				$where['city_name'] = ['like','%'.$param['city_name'].'%'];
-			}
-		}else{
-			$param['city_name'] ='';
-		}
+        $param = $request->param();
+        $where = [];
+        if (isset($param['city_name']) && !empty($param['city_name'])) {
+            if ($param['city_name'] == 'other') {
+                $where['city_name'] = ['eq', ''];
+            } else {
+                $where['city_name'] = ['like', '%' . $param['city_name'] . '%'];
+            }
+        } else {
+            $param['city_name'] = '';
+        }
 
-		if(isset($param['rate']) && !empty($param['rate'])){
-			$where['circle_name'] = ['like','%'.$param['rate'].'%'];
-		}else{
-			$param['rate'] ='';
-		}
+        if (isset($param['rate']) && !empty($param['rate'])) {
+            $where['circle_name'] = ['like', '%' . $param['rate'] . '%'];
+        } else {
+            $param['rate'] = '';
+        }
 
-		$order = 'id desc';
-		if(isset($param['sort']) && !empty($param['sort'])){
-			if(intval($param['sort']) ==1){
-				$order = 'look_num desc';
-			}else if(intval($param['sort']) ==2){
-				$order = 'id desc';
-			}
+        $order = 'id desc';
+        if (isset($param['sort']) && !empty($param['sort'])) {
+            if (intval($param['sort']) == 1) {
+                $order = 'look_num desc';
+            } else if (intval($param['sort']) == 2) {
+                $order = 'id desc';
+            }
 
-		}else{
-			$param['sort'] =0;
-		}
-		if(empty($param['pageSize'])){
-			$param['pageSize'] = 1;
-		}
-		$pageStart = intval(intval($param['pageSize'])-1)*20;
+        } else {
+            $param['sort'] = 0;
+        }
+        if (empty($param['pageSize'])) {
+            $param['pageSize'] = 1;
+        }
+        $pageStart = intval(intval($param['pageSize']) - 1) * 20;
 
 
-		$count = Db::name('project')->where($where)->count();
-		$list = Db::name('project')->where($where)->limit($pageStart,20)->order($order)->select();
-		foreach ($list as $key =>$val){
-			$list[$key]['circle'] = json_decode($val['circle'],true);
+        $count = Db::name('project')->where($where)->count();
+        $list = Db::name('project')->where($where)->limit($pageStart, 20)->order($order)->select();
+        foreach ($list as $key => $val) {
+            $list[$key]['circle'] = json_decode($val['circle'], true);
 
-			foreach ($list[$key]['circle'] as $k => $v){
+            foreach ($list[$key]['circle'] as $k => $v) {
 
-			}
-			$list[$key]['image'] = array_slice(json_decode($val['image'],true),0,6);
-		}
+            }
+            $list[$key]['image'] = array_slice(json_decode($val['image'], true), 0, 6);
+        }
 
-		$area = Db::name('area')->where(['parent_id'=>24])->select();
-		$circle = Db::name('project_circle')->select();
+        $area = Db::name('area')->where(['parent_id' => 24])->select();
+        $circle = Db::name('project_circle')->select();
 
-		$this->assign('area', $area);
-		$this->assign('list', $list);
-		$this->assign('count', $count);
-		$this->assign('pageNum', ceil($count/20));
-		$this->assign('pageSize', $param['pageSize']);
-		$this->assign('param', $param);
-		$this->assign('circle', $circle);
+        $this->assign('area', $area);
+        $this->assign('list', $list);
+        $this->assign('count', $count);
+        $this->assign('pageNum', ceil($count / 20));
+        $this->assign('pageSize', $param['pageSize']);
+        $this->assign('param', $param);
+        $this->assign('circle', $circle);
 
-		return $this->view->fetch("zb");
+        return $this->view->fetch("zb");
     }
 
     //直播详情
     public function zb_detail(Request $request)
     {
-		$id = $request->get('detail_id');
+        $id = $request->get('detail_id');
         $this->assign('title', '直播详情');
-		Db::name('project')->where('id',$id)->setInc('look_num');
-		$info = Db::name('project')->where('id',$id)->find();
-		$info['circle'] = json_decode($info['circle'],true);
-		$info['task'] = json_decode($info['task'],true);
-		$info['image'] = array_slice(json_decode($info['image'],true),0,6);
-		foreach ($info['image'] as $key => $val){
-			if(empty($val)){
-				unset($info['image'][$key]);
-			}
-		}
-		$next = Db::name('project')->where(['id'=>['gt',$id]])->find();
-		$pre = Db::name('project')->where(['id'=>['lt',$id]])->find();
-		$this->assign('next', $next);
-		$this->assign('pre', $pre);
-		$this->assign('info', $info);
-        $customer_list = Db::name('customer')->where('status',1)->select();
+        Db::name('project')->where('id', $id)->setInc('look_num');
+        $info = Db::name('project')->where('id', $id)->find();
+        $info['circle'] = json_decode($info['circle'], true);
+        $info['task'] = json_decode($info['task'], true);
+        $info['image'] = array_slice(json_decode($info['image'], true), 0, 6);
+        foreach ($info['image'] as $key => $val) {
+            if (empty($val)) {
+                unset($info['image'][$key]);
+            }
+        }
+        $next = Db::name('project')->where(['id' => ['gt', $id]])->find();
+        $pre = Db::name('project')->where(['id' => ['lt', $id]])->find();
+        $this->assign('next', $next);
+        $this->assign('pre', $pre);
+        $this->assign('info', $info);
+        $customer_list = Db::name('customer')->where('status', 1)->select();
         $customer_total = Db::name('customer')->count('id');
         $this->assign('customer_list', $customer_list);
         $this->assign('customer_total', $customer_total);
@@ -522,8 +522,8 @@ class Index extends Frontend
     public function look_article_detail($id)
     {
         $article_detail = $this->article->where(["id" => $id])->find();
-        $article_prev = $this->article->field('id,title')->where(["id" => $id-1])->find();
-        $article_next = $this->article->field('id,title')->where(["id" => $id+1])->find();
+        $article_prev = $this->article->field('id,title')->where(["id" => ['lt', $id]])->order('id desc')->find();
+        $article_next = $this->article->field('id,title')->where(["id" => ['gt', $id]])->order('id asc')->find();
         $this->assign("article_prev", $article_prev);
         $this->assign("article_next", $article_next);
         $this->assign("article_detail", $article_detail);
@@ -531,9 +531,9 @@ class Index extends Frontend
         $article_list = Db::name('articles')->field('id,title,image,createtime')->limit(6)->select();
         $this->assign("article_list", $article_list);
         // 获取实景案例
-        $cases_list = Db::name('cases')->field('id,name,image')->where('status',1)->limit(3)->select();
+        $cases_list = Db::name('cases')->field('id,name,image')->where('status', 1)->limit(3)->select();
         // 顾客列表
-        $customer_list = Db::name('customer')->where('status',1)->select();
+        $customer_list = Db::name('customer')->where('status', 1)->select();
         $customer_total = Db::name('customer')->count('id');
         $this->assign('cases_list', $cases_list);
         $this->assign('customer_list', $customer_list);
@@ -542,7 +542,7 @@ class Index extends Frontend
         return $this->view->fetch("article_detail");
     }
 
-    public function sjal($caseStyle = -1, $doorStyle = -1, $areaStyle = -1, $pageIndex=0)
+    public function sjal($caseStyle = -1, $doorStyle = -1, $areaStyle = -1, $pageIndex = 0)
     {
         $this->assign('title', '实景案例-岭艺装饰');
 
@@ -558,11 +558,11 @@ class Index extends Frontend
         $this->assign("doorStyle", $doorStyle);
         $this->assign("areaStyle", $areaStyle);
         //案例
-        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle,$areaStyle, "",1 ,$pageIndex);
+        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle, "", 1, $pageIndex);
         $this->assign("caseResult", $caseResult);
         $this->assign("caseResultSize", sizeof($caseResult));
-		$video = DB::name("cases_video")->limit(4)->select();
-		$this->assign("video", $video);
+        $video = DB::name("cases_video")->limit(4)->select();
+        $this->assign("video", $video);
         return $this->view->fetch('sjal');
     }
 
@@ -570,10 +570,10 @@ class Index extends Frontend
     {
         $id = $request->get('detail_id');
         $article_detail = $this->cases->where(["id" => $id])->find();
-        $article_prev = $this->cases->where(["id" => $id-1])->find();
-        $article_next = $this->cases->where(["id" => $id+1])->find();
-        $this->assign("article_prev",$article_prev);
-        $this->assign("article_next",$article_next);
+        $article_prev = $this->cases->where(["id" => ['lt',$id]])->order('id desc')->find();
+        $article_next = $this->cases->where(["id" => ['gt',$id]])->order('id asc')->find();
+        $this->assign("article_prev", $article_prev);
+        $this->assign("article_next", $article_next);
         $info_data = $article_detail->toArray();
         $team = Db::name('team')->where(['id' => $article_detail['team_team_id']])->find();
         $this->assign('title', '实景案例详情-岭艺装饰');
@@ -640,8 +640,6 @@ class Index extends Frontend
 
         return $target;
     }
-
-
 
 
 }
