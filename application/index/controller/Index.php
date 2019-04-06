@@ -314,6 +314,10 @@ class Index extends Frontend
             $page = $param['page'];
         }
 
+		if (isset($param['keyword']) && !empty($param['keyword'])) {
+			$where['name'] = ['like','%'.$param['keyword'].'%'];
+		}
+
         $lists = Db::name('team')->where($where)->paginate(8, false, [
             'page' => $page
         ]);
@@ -331,6 +335,7 @@ class Index extends Frontend
 
         $page = $this->get_page($lists->currentPage(), $lists->total());
         $this->assign('page', $page);
+        $this->assign('param', $param);
 
         $pageParams = $this->parse_query_params($search);
         $this->assign("pageParams", $pageParams);

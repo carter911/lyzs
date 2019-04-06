@@ -36,14 +36,14 @@
                 <div class="input-group">
                     <div style="padding: 0px 7px;" class="input-group-addon padding_c addon_area addon_left ">
                         <select class="nav_select" style="background: none">
-                            <option class="nav_option">案例</option>
-                            <option class="nav_option">施工直播</option>
-                            <option class="nav_option">设计师</option>
-                            <option class="nav_option">活动资讯</option>
-                            <option class="nav_option">最新活动</option>
+                            <option {eq name="config.actionname" value="sjal"}selected{/eq}  class="sjal" value="sjal">实景案例</option>
+                            <option {eq name="config.actionname" value="zb"}selected{/eq} class="zb" value="zb">施工直播</option>
+                            <option {eq name="config.actionname" value="sjtd"}selected{/eq} class="sjtd" value="sjtd">设计师</option>
+                            <option {eq name="config.actionname" value="jjzx"}selected{/eq} class="jjzx" value="jjzx">活动资讯</option>
+                            <option {eq name="config.actionname" value="zxhd"}selected{/eq} class="zxhd" value="zxhd">最新活动</option>
                         </select>
                     </div>
-                    <input type="text" class="form-control" id="nav_serarch" placeholder="关键词">
+                    <input value="<?php if(isset($param) && isset($param['keyword'])){echo $param['keyword'];}?>" type="text" class="form-control" id="nav_serarch" placeholder="请输入你想搜索的内容">
                     <div class="input-group-addon padding_c addon_area">
                         <button type="submit" class="btn btn-primary nav_searchbtn">搜索</button>
                     </div>
@@ -314,6 +314,11 @@
 			}
 		})
        return false;
+	});
+
+	$(".nav_searcharea").submit(function(){
+        location.href="/index/index/"+$('.nav_select').val()+"?keyword="+$("#nav_serarch").val();
+	   return false;
 	});
 </script>
 </body>
