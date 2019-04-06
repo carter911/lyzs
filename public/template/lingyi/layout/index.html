@@ -62,6 +62,7 @@
 </div>
 
 <div class="top_nav">
+
     <div class="nav_content text-center" style="width: 1200px;margin: 0 auto;text-align: left">
         <ul class="list-inline margin_c">
             {volist name='menu' id='m'}
@@ -75,11 +76,13 @@
             <li class="dropdown <?php $urls = array_column($m['chid'],'url'); if(in_array($config['path'],$urls)){echo 'active';}?>">
                 <a href="{$m.url}" class="dropdown-toggle" data-toggle="dropdown" role="button"
                    aria-haspopup="true" aria-expanded="false">{$m.name}</a>
+
                 <ul class="list-unstyled" style="z-index:100;" >
                     {volist name='m.chid' id='m1'}
-                    <li><a href="{$m1.url}">{$m1.name}</a></li>
+                    <li><a href="{$m1.url}"  <?php if($config['path'] !== $m1['url']) { echo "style='color:#FFF'"; } ?>>{$m1.name}</a></li>
                     {/volist}
                 </ul>
+
             </li>
             {/empty}
 
