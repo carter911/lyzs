@@ -402,6 +402,12 @@ class Index extends Frontend
             $param['rate'] = '';
         }
 
+		if (isset($param['keyword']) && !empty($param['keyword'])) {
+			$where['name'] = ['like', '%' . $param['keyword'] . '%'];
+		} else {
+			$param['keyword'] = '';
+		}
+
         $order = 'id desc';
         if (isset($param['sort']) && !empty($param['sort'])) {
             if (intval($param['sort']) == 1) {
