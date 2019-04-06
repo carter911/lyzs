@@ -60,7 +60,7 @@
             <img src="/assets/img/frontend/service.jpg" class="img-responsive center-block" style="margin-top: 80px">
         </div>
 
-        <div class="lis_case margin_t">
+        <div class="lis_case margin_t" style="overflow: hidden">
             <a id="case_title"></a>
             <img src="/assets/img/frontend/lis_case.jpg" class="center-block img-responsive">
             <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px">
@@ -69,11 +69,11 @@
                         <ul id="myTabs" class="nav nav-tabs" role="tablist">
                             {volist name='$caseList' id='case' key='key'}
                             <li role="presentation" class="{eq name='$key' value='1'}active{/eq}">
-                                <a onmouseover="$(this).click()" href="#s_{$case.style_id}" id="simplicity-tab"
+                                <a onmouseover="$(this).click()" href="#s_{$case.id}" id="simplicity-tab"
                                    role="tab"
-                                   data-toggle="tab" aria-controls="s_{$case.style_id}"
+                                   data-toggle="tab" aria-controls="s_{$case.id}"
                                    aria-expanded="true"
-                                   style="padding-left: 31px;padding-right: 31px">{$case.style_name}</a>
+                                   style="padding-left: 31px;padding-right: 31px">{$case.style.name}</a>
                             </li>
                             {/volist}
                         </ul>
@@ -89,8 +89,8 @@
 
                     {volist name='$caseList' id='case' key='key'}
                     <div role="tabpanel" class="tab-pane fade {if condition='$key eq 1'}in active{/if}"
-                         id="s_{$case.style_id}"
-                         aria-labelledby="s_{$case.style_id}}-tab">
+                         id="s_{$case.id}"
+                         aria-labelledby="s_{$case.id}}-tab">
                         <div class="tab_img">
                             <div id="carousel-simplicity" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
@@ -120,7 +120,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="tab_lab text-center">风格</td>
-                                                        <td class="text-center">{$case.style_name}</td>
+                                                        <td class="text-center">{$case.style.name}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="tab_lab text-center">房型</td>

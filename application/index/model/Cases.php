@@ -19,53 +19,52 @@ class Cases extends Model
 
 	/**
 	 * 查询每一个风格的案例
-	 * @param array $where
-	 * @return array
+	 * @param array $param
+	 * @return false|\PDOStatement|string|\think\Collection
 	 * @throws \think\db\exception\DataNotFoundException
 	 * @throws \think\db\exception\ModelNotFoundException
 	 * @throws \think\exception\DbException
 	 */
     public function queryAllKindStyleCases($param=[]){
-        $result = [] ;
-        //获取所有的案例
-        $styles_list = Db::name('team_style')->field('id,name')->limit(0,5)->order('id asc')->select();
 
-        foreach ($styles_list as $style) {
-        	$where = ["team_style_ids" => $style["id"]];
-        	if($param){
-        		foreach ($param as $k=>$v){
-					$where[$k]=$v;
+		$cases_list = Db::name('cases')
+			->where($param)->limit(5)->order('id desc')->select();
+
+		foreach ($cases_list as $key => $val){
+			$cases_list[$key]['style'] = Db::name('team_style')->where('id','in',$val['team_style_ids'])->find();
+
+			$area_style = DB::name("cases_area") -> where(["id" => $val["cases_area_id"]]) -> find();
+			$cases_list[$key]["area_size"] = $area_style["name"];
+
+			$designer = DB::name("team") -> where(["id" => $val["team_team_id"]]) -> find();
+			$cases_list[$key]["designer"] = $designer["name"];
+
+			//房型
+			$door_style = DB::name("team_door") -> where (["id" => array("in", $val["team_door_ids"])]) -> select();
+			if($door_style) {
+				$doorName = "" ;
+				foreach($door_style as $door) {
+					$doorName = $door["name"]." ".$doorName;
+				}
+				$cases_list[$key]["door_name"] = $doorName;
+			}
+
+
+
+			$cases_list[$key]['images'] = [];
+			if(!empty($val['images'])){
+				$cases_list[$key]['images'] = explode(",",$val['images']);
+			}
+			$countNum = count($cases_list[$key]['images']);
+
+			if($countNum<5){
+				for ($num=1;$num<=(5-$countNum);$num++){
+					$cases_list[$key]['images'][] = $val['image'];
 				}
 			}
-            $case = Db::name('cases')->where($where)->order(['id desc']) -> find();
-            //没有查询到
-            if(!$case) continue;
+		}
 
-            $case["style_id"] = $style["id"];
-            $case["style_name"] = $style["name"];
-
-            //房型
-            $door_style = DB::name("team_door") -> where (["id" => array("in", $case["team_door_ids"])]) -> select();
-            if($door_style) {
-                $doorName = "" ;
-                foreach($door_style as $door) {
-                    $doorName = $door["name"]." ".$doorName;
-                }
-                $case["door_name"] = $doorName;
-            }
-
-            //建筑面积
-            $area_style = DB::name("cases_area") -> where(["id" => $case["cases_area_id"]]) -> find();
-            $case["area_size"] = $area_style["name"];
-
-            //设计师
-            $designer = DB::name("team") -> where(["id" => $case["team_team_id"]]) -> find();
-            $case["designer"] = $designer["name"];
-
-            $result[] = $case;
-        }
-
-        return $result;
+        return $cases_list;
     }
 
 
