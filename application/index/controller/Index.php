@@ -239,7 +239,7 @@ class Index extends Frontend
         $this->assign('cases_list', $cases_list);
         $butler_list = Db::name('butler')->limit(8)->where(['is_gdzd' => 1])->select();
         foreach ($butler_list as $key => $val) {
-            $cases = Db::name('cases')->field('name')->where(['butler_id' => $val['id']])->limit(4)->select();
+            $cases = Db::name('cases')->field('id,name')->where(['butler_id' => $val['id']])->limit(4)->select();
             $butler_list[$key]['cases'] = $cases;
         }
 
