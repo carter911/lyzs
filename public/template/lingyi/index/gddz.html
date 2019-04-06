@@ -247,10 +247,12 @@
 								<a href="javascript:void();" onclick="showLyDialog('yuyue_manager')" class="pull-right apply_link">预约专属管家</a>
 								<div class="clearfix"></div>
 							</div>
+							<!--<div>{$vo.area}</div>-->
 							<ul class="list-inline">
-								{volist name="vo.cases" id="v"}
-								<li>{$v.name}</li>
-								{/volist}
+								{$vo.area}
+								<!--{volist name="vo.cases" id="v"}-->
+								<!--<li>{$v.name}</li>-->
+								<!--{/volist}-->
 							</ul>
 						</div>
 					</div>
