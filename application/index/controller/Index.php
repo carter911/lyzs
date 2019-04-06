@@ -483,27 +483,29 @@ class Index extends Frontend
     }
 
     //最新活动
-    public function zxhd($pageIndex = 1, $status = 1)
+    public function zxhd($pageIndex = 1, $status = 1,$keyword="")
     {
-        $article_list = $this->article->get_article_list($pageIndex, $status);
-        $page_list = $this->article->get_page($pageIndex, $status);
+        $article_list = $this->article->get_article_list($pageIndex, $status,$keyword);
+        $page_list = $this->article->get_page($pageIndex, $status,$keyword);
 
         $this->assign("article_list", $article_list);
         $this->assign("article_page", $page_list);
-
+		$this->assign("param", Request::instance()->param());
         $this->assign('title', '首页-最新活动');
         return $this->view->fetch("zxhd");
     }
 
 
     //家居资讯
-    public function jjzx($pageIndex = 1, $status = 2)
+    public function jjzx($pageIndex = 1, $status = 2,$keyword="")
     {
-        $article_list = $this->article->get_article_list($pageIndex, $status);
-        $page_list = $this->article->get_page($pageIndex, $status);
+
+        $article_list = $this->article->get_article_list($pageIndex, $status,$keyword);
+        $page_list = $this->article->get_page($pageIndex, $status,$keyword);
 
         $this->assign("article_list", $article_list);
         $this->assign("article_page", $page_list);
+        $this->assign("param", Request::instance()->param());
 
         return $this->view->fetch("jjzx");
     }
@@ -553,7 +555,7 @@ class Index extends Frontend
         return $this->view->fetch("article_detail");
     }
 
-    public function sjal($caseStyle = -1, $doorStyle = -1, $areaStyle = -1, $pageIndex = 0)
+    public function sjal($caseStyle = -1, $doorStyle = -1, $areaStyle = -1, $pageIndex = 0,$keyword='')
     {
         $this->assign('title', '实景案例-岭艺装饰');
 
@@ -569,11 +571,12 @@ class Index extends Frontend
         $this->assign("doorStyle", $doorStyle);
         $this->assign("areaStyle", $areaStyle);
         //案例
-        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle, "", 1, $pageIndex);
+        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle, $keyword, 1, $pageIndex);
         $this->assign("caseResult", $caseResult);
         $this->assign("caseResultSize", sizeof($caseResult));
         $video = DB::name("cases_video")->limit(4)->select();
         $this->assign("video", $video);
+        $this->assign('param', Request::instance()->param());
         return $this->view->fetch('sjal');
     }
 

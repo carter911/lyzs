@@ -15,16 +15,25 @@ class Articles extends Model
 
     const PAGE_SIZE = 5;
 
-    public function get_article_list($pageIndex = 1, $status=1)
+    public function get_article_list($pageIndex = 1, $status=1, $keyword='')
     {
         $pageIndex = $pageIndex - 1 < 0 ? 0 : $pageIndex - 1;
-        return $this->where(["status" => $status])->limit($pageIndex * Articles::PAGE_SIZE, Articles::PAGE_SIZE)->field(["id", "title", "desc", "image", "createtime"])->order('id desc')->select();
+		$where['status'] = $status;
+        if($keyword !=""){
+        	$where['title']=['like','%'.$keyword.'%'];
+		}
+        return $this->where($where)->limit($pageIndex * Articles::PAGE_SIZE, Articles::PAGE_SIZE)->field(["id", "title", "desc", "image", "createtime"])->order('id desc')->select();
     }
 
 
-    public function get_page($pageIndex, $status)
+    public function get_page($pageIndex, $status, $keyword='')
     {
-        $totalSize = $this->where(["status" => $status])->count();
+
+		$where['status'] = $status;
+		if($keyword !=""){
+			$where['title']=['like','%'.$keyword.'%'];
+		}
+        $totalSize = $this->where($where)->count();
         $lastPage = $totalSize % Articles::PAGE_SIZE == 0 ? intval($totalSize / Articles::PAGE_SIZE) : intval($totalSize / Articles::PAGE_SIZE) + 1;
         if($pageIndex > $lastPage) $pageIndex = $lastPage;
 
