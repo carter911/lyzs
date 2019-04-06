@@ -74,7 +74,7 @@
             <div class="swiper-wrapper">
                 {volist name="banner" key="k" id='b'}
                 <div class="swiper-slide ">
-                    <img src="{$site.cdnurl}{$b.image}" class="banner_image img-responsive" style="width: 100%;"/>
+                    <img src="{$site.cdnurl}{$b.image}" data-url="{$b.url}" class="banner_image img-responsive" style="width: 100%;"/>
                 </div>
                 {/volist}
             </div>
@@ -417,8 +417,6 @@
 
     var speed = 30
     demo2.innerHTML = demo1.innerHTML
-    var willGotoRight = false;
-
 
     function Marquee() {
         if (demo2.offsetWidth - demo.scrollLeft <= 0)
@@ -460,33 +458,8 @@
         $(".article_img").parent().attr("href", "/index/index/look_article_detail?id=" + art_id);
     });
 
-
-    $(".banner_image").mousemove(function (e) {
-        var swiperContent = $("#carousel1");
-        var status = e.pageX < 600;
-
-        console.log("------status---", status + "---" + willGotoRight);
-
-        if (status !== willGotoRight) {
-            willGotoRight = status;
-
-            if (willGotoRight) {
-                swiperContent.removeClass("cur-left");
-                swiperContent.addClass("cur-right");
-            } else {
-                swiperContent.removeClass("cur-right");
-                swiperContent.addClass("cur-left");
-            }
-        }
-    });
-
     $(".banner_image").click(function () {
-        if (willGotoRight) {
-            swiper.slideTo(Math.max(0, swiper.activeIndex - 1), 1000, false)
-        } else {
-            swiper.slideTo(swiper.activeIndex + 1, 1000, false)
-        }
-
+        window.location.href = $(this).attr("data-url");
     });
 
 
@@ -496,3 +469,4 @@
     });
 
 </script>
+

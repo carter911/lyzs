@@ -93,6 +93,11 @@
         border: 1px solid #ddd;
         margin-bottom: 2rem;
     }
+
+    .designer_detail_image{
+        cursor: pointer;
+
+    }
 </style>
 
 <script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
@@ -145,19 +150,20 @@
                     </article>
                 </div>
                 <!-- 实景案例-->
-                
+
             </div>
             <div class="right_intro" style="width: 300px;clear: both;padding-left:20px;">
                 <!-- sidebar-->
                 <div class="intro">
                     <h4 style="margin-bottom: 1rem;">本案设计师简介</h4>
                     <div class="row none-margin">
-                        <div class="col-md-5 none-padding" style="background-color:#ccc;height: 120px;">
+                        <div class="col-md-5 none-padding designer_detail_image" data-url="/index/index/sjtd_detail.html?detail_id={$team.id}" style="background-color:#ccc;height: 120px;">
                             <img style="width: 100%;height: 100%"
                                  src="{$site.cdnurl}{$team.image}?imageView2/1/w/600/h/600/q/60" alt="">
+
                         </div>
                         <div class="col-md-7 none-padding" style="padding-left: 8px;">
-                            <div class="row none-margin">设计师:{$team.name}
+                            <div class="row none-margin"> <a href="/index/index/sjtd_detail.html?detail_id={$team.id}">设计师:{$team.name}</a>
                                 <span style="padding: 1px 5px;color: #fff;background-color:#000;cursor: pointer;"
                                       onclick="showLyDialogWithId('yuyue_ta','{$team.id}')">预约</span></div>
                             <div class="row none-margin">级别: {$team.work_name}</div>
@@ -231,5 +237,13 @@
             </div>
         </div>
     </div>
+
+<script>
+
+    $(".designer_detail_image").click(function () {
+        window.location.href = $(this).attr("data-url")
+    })
+
+</script>
 
 </div>
