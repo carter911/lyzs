@@ -18,7 +18,6 @@
                 <span class="msg-box n-right" for="c-image"></span>
             </div>
             <ul class="row list-inline plupload-preview" id="p-image"></ul>
-            <p>支持格式：jpg、png   大小<1M   尺寸:240*430 </p>
         </div>
     </div>
     <div class="form-group">
@@ -37,6 +36,18 @@
         <label class="control-label col-xs-12 col-sm-2">{:__('Area')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-area" class="form-control form-control" name="row[area]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_gdzd')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_gdzd" class="form-control selectpicker" name="row[is_gdzd]">
+                {foreach name="isGdzdList" item="vo"}
+                    <option value="{$key}" {in name="key" value="2"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
         </div>
     </div>
     <div class="form-group layer-footer">

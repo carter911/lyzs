@@ -105,6 +105,7 @@ class Frontend extends Controller
 		$cusomer_count = Db::name('customer')->count();
 		$num = intval((time()-strtotime('2019-01-01'))/(3600*36));
 		// 配置信息
+		$site['cdnurl'] = 'http://pphkj2wx9.bkt.clouddn.com';
 		$config = [
 			'site'           => array_intersect_key($site, array_flip(['name', 'cdnurl', 'version', 'timezone', 'languages', 'beian', 'telphone', 'logo'])),
 			'upload'         => $upload,

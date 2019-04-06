@@ -13,7 +13,6 @@ use think\Request;
 
 class Index extends Frontend
 {
-
     protected $noNeedLogin = '*';
     protected $noNeedRight = '*';
     protected $layout = '';

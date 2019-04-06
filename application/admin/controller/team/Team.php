@@ -1,6 +1,6 @@
 <?php
 
-namespace app\admin\controller\Team;
+namespace app\admin\controller\team;
 
 use app\common\controller\Backend;
 
@@ -23,6 +23,8 @@ class Team extends Backend
         parent::_initialize();
         $this->model = new \app\admin\model\Team;
         $this->view->assign("isHomeList", $this->model->getIsHomeList());
+        $this->view->assign("isGxjList", $this->model->getIsGxjList());
+        $this->view->assign("isGddzList", $this->model->getIsGddzList());
         $this->view->assign("sexList", $this->model->getSexList());
     }
     

@@ -25,7 +25,8 @@
         "karsonzhang/fastadmin-addons": "~1.1.4",
         "overtrue/pinyin": "~3.0",
         "phpoffice/phpspreadsheet": "^1.2",
-        "workerman/gateway-worker": "^3.0"
+        "workerman/gateway-worker": "^3.0",
+        "qiniu/php-sdk": "^7.2"
     },
     "config": {
         "preferred-install": "dist"

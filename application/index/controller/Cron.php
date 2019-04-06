@@ -2,6 +2,8 @@
 
 namespace app\index\controller;
 
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
 use think\Controller;
 use think\Db;
 use think\Exception;
@@ -129,6 +131,53 @@ class Cron extends Controller
 			print_r($e);
 		}
     }
+
+
+
+
+
+	public function read_all ($dir,&$file){
+		if(!is_dir($dir)) return false;
+
+		$handle = opendir($dir);
+
+		if($handle){
+			while(($fl = readdir($handle)) !== false){
+				$temp = $dir.DIRECTORY_SEPARATOR.$fl;
+				//如果不加  $fl!='.' && $fl != '..'  则会造成把$dir的父级目录也读取出来
+				if(is_dir($temp) && $fl!='.' && $fl != '..'){
+					//self::read_all($temp,$file);
+				}else{
+					if($fl!='.' && $fl != '..'){
+						//echo '文件：'.$temp.'<br>';
+						$a = fileatime($temp);
+						//echo (time()-$a).'<br/>';
+						$arr = explode("/public/",$temp);
+						$file[] = $arr[1];
+					}
+				}
+			}
+		}
+	}
+
+	public function upload_assets()
+	{
+		$this->read_all(ASSETS_PATH.'/assets/img',$file);
+		//$this->error("当前插件暂无前台页面");
+		$config = get_addon_config('qiniu');
+		$auth = new Auth($config['app_key'], $config['secret_key']);
+		$token = $auth->uploadToken('lyzs');
+		$uploadMgr = new UploadManager();
+		foreach ($file as $key => $val){
+			if($key%100==1){
+				echo $key;
+				//sleep(2);
+			}
+			echo $val.'</br>';
+			$uploadMgr->putFile($token,$val, './'.$val);
+		}
+
+	}
 
 
 

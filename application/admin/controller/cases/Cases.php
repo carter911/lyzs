@@ -24,6 +24,10 @@ class Cases extends Backend
         $this->model = new \app\admin\model\Cases;
         $this->view->assign("statusList", $this->model->getStatusList());
         $this->view->assign("typeList", $this->model->getTypeList());
+        $this->view->assign("isKjlList", $this->model->getIsKjlList());
+        $this->view->assign("isHomeList", $this->model->getIsHomeList());
+        $this->view->assign("isGxjList", $this->model->getIsGxjList());
+        $this->view->assign("isGddzList", $this->model->getIsGddzList());
     }
     
     /**

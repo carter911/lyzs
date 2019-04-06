@@ -248,7 +248,7 @@
                         {volist name="cases_list" id="vo"}
                         <div class="col-xs-4" style="height: 200px;margin: 8px 0;">
                             <a href="/index/index/sjal_detail?detail_id={$vo.id??1}">
-                                <img style="width:100%;height: 100%;" src="{$vo.image}"
+                                <img style="width:100%;height: 100%;" src="{$site.cdnurl}{$vo.image}"
                                      class="img-responsive center-block">
                             </a>
                         </div>
@@ -301,7 +301,7 @@
                                 <h4 class="media-heading">{$vo.title}</h4>
                             </div>
                             <div class="media-right">
-                                <img class="media-object" style="width: 80px;height: 80px;" src="{$vo.image}" alt="...">
+                                <img class="media-object" style="width: 80px;height: 80px;" src="{$site.cdnurl}{$vo.image}" alt="...">
                             </div>
                         </a>
                     </div>

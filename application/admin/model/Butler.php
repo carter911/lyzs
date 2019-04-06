@@ -18,14 +18,23 @@ class Butler extends Model
     
     // 追加属性
     protected $append = [
-
+        'is_gdzd_text'
     ];
     
 
     
+    public function getIsGdzdList()
+    {
+        return ['1' => __('Is_gdzd 1'),'2' => __('Is_gdzd 2')];
+    }     
 
 
-
+    public function getIsGdzdTextAttr($value, $data)
+    {        
+        $value = $value ? $value : (isset($data['is_gdzd']) ? $data['is_gdzd'] : '');
+        $list = $this->getIsGdzdList();
+        return isset($list[$value]) ? $list[$value] : '';
+    }
 
 
 

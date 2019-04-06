@@ -245,7 +245,9 @@ class Ajax extends Backend
     public function area()
     {
         $province = $this->request->get('province');
+
         $city = $this->request->get('city');
+
         $where = ['pid' => 0, 'level' => 1];
         $provincelist = null;
         if ($province !== '') {
@@ -258,7 +260,7 @@ class Ajax extends Backend
                     $where['pid'] = $city;
                     $where['level'] = 3;
                 }
-                $provincelist = Db::name('area')->where($where)->field('id as value,name')->select();
+                $provincelist = Db::name('area1')->where($where)->field('id as value,name')->select();
             }
         }
         $this->success('', null, $provincelist);

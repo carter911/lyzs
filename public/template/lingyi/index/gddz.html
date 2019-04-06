@@ -187,7 +187,7 @@
 							<div class="swiper-wrapper">
 								{volist name="procedure_image_list" id="img"}
 								<div class="swiper-slide" style="width: 310px;">
-									<img src="{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
+									<img src="{$site.cdnurl}{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
 								</div>
 								{/volist}
 							</div>
@@ -240,7 +240,7 @@
 				{volist name="butler_list" id="vo" key="key"}
 				<div style="margin-top: 20px;" class="col-xs-3 padding_c">
 					<div class="foreman_area">
-						<img src="{$vo.image}" class="img-responsive center-user-block">
+						<img src="{$site.cdnurl}{$vo.image}" class="img-responsive center-user-block">
 						<div class="foreman_info" style="height: 150px;width: 100%">
 							<div class="serve_area" >
 								<h3 class="pull-left margin_c">服务区域</h3>

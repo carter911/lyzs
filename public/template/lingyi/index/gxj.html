@@ -48,7 +48,7 @@
 <!---------------------------------主体内容---------------------------------------------->
 <div class="container-fluid inner_info">
     <!--<img src="/assets/img/frontend/personial.png" class="img-responsive center-block">-->
-    <img src="{$banner['image']}" class="img-responsive center-block">
+    <img src="{$site.cdnurl}{$banner['image']}" class="img-responsive center-block">
     <div class="container">
         <div class="lis_advta margin_t">
             <img src="/assets/img/frontend/lis_advta.jpg" class="img-responsive center-block">
@@ -97,7 +97,7 @@
 
                                     <div class="item active row case_show">
                                         <div class="col-xs-7">
-                                            <img style="width:680px;height: 510px;" src="{$case.image}"
+                                            <img style="width:680px;height: 510px;" src="{$site.cdnurl}{$case.image}"
                                                  class="img-responsive center-block">
                                         </div>
 
@@ -205,7 +205,7 @@
                                 {volist name="vo.images" id="v" key="k"}
                                 <div class="item {eq name='$k' value='1'}active{/eq}" style="height: 548px;">
                                     <div class="material_area">
-                                        <img style="width:100%;height: 548px;" src="{$v}"
+                                        <img style="width:100%;height: 548px;" src="{$site.cdnurl}{$v}"
                                              class="img-responsive center-block">
                                     </div>
                                 </div>
@@ -251,7 +251,7 @@
                                 {volist name="vo.images" id="v"}
                                 <div class="item {eq name='$key' value='0'}active{/eq}">
                                     <div class="material_area">
-                                        <img style="width:100%;height: 548px;" src="{$v}"
+                                        <img style="width:100%;height: 548px;" src="{$site.cdnurl}{$v}"
                                              class="img-responsive center-block">
                                     </div>
                                 </div>
@@ -280,7 +280,7 @@
                             <div class="swiper-wrapper">
                                 {volist name="procedure_image_list" id="img"}
                                 <div class="swiper-slide" style="width: 310px;">
-                                    <img src="{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
+                                    <img src="{$site.cdnurl}{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
                                 </div>
                                 {/volist}
                             </div>
@@ -374,7 +374,7 @@
                         <tr class="roll_area">
                             {volist name='witness_lists' id='item'}
                             <td class="roll_img text-center">
-                                <img style="width: 210px;height: 250px;" src="{$item.image}">
+                                <img style="width: 210px;height: 250px;" src="{$site.cdnurl}{$item.image}">
                             </td>
                             {/volist}
                         </tr>
