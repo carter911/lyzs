@@ -142,7 +142,9 @@
                     <div class="carousel-inner" role="listbox">
                         {volist name='$team_img' id='item' key='key'}
                         {if condition="$key eq 1"}
+                        
                         <div class="item active">
+                            <a href="/index/index/sjtd_detail.html?detail_id={$item.id}">
                             <img src="{$site.cdnurl}{$item.image}" class="" style="width: 280px;height: 284px">
                             <div class="designer_info" style="padding-top: 10px;background-color:#043e46;color: #fff;">
                                 <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
@@ -157,9 +159,13 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                            </a>
                         </div>
+                        
                         {else /}
+                        
                         <div class="item">
+                            <a href="/index/index/sjtd_detail.html?detail_id={$item.id}">
                             <img src="{$site.cdnurl}{$item.image}" class="img-responsive center-block"
                                  style="width: 280px;height: 284px">
                             <div class="designer_info" style="padding-top: 10px;background-color:#043e46;color: #fff;">
@@ -176,7 +182,9 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                        </a>
                         </div>
+                       
                         {/if}
                         {/volist}
                     </div>
@@ -253,9 +261,9 @@
                         {volist name="article_list" id='article'}
                         <div class="dynamic_lis dynamic_art" style="height: 83px;">
                             <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
-                            <h2 data-url="{$article.image}" data-id="{$article.id}" class="margin_c"
+                            <h2 data-url="{$site.cdnurl}{$article.image}" data-id="{$article.id}" class="margin_c"
                                 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
-                                <h2 data-url="{$article.image}" data-id="{$article.id}"
+                                <h2 data-url="{$site.cdnurl}{$article.image}" data-id="{$article.id}"
                                     data-href="/index/index/look_article_detail?id={$article.id}" class="margin_c"
                                     style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
                                     <a href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
@@ -274,7 +282,7 @@
                 <div class="case_list">
                     <div class="case_villa">
                         <div class="culture_link" onclick="window.location.href='/index/index/ppsl'">
-                            <img src="{$site.cdnurl}/assets/img/frontend/culutre_link.png"
+                            <img src="/assets/img/frontend/culutre_link.png"
                                  class="img-responsive center-block culture_icon">
                             <h4 class="text-center"><a href="/index/index/ppsl">岭&nbsp;艺&nbsp;文&nbsp;化</a></h4>
                         </div>
@@ -284,7 +292,7 @@
                 <div class="case_list">
                     <div class="case_villa">
                         <div class="culture_link" onclick="window.location.href='/index/index/zb'">
-                            <img src="{$site.cdnurl}/assets/img/frontend/competitive_link.png"
+                            <img src="/assets/img/frontend/competitive_link.png"
                                  class="img-responsive center-block culture_icon">
 
                             <h4 class="text-center"><a href="/index/index/zb">精&nbsp;品&nbsp;工&nbsp;地</a></h4>
@@ -295,7 +303,7 @@
                 <div class="case_list">
                     <div class="case_villa">
                         <div class="culture_link" onclick="window.location.href='/index/index/sjtd'">
-                            <img src="{$site.cdnurl}/assets/img/frontend/team_link.png"
+                            <img src="/assets/img/frontend/team_link.png"
                                  class="img-responsive center-block culture_icon">
                             <h4 class="text-center"><a href="/index/index/sjtd">设&nbsp;计&nbsp;团&nbsp;队</a></h4>
                         </div>
@@ -315,7 +323,7 @@
                 <div class="case_list">
                     <div class="case_villa">
                         <div class="culture_link" onclick="window.location.href='/index/index/zxhd'">
-                            <img src="{$site.cdnurl}/assets/img/frontend/activity_link.png"
+                            <img src="/assets/img/frontend/activity_link.png"
                                  class="img-responsive center-block culture_icon">
                             <h4 class="text-center"><a href="/index/index/zxhd">钜&nbsp;惠&nbsp;活&nbsp;动</a></h4>
                         </div>
