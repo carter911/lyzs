@@ -83,6 +83,16 @@
         padding-left: 20px;
         border-left: 1px solid #eee;
     }
+
+    .article_main {
+        min-height: 5rem;
+        overflow: hidden;
+        display: block;
+        padding: 30px;
+        background-color: #F2F2F2;
+        border: 1px solid #ddd;
+        margin-bottom: 2rem;
+    }
 </style>
 
 <script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
@@ -109,16 +119,20 @@
                 {if condition="$info.url"}
                 <iframe width="900" height="700" src="{$info.url}" frameborder="0"></iframe>
                 {else /}
-                <iframe width="900" height="700" src="https://yun.kujiale.com/design/3FO41LMY00U6/show?from=timeline&isappinstalled=0" frameborder="0"></iframe>
+                <iframe width="900" height="700"
+                        src="https://yun.kujiale.com/design/3FO41LMY00U6/show?from=timeline&isappinstalled=0"
+                        frameborder="0"></iframe>
                 {/if}
                 <div class="art_link">
-                    <a href="/index/index/sjal_detail.html?detail_id={$article_prev.id??1}" class="pull-left text-center">上一篇：{$article_prev.name??'待更新'}</a>
-                    <a href="/index/index/sjal_detail.html?detail_id={$article_next.id??1}" class="pull-right text-center">下一篇：{$article_next.name??'待更新'}</a>
+                    <a href="/index/index/sjal_detail.html?detail_id={$article_prev.id??1}"
+                       class="pull-left text-center">上一篇：{$article_prev.name??'待更新'}</a>
+                    <a href="/index/index/sjal_detail.html?detail_id={$article_next.id??1}"
+                       class="pull-right text-center">下一篇：{$article_next.name??'待更新'}</a>
                     <div class="clearfix"></div>
                 </div>
                 {/eq}
                 <!-- 案例内容 -->
-                <div style="min-height:5rem;overflow:hidden;display: block;">
+                <div class="article_main">
                     <article>
                         {$info.content|htmlspecialchars_decode}
                     </article>
@@ -225,15 +239,16 @@
                     <h4 style="margin-bottom: 1rem;">本案设计师简介</h4>
                     <div class="row none-margin">
                         <div class="col-md-5 none-padding" style="background-color:#ccc;height: 120px;">
-                            <img style="width: 100%;height: 100%" src="{$site.cdnurl}{$team.image}?imageView2/1/w/600/h/600/q/60" alt="">
+                            <img style="width: 100%;height: 100%"
+                                 src="{$site.cdnurl}{$team.image}?imageView2/1/w/600/h/600/q/60" alt="">
                         </div>
                         <div class="col-md-7 none-padding" style="padding-left: 8px;">
                             <div class="row none-margin">设计师:{$team.name}
                                 <span style="padding: 1px 5px;color: #fff;background-color:#000;cursor: pointer;"
-                                    onclick="showLyDialogWithId('yuyue_ta','{$team.id}')">预约</span></div>
+                                      onclick="showLyDialogWithId('yuyue_ta','{$team.id}')">预约</span></div>
                             <div class="row none-margin">级别: {$team.work_name}</div>
                             <div class="row none-margin">从业年限: {$team.work_num}年</div>
-							<br>
+                            <br>
                             <!--<div class="row none-margin">电话: {$team.mobile?$team.mobile:''}</div>-->
                             <div class="row none-margin">
                                 <a href="/index/index/sjtd_detail.html?detail_id={$team.id}"
@@ -257,7 +272,7 @@
                             <td>现代简约</td>
                         </tr>
                         <tr class="tr-style">
-                            <td>设计师</td>
+                            <td>设计公司</td>
                             <td>岭艺装饰</td>
                         </tr>
                         <tr class="tr-style">
