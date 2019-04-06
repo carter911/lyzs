@@ -197,12 +197,35 @@ class Index extends Frontend
 
         // 根据 风格 展示 实景案例
         $team_style_list = Db::name('team_style')->field("id,name")->limit(5)->order('id desc')->select();
-        $cases_list = Db::name('cases')->field("id,name,image,team_style_ids")
-            ->where(['status' => "1"])->limit(5)->order('id desc')->select();
+
+        $cases_list = Db::name('cases')->field("id,name,image,images,team_style_ids")
+            ->where(['status' => "1",'is_yj'=>1])->limit(5)->order('id desc')->select();
+
+        foreach ($cases_list as $key => $val){
+			$cases_list[$key]['style'] = Db::name('team_style')->where('id','in',$val['team_style_ids'])->find();
+			$cases_list[$key]['images'] = [];
+			if(!empty($val['images'])){
+				$cases_list[$key]['images'] = explode(",",$val['images']);
+			}
+			$countNum = count($cases_list[$key]['images']);
+
+			if($countNum<5){
+				for ($num=1;$num<=(5-$countNum);$num++){
+					$cases_list[$key]['images'][] = $val['image'];
+				}
+			}
+		}
+
+
         $live_cases_list = [];
         foreach ($team_style_list as $key => $val) {
             foreach ($cases_list as $k => $v) {
                 if ($val['id'] == $v['team_style_ids']) {
+					$team_style_list[$key]['images'] = [];
+                	if(!empty($v['images'])){
+						$team_style_list[$key]['images'] = $v['images'];
+					}
+
                     $team_style_list[$key]['style'] = $cases_list[$k];
                 }
             }
@@ -210,6 +233,7 @@ class Index extends Frontend
                 array_push($live_cases_list, $team_style_list[$key]);
             }
         }
+
         // 根据 风格 展示 实景案例 live_cases
         $this->assign('live_cases_list', $live_cases_list);
         $this->assign('procedure_list', $procedure_list);
@@ -218,6 +242,7 @@ class Index extends Frontend
 
         $this->assign('procedure_image_list', $procedure_image_list);
         $this->assign("procedure_title_list", $procedure_title_list);
+        $this->assign("cases_list", $cases_list);
 
         $this->assign('title', '优家-岭艺装饰');
         return $this->view->fetch('tc');

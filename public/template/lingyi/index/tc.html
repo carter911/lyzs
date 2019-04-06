@@ -319,11 +319,11 @@
                     <div class="inner_info row">
                         <div class="col-xs-10">
                             <ul id="realcaseTabs" class="nav nav-tabs" role="tablist">
-                                {volist name="live_cases_list" id="items"}
+                                {volist name="cases_list" id="items"}
                                 <li role="presentation" class="{eq name='$key' value='0'}active{/eq}">
                                     <a onmouseover="$(this).click()" href="#simplestyle{$key}" id="simplestyle-tab"
                                        role="tab" data-toggle="tab"
-                                       aria-controls="simplestyle" aria-expanded="true" style="padding: 10px 50px;">{$items.name}</a>
+                                       aria-controls="simplestyle" aria-expanded="true" style="padding: 10px 50px;">{$items.style.name}</a>
                                 </li>
                                 {/volist}
                             </ul>
@@ -337,7 +337,7 @@
                 </div>
 
                 <div id="realcaseTabContent" class="tab-content tabinfo" style="height: 700;overflow:hidden;">
-                    {volist name="live_cases_list" id="vo"}
+                    {volist name="cases_list" id="vo"}
                     <div role="tabpanel" class="tab-pane fade in {eq name='$key' value='0'}active{/eq}"
                          id="simplestyle{$key}"
                          aria-labelledby="simplestyle-tab">
@@ -345,20 +345,19 @@
                             <div class="col-xs-7 padding_c" style="height: 584.5px;overflow: hidden;">
                                 <div class="leftop_area">
                                     <div class="cart_img">
-                                        <a href="#">
-                                            <img style="width: 100%;height: 370px;" src="{$site.cdnurl}{$vo.style['image']}"
+                                        <a href="javascript:void(0)">
+                                            <img style="width: 100%;height: 370px;" src="{$site.cdnurl}{$vo['images'][0]}"
                                                  class="img-responsive center-block">
                                         </a>
                                     </div>
                                 </div>
-
                                 <div class="rel_leftbotimg row">
                                     <div class="col-xs-6 padding_c">
                                         <div class="rel_leftbotleft">
                                             <div class="cart_img">
-                                                <a href="#">
+                                                <a href="javascript:void(0)">
                                                     <img style="width: 100%;height: 200px;"
-                                                              src="{$site.cdnurl}{$vo.style['image']}"
+                                                              src="{$site.cdnurl}{$vo['images'][1]}"
                                                               class="img-responsive center-block">
                                                 </a>
                                             </div>
@@ -367,9 +366,8 @@
                                     <div class="col-xs-6 padding_c">
                                         <div class="rel_leftbotrigh">
                                             <div class="cart_img">
-                                                <a href="#">
-                                                    <img style="width: 100%;height: 200px;"
-                                                              src="{$site.cdnurl}{$vo.style['image']}"
+                                                <a href="javascript:void(0)">
+                                                    <img style="width: 100%;height: 200px;" src="{$site.cdnurl}{$vo['images'][2]}"
                                                               class="img-responsive center-block">
                                                 </a>
                                             </div>
@@ -380,16 +378,16 @@
                             <div class="col-xs-5 padding_c" style="height: 584.5px;">
                                 <div class="rel_rightopimg">
                                     <div class="cart_img">
-                                        <a href="#">
-                                            <img style="width: 100%;height: 285px;" src="{$site.cdnurl}{$vo.style['image']}"
+                                        <a href="javascript:void(0)">
+                                            <img style="width: 100%;height: 285px;" src="{$site.cdnurl}{$vo['images'][3]}"
                                                  class="img-responsive center-block">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="rel_righbotimg">
                                     <div class="cart_img">
-                                        <a href="#">
-                                            <img style="width: 100%;height: 285px;" src="{$site.cdnurl}{$vo.style['image']}"
+                                        <a href="javascript:void(0)">
+                                            <img style="width: 100%;height: 285px;" src="{$site.cdnurl}{$vo['images'][4]}"
                                                  class="img-responsive center-block">
                                         </a>
                                     </div>
