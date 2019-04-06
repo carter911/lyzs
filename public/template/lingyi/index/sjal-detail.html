@@ -112,10 +112,20 @@
     </div>
 
     <div class="cation-content" style="margin: 2rem 0;">
+        
         <div style="display: flex;justify-content: flex-start;align-items: flex-start;">
             <div class="left_table" style="flex: 1;">
+                
                 <!-- 设计案例-->
-                {eq name='info.status' value='2'}
+                
+                <div class="article_main">
+                    <div class="art_title">
+                        <h1 class="text-center"><b>{$info.name}</b></h1>
+                        <p class="art_patch" style="text-align: right">&nbsp;更新时间：<span
+                                class="date_are">{$info.updatetime|date="Y-m-d",###}</span>
+                        </p>
+                        <hr>
+                    </div>{eq name='info.status' value='2'}
                 {if condition="$info.url"}
                 <iframe width="900" height="700" src="{$info.url}" frameborder="0"></iframe>
                 <div class="art_link">
@@ -126,10 +136,10 @@
                     <div class="clearfix"></div>
                 </div>
                 {/if}
-
+               
                 {/eq}
                 <!-- 案例内容 -->
-                <div class="article_main">
+                    
                     <article>
                         {$info.content|htmlspecialchars_decode}
                     </article>
