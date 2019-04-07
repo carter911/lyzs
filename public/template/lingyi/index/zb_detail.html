@@ -264,15 +264,17 @@
                         <div class="col-md-10 scrollbox" style="overflow-y: scroll;height: 1200px;">
                             {volist name='info.circle' id='circle' key='key'}
                             {elt name='circle.id' value='info.circle_id'}
+                            
                             {volist name ="info.task" id="task"}
                             {eq name='circle.id' value='$task.circle_id'}
+                            {notempty name='task.image'}
                             <!--start-->
                             <div class="time-box">
                                 <a name="flag{$circle.id}"></a>
                                 <h2 style="text-align: center;">{$task.name}</h2>
                                 <hr>
                                 <div class="text">任务描述: {$task.detail}</div>
-                                {notempty name='task.image'}
+                                
                                 <div id="layer-photos-demo" class="layer-photos-demo row none-margin time-box-images">
                                     {volist name='$task.image' id='image'}
                                     <div class="img-box">
@@ -281,8 +283,9 @@
                                     </div>
                                     {/volist}
                                 </div>
-                                {/notempty}
+                                
                             </div>
+                            {/notempty}
                             {/eq}
                             <!--end-->
                             {/volist}

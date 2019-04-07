@@ -242,7 +242,7 @@
                             <div><span style="vertical-align: top">施工进度：</span><span class="triangle"></span></div>
                             <div class="time_cards_box" style="height: 100px;">
                                 {volist name='project.circle' key='key' id='circle'}
-                                <div  class="time_card {elt name='circle.id' value='$project.circle_id'}select_status{/elt}  ">{$circle.name}</div>
+                                <div  class="time_card {elt name='circle.start_time' value='$project.circle_id'}select_status{/elt}  ">{$circle.name}</div>
                                 {/volist}
                             </div>
                         </div>
@@ -276,11 +276,11 @@
     </div>
 
     <script>
-        $(function () {
-            $(".time_cards_box .time_card").hover(function () {
-                $(this).parent().children(".time_card").removeClass("select_status");
-                $(this).prevAll().addClass("select_status");
-                $(this).addClass("select_status");
-            });
-        });
+        // $(function () {
+        //     $(".time_cards_box .time_card").hover(function () {
+        //         $(this).parent().children(".time_card").removeClass("select_status");
+        //         $(this).prevAll().addClass("select_status");
+        //         $(this).addClass("select_status");
+        //     });
+        // });
     </script>

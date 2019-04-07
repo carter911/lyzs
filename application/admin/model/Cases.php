@@ -23,7 +23,8 @@ class Cases extends Model
         'is_kjl_text',
         'is_home_text',
         'is_gxj_text',
-        'is_gddz_text'
+        'is_gddz_text',
+        'is_yj_text'
     ];
     
 
@@ -56,6 +57,11 @@ class Cases extends Model
     public function getIsGddzList()
     {
         return ['1' => __('Is_gddz 1'),'2' => __('Is_gddz 2')];
+    }     
+
+    public function getIsYjList()
+    {
+        return ['1' => __('Is_yj 1'),'2' => __('Is_yj 2')];
     }     
 
 
@@ -103,6 +109,14 @@ class Cases extends Model
     {        
         $value = $value ? $value : (isset($data['is_gddz']) ? $data['is_gddz'] : '');
         $list = $this->getIsGddzList();
+        return isset($list[$value]) ? $list[$value] : '';
+    }
+
+
+    public function getIsYjTextAttr($value, $data)
+    {        
+        $value = $value ? $value : (isset($data['is_yj']) ? $data['is_yj'] : '');
+        $list = $this->getIsYjList();
         return isset($list[$value]) ? $list[$value] : '';
     }
 

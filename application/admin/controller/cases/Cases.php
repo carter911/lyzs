@@ -28,6 +28,7 @@ class Cases extends Backend
         $this->view->assign("isHomeList", $this->model->getIsHomeList());
         $this->view->assign("isGxjList", $this->model->getIsGxjList());
         $this->view->assign("isGddzList", $this->model->getIsGddzList());
+        $this->view->assign("isYjList", $this->model->getIsYjList());
     }
     
     /**

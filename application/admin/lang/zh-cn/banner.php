@@ -11,5 +11,6 @@ return [
     'Desc'  =>  '简介',
     'Detail'  =>  '详情',
     'Createtime'  =>  '创建时间',
-    'Updatetime'  =>  '更新时间'
+    'Updatetime'  =>  '更新时间',
+    'Url'  =>  '跳转地址'
 ];

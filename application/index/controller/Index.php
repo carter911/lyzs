@@ -415,7 +415,7 @@ class Index extends Frontend
     {
         $this->assign('title', '首页-直播');
         $param = $request->param();
-        $where = [];
+        $where = ['is_show'=>1];
         if (isset($param['city_name']) && !empty($param['city_name'])) {
             if ($param['city_name'] == 'other') {
                 $where['city_name'] = ['eq', ''];
@@ -457,15 +457,15 @@ class Index extends Frontend
 
         $count = Db::name('project')->where($where)->count();
         $list = Db::name('project')->where($where)->limit($pageStart, 20)->order($order)->select();
+
+
         foreach ($list as $key => $val) {
+			$list[$key]['start_time'] = date('Y-m-d',strtotime($val['start_time']));
+			$list[$key]['end_time'] = date('Y-m-d',strtotime($val['end_time']));
             $list[$key]['circle'] = json_decode($val['circle'], true);
-
-            foreach ($list[$key]['circle'] as $k => $v) {
-
-            }
+			array_multisort(array_column($list[$key]['circle'],'start_time'),SORT_ASC,$list[$key]['circle']);
             $list[$key]['image'] = array_slice(json_decode($val['image'], true), 0, 6);
         }
-
         $area = Db::name('area')->where(['parent_id' => 24])->select();
         $circle = Db::name('project_circle')->select();
 
