@@ -74,7 +74,8 @@
             <div class="swiper-wrapper">
                 {volist name="banner" key="k" id='b'}
                 <div class="swiper-slide ">
-                    <img src="{$site.cdnurl}{$b.image}" data-url="{$b.url}" class="banner_image img-responsive" style="width: 100%;"/>
+                    <img src="{$site.cdnurl}{$b.image}" data-url="{$b.url}" class="banner_image img-responsive"
+                         style="width: 100%;"/>
                 </div>
                 {/volist}
             </div>
@@ -142,49 +143,51 @@
                     <div class="carousel-inner" role="listbox">
                         {volist name='$team_img' id='item' key='key'}
                         {if condition="$key eq 1"}
-                        
+
                         <div class="item active">
                             <a href="/index/index/sjtd_detail.html?detail_id={$item.id}">
-                            <img src="{$site.cdnurl}{$item.image}" class="" style="width: 280px;height: 284px">
-                            <div class="designer_info" style="padding-top: 10px;background-color:#043e46;color: #fff;">
-                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
-                                                                                       class="des_name">{$item.name}</span>
-                                    {$item.work_name}</h4>
-                                <div class="des_infodeta" style="border-top: 1px solid #ccc;padding: 5px;">
-                                    <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年
-                                    </p>
-                                    <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img
-                                            style="float: left;" src="/assets/img/des_star.png"
-                                            class="img-responsive des_star"> <span>100</span>人预约</p>
-                                    <div class="clearfix"></div>
+                                <img src="{$site.cdnurl}{$item.image}" class="" style="width: 280px;height: 284px">
+                                <div class="designer_info"
+                                     style="padding-top: 10px;background-color:#043e46;color: #fff;">
+                                    <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
+                                                                                           class="des_name">{$item.name}</span>
+                                        {$item.work_name}</h4>
+                                    <div class="des_infodeta" style="border-top: 1px solid #ccc;padding: 5px;">
+                                        <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年
+                                        </p>
+                                        <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img
+                                                style="float: left;" src="/assets/img/des_star.png"
+                                                class="img-responsive des_star"> <span>100</span>人预约</p>
+                                        <div class="clearfix"></div>
+                                    </div>
                                 </div>
-                            </div>
                             </a>
                         </div>
-                        
+
                         {else /}
-                        
+
                         <div class="item">
                             <a href="/index/index/sjtd_detail.html?detail_id={$item.id}">
-                            <img src="{$site.cdnurl}{$item.image}" class="img-responsive center-block"
-                                 style="width: 280px;height: 284px">
-                            <div class="designer_info" style="padding-top: 10px;background-color:#043e46;color: #fff;">
-                                <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
-                                                                                       class="des_name">{$item.name}</span>
-                                    {$item.work_name}</h4>
-                                <div class="des_infodeta"
-                                     style="border-top: 1px solid #ccc;padding-top: 5px;margin-top: 5px;">
-                                    <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年
-                                    </p>
-                                    <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img
-                                            style="float: left;" src="/assets/img/des_star.png"
-                                            class="img-responsive des_star"> <span>100</span>人预约</p>
-                                    <div class="clearfix"></div>
+                                <img src="{$site.cdnurl}{$item.image}" class="img-responsive center-block"
+                                     style="width: 280px;height: 284px">
+                                <div class="designer_info"
+                                     style="padding-top: 10px;background-color:#043e46;color: #fff;">
+                                    <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
+                                                                                           class="des_name">{$item.name}</span>
+                                        {$item.work_name}</h4>
+                                    <div class="des_infodeta"
+                                         style="border-top: 1px solid #ccc;padding-top: 5px;margin-top: 5px;">
+                                        <p style="font-size: 12px;" class="pull-left">从业经验<span class="des_time">{$item.work_num}</span>年
+                                        </p>
+                                        <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img
+                                                style="float: left;" src="/assets/img/des_star.png"
+                                                class="img-responsive des_star"> <span>100</span>人预约</p>
+                                        <div class="clearfix"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         </div>
-                       
+
                         {/if}
                         {/volist}
                     </div>
@@ -201,38 +204,43 @@
 
             <div class="row" style="height: 462px;width:75%;overflow:hidden;">
                 {volist name="cases_lists" id='item'}
-                <div  class="col-xs-4" style="padding-left:10px;padding-right:10px;">
-                    <div  class="goldcase_area">
-                        <div  class="gold_caselis text-center" style="margin-bottom: 30px">
+                <div class="col-xs-4" style="padding-left:10px;padding-right:10px;">
+                    <div class="goldcase_area">
+                        <div class="gold_caselis text-center" style="margin-bottom: 30px">
                             <img src="{$site.cdnurl}{$item.image}" style="width:288px;height: 216px;">
                             <div class="gold-content">
                                 <a class="title" href="/index/index/sjal_detail.html?detail_id={$item.id}">
                                     <h5 class="title" style="padding-top: 0">{$item.name}</h5>
                                 </a>
-                                <a  href="/index/index/sjal_detail.html?detail_id={$item.id}">
-                                <ul class="goldcase_info">
-                                    <li class="text-left">
-                                        <a href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>
-                                            {volist name="$item.team_style_ids" id="style_id"}
-                                            {$style_id}
-                                            {/volist}
-                                        </p></a>
-                                    </li>
-                                    <li class="text-left"><a href="/index/index/sjal_detail.html?detail_id={$item.id}">
-                                        <p>
-                                            {volist name="$item.team_door_ids" id="door_id"}
-                                            {$door_id} /
-                                            {/volist}
-                                            {$item.cases_area_id} ㎡
-                                        </p></a></li>
-                                    <li class="text-left"><a href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>半包总价 {$item.price}</p></a></li>
-                                    <li class="text-left"><a href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>设计团队 {$item.team_team_id}</p></a></li>
-                                </ul>
+                                <a href="/index/index/sjal_detail.html?detail_id={$item.id}">
+                                    <ul class="goldcase_info">
+                                        <li class="text-left">
+                                            <a href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>
+                                                {volist name="$item.team_style_ids" id="style_id"}
+                                                {$style_id}
+                                                {/volist}
+                                            </p></a>
+                                        </li>
+                                        <li class="text-left"><a
+                                                href="/index/index/sjal_detail.html?detail_id={$item.id}">
+                                            <p>
+                                                {volist name="$item.team_door_ids" id="door_id"}
+                                                {$door_id} /
+                                                {/volist}
+                                                {$item.cases_area_id} ㎡
+                                            </p></a></li>
+                                        <li class="text-left"><a
+                                                href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>半包总价
+                                            {$item.price}</p></a></li>
+                                        <li class="text-left"><a
+                                                href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>设计团队
+                                            {$item.team_team_id}</p></a></li>
+                                    </ul>
                                 </a>
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
                 {/volist}
             </div>
@@ -250,8 +258,9 @@
                     <div class="col-xs-5" style="padding-right: 0">
                         {volist name="article_list" id='article'}
                         <div class="dynamic_lis" style="height: 400px;overflow:hidden;position: relative;">
-                            <a style="width: 100%" href="#">
-                                <img style="height:100%;display: block;object-fit: cover;" src="{$site.cdnurl}{$article.image}"
+                            <a style="width: 100%" href="/index/index/look_article_detail?id={$article.id}">
+                                <img style="height:100%;display: block;object-fit: cover;"
+                                     src="{$site.cdnurl}{$article.image}"
                                      class="img-responsive center-block article_img">
                             </a>
                         </div>
@@ -259,18 +268,16 @@
                     </div>
                     <div class="col-xs-7">
                         {volist name="article_list" id='article'}
-                        <div class="dynamic_lis dynamic_art" style="height: 83px;">
-                            <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
-                            <h2 data-url="{$site.cdnurl}{$article.image}" data-id="{$article.id}" class="margin_c"
-                                style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
+                        <a href="/index/index/look_article_detail?id={$article.id}" style="text-decoration: none;">
+                            <div class="dynamic_lis dynamic_art" style="height: 83px;">
+                                <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
                                 <h2 data-url="{$site.cdnurl}{$article.image}" data-id="{$article.id}"
                                     data-href="/index/index/look_article_detail?id={$article.id}" class="margin_c"
                                     style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
-                                    <a href="/index/index/look_article_detail?id={$article.id}" class="dynamic_title">
-                                        {$article.desc}
-                                    </a>
+                                    {$article.desc}
                                 </h2>
-                        </div>
+                            </div>
+                        </a>
                         {/volist}
                     </div>
                 </div>
@@ -352,7 +359,8 @@
                             <tr class="roll_area">
                                 {volist name='witness_lists' id='item'}
                                 <td class="roll_img text-center"><img style="width: 210px;height: 250px;"
-                                                                      src="{$site.cdnurl}{$item.image}?imageView2/1/w/420/h/500/q/60"></td>
+                                                                      src="{$site.cdnurl}{$item.image}?imageView2/1/w/420/h/500/q/60">
+                                </td>
                                 {/volist}
                             </tr>
                             </tbody>
