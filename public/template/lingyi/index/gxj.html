@@ -63,7 +63,8 @@
         <div class="lis_case margin_t" style="overflow: hidden;">
             <!--<a id="case_title"></a>-->
             <img src="/assets/img/frontend/lis_case.jpg" class="center-block img-responsive">
-            <div class="case_tab" data-example-id="togglable-tabs" style="margin-top: 80px;overflow: hidden;height: 562px;">
+            <div class="case_tab" data-example-id="togglable-tabs"
+                 style="margin-top: 80px;overflow: hidden;height: 562px;">
                 <div class="container inner_info">
                     <div class="col-xs-9 inner_info">
                         <ul id="myTabs" class="nav nav-tabs" role="tablist">
@@ -96,15 +97,20 @@
                                 <div class="carousel-inner" role="listbox">
 
                                     <div class="item active row case_show">
+                                        <a href="/index/index/sjal_detail.html?detail_id={$case.id}">
                                         <div class="col-xs-7">
                                             <img style="width:680px;height: 510px;" src="{$site.cdnurl}{$case.image}"
                                                  class="img-responsive center-block">
                                         </div>
+                                        </a>
 
                                         <div class="col-xs-5">
                                             <div class="case_intro" style="height: 510px;font-size: 14px;">
-                                                <h3 style="text-align:center;margin-bottom: 1.25rem;">
-                                                    <b>{$case.name}</b></h3>
+                                                <a href="/index/index/sjal_detail.html?detail_id={$case.id}" style="text-decoration:none;">
+                                                    <h3 style="text-align:center;margin-bottom: 1.25rem;">
+                                                        <b>{$case.name}</b>
+                                                    </h3>
+                                                </a>
                                                 <table class="table">
                                                     <tr>
                                                         <td class="tab_lab text-center">案例名称</td>
@@ -280,7 +286,8 @@
                             <div class="swiper-wrapper">
                                 {volist name="procedure_image_list" id="img"}
                                 <div class="swiper-slide" style="width: 310px;">
-                                    <img src="{$site.cdnurl}{$img}" class="img-responsive" style="width: 90%;margin: 5% auto;"/>
+                                    <img src="{$site.cdnurl}{$img}" class="img-responsive"
+                                         style="width: 90%;margin: 5% auto;"/>
                                 </div>
                                 {/volist}
                             </div>
