@@ -9,6 +9,7 @@ $(function () {
         get_message(GUUID, GROUP_ID);
         $("#container").css('display', 'block');
         $(".layui-fixbar").css('display', 'none');
+        $('#chat', parent.document).css({'z-index':999});
         div.scrollTop = div.scrollHeight;
     });
 
@@ -16,6 +17,7 @@ $(function () {
         localStorage.removeItem('ichat_pop');
         $("#container").css('display', 'none');
         $(".layui-fixbar").css('display', 'block');
+        $('#chat', parent.document).css({'z-index':-1});
         closeichat_pop();
     });
 

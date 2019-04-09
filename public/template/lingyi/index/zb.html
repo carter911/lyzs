@@ -104,6 +104,7 @@
     }
     .area_list{padding: 10px;}
     .area_list:hover{background: #e7e7e7;}
+    .page_active{background: #ccc;color: red}
 </style>
 
 <div class="container">
@@ -120,9 +121,9 @@
             <dl class="cation-list">
                 <dt class="select_title text-center">装修进度</dt>
                 <dd>
-                    <a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize=1" rel="" name="time" class="all {eq name='param.rate' value=''}on{/eq}">全部</a>
+                    <a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}" rel="" name="time" class="all {eq name='param.rate' value=''}on{/eq}">全部</a>
                     {volist name='circle' id='c'}
-                    <a href="/index/index/zb?rate={$c.name}&city_name={$param.city_name}&sort={$param.sort}&pageSize=1"  name="time" class="default {eq name='param.rate' value='$c.name'}on{/eq}">{$c.name}</a>
+                    <a href="/index/index/zb?rate={$c.name}&city_name={$param.city_name}&sort={$param.sort}"  name="time" class="default {eq name='param.rate' value='$c.name'}on{/eq}">{$c.name}</a>
     
                     {/volist}
                     
@@ -131,16 +132,16 @@
             <dl class="cation-list">
                 <dt class="select_title text-center">所在区域</dt>
                 <dd>
-                    <a href="/index/index/zb?rate={$param.rate}&city_name=&sort={$param.sort}&pageSize=1" rel="" name="time" class="all {eq name='param.city_name' value=''}on{/eq}">全部</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=&sort={$param.sort}" rel="" name="time" class="all {eq name='param.city_name' value=''}on{/eq}">全部</a>
                     <!--{volist name='area' id='a'}-->
                     <!--<a href="/index/index/zb?rate={$param.sort}&city_name={$a.code}&sort={$param.sort}" rel="金山区" name="time" class="default {eq name='param.city_name' value='a.code'}on{/eq}">{$a.name}</a>-->
                     <!--{/volist}-->
-                    <a href="/index/index/zb?rate={$param.rate}&city_name=松江区&sort={$param.sort}&pageSize=1" rel="松江区" name="time" class="default {eq name='param.city_name' value='松江区'}on{/eq}">松江区</a>
-                    <a href="/index/index/zb?rate={$param.rate}&city_name=金山区&sort={$param.sort}&pageSize=1" rel="金山区" name="time" class="default {eq name='param.city_name' value='金山区'}on{/eq}">金山区</a>
-                    <a href="/index/index/zb?rate={$param.rate}&city_name=浦东新区&sort={$param.sort}&pageSize=1" rel="浦东新区" name="time" class="default {eq name='param.city_name' value='浦东新区'}on{/eq}">浦东新区</a>
-                    <a href="/index/index/zb?rate={$param.rate}&city_name=奉贤区&sort={$param.sort}&pageSize=1" rel="奉贤区" name="time" class="default {eq name='param.city_name' value='奉贤区'}on{/eq}">奉贤区</a>
-                    <a href="/index/index/zb?rate={$param.rate}&city_name=闵行区&sort={$param.sort}&pageSize=1" rel="闵行区" name="time" class="default {eq name='param.city_name' value='闵行区'}on{/eq}">闵行区</a>
-                    <a href="/index/index/zb?rate={$param.rate}&city_name=other&sort=0&pageSize=1" rel="其他区域" name="time" class="default {eq name='param.city_name' value='other'}on{/eq}">其他区域</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=松江区&sort={$param.sort}" rel="松江区" name="time" class="default {eq name='param.city_name' value='松江区'}on{/eq}">松江区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=金山区&sort={$param.sort}" rel="金山区" name="time" class="default {eq name='param.city_name' value='金山区'}on{/eq}">金山区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=浦东新区&sort={$param.sort}" rel="浦东新区" name="time" class="default {eq name='param.city_name' value='浦东新区'}on{/eq}">浦东新区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=奉贤区&sort={$param.sort}" rel="奉贤区" name="time" class="default {eq name='param.city_name' value='奉贤区'}on{/eq}">奉贤区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=闵行区&sort={$param.sort}" rel="闵行区" name="time" class="default {eq name='param.city_name' value='闵行区'}on{/eq}">闵行区</a>
+                    <a href="/index/index/zb?rate={$param.rate}&city_name=other&sort=0" rel="其他区域" name="time" class="default {eq name='param.city_name' value='other'}on{/eq}">其他区域</a>
                 </dd>
             </dl>
             <dl class="cation-list">
@@ -252,27 +253,9 @@
         </div>
         <hr>
         {/volist}
-
-        <nav aria-label="Page navigation" class="pagselec">
-            <ul class="pagination pagination-lg">
-                <li><a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize=1">首页</a></li>
-                
-                <li>
-                    <a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize={$param['pageSize']>1?$param['pageSize']-1:1}" aria-label="Previous">
-                        <span aria-hidden="true">&lt;</span>
-                    </a>
-                </li>
-                <?php for($i=1;$i<=$pageNum;$i++){?>
-                <li><a class="actived" href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize={$i}">{$i}</a></li>
-                <?php } ?>
-                <li>
-                    <a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize={$param['pageSize']>=$pageNum?$pageNum:$param['pageSize']+1}" aria-label="Next">
-                        <span aria-hidden="true">&gt;</span>
-                    </a>
-                </li>
-                <li><a href="/index/index/zb?rate=&city_name={$param.city_name}&sort={$param.sort}&pageSize={$pageNum}">末页</a></li>
-            </ul>
-        </nav>
+        <div style="text-align: center">
+            {$page}
+        </div>
     </div>
 
     <script>

@@ -2,9 +2,9 @@
 
 return array (
   'name' => '上海岭艺建筑装潢有限公司',
-  'beian' => 'ly-home@foxmail.com',
-  'logo' => '/uploads/20181106/18fb67c2f1785e70f27def81cce08542.png',
-  'telphone' => '020-88888888',
+  'beian' => '沪ICP备09058786号-2',
+  'logo' => '/uploads/20190406/FiQOyaIELep7s2nzTy0rgKETpxZa.png',
+  'telphone' => '400-8088-755',
   'timezone' => 'Asia/Shanghai',
   'forbiddenip' => '',
   'languages' => 
@@ -28,6 +28,6 @@ return array (
   'mail_smtp_pass' => 'password',
   'mail_verify_type' => '2',
   'mail_from' => '10000@qq.com',
-  'cdnurl' => '',
-  'version' => '1.0.0',
+  'cdnurl' => 'http://ly.e-shigong.com',
+  'version' => '1.0.1',
 );

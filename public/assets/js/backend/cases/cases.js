@@ -26,7 +26,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
                         {field: 'status', title: __('Status'), searchList: {"1":__('Status 1'),"2":__('Status 2')}, formatter: Table.api.formatter.status},
+                        {field: 'xq_name', title: __('Xq_name')},
                         {field: 'name', title: __('Name')},
+                        {field: 'region_id', title: __('Region_id')},
                         {field: 'address', title: __('Address')},
                         {field: 'area', title: __('Area')},
                         {field: 'type', title: __('Type'), searchList: {"1":__('Type 1'),"2":__('Type 2'),"3":__('Type 3')}, formatter: Table.api.formatter.normal},
@@ -36,10 +38,16 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'cases_area_id', title: __('Cases_area_id')},
                         {field: 'butler_id', title: __('Butler_id')},
                         {field: 'price', title: __('Price'), operate:'BETWEEN'},
+                        {field: 'is_kjl', title: __('Is_kjl'), searchList: {"1":__('Is_kjl 1'),"2":__('Is_kjl 2')}, formatter: Table.api.formatter.normal},
+                        {field: 'url', title: __('Url'), formatter: Table.api.formatter.url},
+                        {field: 'images', title: __('Images'), formatter: Table.api.formatter.images},
                         {field: 'image', title: __('Image'), formatter: Table.api.formatter.image},
-                        {field: 'content', title: __('Content'),cellStyle: function () {return {css: {"max-width": "300px",'overflow':'hidden'}}}},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
+                        {field: 'is_home', title: __('Is_home'), searchList: {"1":__('Is_home 1'),"2":__('Is_home 2')}, formatter: Table.api.formatter.normal},
+                        {field: 'is_gxj', title: __('Is_gxj'), searchList: {"1":__('Is_gxj 1'),"2":__('Is_gxj 2')}, formatter: Table.api.formatter.normal},
+                        {field: 'is_gddz', title: __('Is_gddz'), searchList: {"1":__('Is_gddz 1'),"2":__('Is_gddz 2')}, formatter: Table.api.formatter.normal},
+                        {field: 'is_yj', title: __('Is_yj'), searchList: {"1":__('Is_yj 1'),"2":__('Is_yj 2')}, formatter: Table.api.formatter.normal},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

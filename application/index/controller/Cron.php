@@ -44,6 +44,7 @@ class Cron extends Controller
 			if(!empty($val['city'])){
 				$city = Db::name('area')->where(['code'=>$val['city']])->find();
 			}
+			echo '同步施公宝工地['.$val['name'].']</br>';
 			$add[] = [
 				'sgb_id'=>$val['id'],
 				'name'=>$val['name'],

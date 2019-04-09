@@ -27,15 +27,17 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'id', title: __('Id')},
                         {field: 'name', title: __('Name')},
                         {field: 'image', title: __('Image'), formatter: Table.api.formatter.image},
-                        {field: 'is_home', title: __('Is_home'), searchList: {"1":__('Is_home 1')," 0":__('Is_home  0')}, formatter: Table.api.formatter.normal},
-                        {field: 'sex', title: __('Sex'), searchList: {"1":__('Sex 1')," 0":__('Sex  0')}, formatter: Table.api.formatter.normal},
+                        {field: 'is_home', title: __('Is_home'), searchList: {"1":__('Is_home 1'),"2":__('Is_home 2')}, formatter: Table.api.formatter.normal},
+                        {field: 'is_gxj', title: __('Is_gxj'), searchList: {"1":__('Is_gxj 1'),"2":__('Is_gxj 2')}, formatter: Table.api.formatter.normal},
+                        {field: 'is_gddz', title: __('Is_gddz'), searchList: {"1":__('Is_gddz 1'),"2":__('Is_gddz 2')}, formatter: Table.api.formatter.normal},
+                        {field: 'sex', title: __('Sex'), searchList: {"1":__('Sex 1'),"2":__('Sex 2')}, formatter: Table.api.formatter.normal},
                         {field: 'work_name', title: __('Work_name')},
                         {field: 'team_door_ids', title: __('Team_door_ids')},
                         {field: 'team_style_ids', title: __('Team_style_ids')},
                         {field: 'work_num', title: __('Work_num')},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
-                        {field: 'idea', title: __('Idea'),cellStyle: function () {return {css: {"max-width": "300px",'overflow':'hidden'}}}},
+                        {field: 'idea', title: __('Idea')},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

@@ -34,7 +34,6 @@ class Index extends Frontend
         $banner = Db::name('banner')->where(['status' => 1])->order('id desc')->select();
         $gxj = Db::name('banner')->where(['status' => 4])->order('id desc')->find();
         $tc = Db::name('banner')->where(['status' => 2])->order('id desc')->find();
-
         $customer_list = Db::name('customer')->limit(10)->order('id desc')->select();
         foreach ($customer_list as $key => $val) {
             $customer_list[$key]['name'] = mb_substr($val['name'], 0, 1);
@@ -449,34 +448,24 @@ class Index extends Frontend
         } else {
             $param['sort'] = 0;
         }
-        if (empty($param['pageSize'])) {
-            $param['pageSize'] = 1;
-        }
-        $pageStart = intval(intval($param['pageSize']) - 1) * 20;
-
-
-        $count = Db::name('project')->where($where)->count();
-        $list = Db::name('project')->where($where)->limit($pageStart, 20)->order($order)->select();
-
-
-        foreach ($list as $key => $val) {
-			$list[$key]['start_time'] = date('Y-m-d',strtotime($val['start_time']));
-			$list[$key]['end_time'] = date('Y-m-d',strtotime($val['end_time']));
-            $list[$key]['circle'] = json_decode($val['circle'], true);
-			array_multisort(array_column($list[$key]['circle'],'start_time'),SORT_ASC,$list[$key]['circle']);
-            $list[$key]['image'] = array_slice(json_decode($val['image'], true), 0, 6);
-        }
+        $list = Db::name('project')->where($where)->order($order)->paginate(20,false,['query'=>request()->param() ])->each(function ($val,$key){
+			$val['start_time'] = date('Y-m-d',strtotime($val['start_time']));
+			$val['end_time'] = date('Y-m-d',strtotime($val['end_time']));
+			$val['circle'] = json_decode($val['circle'], true);
+			array_multisort(array_column($val['circle'],'start_time'),SORT_ASC,$val['circle']);
+			$val['image'] = array_slice(json_decode($val['image'], true), 0, 6);
+			return $val;
+		});
+		$page = $list->render();
         $area = Db::name('area')->where(['parent_id' => 24])->select();
         $circle = Db::name('project_circle')->select();
 
         $this->assign('area', $area);
         $this->assign('list', $list);
-        $this->assign('count', $count);
-        $this->assign('pageNum', ceil($count / 20));
-        $this->assign('pageSize', $param['pageSize']);
         $this->assign('param', $param);
         $this->assign('circle', $circle);
 
+		$this->assign('page', $page);
         return $this->view->fetch("zb");
     }
 

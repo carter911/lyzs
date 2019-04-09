@@ -25,12 +25,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'name', title: __('Name')},
-                        {field: 'iamge', title: __('Iamge')},
+                        {field: 'image', title: __('Image'), formatter: Table.api.formatter.image},
                         {field: 'url', title: __('Url'), formatter: Table.api.formatter.url},
                         {field: 'cases_cases_id', title: __('Cases_cases_id')},
-                        {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange'},
-                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange'},
+                        {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
+                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]
