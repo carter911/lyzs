@@ -106,6 +106,19 @@ class Frontend extends Controller
 		$num = intval((time()-strtotime('2019-01-01'))/(3600*36));
 		// 配置信息
 		$site['cdnurl'] = 'http://pphkj2wx9.bkt.clouddn.com';
+
+        $title       = '岭艺装饰';
+        $keywords    = '岭艺装饰';
+        $description = '岭艺装饰';
+        foreach ($menu_list as $k => $v) {
+            if (strtolower($v['url']) == strtolower('/' . $modulename . '/' . $controllername . '/' . $actionname)) {
+                $title       = $v['name'];
+                $keywords    = $v['keywords'];
+                $description = $v['description'];
+                break;
+            }
+        }
+
 		$config = [
 			'site'           => array_intersect_key($site, array_flip(['name', 'cdnurl', 'version', 'timezone', 'languages', 'beian', 'telphone', 'logo'])),
 			'upload'         => $upload,
@@ -117,7 +130,10 @@ class Frontend extends Controller
 			'moduleurl'      => rtrim(url("/{$modulename}", '', false), '/'),
 			'language'       => $lang,
 			'link'           => $link,
-			'customer_count' => $cusomer_count+500+$num
+			'customer_count' => $cusomer_count+500+$num,
+            'title'          => $title,
+            'keywords'       => $keywords,
+            'description'    => $description,
 		];
 
 		$config = array_merge($config, Config::get("view_replace_str"));
