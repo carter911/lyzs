@@ -146,7 +146,7 @@
 
                         <div class="item active">
                             <a href="/index/index/sjtd_detail.html?detail_id={$item.id}">
-                                <img src="{$site.cdnurl}{$item.image}" class="" style="width: 280px;height: 284px">
+                                <img src="{$site.cdnurl}{$item.image}" class="" style="width: 280px;height: 280px">
                                 <div class="designer_info"
                                      style="padding-top: 10px;background-color:#043e46;color: #fff;">
                                     <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
@@ -157,7 +157,7 @@
                                         </p>
                                         <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img
                                                 style="float: left;" src="/assets/img/des_star.png"
-                                                class="img-responsive des_star"> <span>100</span>人预约</p>
+                                                class="img-responsive des_star"> <span>{$item.subscribe_num}</span>人预约</p>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@
                         <div class="item">
                             <a href="/index/index/sjtd_detail.html?detail_id={$item.id}">
                                 <img src="{$site.cdnurl}{$item.image}" class="img-responsive center-block"
-                                     style="width: 280px;height: 284px">
+                                     style="width: 280px;height: 280px">
                                 <div class="designer_info"
                                      style="padding-top: 10px;background-color:#043e46;color: #fff;">
                                     <h4 class="text-center" style="font-size: 16px;"><span style="font-size: 20px;"
@@ -181,7 +181,7 @@
                                         </p>
                                         <p style="font-size: 12px;vertical-align: 10px" class="pull-right"><img
                                                 style="float: left;" src="/assets/img/des_star.png"
-                                                class="img-responsive des_star"> <span>100</span>人预约</p>
+                                                class="img-responsive des_star"> <span>{$item.subscribe_num}</span>人预约</p>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -214,27 +214,28 @@
                                 </a>
                                 <a href="/index/index/sjal_detail.html?detail_id={$item.id}">
                                     <ul class="goldcase_info">
+                                       
+										<li class="text-left">
+											<a href="/index/index/sjal_detail.html?detail_id={$item.id}">
+												<p>{$item.team_style_ids}</p>
+											</a>
+										</li>
+										<li class="text-left">
+											<a href="/index/index/sjal_detail.html?detail_id={$item.id}">
+												<p>{$item.team_door_ids} / {$item.cases_area_id} ㎡</p>
+											</a>
+										</li>
+                                         
                                         <li class="text-left">
-                                            <a href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>
-                                                {volist name="$item.team_style_ids" id="style_id"}
-                                                {$style_id}
-                                                {/volist}
-                                            </p></a>
-                                        </li>
-                                        <li class="text-left"><a
-                                                href="/index/index/sjal_detail.html?detail_id={$item.id}">
-                                            <p>
-                                                {volist name="$item.team_door_ids" id="door_id"}
-                                                {$door_id} /
-                                                {/volist}
-                                                {$item.cases_area_id} ㎡
-                                            </p></a></li>
-                                        <li class="text-left"><a
-                                                href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>半包总价
-                                            {$item.price}</p></a></li>
-                                        <li class="text-left"><a
-                                                href="/index/index/sjal_detail.html?detail_id={$item.id}"><p>设计团队
-                                            {$item.team_team_id}</p></a></li>
+											<a href="/index/index/sjal_detail.html?detail_id={$item.id}">
+												<p>半包总价 {$item.price}</p>
+											</a>
+										</li>
+                                        <li class="text-left">
+											<a href="/index/index/sjal_detail.html?detail_id={$item.id}">
+												<p>设计团队 {$item.team_team_id}</p>
+											</a>
+										</li>
                                     </ul>
                                 </a>
                             </div>
@@ -270,7 +271,7 @@
                         {volist name="article_list" id='article'}
                         <a href="/index/index/look_article_detail?id={$article.id}" style="text-decoration: none;">
                             <div class="dynamic_lis dynamic_art" style="height: 83px;">
-                                <p>/&nbsp;{$article.createtime|strtotime|date="Y.m.d",###}</p>
+                                <p>{$article.createtime|date='Y-m-d',###}</p>
                                 <h2 data-url="{$site.cdnurl}{$article.image}" data-id="{$article.id}"
                                     data-href="/index/index/look_article_detail?id={$article.id}" class="margin_c"
                                     style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">

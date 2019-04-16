@@ -43,21 +43,14 @@ class Index extends Frontend
         // 团队banner
         $team_img = Db::name('team')->limit(10)->order('id desc')->where(['is_home' => 1])->select();
         // 团队案例
-        $casesModel = new Cases();
-        $casesObj = $casesModel->limit(6)->order('id desc')->where(['is_home' => 1])->select();
-        $cases_lists = $casesObj/*$casesObj->toArray()*/
-        ;
+        $cases_lists = Db::name('cases')->limit(6)->order('id desc')->select();
+        $resTeamDoor = Db::name('teamDoor')->field('id,name')->select();
+        $resTeamStyle = Db::name('teamStyle')->field('id,name')->select();
+        $TeamDoorData = array_combine(array_column( $resTeamDoor,'id'),array_column( $resTeamDoor,'name'));
+        $TeamStyleData = array_combine(array_column( $resTeamStyle,'id'),array_column( $resTeamStyle,'name'));
         foreach ($cases_lists as $key => $val) {
-            $resTeamDoor = Db::name('teamDoor')->field('name')
-                ->where('id', 'in', $cases_lists[$key]['team_door_ids'])->select();
-            foreach ($resTeamDoor as $k => $v) $resTD[$v['name']] = $k;
-            $cases_lists[$key]['team_door_ids'] = array_keys($resTD);
-
-            $resTeamStyle = Db::name('teamStyle')->field('name')
-                ->where('id', 'in', $cases_lists[$key]['team_style_ids'])->select();
-            foreach ($resTeamStyle as $k => $v) $resTS[$v['name']] = $k;
-            $cases_lists[$key]['team_style_ids'] = array_keys($resTS);
-
+            $cases_lists[$key]['team_door_ids'] = $TeamDoorData[$val['team_door_ids']];
+            $cases_lists[$key]['team_style_ids'] = $TeamStyleData[$val['team_style_ids']];
             $resTeam = Db::name('team')->field('name')
                 ->where('id', $cases_lists[$key]['team_team_id'])->find();
             $cases_lists[$key]['team_team_id'] = $resTeam['name'];
@@ -250,7 +243,7 @@ class Index extends Frontend
     public function gddz()
     {
         // 我们的团队
-        $me_team_list = Db::name('team')->field("id,name,image,work_name,content")->where(['is_gddz' => 1])->limit(4)->order('id desc')->select();
+        $me_team_list = Db::name('team')->where(['is_gddz' => 1])->limit(4)->order('id desc')->select();
         $this->assign('me_team_list', $me_team_list);
         // 案例  品质境界即刻体验
         $cases_list = Db::name('cases')->field("id,name,image,team_door_ids,xq_name")->where(['is_gddz' => 1])->limit(5)->order('id desc')->select();
@@ -384,26 +377,18 @@ class Index extends Frontend
         // 户型
         $door_list = Db::name('team_door')->field('id,name')->select();
         $style_list = Db::name('team_style')->field('id,name')->select();
-        foreach ($case_list as $key => &$value) {
-            foreach ($door_list as $k => &$val) {
-                if (intval($value['team_door_ids']) === $val['id']) {
-                    $case_list[$key]['team_door_ids'] = $val['name'];
-                }
-            }
-            foreach ($style_list as $k => &$val) {
-                if (intval($value['team_style_ids']) === $val['id']) {
-                    $case_list[$key]['team_style_ids'] = $val['name'];
-                }
-            }
+		$TeamDoorData = array_combine(array_column( $door_list,'id'),array_column( $door_list,'name'));
+        $TeamStyleData = array_combine(array_column( $style_list,'id'),array_column( $style_list,'name'));
+        foreach ($case_list as $key => $val) {
+           $case_list[$key]['team_door_ids'] = $TeamDoorData[$val['team_door_ids']];
+           $case_list[$key]['team_style_ids'] = $TeamStyleData[$val['team_style_ids']];
         }
-        $case_list = Db::name('cases')->where('team_team_id', $detail_id)->limit(4)->select();
-
         $this->assign('case_total', $case_total);
         $this->assign('case_list', $case_list);
         // 获取当前小时
         $current_hour = Date('H', time());
         // 其他设计师列表  用当前时间作为 页数
-        $team_list = Db::name('team')->field('id,name,image,work_name,work_num')->limit(intval($current_hour % 2), 5)->select();
+        $team_list = Db::name('team')->limit(intval($current_hour % 2), 5)->select();
         $this->assign('team_list', $team_list);
         $this->assign('title', '设计团队详情');
         return $this->view->fetch("sjtd_detail");

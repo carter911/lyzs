@@ -215,7 +215,7 @@
                         <button type="submit" class="btn btn-default case_mor btn-block">预约设计师</button>
                     </form>
                     <div style="padding: 0.675rem 0;">
-                        累计已有<span style="color: #ff0000;">153</span>人成功预约
+                        累计已有<span style="color: #ff0000;">{$stylist.subscribe_num}</span>人成功预约
                     </div>
                     <div>
                         马上提交申请即送<span style="color: #ff0000;">1000元</span>家装抵用卷
@@ -314,7 +314,7 @@
                                     <h2 class="text-center"><span class="des_name">{$team_item.name}</span>{$team_item.work_name}</h2>
                                     <div class="des_infodeta">
                                         <p class="pull-left">从业经验<span class="des_time">{$team_item.work_num}</span>年</p>
-                                        <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>{$team_item.work_num + 100}</span>人预约</p>
+                                        <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>{$team_item.subscribe_num}</span>人预约</p>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>

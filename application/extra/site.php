@@ -28,6 +28,6 @@ return array (
   'mail_smtp_pass' => 'password',
   'mail_verify_type' => '2',
   'mail_from' => '10000@qq.com',
-  'cdnurl' => 'http://ly.e-shigong.com',
+  'cdnurl' => 'http://www.ly-home.cn',
   'version' => '1.0.1',
 );
