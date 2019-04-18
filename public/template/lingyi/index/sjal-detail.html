@@ -94,7 +94,7 @@
         margin-bottom: 2rem;
     }
 
-    .designer_detail_image{
+    .designer_detail_image {
         cursor: pointer;
 
     }
@@ -117,12 +117,12 @@
     </div>
 
     <div class="cation-content" style="margin: 2rem 0;">
-        
+
         <div style="display: flex;justify-content: flex-start;align-items: flex-start;">
             <div class="left_table" style="flex: 1;">
-                
+
                 <!-- 设计案例-->
-                
+
                 <div class="article_main">
                     <div class="art_title">
                         <h1 class="text-center"><b>{$info.name}</b></h1>
@@ -130,21 +130,22 @@
                                 class="date_are">{$info.updatetime|date="Y-m-d",###}</span>
                         </p>
                         <hr>
-                    </div>{eq name='info.status' value='2'}
-                {if condition="$info.url"}
-                <iframe width="800" height="700" src="{$info.url}" frameborder="0"></iframe>
-                <div class="art_link">
-                    <a href="/index/index/sjal_detail.html?detail_id={$article_prev.id}"
-                       class="pull-left text-center">上一篇：{$article_prev.name??'待更新'}</a>
-                    <a href="/index/index/sjal_detail.html?detail_id={$article_next.id}"
-                       class="pull-right text-center">下一篇：{$article_next.name??'待更新'}</a>
-                    <div class="clearfix"></div>
-                </div>
-                {/if}
-               
-                {/eq}
-                <!-- 案例内容 -->
-                    
+                    </div>
+                    {eq name='info.status' value='2'}
+                    {if condition="$info.url"}
+                    <iframe width="800" height="700" src="{$info.url}" frameborder="0"></iframe>
+                    <div class="art_link">
+                        <a href="/index/index/sjal_detail.html?detail_id={$article_prev.id}"
+                           class="pull-left text-center">上一篇：{$article_prev.name??'待更新'}</a>
+                        <a href="/index/index/sjal_detail.html?detail_id={$article_next.id}"
+                           class="pull-right text-center">下一篇：{$article_next.name??'待更新'}</a>
+                        <div class="clearfix"></div>
+                    </div>
+                    {/if}
+
+                    {/eq}
+                    <!-- 案例内容 -->
+
                     <article>
                         {$info.content|htmlspecialchars_decode}
                     </article>
@@ -157,13 +158,15 @@
                 <div class="intro">
                     <h4 style="margin-bottom: 1rem;">本案设计师简介</h4>
                     <div class="row none-margin">
-                        <div class="col-md-5 none-padding designer_detail_image" data-url="/index/index/sjtd_detail.html?detail_id={$team.id}" style="background-color:#ccc;height: 120px;">
+                        <div class="col-md-5 none-padding designer_detail_image"
+                             data-url="/index/index/sjtd_detail.html?detail_id={$team.id}"
+                             style="background-color:#ccc;height: 120px;">
                             <img style="width: 100%;height: 100%"
                                  src="{$site.cdnurl}{$team.image}?imageView2/1/w/600/h/600/q/60" alt="">
 
                         </div>
                         <div class="col-md-7 none-padding" style="padding-left: 8px;">
-                            <div class="row none-margin"> <a href="/index/index/sjtd_detail.html?detail_id={$team.id}">设计师:{$team.name}</a>
+                            <div class="row none-margin"><a href="/index/index/sjtd_detail.html?detail_id={$team.id}">设计师:{$team.name}</a>
                                 <span style="padding: 1px 5px;color: #fff;background-color:#000;cursor: pointer;"
                                       onclick="showLyDialogWithId('yuyue_ta','{$team.id}')">预约</span></div>
                             <div class="row none-margin">级别: {$team.work_name}</div>
@@ -189,7 +192,7 @@
                         </tr>
                         <tr class="tr-style">
                             <td>案例风格</td>
-                            <td>111</td>
+                            <td>{$cases.team_style_ids}</td>
                         </tr>
                         <tr class="tr-style">
                             <td>设计公司</td>
@@ -201,23 +204,27 @@
                         </tr>
                         <tr class="tr-style">
                             <td>设计类型</td>
-                            <td>新房装修</td>
+                            <td>{$cases.team_style_ids}</td>
                         </tr>
                         <tr class="tr-style">
                             <td>装修方式</td>
-                            <td>半包</td>
+                            <td>
+                                {eq name="$cases.type" value="1"}全包{/eq}
+                                {eq name="$cases.type" value="2"}半包{/eq}
+                                {eq name="$cases.type" value="3"}全案{/eq}
+                            </td>
                         </tr>
                         <tr class="tr-style">
                             <td>房屋面积</td>
-                            <td>300平方米</td>
+                            <td>{$cases.area}平方米</td>
                         </tr>
                         <tr class="tr-style">
                             <td>户型</td>
-                            <td>别墅</td>
+                            <td>{$cases.team_door_ids}</td>
                         </tr>
                         <tr class="tr-style">
                             <td>所在地</td>
-                            <td>美地城</td>
+                            <td>{$cases.address|mb_substr=0,16}</td>
                         </tr>
                         <tr class="tr-style">
                             <td>&nbsp;</td>
@@ -225,11 +232,11 @@
                         </tr>
                         <tr class="tr-style">
                             <td>施工工期</td>
-                            <td>212天</td>
+                            <td>120天</td>
                         </tr>
                         <tr class="tr-style">
                             <td>实际花费</td>
-                            <td>12143元</td>
+                            <td>{$cases.price}元</td>
                         </tr>
                         </tbody>
                     </table>
@@ -238,12 +245,12 @@
         </div>
     </div>
 
-<script>
+    <script>
 
-    $(".designer_detail_image").click(function () {
-        window.location.href = $(this).attr("data-url")
-    })
+        $(".designer_detail_image").click(function () {
+            window.location.href = $(this).attr("data-url")
+        })
 
-</script>
+    </script>
 
 </div>

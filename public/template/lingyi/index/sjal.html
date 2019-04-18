@@ -171,7 +171,9 @@
                         <a href="./sjal_detail.html?detail_id={$case.id}" class="work_link"><img style="width:384px;height: 288px; " src="{$site.cdnurl}{$case.image}" class="img-responsive center-block"></a>
                         <div class="work_info">
                             <h5 style="white-space: nowrap;">{$case.name}&nbsp;&nbsp;|&nbsp;&nbsp;{$case.door_name}&nbsp;&nbsp;|&nbsp;&nbsp;{$case.area_size}</h5>
-                            <p style="font-size: 13px;margin-top: 4px;" class="pull-left">{$case.name}&nbsp;&nbsp;·&nbsp;&nbsp;半包</p>
+                            <p style="font-size: 13px;margin-top: 4px;" class="pull-left">{$case.name}&nbsp;&nbsp;·&nbsp;&nbsp;{eq name="$case.type" value="1"}全包{/eq}
+                                {eq name="$case.type" value="2"}半包{/eq}
+                                {eq name="$case.type" value="3"}全案{/eq}</p>
                             <p style="font-size: 13px" class="pull-right">{$case.price}元</p>
                             <div class="clearfix"></div>
                         </div>
