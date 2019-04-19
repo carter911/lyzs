@@ -67,12 +67,15 @@
         display: -webkit-flex;
         display: flex;
         flex-wrap: wrap;
-        align-items: stretch;
-        justify-content: space-between;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 
     .list-item {
+        width: 32.8%;
         margin-bottom: 0.875rem;
+        margin-right: 3px;
+        overflow: hidden;
     }
 
     .list-item:hover {
@@ -270,7 +273,7 @@
                 {volist name="case_list" id="vo"}
                 <div class="list-item" style="background-color:#eeeeee;">
                     <div class="row none-margin" style="background-color:#ddd;">
-                        <img style="width: 390px;height: 295px;" src="{$site.cdnurl}{$vo.image}" alt="">
+                        <img style="width: 100%;height: 295px;" src="{$site.cdnurl}{$vo.image}" alt="">
                     </div>
                     <div class="row none-margin" style="padding: 1rem 1rem;">
                         <div class="row none-margin" style="padding: 1rem 0;">
@@ -314,7 +317,12 @@
                                     <h2 class="text-center"><span class="des_name">{$team_item.name}</span>{$team_item.work_name}</h2>
                                     <div class="des_infodeta">
                                         <p class="pull-left">从业经验<span class="des_time">{$team_item.work_num}</span>年</p>
-                                        <p class="pull-right"><img src="/assets/img/frontend/des_star.png" class="img-responsive des_star"><span>{$team_item.subscribe_num}</span>人预约</p>
+                                        <p class="pull-right">
+                                            <a href="./sjtd_detail.html?detail_id={$team_item.id}">
+                                            <img src="/assets/img/frontend/des_star.png" class="img-responsive des_star">
+                                            <span>{$team_item.subscribe_num}</span>人预约
+                                            </a>
+                                        </p>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
