@@ -271,7 +271,7 @@
             <div class="list-box">
                 <!-- start -->
                 {volist name="case_list" id="vo"}
-                <div class="list-item" style="background-color:#eeeeee;">
+                <a  href="/index/index/sjal_detail.html?detail_id={$vo.id}" class="list-item" style="text-decoration:none;background-color:#eeeeee;">
                     <div class="row none-margin" style="background-color:#ddd;">
                         <img style="width: 100%;height: 295px;" src="{$site.cdnurl}{$vo.image}" alt="">
                     </div>
@@ -288,7 +288,7 @@
                             <span style="float:right;">{$vo.price}元 </span>
                         </div>
                     </div>
-                </div>
+                </a>
                 {/volist}
                 <!-- end -->
             </div>
@@ -312,19 +312,18 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-
                                 <div class="designer_info">
+                                    <a href="./sjtd_detail.html?detail_id={$team_item.id}" style="text-decoration: none;">
                                     <h2 class="text-center"><span class="des_name">{$team_item.name}</span>{$team_item.work_name}</h2>
                                     <div class="des_infodeta">
                                         <p class="pull-left">从业经验<span class="des_time">{$team_item.work_num}</span>年</p>
                                         <p class="pull-right">
-                                            <a href="./sjtd_detail.html?detail_id={$team_item.id}">
                                             <img src="/assets/img/frontend/des_star.png" class="img-responsive des_star">
                                             <span>{$team_item.subscribe_num}</span>人预约
-                                            </a>
                                         </p>
                                         <div class="clearfix"></div>
                                     </div>
+                                    </a>
                                 </div>
                             </div>
                         </a>
