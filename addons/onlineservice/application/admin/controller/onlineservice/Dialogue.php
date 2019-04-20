@@ -39,8 +39,6 @@ class Dialogue extends Backend
 	 * @var array
 	 */
 	protected $noNeedRight = ['getuserlist','getMessage','getSetting','changeFileds','changeBlack','getBlackList','getquickReply','addquickReply','delquickReply'];
-
-
 	/**
      *  查看
      * @return string|\think\response\Json
