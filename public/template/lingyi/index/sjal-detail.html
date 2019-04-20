@@ -98,6 +98,11 @@
         cursor: pointer;
 
     }
+
+    #article_box iframe {
+        width: 100%;
+        height: calc(100vh / 1.5);
+    }
 </style>
 
 <script type="text/javascript" src="/assets/js/frontend/jquery.min.js"></script>
@@ -133,7 +138,7 @@
                     </div>
                     {eq name='info.status' value='2'}
                     {if condition="$info.url"}
-                    <iframe width="800" height="700" src="{$info.url}" frameborder="0"></iframe>
+                    <iframe width="100%" height="700" src="{$info.url}" frameborder="0"></iframe>
                     <div class="art_link">
                         <a href="/index/index/sjal_detail.html?detail_id={$article_prev.id}"
                            class="pull-left text-center">上一篇：{$article_prev.name??'待更新'}</a>
@@ -146,7 +151,7 @@
                     {/eq}
                     <!-- 案例内容 -->
 
-                    <article>
+                    <article id="article_box">
                         {$info.content|htmlspecialchars_decode}
                     </article>
                 </div>
@@ -246,11 +251,9 @@
     </div>
 
     <script>
-
         $(".designer_detail_image").click(function () {
             window.location.href = $(this).attr("data-url")
-        })
-
+        });
     </script>
 
 </div>
