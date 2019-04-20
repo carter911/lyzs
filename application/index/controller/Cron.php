@@ -88,8 +88,14 @@ class Cron extends Controller
 					break;
 				}
 			}
+
+			$update = ['update_time'=>date("Y-m-d H:i:s",time())];
+			if(empty($val['circle_name'] )){
+				$update['circle_name'] = $circle_list[0]['name'];
+				$update['circle_id'] = $circle_list[0]['id'];
+			}
 			if(!$flag){
-				Db::name('project')->where(['id'=>$val['id']])->update(['update_time'=>date("Y-m-d H:i:s",time())]);
+				Db::name('project')->where(['id'=>$val['id']])->update($update);
 			}
 		}
     }
