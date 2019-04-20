@@ -11,6 +11,7 @@ require(['form', 'upload'], function (Form, Upload) {
     Form.events.bindevent = function (form) {
         _bindevent.apply(this, [form]);
         try {
+            console.log('summernote init');
             //绑定summernote事件
             if ($(".summernote,.editor", form).size() > 0) {
                 require(['summernote'], function () {
@@ -97,7 +98,10 @@ require(['form', 'upload'], function (Form, Upload) {
                                 for (var i = 0; i < files.length; i++) {
                                     Upload.api.send(files[i], function (data) {
                                         var url = Fast.api.cdnurl(data.url);
-                                        $(that).summernote("insertImage", url, 'filename');
+                                        $(that).summernote("insertImage", url, function ($image) {
+                                            console.log($image);
+                                            $image.css('width', '100%');
+                                        });
                                     });
                                 }
                             }
