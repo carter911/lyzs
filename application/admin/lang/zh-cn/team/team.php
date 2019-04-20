@@ -22,5 +22,6 @@ return [
     'Createtime'  =>  '创建时间',
     'Updatetime'  =>  '更新时间',
     'Content'  =>  '设计师简介',
-    'Idea'  =>  '设计理念'
+    'Idea'  =>  '设计理念',
+    'Subscribe_num'  =>  '预约人数'
 ];

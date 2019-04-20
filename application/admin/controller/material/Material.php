@@ -23,6 +23,9 @@ class Material extends Backend
         parent::_initialize();
         $this->model = new \app\admin\model\Material;
         $this->view->assign("statusList", $this->model->getStatusList());
+        $this->view->assign("isGxjList", $this->model->getIsGxjList());
+        $this->view->assign("isGddzList", $this->model->getIsGddzList());
+        $this->view->assign("isYjList", $this->model->getIsYjList());
     }
     
     /**
