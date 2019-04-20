@@ -40,8 +40,14 @@ class Index extends Frontend
             $customer_list[$key]['mobile'] = substr($val['mobile'], 0, 3) . '*******' . substr($val['mobile'], 10, 1);
             $customer_list[$key]['createtime'] = date("m/d", $val['createtime']);
         }
+
         // 团队banner
         $team_img = Db::name('team')->limit(10)->order('id desc')->where(['is_home' => 1])->select();
+        foreach ($team_img as $key=>$value) {
+            $team_img[$key]["subscribe_num"] =  $team_img[$key]["subscribe_num"] + DB::name("user_ip") -> where("team_id", $team_img[$key]["id"]) -> count();
+        }
+
+
         // 团队案例
         $cases_lists = Db::name('cases')->where(['is_home' => 1])->limit(6)->order('id desc')->select();
         $resTeamDoor = Db::name('teamDoor')->field('id,name')->select();
@@ -337,8 +343,12 @@ class Index extends Frontend
 
         $lists = Db::name('team')->where($where)->paginate(8, false, [
             'page' => $page
-        ]);
+        ]) ;
 
+        $team_list = $lists->items();
+        foreach ($team_list as $key=>$value) {
+            $team_list[$key]["subscribe_num"] =  $team_list[$key]["subscribe_num"] + DB::name("user_ip") -> where("team_id", $team_list[$key]["id"]) -> count();
+        }
 
         // 擅长户型
         $team_door = Db::name('team_door')->field('id,name')->select();
@@ -347,7 +357,7 @@ class Index extends Frontend
 
         $this->assign('team_style', $team_style);
         $this->assign('team_door', $team_door);
-        $this->assign('team_list', $lists->items());
+        $this->assign('team_list', $team_list);
         $this->assign('search', $search);
 
         $page = $this->get_page($lists->currentPage(), $lists->total());
@@ -365,7 +375,10 @@ class Index extends Frontend
     //设计团队 详情
     public function sjtd_detail($detail_id)
     {
+        //当前用户id
         $stylist = Db::name('team')->find($detail_id);
+        $stylist["subscribe_num"] = $stylist["subscribe_num"] + DB::name("user_ip") -> where("team_id",$detail_id) -> count();
+
         // 擅长户型
         $stylist_door = Db::name('team_door')->field('name')->where('id', 'in', $stylist['team_door_ids'])->limit(3)->select();
         $stylist['team_door_ids'] = implode(', ', array_column($stylist_door, 'name'));
@@ -387,8 +400,13 @@ class Index extends Frontend
         $this->assign('case_list', $case_list);
         // 获取当前小时
         $current_hour = Date('H', time());
+
         // 其他设计师列表  用当前时间作为 页数
         $team_list = Db::name('team')->limit(intval($current_hour % 2), 5)->select();
+        foreach ($team_list as $key=>$value) {
+            $team_list[$key]["subscribe_num"] =  $team_list[$key]["subscribe_num"] + DB::name("user_ip") -> where("team_id", $team_list[$key]["id"]) -> count();
+        }
+
         $this->assign('team_list', $team_list);
         $this->assign('title', '设计团队详情');
         return $this->view->fetch("sjtd_detail");
@@ -474,7 +492,7 @@ class Index extends Frontend
         $this->assign('next', $next);
         $this->assign('pre', $pre);
         $this->assign('info', $info);
-        $customer_list = Db::name('customer')->where('status', 1)->select();
+        $customer_list = Db::name('customer')->where('status', 1)->limit(0,20)->select();
         $customer_total = Db::name('customer')->count('id');
         $this->assign('customer_list', $customer_list);
         $this->assign('customer_total', $customer_total);

@@ -10,6 +10,7 @@ namespace app\index\controller;
 
 use app\common\controller\Frontend;
 use app\index\model\Customer;
+use app\index\model\UserIp;
 use think\Db;
 use think\Exception;
 use think\Request;
@@ -21,11 +22,13 @@ class Form extends Frontend {
     protected $layout = '';
 
     private $customer;
+    private $userIp;
 
 
     public function _initialize() {
         parent::_initialize();
         $this->customer = new Customer();
+        $this->userIp = new UserIp();
     }
 
     public function showDialog(Request $request){
@@ -120,8 +123,14 @@ class Form extends Frontend {
     }
 
     private function yuyue_ta($param) {
-        $totalCount = DB::name("customer") -> where(["form_type" => "yuyue_ta"]) -> count();
-        $managerList = DB::name("customer") -> where(["form_type" => "yuyue_ta"]) -> limit(3) -> select();
+        $totalCount = 0 ;
+        if(isset($param["otherId"])){
+            $baseCount = DB::name("team") ->field("subscribe_num") -> where("id", $param["otherId"]) -> find();
+            $currentCount =  DB::name("customer") -> where("designer_id", $param["otherId"]) -> count();
+            $totalCount = $baseCount["subscribe_num"] + $currentCount;
+        }
+
+        $managerList = DB::name("customer") -> where("designer_id", $param["otherId"]) -> limit(3) -> select();
         $managerList = $this->parseArrayData($managerList);
 
         $this->assign("totalCount",$totalCount);
@@ -277,6 +286,8 @@ class Form extends Frontend {
         $data["designer_id"] = $value["designerId"];
         $data["createtime"] = time();
 
+        $this->addTeamId($value["designerId"]);
+
         return $this -> saveData($data);
     }
 
@@ -368,7 +379,18 @@ class Form extends Frontend {
         return  $this -> showResult($result);
     }
 
+    /**
+     * 添加teamId
+     * @param $teamId
+     */
+    private function addTeamId($teamId) {
+        $data["team_id"] = $teamId;
+        $data["ip"] = \EasyWeChat\Payment\get_client_ip();
 
+        try{
+            $this->userIp->save($data);
+        }catch (Exception $e){}
+    }
 
     private function showResult($result){
         $data["code"] = $result ? 200 : -200;

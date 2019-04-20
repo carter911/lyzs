@@ -8,11 +8,10 @@
 
 namespace app\index\model;
 
-use think\Db;
-use think\Exception;
 use think\Model;
 
-class Appointment extends Model{
+class UserIp extends Model{
+
 
 
 

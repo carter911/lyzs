@@ -3,6 +3,7 @@
 namespace app\index\controller;
 
 use app\common\controller\Frontend;
+use app\index\model\UserIp;
 use think\Config;
 use think\Cookie;
 use think\Db;
@@ -22,9 +23,15 @@ class Customer extends Frontend
 	protected $noNeedLogin = '*';
 	protected $noNeedRight = '*';
 	protected $layout = '';
+
+	private $userIp;
+
+
 	public function _initialize()
 	{
 		parent::_initialize();
+
+		$this->userIp = new UserIp();
 	}
 
 	/**
@@ -34,8 +41,9 @@ class Customer extends Frontend
 	 */
 	public function store(Request $request)
 	{
-		try{
+	   try{
 			$param = $request->only(['name','mobile','door','area','toilet','type']);
+
 			if(!isset($param['name']) || empty($param['name'])){
 				return ['code'=>3001,'msg'=>'请输入您的姓名','data'=>null];
 			}
@@ -53,10 +61,26 @@ class Customer extends Frontend
 			if(!is_numeric($result)){
 				return ['code'=>200,'msg'=>'系统异常 请稍后重试','data'=>null];
 			}
+
+			//添加设计师预约
+            $paramTeam = $request -> only(["detail_id"]);
+			$this->addTeamId($paramTeam["detail_id"]);
+
 			return ['code'=>200,'msg'=>'恭喜您提交成功','data'=>null];
+
 		}catch (Exception $e){
 			return ['code'=>500,'msg'=>'系统异常 请稍后重试','data'=>$e];
 		}
 	}
+
+
+    private function addTeamId($teamId) {
+        $data["team_id"] = $teamId;
+        $data["ip"] = \EasyWeChat\Payment\get_client_ip();
+
+        try{
+            $this->userIp->save($data);
+        }catch (Exception $e){}
+    }
 
 }
