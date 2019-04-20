@@ -135,7 +135,7 @@ class Bootstrap extends Paginator
      */
     protected function getAvailablePageWrapper($url, $page)
     {
-        return '<li><a href="' . htmlentities($url) . '">' . $page . '</a></li>';
+        return '<li ><a style="margin: 5px;color: black" href="' . htmlentities($url) . '">' . $page . '</a></li>';
     }
 
     /**
@@ -146,7 +146,7 @@ class Bootstrap extends Paginator
      */
     protected function getDisabledTextWrapper($text)
     {
-        return '<li class="disabled"><span>' . $text . '</span></li>';
+        return '<li  class="disabled"><span style="margin: 5px;">' . $text . '</span></li>';
     }
 
     /**
@@ -157,7 +157,7 @@ class Bootstrap extends Paginator
      */
     protected function getActivePageWrapper($text)
     {
-        return '<li class="active"><span>' . $text . '</span></li>';
+        return '<li  class="active"><span style="margin: 5px;">' . $text . '</span></li>';
     }
 
     /**
