@@ -108,13 +108,13 @@ class Index extends Frontend
         $this->assign('banner', $banner);
 
         // 主材
-        $material_master_list = Db::name('Material')->field('id,name,images,status')->where(['status' => 1])->limit(6)->select();
+        $material_master_list = Db::name('Material')->field('id,name,images,status')->where(['status' => 1,'is_gxj'=>1])->limit(6)->select();
         foreach ($material_master_list as $key => $val) {
             $material_master_list[$key]['images'] = explode(",", $val['images']);
         }
 
         // 辅材
-        $material_auxiliary_list = Db::name('Material')->where(['status' => 2])->limit(6)->select();
+        $material_auxiliary_list = Db::name('Material')->where(['status' => 2,'is_gxj'=>1])->limit(6)->select();
         foreach ($material_auxiliary_list as $key => $val) {
             $material_auxiliary_list[$key]['images'] = explode(",", $val['images']);
         }
@@ -165,12 +165,12 @@ class Index extends Frontend
         $witness_lists = Db::name('witness')->field('image')->where(['status' => 1])->select();
         $this->assign('witness_lists', $witness_lists);
         // 主材
-        $material_master_list = Db::name('Material')->where(['status' => 1])->limit(6)->select();
+        $material_master_list = Db::name('Material')->where(['status' => 1, 'is_yj'=>1])->limit(6)->select();
         foreach ($material_master_list as $key => $val) {
             $material_master_list[$key]['images'] = explode(",", $val['images']);
         }
         // 辅材
-        $material_auxiliary_list = Db::name('Material')->where(['status' => 2])->limit(6)->select();
+        $material_auxiliary_list = Db::name('Material')->where(['status' => 2,'is_yj'=>1])->limit(6)->select();
         foreach ($material_auxiliary_list as $key => $val) {
             $material_auxiliary_list[$key]['images'] = explode(",", $val['images']);
         }
