@@ -18,9 +18,11 @@ class Cron extends Controller
 
 	public function get_project()
 	{
+		//Db::name('project')->where('id','gt',0)->delete();die;
 		try{
 		$id = Db::name('project')->order('id desc')->field('sgb_id')->find();
 		$id = empty($id)?0:$id['sgb_id'];
+		echo '开始id'.$id.'</br>';
 		//初始化
 		$curl = curl_init();
 		//设置抓取的url
@@ -36,16 +38,19 @@ class Cron extends Controller
 		curl_close($curl);
 		//显示获得的数据
 		$data = json_decode($data,true);
+
 		if(empty($data['data'])){
-			return false;
+			echo '暂无数据';
+			die;
 		}
+
 		foreach ($data['data'] as $key => $val){
 			$city['name'] ='';
 			if(!empty($val['city'])){
 				$city = Db::name('area')->where(['code'=>$val['city']])->find();
 			}
-			echo '同步施公宝工地['.var_export($val,true).']</br>';
-			$add[] = [
+			echo '同步施公宝工地['.$val['name'].$val['circle_name'].']</br>';
+			$arr = [
 				'sgb_id'=>$val['id'],
 				'name'=>$val['name'],
 				'city'=>$val['city'],
@@ -64,6 +69,7 @@ class Cron extends Controller
 				'create_time'=>date("Y-m-d H:i:s",time()),
 				'update_time'=>date("Y-m-d H:i:s",time()),
 			];
+			$add[] = $arr;
 		}
 
 		if(!empty($add)){
