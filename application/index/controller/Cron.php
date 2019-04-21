@@ -96,17 +96,19 @@ class Cron extends Controller
 			foreach ($circle_list as $k=>$v){
 				if(time()>=$v['start_time'] && time()<=$v['end_time']){
 					$flag = true;
+					echo '项目更新 名称['.$val['name'].'] -阶段'.$val['circle_name'].'</br>';
 					Db::name('project')->where(['id'=>$val['id']])->update(['circle_name'=>$v['name'],'circle_id'=>$v['id'],'update_time'=>date("Y-m-d H:i:s",time())]);
 					break;
 				}
 			}
-			echo '项目名称['.$val['name'].'] -阶段'.$val['circle_name'].'</br>';
+
 			$update = ['update_time'=>date("Y-m-d H:i:s",time())];
 			if(empty($val['circle_name'] )){
 				$update['circle_name'] = $circle_list[0]['name'];
 				$update['circle_id'] = $circle_list[0]['start_time'];
 			}
 			if(!$flag){
+				echo '项目未更新 名称['.$val['name'].'] -阶段'.$val['circle_name'].'</br>';
 				Db::name('project')->where(['id'=>$val['id']])->update($update);
 			}
 		}
