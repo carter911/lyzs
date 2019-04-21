@@ -97,7 +97,7 @@ class Cron extends Controller
 				if(time()>=$v['start_time'] && time()<=$v['end_time']){
 					$flag = true;
 					echo '项目更新 名称['.$val['name'].'] -阶段'.$val['circle_name'].'</br>';
-					Db::name('project')->where(['id'=>$val['id']])->update(['circle_name'=>$v['name'],'circle_id'=>$v['id'],'update_time'=>date("Y-m-d H:i:s",time())]);
+					Db::name('project')->where(['id'=>$val['id']])->update(['circle_name'=>$v['name'],'circle_id'=>$v['start_time'],'update_time'=>date("Y-m-d H:i:s",time())]);
 					break;
 				}
 			}
