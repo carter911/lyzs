@@ -7,6 +7,7 @@ use Qiniu\Storage\UploadManager;
 use think\Controller;
 use think\Db;
 use think\Exception;
+use think\Request;
 
 class Cron extends Controller
 {
@@ -81,9 +82,14 @@ class Cron extends Controller
     }
 
 
-	public function update_circle()
+	public function update_circle(Request $request)
 	{
-		$list = Db::name('project')->order(['update_time asc'])->limit(20)->select();
+		$param = $request->param();
+		$where = [];
+		if(isset($param['type'])){
+			$where['circle_id'] = ['gt',0];
+		}
+		$list = Db::name('project')->where($where)->order(['update_time asc'])->limit(20)->select();
 		foreach ($list as $key => $val){
 			$flag = false;
 			$circle_list = json_decode($val['circle'],true);
@@ -94,11 +100,11 @@ class Cron extends Controller
 					break;
 				}
 			}
-
+			echo '项目名称['.$val['name'].'] -阶段'.$val['circle_name'].'</br>';
 			$update = ['update_time'=>date("Y-m-d H:i:s",time())];
 			if(empty($val['circle_name'] )){
 				$update['circle_name'] = $circle_list[0]['name'];
-				$update['circle_id'] = $circle_list[0]['id'];
+				$update['circle_id'] = $circle_list[0]['start_time'];
 			}
 			if(!$flag){
 				Db::name('project')->where(['id'=>$val['id']])->update($update);
