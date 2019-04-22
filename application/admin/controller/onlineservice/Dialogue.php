@@ -34,7 +34,14 @@ class Dialogue extends Backend
     }
 
 
-    /**
+	/**
+	 * 无需鉴权的方法,但需要登录
+	 * @var array
+	 */
+	protected $noNeedRight = ['getuserlist','getMessage','getSetting','changeFileds','changeBlack','getBlackList','getquickReply','addquickReply','delquickReply'];
+
+
+	/**
      *  查看
      * @return string|\think\response\Json
      * @throws \think\db\exception\DataNotFoundException

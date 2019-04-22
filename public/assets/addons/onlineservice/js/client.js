@@ -4,11 +4,13 @@ var ws; //定义全局变量ws
 var error = false;
 $(function () {
     $("#online_ervice").on('click', function () {
+        console.log(1111111111111111111111111);
         connect();
         localStorage.setItem("ichat_pop", "pop");
         get_message(GUUID, GROUP_ID);
         $("#container").css('display', 'block');
         $(".layui-fixbar").css('display', 'none');
+        alert(11);
         $('#chat', parent.document).css({'z-index':999});
         div.scrollTop = div.scrollHeight;
     });
