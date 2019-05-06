@@ -105,7 +105,8 @@ class Frontend extends Controller
 		$cusomer_count = Db::name('customer')->count();
 		$num = intval((time()-strtotime('2019-01-01'))/(3600*36));
 		// 配置信息
-		$site['cdnurl'] = 'http://pphkj2wx9.bkt.clouddn.com';
+//		$site['cdnurl'] = 'http://pphkj2wx9.bkt.clouddn.com';
+		$site['cdnurl'] = 'http://cdn.ly-home.cn';
 
         $title       = '岭艺装饰';
         $keywords    = '岭艺装饰';
