@@ -74,7 +74,7 @@ return array (
     'content' => 
     array (
     ),
-    'value' => 'http://pphkj2wx9.bkt.clouddn.com',
+    'value' => 'http://cdn.ly-home.cn/',
     'rule' => 'required',
     'msg' => '',
     'tip' => '未绑定CDN的话可使用七牛分配的测试域名',
