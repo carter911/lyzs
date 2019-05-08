@@ -552,6 +552,7 @@ class Index extends Frontend
     public function look_article_detail($id)
     {
         $article_detail = $this->article->where(["id" => $id])->find();
+		$article_detail['content'] = str_replace('http://pphkj2wx9.bkt.clouddn.com','http://cdn.ly-home.cn',$article_detail['content']);
         $article_prev = $this->article->field('id,title')->where(["id" => ['lt', $id]])->order('id desc')->find();
         $article_next = $this->article->field('id,title')->where(["id" => ['gt', $id]])->order('id asc')->find();
         $this->assign("article_prev", $article_prev);
@@ -601,6 +602,7 @@ class Index extends Frontend
     {
         $id = $request->get('detail_id');
         $article_detail = $this->cases->where(["id" => $id])->find();
+		$article_detail['content'] = str_replace('http://pphkj2wx9.bkt.clouddn.com','http://cdn.ly-home.cn',$article_detail['content']);
         $article_prev = $this->cases->where(["id" => ['lt', $id]])->order('id desc')->find();
         $article_next = $this->cases->where(["id" => ['gt', $id]])->order('id asc')->find();
         $this->assign("article_prev", $article_prev);
