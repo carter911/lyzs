@@ -417,7 +417,7 @@ class Index extends Frontend
     {
         $this->assign('title', '首页-直播');
         $param = $request->param();
-        $where = ['is_show' => 1];
+        $where = ['is_show' => 1,'image'=>['neq','']];
         if (isset($param['city_name']) && !empty($param['city_name'])) {
             if ($param['city_name'] == 'other') {
                 $where['city_name'] = ['eq', ''];
@@ -459,6 +459,7 @@ class Index extends Frontend
             $val['image'] = array_slice(json_decode($val['image'], true), 0, 6);
             return $val;
         });
+
         $page = $list->render();
         $area = Db::name('area')->where(['parent_id' => 24])->select();
         $circle = Db::name('project_circle')->select();
