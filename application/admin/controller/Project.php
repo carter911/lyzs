@@ -48,7 +48,8 @@ class Project extends Backend
             {
                 return $this->selectpage();
             }
-            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+			$searchfields = "name,id";
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams($searchfields);
             $total = $this->model
                     
                     ->where($where)
