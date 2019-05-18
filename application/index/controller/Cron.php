@@ -115,6 +115,65 @@ class Cron extends Controller
     }
 
 
+	public function update_image()
+	{
+		//Db::name('project')->where('id','gt',0)->delete();die;
+		try{
+			//初始化
+			$curl = curl_init();
+			//设置抓取的url
+			curl_setopt($curl, CURLOPT_URL, 'http://api.e-shigong.com/serverUpdate?companyId=44');
+			//设置头文件的信息作为数据流输出
+			curl_setopt($curl, CURLOPT_HEADER, 1);
+			//设置获取的信息以文件流的形式返回，而不是直接输出。
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl, CURLOPT_HEADER,false);
+			//执行命令
+			$data = curl_exec($curl);
+			//关闭URL请求
+			curl_close($curl);
+			//显示获得的数据
+			$data = json_decode($data,true);
+
+			if(empty($data['data'])){
+				echo '暂无数据';
+				die;
+			}
+
+			foreach ($data['data'] as $key => $val){
+				$city['name'] ='';
+				if(!empty($val['city'])){
+					$city = Db::name('area')->where(['code'=>$val['city']])->find();
+				}
+				echo '同步施公宝工地['.$val['name'].$val['circle_name'].']</br>';
+				$arr = [
+					'sgb_id'=>$val['id'],
+					'name'=>$val['name'],
+					'city'=>$val['city'],
+					'city_name'=>$city['name'],
+					'start_time'=>date("Y-m-d H:i:s",$val['start_time']),
+					'end_time'=> date("Y-m-d H:i:s",$val['end_time']),
+					'circle'=> json_encode($val['circle']),
+					'task'=> json_encode($val['task']),
+					'image'=>json_encode($val['images_list']),
+					'circle_name'=>$val['circle_name'],
+					'circle_id'=>$val['circle_id'],
+					'look_num'=>rand(1,100),
+					'project_time'=>$val['create_time'],
+					'create_time'=>date("Y-m-d H:i:s",time()),
+					'update_time'=>date("Y-m-d H:i:s",time()),
+				];
+				Db::name('project')->wehre(['sgb_id'=>$val['id']])->save($arr);
+			}
+
+		}catch (Exception $e){
+			print_r($e);
+		}
+    }
+
+
+
+
 	public function get_circle()
 	{
 		try{

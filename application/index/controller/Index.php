@@ -417,7 +417,7 @@ class Index extends Frontend
     {
         $this->assign('title', '首页-直播');
         $param = $request->param();
-        $where = ['is_show' => 1];
+        $where = ['is_show' => 1,'image'=>['neq','']];
         if (isset($param['city_name']) && !empty($param['city_name'])) {
             if ($param['city_name'] == 'other') {
                 $where['city_name'] = ['eq', ''];
@@ -459,6 +459,7 @@ class Index extends Frontend
             $val['image'] = array_slice(json_decode($val['image'], true), 0, 6);
             return $val;
         });
+
         $page = $list->render();
         $area = Db::name('area')->where(['parent_id' => 24])->select();
         $circle = Db::name('project_circle')->select();
@@ -624,7 +625,7 @@ class Index extends Frontend
     }
 
 
-    public function sjal0($caseStyle = -1, $doorStyle = -1, $areaStyle = -1)
+    public function sjal0($caseStyle = -1, $doorStyle = -1, $areaStyle = -1,$pageIndex=1)
     {
         $this->assign('title', '实景案例-岭艺装饰');
 
@@ -640,7 +641,7 @@ class Index extends Frontend
         $this->assign("doorStyle", $doorStyle);
         $this->assign("areaStyle", $areaStyle);
         //案例
-        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle, $keyword = '', $status = 2);
+        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle, $keyword = '', $status = 2, $pageIndex);
         $this->assign("caseResult", $caseResult);
         $this->assign("caseResultSize", sizeof($caseResult));
 
