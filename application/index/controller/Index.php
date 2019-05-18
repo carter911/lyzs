@@ -625,7 +625,7 @@ class Index extends Frontend
     }
 
 
-    public function sjal0($caseStyle = -1, $doorStyle = -1, $areaStyle = -1)
+    public function sjal0($caseStyle = -1, $doorStyle = -1, $areaStyle = -1,$pageIndex=1)
     {
         $this->assign('title', '实景案例-岭艺装饰');
 
@@ -641,7 +641,7 @@ class Index extends Frontend
         $this->assign("doorStyle", $doorStyle);
         $this->assign("areaStyle", $areaStyle);
         //案例
-        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle, $keyword = '', $status = 2);
+        $caseResult = $this->cases->queryStyleCase($caseStyle, $doorStyle, $areaStyle, $keyword = '', $status = 2, $pageIndex);
         $this->assign("caseResult", $caseResult);
         $this->assign("caseResultSize", sizeof($caseResult));
 
