@@ -417,7 +417,8 @@ class Index extends Frontend
     {
         $this->assign('title', '首页-直播');
         $param = $request->param();
-        $where = ['is_show' => 1,'image'=>['neq','']];
+        $where = ['is_show' => 1];
+		
         if (isset($param['city_name']) && !empty($param['city_name'])) {
             if ($param['city_name'] == 'other') {
                 $where['city_name'] = ['eq', ''];
@@ -451,14 +452,16 @@ class Index extends Frontend
         } else {
             $param['sort'] = 0;
         }
+		$where['image'] = ['<>','[]'];
         $list = Db::name('project')->where($where)->order($order)->paginate(20, false, ['query' => request()->param()])->each(function ($val, $key) {
-            $val['start_time'] = date('Y-m-d', strtotime($val['start_time']));
-            $val['end_time'] = date('Y-m-d', strtotime($val['end_time']));
-            $val['circle'] = json_decode($val['circle'], true);
-            array_multisort(array_column($val['circle'], 'start_time'), SORT_ASC, $val['circle']);
-            $val['image'] = array_slice(json_decode($val['image'], true), 0, 6);
-            return $val;
+           $val['start_time'] = date('Y-m-d', strtotime($val['start_time']));
+           $val['end_time'] = date('Y-m-d', strtotime($val['end_time']));
+           $val['circle'] = json_decode($val['circle'], true);
+           array_multisort(array_column($val['circle'], 'start_time'), SORT_ASC, $val['circle']);
+           $val['image'] = array_slice(json_decode($val['image'], true), 0, 6);
+           return $val;
         });
+
 
         $page = $list->render();
         $area = Db::name('area')->where(['parent_id' => 24])->select();
