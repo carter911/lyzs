@@ -22,7 +22,7 @@ class Cron extends Controller
 		//Db::name('project')->where('id','gt',0)->delete();die;
 		$time = date("Y-m-d 00:00:00", time());
 		try {
-			$id = Db::name('project')->where(['update_time' => ['elt', $time]])->order('id desc')->field('sgb_id')->find();
+			$id = Db::name('project')->where('update_time','elt',$time)->order('id desc')->field('sgb_id')->find();
 			$id = empty($id) ? 0 : $id['sgb_id'];
 			echo '开始id' . $id . '</br>';
 			//初始化
@@ -54,6 +54,7 @@ class Cron extends Controller
 				echo '同步施公宝工地[' . $val['name'] . $val['circle_name'] . ']</br>';
 				$info = Db::name('project')->where(['sgb_id' => $val['id']])->find();
 				if ($info && $val['end_time'] >= time()) {
+					echo '更新';
 					$arr = [
 						'sgb_id'       => $val['id'],
 						'name'         => $val['name'],
@@ -74,6 +75,7 @@ class Cron extends Controller
 					];
 					Db::name('project')->where(['id' => $info['id']])->update($arr);
 				} else {
+					echo '添加';
 					$arr   = [
 						'sgb_id'       => $val['id'],
 						'name'         => $val['name'],
