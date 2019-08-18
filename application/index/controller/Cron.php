@@ -22,7 +22,7 @@ class Cron extends Controller
 		//Db::name('project')->where('id','gt',0)->delete();die;
 		$time = date("Y-m-d 00:00:00", time());
 		try {
-			$id = Db::name('project')->where('update_time','elt',$time)->order('sgb_id asc')->field('sgb_id')->find();
+			$id = Db::name('project')->where('update_time','lt',$time)->order('update_time asc')->field('sgb_id')->find();
 			echo Db::name('project')->getLastSql().'</br>';
 			echo '更新项目详情'.var_export($id,true).'<br/>';
 			$id = empty($id) ? 0 : $id['sgb_id'];
