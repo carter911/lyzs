@@ -53,8 +53,8 @@ class Cron extends Controller
 				if (!empty($val['city'])) {
 					$city = Db::name('area')->where(['code' => $val['city']])->find();
 				}
-				echo '同步施公宝工地[' . $val['name'] . $val['circle_name'] . ']</br>';
 				$info = Db::name('project')->where(['sgb_id' => $val['id']])->find();
+				echo '同步施公宝工地[' . $val['name'] . $val['circle_name'] . '] ly_id'.$info['id'].'</br>';
 				if ($info && $val['end_time'] >= time()) {
 					echo '更新';
 					$arr = [
