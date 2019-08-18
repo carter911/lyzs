@@ -55,7 +55,10 @@ class Cron extends Controller
 				}
 				$info = Db::name('project')->where(['sgb_id' => $val['id']])->find();
 				echo '同步施公宝工地[' . $val['name'] . $val['circle_name'] . '] ly_id'.$info['id'].'</br>';
-				if ($info && $val['end_time'] >= time()) {
+				if ($info) {
+					if($val['end_time'] >= time()){
+						continue;
+					}
 					echo '更新';
 					$arr = [
 						'sgb_id'       => $val['id'],
