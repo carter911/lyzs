@@ -23,7 +23,7 @@ class Cron extends Controller
 		$time = date("Y-m-d 00:00:00", time());
 		try {
 			$id = Db::name('project')->where('update_time','elt',$time)->order('sgb_id asc')->field('sgb_id')->find();
-			echo '更新项目详情'.var_export($id,true);
+			echo '更新项目详情'.var_export($id,true).'<br/>';
 			$id = empty($id) ? 0 : $id['sgb_id'];
 			echo '开始id' . $id . '</br>';
 			//初始化
