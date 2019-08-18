@@ -61,7 +61,6 @@ class Cron extends Controller
 					}
 					echo '更新';
 					$arr = [
-						'sgb_id'       => $val['id'],
 						'name'         => $val['name'],
 						'city'         => $val['city'],
 						'city_name'    => $city['name'],
@@ -72,9 +71,6 @@ class Cron extends Controller
 						'image'        => json_encode($val['images_list']),
 						'circle_name'  => $val['circle_name'],
 						'circle_id'    => $val['circle_id'],
-						//				'type'=>$val['id'],
-						//				'area'=>$val['id'],
-						'look_num'     => rand(1, 100),
 						'project_time' => $val['create_time'],
 						'update_time'  => date("Y-m-d H:i:s", time()),
 					];
