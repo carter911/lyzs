@@ -27,6 +27,8 @@ class Cron extends Controller
 			echo '更新项目详情'.var_export($id,true).'<br/>';
 			$id = empty($id) ? 0 : $id['sgb_id'];
 			echo '开始id' . $id . '</br>';
+			Db::name('project')->where('sgb_id',$id['sgb_id'])->update(['update_time'=>date("Y-m-d H:i:s",time())]);
+
 			//初始化
 			$curl = curl_init();
 			//设置抓取的url
