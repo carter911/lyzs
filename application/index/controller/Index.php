@@ -462,7 +462,6 @@ class Index extends Frontend
            return $val;
         });
 
-
         $page = $list->render();
         $area = Db::name('area')->where(['parent_id' => 24])->select();
         $circle = Db::name('project_circle')->select();

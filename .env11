@@ -1,6 +1,6 @@
 [app]
-debug = true
-trace = true
+debug = false
+trace = false
 
 [database]
 hostname = rm-bp130l46o160s3sv9o.mysql.rds.aliyuncs.com
